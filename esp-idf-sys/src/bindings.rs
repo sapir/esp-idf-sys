@@ -6980,7 +6980,7 @@ pub const MB_LEN_MAX: u32 = 1;
 pub const NL_ARGMAX: u32 = 32;
 pub const _POSIX2_RE_DUP_MAX: u32 = 255;
 pub const ARG_MAX: u32 = 4096;
-pub const PATH_MAX: u32 = 4096;
+pub const PATH_MAX: u32 = 1024;
 pub const tskKERNEL_VERSION_NUMBER: &'static [u8; 7usize] = b"V8.2.0\0";
 pub const tskKERNEL_VERSION_MAJOR: u32 = 8;
 pub const tskKERNEL_VERSION_MINOR: u32 = 2;
@@ -7028,7 +7028,6 @@ pub const CAN_MSG_FLAG_DLC_NON_COMP: u32 = 16;
 pub const CAN_EXTD_ID_MASK: u32 = 536870911;
 pub const CAN_STD_ID_MASK: u32 = 2047;
 pub const CAN_MAX_DATA_LEN: u32 = 8;
-pub const CAN_IO_UNUSED: i32 = -1;
 pub const DAC_CHANNEL_1_GPIO_NUM: u32 = 25;
 pub const DAC_CHANNEL_2_GPIO_NUM: u32 = 26;
 pub const I2C_APB_CLK_FREQ: u32 = 80000000;
@@ -10239,34 +10238,186 @@ pub const RMT_CH0STATUS_REG: u32 = 1073045600;
 pub const RMT_STATUS_CH0: u32 = 4294967295;
 pub const RMT_STATUS_CH0_V: u32 = 4294967295;
 pub const RMT_STATUS_CH0_S: u32 = 0;
+pub const RMT_APB_MEM_RD_ERR_CH0_V: u32 = 1;
+pub const RMT_APB_MEM_RD_ERR_CH0_S: u32 = 31;
+pub const RMT_APB_MEM_WR_ERR_CH0_V: u32 = 1;
+pub const RMT_APB_MEM_WR_ERR_CH0_S: u32 = 30;
+pub const RMT_MEM_EMPTY_CH0_V: u32 = 1;
+pub const RMT_MEM_EMPTY_CH0_S: u32 = 29;
+pub const RMT_MEM_FULL_CH0_V: u32 = 1;
+pub const RMT_MEM_FULL_CH0_S: u32 = 28;
+pub const RMT_MEM_OWNER_ERR_CH0_V: u32 = 1;
+pub const RMT_MEM_OWNER_ERR_CH0_S: u32 = 27;
+pub const RMT_STATE_CH0: u32 = 117440512;
+pub const RMT_STATE_CH0_V: u32 = 7;
+pub const RMT_STATE_CH0_S: u32 = 24;
+pub const RMT_MEM_RADDR_EX_CH0: u32 = 4190208;
+pub const RMT_MEM_RADDR_EX_CH0_V: u32 = 1023;
+pub const RMT_MEM_RADDR_EX_CH0_S: u32 = 12;
+pub const RMT_MEM_WADDR_EX_CH0: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH0_V: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH0_S: u32 = 0;
 pub const RMT_CH1STATUS_REG: u32 = 1073045604;
 pub const RMT_STATUS_CH1: u32 = 4294967295;
 pub const RMT_STATUS_CH1_V: u32 = 4294967295;
 pub const RMT_STATUS_CH1_S: u32 = 0;
+pub const RMT_APB_MEM_RD_ERR_CH1_V: u32 = 1;
+pub const RMT_APB_MEM_RD_ERR_CH1_S: u32 = 31;
+pub const RMT_APB_MEM_WR_ERR_CH1_V: u32 = 1;
+pub const RMT_APB_MEM_WR_ERR_CH1_S: u32 = 30;
+pub const RMT_MEM_EMPTY_CH1_V: u32 = 1;
+pub const RMT_MEM_EMPTY_CH1_S: u32 = 29;
+pub const RMT_MEM_FULL_CH1_V: u32 = 1;
+pub const RMT_MEM_FULL_CH1_S: u32 = 28;
+pub const RMT_MEM_OWNER_ERR_CH1_V: u32 = 1;
+pub const RMT_MEM_OWNER_ERR_CH1_S: u32 = 27;
+pub const RMT_STATE_CH1: u32 = 117440512;
+pub const RMT_STATE_CH1_V: u32 = 7;
+pub const RMT_STATE_CH1_S: u32 = 24;
+pub const RMT_MEM_RADDR_EX_CH1: u32 = 4190208;
+pub const RMT_MEM_RADDR_EX_CH1_V: u32 = 1023;
+pub const RMT_MEM_RADDR_EX_CH1_S: u32 = 12;
+pub const RMT_MEM_WADDR_EX_CH1: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH1_V: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH1_S: u32 = 0;
 pub const RMT_CH2STATUS_REG: u32 = 1073045608;
 pub const RMT_STATUS_CH2: u32 = 4294967295;
 pub const RMT_STATUS_CH2_V: u32 = 4294967295;
 pub const RMT_STATUS_CH2_S: u32 = 0;
+pub const RMT_APB_MEM_RD_ERR_CH2_V: u32 = 1;
+pub const RMT_APB_MEM_RD_ERR_CH2_S: u32 = 31;
+pub const RMT_APB_MEM_WR_ERR_CH2_V: u32 = 1;
+pub const RMT_APB_MEM_WR_ERR_CH2_S: u32 = 30;
+pub const RMT_MEM_EMPTY_CH2_V: u32 = 1;
+pub const RMT_MEM_EMPTY_CH2_S: u32 = 29;
+pub const RMT_MEM_FULL_CH2_V: u32 = 1;
+pub const RMT_MEM_FULL_CH2_S: u32 = 28;
+pub const RMT_MEM_OWNER_ERR_CH2_V: u32 = 1;
+pub const RMT_MEM_OWNER_ERR_CH2_S: u32 = 27;
+pub const RMT_STATE_CH2: u32 = 117440512;
+pub const RMT_STATE_CH2_V: u32 = 7;
+pub const RMT_STATE_CH2_S: u32 = 24;
+pub const RMT_MEM_RADDR_EX_CH2: u32 = 4190208;
+pub const RMT_MEM_RADDR_EX_CH2_V: u32 = 1023;
+pub const RMT_MEM_RADDR_EX_CH2_S: u32 = 12;
+pub const RMT_MEM_WADDR_EX_CH2: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH2_V: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH2_S: u32 = 0;
 pub const RMT_CH3STATUS_REG: u32 = 1073045612;
 pub const RMT_STATUS_CH3: u32 = 4294967295;
 pub const RMT_STATUS_CH3_V: u32 = 4294967295;
 pub const RMT_STATUS_CH3_S: u32 = 0;
+pub const RMT_APB_MEM_RD_ERR_CH3_V: u32 = 1;
+pub const RMT_APB_MEM_RD_ERR_CH3_S: u32 = 31;
+pub const RMT_APB_MEM_WR_ERR_CH3_V: u32 = 1;
+pub const RMT_APB_MEM_WR_ERR_CH3_S: u32 = 30;
+pub const RMT_MEM_EMPTY_CH3_V: u32 = 1;
+pub const RMT_MEM_EMPTY_CH3_S: u32 = 29;
+pub const RMT_MEM_FULL_CH3_V: u32 = 1;
+pub const RMT_MEM_FULL_CH3_S: u32 = 28;
+pub const RMT_MEM_OWNER_ERR_CH3_V: u32 = 1;
+pub const RMT_MEM_OWNER_ERR_CH3_S: u32 = 27;
+pub const RMT_STATE_CH3: u32 = 117440512;
+pub const RMT_STATE_CH3_V: u32 = 7;
+pub const RMT_STATE_CH3_S: u32 = 24;
+pub const RMT_MEM_RADDR_EX_CH3: u32 = 4190208;
+pub const RMT_MEM_RADDR_EX_CH3_V: u32 = 1023;
+pub const RMT_MEM_RADDR_EX_CH3_S: u32 = 12;
+pub const RMT_MEM_WADDR_EX_CH3: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH3_V: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH3_S: u32 = 0;
 pub const RMT_CH4STATUS_REG: u32 = 1073045616;
 pub const RMT_STATUS_CH4: u32 = 4294967295;
 pub const RMT_STATUS_CH4_V: u32 = 4294967295;
 pub const RMT_STATUS_CH4_S: u32 = 0;
+pub const RMT_APB_MEM_RD_ERR_CH4_V: u32 = 1;
+pub const RMT_APB_MEM_RD_ERR_CH4_S: u32 = 31;
+pub const RMT_APB_MEM_WR_ERR_CH4_V: u32 = 1;
+pub const RMT_APB_MEM_WR_ERR_CH4_S: u32 = 30;
+pub const RMT_MEM_EMPTY_CH4_V: u32 = 1;
+pub const RMT_MEM_EMPTY_CH4_S: u32 = 29;
+pub const RMT_MEM_FULL_CH4_V: u32 = 1;
+pub const RMT_MEM_FULL_CH4_S: u32 = 28;
+pub const RMT_MEM_OWNER_ERR_CH4_V: u32 = 1;
+pub const RMT_MEM_OWNER_ERR_CH4_S: u32 = 27;
+pub const RMT_STATE_CH4: u32 = 117440512;
+pub const RMT_STATE_CH4_V: u32 = 7;
+pub const RMT_STATE_CH4_S: u32 = 24;
+pub const RMT_MEM_RADDR_EX_CH4: u32 = 4190208;
+pub const RMT_MEM_RADDR_EX_CH4_V: u32 = 1023;
+pub const RMT_MEM_RADDR_EX_CH4_S: u32 = 12;
+pub const RMT_MEM_WADDR_EX_CH4: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH4_V: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH4_S: u32 = 0;
 pub const RMT_CH5STATUS_REG: u32 = 1073045620;
 pub const RMT_STATUS_CH5: u32 = 4294967295;
 pub const RMT_STATUS_CH5_V: u32 = 4294967295;
 pub const RMT_STATUS_CH5_S: u32 = 0;
+pub const RMT_APB_MEM_RD_ERR_CH5_V: u32 = 1;
+pub const RMT_APB_MEM_RD_ERR_CH5_S: u32 = 31;
+pub const RMT_APB_MEM_WR_ERR_CH5_V: u32 = 1;
+pub const RMT_APB_MEM_WR_ERR_CH5_S: u32 = 30;
+pub const RMT_MEM_EMPTY_CH5_V: u32 = 1;
+pub const RMT_MEM_EMPTY_CH5_S: u32 = 29;
+pub const RMT_MEM_FULL_CH5_V: u32 = 1;
+pub const RMT_MEM_FULL_CH5_S: u32 = 28;
+pub const RMT_MEM_OWNER_ERR_CH5_V: u32 = 1;
+pub const RMT_MEM_OWNER_ERR_CH5_S: u32 = 27;
+pub const RMT_STATE_CH5: u32 = 117440512;
+pub const RMT_STATE_CH5_V: u32 = 7;
+pub const RMT_STATE_CH5_S: u32 = 24;
+pub const RMT_MEM_RADDR_EX_CH5: u32 = 4190208;
+pub const RMT_MEM_RADDR_EX_CH5_V: u32 = 1023;
+pub const RMT_MEM_RADDR_EX_CH5_S: u32 = 12;
+pub const RMT_MEM_WADDR_EX_CH5: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH5_V: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH5_S: u32 = 0;
 pub const RMT_CH6STATUS_REG: u32 = 1073045624;
 pub const RMT_STATUS_CH6: u32 = 4294967295;
 pub const RMT_STATUS_CH6_V: u32 = 4294967295;
 pub const RMT_STATUS_CH6_S: u32 = 0;
+pub const RMT_APB_MEM_RD_ERR_CH6_V: u32 = 1;
+pub const RMT_APB_MEM_RD_ERR_CH6_S: u32 = 31;
+pub const RMT_APB_MEM_WR_ERR_CH6_V: u32 = 1;
+pub const RMT_APB_MEM_WR_ERR_CH6_S: u32 = 30;
+pub const RMT_MEM_EMPTY_CH6_V: u32 = 1;
+pub const RMT_MEM_EMPTY_CH6_S: u32 = 29;
+pub const RMT_MEM_FULL_CH6_V: u32 = 1;
+pub const RMT_MEM_FULL_CH6_S: u32 = 28;
+pub const RMT_MEM_OWNER_ERR_CH6_V: u32 = 1;
+pub const RMT_MEM_OWNER_ERR_CH6_S: u32 = 27;
+pub const RMT_STATE_CH6: u32 = 117440512;
+pub const RMT_STATE_CH6_V: u32 = 7;
+pub const RMT_STATE_CH6_S: u32 = 24;
+pub const RMT_MEM_RADDR_EX_CH6: u32 = 4190208;
+pub const RMT_MEM_RADDR_EX_CH6_V: u32 = 1023;
+pub const RMT_MEM_RADDR_EX_CH6_S: u32 = 12;
+pub const RMT_MEM_WADDR_EX_CH6: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH6_V: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH6_S: u32 = 0;
 pub const RMT_CH7STATUS_REG: u32 = 1073045628;
 pub const RMT_STATUS_CH7: u32 = 4294967295;
 pub const RMT_STATUS_CH7_V: u32 = 4294967295;
 pub const RMT_STATUS_CH7_S: u32 = 0;
+pub const RMT_APB_MEM_RD_ERR_CH7_V: u32 = 1;
+pub const RMT_APB_MEM_RD_ERR_CH7_S: u32 = 31;
+pub const RMT_APB_MEM_WR_ERR_CH7_V: u32 = 1;
+pub const RMT_APB_MEM_WR_ERR_CH7_S: u32 = 30;
+pub const RMT_MEM_EMPTY_CH7_V: u32 = 1;
+pub const RMT_MEM_EMPTY_CH7_S: u32 = 29;
+pub const RMT_MEM_FULL_CH7_V: u32 = 1;
+pub const RMT_MEM_FULL_CH7_S: u32 = 28;
+pub const RMT_MEM_OWNER_ERR_CH7_V: u32 = 1;
+pub const RMT_MEM_OWNER_ERR_CH7_S: u32 = 27;
+pub const RMT_STATE_CH7: u32 = 117440512;
+pub const RMT_STATE_CH7_V: u32 = 7;
+pub const RMT_STATE_CH7_S: u32 = 24;
+pub const RMT_MEM_RADDR_EX_CH7: u32 = 4190208;
+pub const RMT_MEM_RADDR_EX_CH7_V: u32 = 1023;
+pub const RMT_MEM_RADDR_EX_CH7_S: u32 = 12;
+pub const RMT_MEM_WADDR_EX_CH7: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH7_V: u32 = 1023;
+pub const RMT_MEM_WADDR_EX_CH7_S: u32 = 0;
 pub const RMT_CH0ADDR_REG: u32 = 1073045632;
 pub const RMT_APB_MEM_ADDR_CH0: u32 = 4294967295;
 pub const RMT_APB_MEM_ADDR_CH0_V: u32 = 4294967295;
@@ -11567,6 +11718,808 @@ pub const UART_LINE_INV_MASK: u32 = 33030144;
 pub const UART_BITRATE_MAX: u32 = 5000000;
 pub const UART_PIN_NO_CHANGE: i32 = -1;
 pub const UART_INVERSE_DISABLE: u32 = 0;
+pub const WIFI_PROTOCOL_11B: u32 = 1;
+pub const WIFI_PROTOCOL_11G: u32 = 2;
+pub const WIFI_PROTOCOL_11N: u32 = 4;
+pub const WIFI_PROTOCOL_LR: u32 = 8;
+pub const ESP_WIFI_MAX_CONN_NUM: u32 = 10;
+pub const WIFI_VENDOR_IE_ELEMENT_ID: u32 = 221;
+pub const WIFI_PROMIS_FILTER_MASK_ALL: u32 = 4294967295;
+pub const WIFI_PROMIS_FILTER_MASK_MGMT: u32 = 1;
+pub const WIFI_PROMIS_FILTER_MASK_CTRL: u32 = 2;
+pub const WIFI_PROMIS_FILTER_MASK_DATA: u32 = 4;
+pub const WIFI_PROMIS_FILTER_MASK_MISC: u32 = 8;
+pub const WIFI_PROMIS_FILTER_MASK_DATA_MPDU: u32 = 16;
+pub const WIFI_PROMIS_FILTER_MASK_DATA_AMPDU: u32 = 32;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_ALL: u32 = 4286578688;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_WRAPPER: u32 = 8388608;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_BAR: u32 = 16777216;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_BA: u32 = 33554432;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_PSPOLL: u32 = 67108864;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_RTS: u32 = 134217728;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_CTS: u32 = 268435456;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_ACK: u32 = 536870912;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_CFEND: u32 = 1073741824;
+pub const WIFI_PROMIS_CTRL_FILTER_MASK_CFENDACK: u32 = 2147483648;
+pub const WIFI_EVENT_MASK_ALL: u32 = 4294967295;
+pub const WIFI_EVENT_MASK_NONE: u32 = 0;
+pub const ESP_WIFI_CRYPTO_VERSION: u32 = 1;
+pub const ESP_EVENT_ANY_ID: i32 = -1;
+pub const _CLOCKS_PER_SEC_: u32 = 1000;
+pub const CLOCKS_PER_SEC: u32 = 1000;
+pub const CLK_TCK: u32 = 1000;
+pub const CLOCK_ENABLED: u32 = 1;
+pub const CLOCK_DISABLED: u32 = 0;
+pub const CLOCK_ALLOWED: u32 = 1;
+pub const CLOCK_DISALLOWED: u32 = 0;
+pub const TIMER_ABSTIME: u32 = 4;
+pub const _POSIX_TIMERS: u32 = 1;
+pub const F_OK: u32 = 0;
+pub const R_OK: u32 = 4;
+pub const W_OK: u32 = 2;
+pub const X_OK: u32 = 1;
+pub const STDIN_FILENO: u32 = 0;
+pub const STDOUT_FILENO: u32 = 1;
+pub const STDERR_FILENO: u32 = 2;
+pub const _SC_ARG_MAX: u32 = 0;
+pub const _SC_CHILD_MAX: u32 = 1;
+pub const _SC_CLK_TCK: u32 = 2;
+pub const _SC_NGROUPS_MAX: u32 = 3;
+pub const _SC_OPEN_MAX: u32 = 4;
+pub const _SC_JOB_CONTROL: u32 = 5;
+pub const _SC_SAVED_IDS: u32 = 6;
+pub const _SC_VERSION: u32 = 7;
+pub const _SC_PAGESIZE: u32 = 8;
+pub const _SC_PAGE_SIZE: u32 = 8;
+pub const _SC_NPROCESSORS_CONF: u32 = 9;
+pub const _SC_NPROCESSORS_ONLN: u32 = 10;
+pub const _SC_PHYS_PAGES: u32 = 11;
+pub const _SC_AVPHYS_PAGES: u32 = 12;
+pub const _SC_MQ_OPEN_MAX: u32 = 13;
+pub const _SC_MQ_PRIO_MAX: u32 = 14;
+pub const _SC_RTSIG_MAX: u32 = 15;
+pub const _SC_SEM_NSEMS_MAX: u32 = 16;
+pub const _SC_SEM_VALUE_MAX: u32 = 17;
+pub const _SC_SIGQUEUE_MAX: u32 = 18;
+pub const _SC_TIMER_MAX: u32 = 19;
+pub const _SC_TZNAME_MAX: u32 = 20;
+pub const _SC_ASYNCHRONOUS_IO: u32 = 21;
+pub const _SC_FSYNC: u32 = 22;
+pub const _SC_MAPPED_FILES: u32 = 23;
+pub const _SC_MEMLOCK: u32 = 24;
+pub const _SC_MEMLOCK_RANGE: u32 = 25;
+pub const _SC_MEMORY_PROTECTION: u32 = 26;
+pub const _SC_MESSAGE_PASSING: u32 = 27;
+pub const _SC_PRIORITIZED_IO: u32 = 28;
+pub const _SC_REALTIME_SIGNALS: u32 = 29;
+pub const _SC_SEMAPHORES: u32 = 30;
+pub const _SC_SHARED_MEMORY_OBJECTS: u32 = 31;
+pub const _SC_SYNCHRONIZED_IO: u32 = 32;
+pub const _SC_TIMERS: u32 = 33;
+pub const _SC_AIO_LISTIO_MAX: u32 = 34;
+pub const _SC_AIO_MAX: u32 = 35;
+pub const _SC_AIO_PRIO_DELTA_MAX: u32 = 36;
+pub const _SC_DELAYTIMER_MAX: u32 = 37;
+pub const _SC_THREAD_KEYS_MAX: u32 = 38;
+pub const _SC_THREAD_STACK_MIN: u32 = 39;
+pub const _SC_THREAD_THREADS_MAX: u32 = 40;
+pub const _SC_TTY_NAME_MAX: u32 = 41;
+pub const _SC_THREADS: u32 = 42;
+pub const _SC_THREAD_ATTR_STACKADDR: u32 = 43;
+pub const _SC_THREAD_ATTR_STACKSIZE: u32 = 44;
+pub const _SC_THREAD_PRIORITY_SCHEDULING: u32 = 45;
+pub const _SC_THREAD_PRIO_INHERIT: u32 = 46;
+pub const _SC_THREAD_PRIO_PROTECT: u32 = 47;
+pub const _SC_THREAD_PRIO_CEILING: u32 = 47;
+pub const _SC_THREAD_PROCESS_SHARED: u32 = 48;
+pub const _SC_THREAD_SAFE_FUNCTIONS: u32 = 49;
+pub const _SC_GETGR_R_SIZE_MAX: u32 = 50;
+pub const _SC_GETPW_R_SIZE_MAX: u32 = 51;
+pub const _SC_LOGIN_NAME_MAX: u32 = 52;
+pub const _SC_THREAD_DESTRUCTOR_ITERATIONS: u32 = 53;
+pub const _SC_ADVISORY_INFO: u32 = 54;
+pub const _SC_ATEXIT_MAX: u32 = 55;
+pub const _SC_BARRIERS: u32 = 56;
+pub const _SC_BC_BASE_MAX: u32 = 57;
+pub const _SC_BC_DIM_MAX: u32 = 58;
+pub const _SC_BC_SCALE_MAX: u32 = 59;
+pub const _SC_BC_STRING_MAX: u32 = 60;
+pub const _SC_CLOCK_SELECTION: u32 = 61;
+pub const _SC_COLL_WEIGHTS_MAX: u32 = 62;
+pub const _SC_CPUTIME: u32 = 63;
+pub const _SC_EXPR_NEST_MAX: u32 = 64;
+pub const _SC_HOST_NAME_MAX: u32 = 65;
+pub const _SC_IOV_MAX: u32 = 66;
+pub const _SC_IPV6: u32 = 67;
+pub const _SC_LINE_MAX: u32 = 68;
+pub const _SC_MONOTONIC_CLOCK: u32 = 69;
+pub const _SC_RAW_SOCKETS: u32 = 70;
+pub const _SC_READER_WRITER_LOCKS: u32 = 71;
+pub const _SC_REGEXP: u32 = 72;
+pub const _SC_RE_DUP_MAX: u32 = 73;
+pub const _SC_SHELL: u32 = 74;
+pub const _SC_SPAWN: u32 = 75;
+pub const _SC_SPIN_LOCKS: u32 = 76;
+pub const _SC_SPORADIC_SERVER: u32 = 77;
+pub const _SC_SS_REPL_MAX: u32 = 78;
+pub const _SC_SYMLOOP_MAX: u32 = 79;
+pub const _SC_THREAD_CPUTIME: u32 = 80;
+pub const _SC_THREAD_SPORADIC_SERVER: u32 = 81;
+pub const _SC_TIMEOUTS: u32 = 82;
+pub const _SC_TRACE: u32 = 83;
+pub const _SC_TRACE_EVENT_FILTER: u32 = 84;
+pub const _SC_TRACE_EVENT_NAME_MAX: u32 = 85;
+pub const _SC_TRACE_INHERIT: u32 = 86;
+pub const _SC_TRACE_LOG: u32 = 87;
+pub const _SC_TRACE_NAME_MAX: u32 = 88;
+pub const _SC_TRACE_SYS_MAX: u32 = 89;
+pub const _SC_TRACE_USER_EVENT_MAX: u32 = 90;
+pub const _SC_TYPED_MEMORY_OBJECTS: u32 = 91;
+pub const _SC_V7_ILP32_OFF32: u32 = 92;
+pub const _SC_V6_ILP32_OFF32: u32 = 92;
+pub const _SC_XBS5_ILP32_OFF32: u32 = 92;
+pub const _SC_V7_ILP32_OFFBIG: u32 = 93;
+pub const _SC_V6_ILP32_OFFBIG: u32 = 93;
+pub const _SC_XBS5_ILP32_OFFBIG: u32 = 93;
+pub const _SC_V7_LP64_OFF64: u32 = 94;
+pub const _SC_V6_LP64_OFF64: u32 = 94;
+pub const _SC_XBS5_LP64_OFF64: u32 = 94;
+pub const _SC_V7_LPBIG_OFFBIG: u32 = 95;
+pub const _SC_V6_LPBIG_OFFBIG: u32 = 95;
+pub const _SC_XBS5_LPBIG_OFFBIG: u32 = 95;
+pub const _SC_XOPEN_CRYPT: u32 = 96;
+pub const _SC_XOPEN_ENH_I18N: u32 = 97;
+pub const _SC_XOPEN_LEGACY: u32 = 98;
+pub const _SC_XOPEN_REALTIME: u32 = 99;
+pub const _SC_STREAM_MAX: u32 = 100;
+pub const _SC_PRIORITY_SCHEDULING: u32 = 101;
+pub const _SC_XOPEN_REALTIME_THREADS: u32 = 102;
+pub const _SC_XOPEN_SHM: u32 = 103;
+pub const _SC_XOPEN_STREAMS: u32 = 104;
+pub const _SC_XOPEN_UNIX: u32 = 105;
+pub const _SC_XOPEN_VERSION: u32 = 106;
+pub const _SC_2_CHAR_TERM: u32 = 107;
+pub const _SC_2_C_BIND: u32 = 108;
+pub const _SC_2_C_DEV: u32 = 109;
+pub const _SC_2_FORT_DEV: u32 = 110;
+pub const _SC_2_FORT_RUN: u32 = 111;
+pub const _SC_2_LOCALEDEF: u32 = 112;
+pub const _SC_2_PBS: u32 = 113;
+pub const _SC_2_PBS_ACCOUNTING: u32 = 114;
+pub const _SC_2_PBS_CHECKPOINT: u32 = 115;
+pub const _SC_2_PBS_LOCATE: u32 = 116;
+pub const _SC_2_PBS_MESSAGE: u32 = 117;
+pub const _SC_2_PBS_TRACK: u32 = 118;
+pub const _SC_2_SW_DEV: u32 = 119;
+pub const _SC_2_UPE: u32 = 120;
+pub const _SC_2_VERSION: u32 = 121;
+pub const _SC_THREAD_ROBUST_PRIO_INHERIT: u32 = 122;
+pub const _SC_THREAD_ROBUST_PRIO_PROTECT: u32 = 123;
+pub const _SC_XOPEN_UUCP: u32 = 124;
+pub const _PC_LINK_MAX: u32 = 0;
+pub const _PC_MAX_CANON: u32 = 1;
+pub const _PC_MAX_INPUT: u32 = 2;
+pub const _PC_NAME_MAX: u32 = 3;
+pub const _PC_PATH_MAX: u32 = 4;
+pub const _PC_PIPE_BUF: u32 = 5;
+pub const _PC_CHOWN_RESTRICTED: u32 = 6;
+pub const _PC_NO_TRUNC: u32 = 7;
+pub const _PC_VDISABLE: u32 = 8;
+pub const _PC_ASYNC_IO: u32 = 9;
+pub const _PC_PRIO_IO: u32 = 10;
+pub const _PC_SYNC_IO: u32 = 11;
+pub const _PC_FILESIZEBITS: u32 = 12;
+pub const _PC_2_SYMLINKS: u32 = 13;
+pub const _PC_SYMLINK_MAX: u32 = 14;
+pub const _PC_ALLOC_SIZE_MIN: u32 = 15;
+pub const _PC_REC_INCR_XFER_SIZE: u32 = 16;
+pub const _PC_REC_MAX_XFER_SIZE: u32 = 17;
+pub const _PC_REC_MIN_XFER_SIZE: u32 = 18;
+pub const _PC_REC_XFER_ALIGN: u32 = 19;
+pub const _PC_TIMESTAMP_RESOLUTION: u32 = 20;
+pub const L_SET: u32 = 0;
+pub const L_INCR: u32 = 1;
+pub const L_XTND: u32 = 2;
+pub const ITIMER_REAL: u32 = 0;
+pub const ITIMER_VIRTUAL: u32 = 1;
+pub const ITIMER_PROF: u32 = 2;
+pub const _FOPEN: i32 = -1;
+pub const _FREAD: u32 = 1;
+pub const _FWRITE: u32 = 2;
+pub const _FAPPEND: u32 = 8;
+pub const _FMARK: u32 = 16;
+pub const _FDEFER: u32 = 32;
+pub const _FASYNC: u32 = 64;
+pub const _FSHLOCK: u32 = 128;
+pub const _FEXLOCK: u32 = 256;
+pub const _FCREAT: u32 = 512;
+pub const _FTRUNC: u32 = 1024;
+pub const _FEXCL: u32 = 2048;
+pub const _FNBIO: u32 = 4096;
+pub const _FSYNC: u32 = 8192;
+pub const _FNONBLOCK: u32 = 16384;
+pub const _FNDELAY: u32 = 16384;
+pub const _FNOCTTY: u32 = 32768;
+pub const O_RDONLY: u32 = 0;
+pub const O_WRONLY: u32 = 1;
+pub const O_RDWR: u32 = 2;
+pub const O_APPEND: u32 = 8;
+pub const O_CREAT: u32 = 512;
+pub const O_TRUNC: u32 = 1024;
+pub const O_EXCL: u32 = 2048;
+pub const O_SYNC: u32 = 8192;
+pub const O_NONBLOCK: u32 = 16384;
+pub const O_NOCTTY: u32 = 32768;
+pub const FAPPEND: u32 = 8;
+pub const FSYNC: u32 = 8192;
+pub const FASYNC: u32 = 64;
+pub const FNBIO: u32 = 4096;
+pub const FNONBIO: u32 = 16384;
+pub const FNDELAY: u32 = 16384;
+pub const FREAD: u32 = 1;
+pub const FWRITE: u32 = 2;
+pub const FMARK: u32 = 16;
+pub const FDEFER: u32 = 32;
+pub const FSHLOCK: u32 = 128;
+pub const FEXLOCK: u32 = 256;
+pub const FOPEN: i32 = -1;
+pub const FCREAT: u32 = 512;
+pub const FTRUNC: u32 = 1024;
+pub const FEXCL: u32 = 2048;
+pub const FNOCTTY: u32 = 32768;
+pub const FD_CLOEXEC: u32 = 1;
+pub const F_DUPFD: u32 = 0;
+pub const F_GETFD: u32 = 1;
+pub const F_SETFD: u32 = 2;
+pub const F_GETFL: u32 = 3;
+pub const F_SETFL: u32 = 4;
+pub const F_GETOWN: u32 = 5;
+pub const F_SETOWN: u32 = 6;
+pub const F_GETLK: u32 = 7;
+pub const F_SETLK: u32 = 8;
+pub const F_SETLKW: u32 = 9;
+pub const F_RGETLK: u32 = 10;
+pub const F_RSETLK: u32 = 11;
+pub const F_CNVT: u32 = 12;
+pub const F_RSETLKW: u32 = 13;
+pub const F_RDLCK: u32 = 1;
+pub const F_WRLCK: u32 = 2;
+pub const F_UNLCK: u32 = 3;
+pub const F_UNLKSYS: u32 = 4;
+pub const AT_FDCWD: i32 = -2;
+pub const AT_EACCESS: u32 = 1;
+pub const AT_SYMLINK_NOFOLLOW: u32 = 2;
+pub const AT_SYMLINK_FOLLOW: u32 = 4;
+pub const AT_REMOVEDIR: u32 = 8;
+pub const LOCK_SH: u32 = 1;
+pub const LOCK_EX: u32 = 2;
+pub const LOCK_NB: u32 = 4;
+pub const LOCK_UN: u32 = 8;
+pub const _IFMT: u32 = 61440;
+pub const _IFDIR: u32 = 16384;
+pub const _IFCHR: u32 = 8192;
+pub const _IFBLK: u32 = 24576;
+pub const _IFREG: u32 = 32768;
+pub const _IFLNK: u32 = 40960;
+pub const _IFSOCK: u32 = 49152;
+pub const _IFIFO: u32 = 4096;
+pub const S_BLKSIZE: u32 = 1024;
+pub const S_ISUID: u32 = 2048;
+pub const S_ISGID: u32 = 1024;
+pub const S_ISVTX: u32 = 512;
+pub const S_IREAD: u32 = 256;
+pub const S_IWRITE: u32 = 128;
+pub const S_IEXEC: u32 = 64;
+pub const S_ENFMT: u32 = 1024;
+pub const S_IFMT: u32 = 61440;
+pub const S_IFDIR: u32 = 16384;
+pub const S_IFCHR: u32 = 8192;
+pub const S_IFBLK: u32 = 24576;
+pub const S_IFREG: u32 = 32768;
+pub const S_IFLNK: u32 = 40960;
+pub const S_IFSOCK: u32 = 49152;
+pub const S_IFIFO: u32 = 4096;
+pub const S_IRUSR: u32 = 256;
+pub const S_IWUSR: u32 = 128;
+pub const S_IXUSR: u32 = 64;
+pub const S_IRGRP: u32 = 32;
+pub const S_IWGRP: u32 = 16;
+pub const S_IXGRP: u32 = 8;
+pub const S_IROTH: u32 = 4;
+pub const S_IWOTH: u32 = 2;
+pub const S_IXOTH: u32 = 1;
+pub const DEFFILEMODE: u32 = 438;
+pub const ESP_TASK_PRIO_MAX: u32 = 25;
+pub const ESP_TASK_PRIO_MIN: u32 = 0;
+pub const ESP_TASK_BT_CONTROLLER_PRIO: u32 = 23;
+pub const TASK_EXTRA_STACK_SIZE: u32 = 512;
+pub const BT_TASK_EXTRA_STACK_SIZE: u32 = 512;
+pub const ESP_TASK_BT_CONTROLLER_STACK: u32 = 4096;
+pub const ESP_TASK_TIMER_PRIO: u32 = 22;
+pub const ESP_TASK_TIMER_STACK: u32 = 4096;
+pub const ESP_TASKD_EVENT_PRIO: u32 = 20;
+pub const ESP_TASKD_EVENT_STACK: u32 = 2816;
+pub const ESP_TASK_TCPIP_PRIO: u32 = 18;
+pub const ESP_TASK_TCPIP_STACK: u32 = 3584;
+pub const ESP_TASK_MAIN_PRIO: u32 = 1;
+pub const ESP_TASK_MAIN_STACK: u32 = 4096;
+pub const SYS_LIGHTWEIGHT_PROT: u32 = 1;
+pub const MEM_LIBC_MALLOC: u32 = 1;
+pub const MEMP_MEM_MALLOC: u32 = 1;
+pub const MEM_ALIGNMENT: u32 = 4;
+pub const MEMP_NUM_NETCONN: u32 = 10;
+pub const MEMP_NUM_RAW_PCB: u32 = 16;
+pub const MEMP_NUM_TCP_PCB: u32 = 16;
+pub const MEMP_NUM_TCP_PCB_LISTEN: u32 = 16;
+pub const MEMP_NUM_UDP_PCB: u32 = 16;
+pub const ARP_QUEUEING: u32 = 1;
+pub const IP_REASS_MAXAGE: u32 = 3;
+pub const IP_REASS_MAX_PBUFS: u32 = 10;
+pub const LWIP_RAW: u32 = 1;
+pub const LWIP_DHCP: u32 = 1;
+pub const DHCP_MAXRTX: u32 = 0;
+pub const DHCP_DOES_ARP_CHECK: u32 = 1;
+pub const LWIP_IGMP: u32 = 1;
+pub const LWIP_DNS: u32 = 1;
+pub const DNS_MAX_SERVERS: u32 = 3;
+pub const DNS_FALLBACK_SERVER_INDEX: u32 = 2;
+pub const TCP_QUEUE_OOSEQ: u32 = 1;
+pub const TCP_MSS: u32 = 1436;
+pub const TCP_MSL: u32 = 60000;
+pub const TCP_MAXRTX: u32 = 12;
+pub const TCP_SYNMAXRTX: u32 = 6;
+pub const TCP_LISTEN_BACKLOG: u32 = 1;
+pub const TCP_OVERSIZE: u32 = 1436;
+pub const LWIP_NETIF_HOSTNAME: u32 = 1;
+pub const LWIP_NETIF_TX_SINGLE_PBUF: u32 = 1;
+pub const LWIP_NETIF_LOOPBACK: u32 = 1;
+pub const LWIP_LOOPBACK_MAX_PBUFS: u32 = 8;
+pub const TCPIP_THREAD_NAME: &'static [u8; 4usize] = b"tiT\0";
+pub const TCPIP_THREAD_STACKSIZE: u32 = 3584;
+pub const TCPIP_THREAD_PRIO: u32 = 18;
+pub const TCPIP_MBOX_SIZE: u32 = 32;
+pub const DEFAULT_UDP_RECVMBOX_SIZE: u32 = 6;
+pub const DEFAULT_TCP_RECVMBOX_SIZE: u32 = 6;
+pub const DEFAULT_ACCEPTMBOX_SIZE: u32 = 6;
+pub const DEFAULT_THREAD_STACKSIZE: u32 = 3584;
+pub const DEFAULT_THREAD_PRIO: u32 = 18;
+pub const DEFAULT_RAW_RECVMBOX_SIZE: u32 = 6;
+pub const LWIP_TCPIP_CORE_LOCKING: u32 = 0;
+pub const LWIP_SO_SNDTIMEO: u32 = 1;
+pub const LWIP_SO_RCVTIMEO: u32 = 1;
+pub const LWIP_TCP_KEEPALIVE: u32 = 1;
+pub const SO_REUSE: u32 = 1;
+pub const SO_REUSE_RXTOALL: u32 = 1;
+pub const LWIP_IPV6: u32 = 1;
+pub const LWIP_POSIX_SOCKETS_IO_NAMES: u32 = 0;
+pub const LWIP_SOCKET_OFFSET: u32 = 54;
+pub const ESP_LWIP: u32 = 1;
+pub const ESP_LWIP_ARP: u32 = 1;
+pub const ESP_PER_SOC_TCP_WND: u32 = 0;
+pub const ESP_THREAD_SAFE: u32 = 1;
+pub const ESP_DHCP: u32 = 1;
+pub const ESP_DNS: u32 = 1;
+pub const ESP_IPV6_AUTOCONFIG: u32 = 1;
+pub const ESP_PERF: u32 = 0;
+pub const ESP_RANDOM_TCP_PORT: u32 = 1;
+pub const ESP_IP4_ATON: u32 = 1;
+pub const ESP_LIGHT_SLEEP: u32 = 1;
+pub const ESP_STATS_TCP: u32 = 0;
+pub const ESP_DHCP_TIMER: u32 = 1;
+pub const ESP_DHCPS_TIMER: u32 = 1;
+pub const ESP_PING: u32 = 1;
+pub const ESP_HAS_SELECT: u32 = 1;
+pub const ESP_AUTO_RECV: u32 = 1;
+pub const ESP_GRATUITOUS_ARP: u32 = 1;
+pub const DBG_PERF_FILTER_LEN: u32 = 1000;
+pub const TCP_SND_BUF: u32 = 5744;
+pub const TCP_WND: u32 = 5744;
+pub const CHECKSUM_CHECK_UDP: u32 = 0;
+pub const CHECKSUM_CHECK_IP: u32 = 0;
+pub const LWIP_NETCONN_FULLDUPLEX: u32 = 1;
+pub const LWIP_NETCONN_SEM_PER_THREAD: u32 = 1;
+pub const LWIP_DHCP_MAX_NTP_SERVERS: u32 = 1;
+pub const LWIP_TIMEVAL_PRIVATE: u32 = 0;
+pub const LITTLE_ENDIAN: u32 = 1234;
+pub const BIG_ENDIAN: u32 = 4321;
+pub const __error_t_defined: u32 = 1;
+pub const EPERM: u32 = 1;
+pub const ENOENT: u32 = 2;
+pub const ESRCH: u32 = 3;
+pub const EINTR: u32 = 4;
+pub const EIO: u32 = 5;
+pub const ENXIO: u32 = 6;
+pub const E2BIG: u32 = 7;
+pub const ENOEXEC: u32 = 8;
+pub const EBADF: u32 = 9;
+pub const ECHILD: u32 = 10;
+pub const EAGAIN: u32 = 11;
+pub const ENOMEM: u32 = 12;
+pub const EACCES: u32 = 13;
+pub const EFAULT: u32 = 14;
+pub const EBUSY: u32 = 16;
+pub const EEXIST: u32 = 17;
+pub const EXDEV: u32 = 18;
+pub const ENODEV: u32 = 19;
+pub const ENOTDIR: u32 = 20;
+pub const EISDIR: u32 = 21;
+pub const EINVAL: u32 = 22;
+pub const ENFILE: u32 = 23;
+pub const EMFILE: u32 = 24;
+pub const ENOTTY: u32 = 25;
+pub const ETXTBSY: u32 = 26;
+pub const EFBIG: u32 = 27;
+pub const ENOSPC: u32 = 28;
+pub const ESPIPE: u32 = 29;
+pub const EROFS: u32 = 30;
+pub const EMLINK: u32 = 31;
+pub const EPIPE: u32 = 32;
+pub const EDOM: u32 = 33;
+pub const ERANGE: u32 = 34;
+pub const ENOMSG: u32 = 35;
+pub const EIDRM: u32 = 36;
+pub const EDEADLK: u32 = 45;
+pub const ENOLCK: u32 = 46;
+pub const ENOSTR: u32 = 60;
+pub const ENODATA: u32 = 61;
+pub const ETIME: u32 = 62;
+pub const ENOSR: u32 = 63;
+pub const ENOLINK: u32 = 67;
+pub const EPROTO: u32 = 71;
+pub const EMULTIHOP: u32 = 74;
+pub const EBADMSG: u32 = 77;
+pub const EFTYPE: u32 = 79;
+pub const ENOSYS: u32 = 88;
+pub const ENOTEMPTY: u32 = 90;
+pub const ENAMETOOLONG: u32 = 91;
+pub const ELOOP: u32 = 92;
+pub const EOPNOTSUPP: u32 = 95;
+pub const EPFNOSUPPORT: u32 = 96;
+pub const ECONNRESET: u32 = 104;
+pub const ENOBUFS: u32 = 105;
+pub const EAFNOSUPPORT: u32 = 106;
+pub const EPROTOTYPE: u32 = 107;
+pub const ENOTSOCK: u32 = 108;
+pub const ENOPROTOOPT: u32 = 109;
+pub const ECONNREFUSED: u32 = 111;
+pub const EADDRINUSE: u32 = 112;
+pub const ECONNABORTED: u32 = 113;
+pub const ENETUNREACH: u32 = 114;
+pub const ENETDOWN: u32 = 115;
+pub const ETIMEDOUT: u32 = 116;
+pub const EHOSTDOWN: u32 = 117;
+pub const EHOSTUNREACH: u32 = 118;
+pub const EINPROGRESS: u32 = 119;
+pub const EALREADY: u32 = 120;
+pub const EDESTADDRREQ: u32 = 121;
+pub const EMSGSIZE: u32 = 122;
+pub const EPROTONOSUPPORT: u32 = 123;
+pub const EADDRNOTAVAIL: u32 = 125;
+pub const ENETRESET: u32 = 126;
+pub const EISCONN: u32 = 127;
+pub const ENOTCONN: u32 = 128;
+pub const ETOOMANYREFS: u32 = 129;
+pub const EDQUOT: u32 = 132;
+pub const ESTALE: u32 = 133;
+pub const ENOTSUP: u32 = 134;
+pub const EILSEQ: u32 = 138;
+pub const EOVERFLOW: u32 = 139;
+pub const ECANCELED: u32 = 140;
+pub const ENOTRECOVERABLE: u32 = 141;
+pub const EOWNERDEAD: u32 = 142;
+pub const EWOULDBLOCK: u32 = 11;
+pub const __ELASTERROR: u32 = 2000;
+pub const ESHUTDOWN: u32 = 108;
+pub const EAI_SOCKTYPE: u32 = 10;
+pub const EAI_AGAIN: u32 = 2;
+pub const EAI_BADFLAGS: u32 = 3;
+pub const LWIP_COMPAT_MUTEX: u32 = 0;
+pub const BYTE_ORDER: u32 = 1234;
+pub const S16_F: &'static [u8; 2usize] = b"d\0";
+pub const U16_F: &'static [u8; 2usize] = b"d\0";
+pub const X16_F: &'static [u8; 2usize] = b"x\0";
+pub const S32_F: &'static [u8; 2usize] = b"d\0";
+pub const U32_F: &'static [u8; 2usize] = b"d\0";
+pub const X32_F: &'static [u8; 2usize] = b"x\0";
+pub const LWIP_NO_STDDEF_H: u32 = 0;
+pub const LWIP_NO_STDINT_H: u32 = 0;
+pub const LWIP_NO_INTTYPES_H: u32 = 0;
+pub const X8_F: &'static [u8; 3usize] = b"02\0";
+pub const LWIP_NO_LIMITS_H: u32 = 0;
+pub const LWIP_DBG_LEVEL_ALL: u32 = 0;
+pub const LWIP_DBG_LEVEL_WARNING: u32 = 1;
+pub const LWIP_DBG_LEVEL_SERIOUS: u32 = 2;
+pub const LWIP_DBG_LEVEL_SEVERE: u32 = 3;
+pub const LWIP_DBG_MASK_LEVEL: u32 = 3;
+pub const LWIP_DBG_LEVEL_OFF: u32 = 0;
+pub const LWIP_DBG_ON: u32 = 128;
+pub const LWIP_DBG_OFF: u32 = 0;
+pub const LWIP_DBG_TRACE: u32 = 64;
+pub const LWIP_DBG_STATE: u32 = 32;
+pub const LWIP_DBG_FRESH: u32 = 16;
+pub const LWIP_DBG_HALT: u32 = 8;
+pub const NO_SYS: u32 = 0;
+pub const LWIP_TIMERS: u32 = 1;
+pub const LWIP_TIMERS_CUSTOM: u32 = 0;
+pub const LWIP_MPU_COMPATIBLE: u32 = 0;
+pub const LWIP_TCPIP_CORE_LOCKING_INPUT: u32 = 0;
+pub const MEM_SIZE: u32 = 1600;
+pub const MEMP_OVERFLOW_CHECK: u32 = 0;
+pub const MEMP_SANITY_CHECK: u32 = 0;
+pub const MEM_USE_POOLS: u32 = 0;
+pub const MEM_USE_POOLS_TRY_BIGGER_POOL: u32 = 0;
+pub const MEMP_USE_CUSTOM_POOLS: u32 = 0;
+pub const LWIP_ALLOW_MEM_FREE_FROM_OTHER_CONTEXT: u32 = 0;
+pub const MEMP_NUM_PBUF: u32 = 16;
+pub const MEMP_NUM_TCP_SEG: u32 = 16;
+pub const MEMP_NUM_REASSDATA: u32 = 5;
+pub const MEMP_NUM_FRAG_PBUF: u32 = 15;
+pub const MEMP_NUM_ARP_QUEUE: u32 = 30;
+pub const MEMP_NUM_IGMP_GROUP: u32 = 8;
+pub const MEMP_NUM_NETBUF: u32 = 2;
+pub const MEMP_NUM_TCPIP_MSG_API: u32 = 8;
+pub const MEMP_NUM_TCPIP_MSG_INPKT: u32 = 8;
+pub const MEMP_NUM_NETDB: u32 = 1;
+pub const MEMP_NUM_LOCALHOSTLIST: u32 = 1;
+pub const PBUF_POOL_SIZE: u32 = 16;
+pub const MEMP_NUM_API_MSG: u32 = 8;
+pub const MEMP_NUM_DNS_API_MSG: u32 = 8;
+pub const MEMP_NUM_SOCKET_SETGETSOCKOPT_DATA: u32 = 8;
+pub const MEMP_NUM_NETIFAPI_MSG: u32 = 8;
+pub const LWIP_ARP: u32 = 1;
+pub const ARP_TABLE_SIZE: u32 = 10;
+pub const ARP_MAXAGE: u32 = 300;
+pub const ARP_QUEUE_LEN: u32 = 3;
+pub const ETHARP_SUPPORT_VLAN: u32 = 0;
+pub const LWIP_ETHERNET: u32 = 1;
+pub const ETH_PAD_SIZE: u32 = 0;
+pub const ETHARP_SUPPORT_STATIC_ENTRIES: u32 = 0;
+pub const ETHARP_TABLE_MATCH_NETIF: u32 = 0;
+pub const LWIP_IPV4: u32 = 1;
+pub const IP_FORWARD: u32 = 0;
+pub const IP_OPTIONS_ALLOWED: u32 = 1;
+pub const IP_DEFAULT_TTL: u32 = 255;
+pub const IP_SOF_BROADCAST: u32 = 0;
+pub const IP_SOF_BROADCAST_RECV: u32 = 0;
+pub const IP_FORWARD_ALLOW_TX_ON_RX_NETIF: u32 = 0;
+pub const LWIP_RANDOMIZE_INITIAL_LOCAL_PORTS: u32 = 0;
+pub const LWIP_ICMP: u32 = 1;
+pub const ICMP_TTL: u32 = 255;
+pub const RAW_TTL: u32 = 255;
+pub const LWIP_DHCP_CHECK_LINK_UP: u32 = 0;
+pub const LWIP_DHCP_BOOTP_FILE: u32 = 0;
+pub const LWIP_DHCP_GET_NTP_SRV: u32 = 0;
+pub const LWIP_DHCP_MAX_DNS_SERVERS: u32 = 3;
+pub const LWIP_AUTOIP: u32 = 0;
+pub const LWIP_DHCP_AUTOIP_COOP: u32 = 0;
+pub const LWIP_DHCP_AUTOIP_COOP_TRIES: u32 = 9;
+pub const LWIP_MIB2_CALLBACKS: u32 = 0;
+pub const DNS_TABLE_SIZE: u32 = 4;
+pub const DNS_MAX_NAME_LENGTH: u32 = 256;
+pub const DNS_DOES_NAME_CHECK: u32 = 1;
+pub const LWIP_DNS_SECURE_RAND_XID: u32 = 1;
+pub const LWIP_DNS_SECURE_NO_MULTIPLE_OUTSTANDING: u32 = 2;
+pub const LWIP_DNS_SECURE_RAND_SRC_PORT: u32 = 4;
+pub const DNS_LOCAL_HOSTLIST: u32 = 0;
+pub const DNS_LOCAL_HOSTLIST_IS_DYNAMIC: u32 = 0;
+pub const LWIP_DNS_SUPPORT_MDNS_QUERIES: u32 = 0;
+pub const LWIP_UDP: u32 = 1;
+pub const LWIP_UDPLITE: u32 = 0;
+pub const UDP_TTL: u32 = 255;
+pub const LWIP_NETBUF_RECVINFO: u32 = 0;
+pub const LWIP_TCP: u32 = 1;
+pub const TCP_TTL: u32 = 255;
+pub const TCP_CALCULATE_EFF_SEND_MSS: u32 = 1;
+pub const TCP_SND_QUEUELEN: u32 = 16;
+pub const TCP_OOSEQ_MAX_BYTES: u32 = 0;
+pub const TCP_OOSEQ_MAX_PBUFS: u32 = 0;
+pub const TCP_DEFAULT_LISTEN_BACKLOG: u32 = 255;
+pub const LWIP_TCP_TIMESTAMPS: u32 = 0;
+pub const LWIP_EVENT_API: u32 = 0;
+pub const LWIP_CALLBACK_API: u32 = 1;
+pub const LWIP_WND_SCALE: u32 = 0;
+pub const TCP_RCV_SCALE: u32 = 0;
+pub const PBUF_LINK_HLEN: u32 = 14;
+pub const PBUF_LINK_ENCAPSULATION_HLEN: u32 = 0;
+pub const LWIP_NETIF_API: u32 = 0;
+pub const LWIP_NETIF_STATUS_CALLBACK: u32 = 0;
+pub const LWIP_NETIF_LINK_CALLBACK: u32 = 0;
+pub const LWIP_NETIF_REMOVE_CALLBACK: u32 = 0;
+pub const LWIP_NETIF_HWADDRHINT: u32 = 0;
+pub const LWIP_NUM_NETIF_CLIENT_DATA: u32 = 0;
+pub const LWIP_HAVE_LOOPIF: u32 = 1;
+pub const LWIP_LOOPIF_MULTICAST: u32 = 0;
+pub const SLIPIF_THREAD_NAME: &'static [u8; 12usize] = b"slipif_loop\0";
+pub const SLIPIF_THREAD_STACKSIZE: u32 = 0;
+pub const SLIPIF_THREAD_PRIO: u32 = 1;
+pub const DEFAULT_THREAD_NAME: &'static [u8; 5usize] = b"lwIP\0";
+pub const LWIP_NETCONN: u32 = 1;
+pub const LWIP_TCPIP_TIMEOUT: u32 = 0;
+pub const LWIP_SOCKET: u32 = 1;
+pub const LWIP_SOCKET_SET_ERRNO: u32 = 1;
+pub const LWIP_COMPAT_SOCKETS: u32 = 1;
+pub const LWIP_SO_SNDRCVTIMEO_NONSTANDARD: u32 = 0;
+pub const LWIP_SO_LINGER: u32 = 0;
+pub const LWIP_TCP_CLOSE_TIMEOUT_MS_DEFAULT: u32 = 20000;
+pub const LWIP_FIONREAD_LINUXMODE: u32 = 0;
+pub const LINK_STATS: u32 = 0;
+pub const ETHARP_STATS: u32 = 0;
+pub const IP_STATS: u32 = 0;
+pub const IPFRAG_STATS: u32 = 0;
+pub const ICMP_STATS: u32 = 0;
+pub const IGMP_STATS: u32 = 0;
+pub const UDP_STATS: u32 = 0;
+pub const TCP_STATS: u32 = 0;
+pub const MEM_STATS: u32 = 0;
+pub const MEMP_STATS: u32 = 0;
+pub const SYS_STATS: u32 = 0;
+pub const LWIP_STATS_DISPLAY: u32 = 0;
+pub const IP6_STATS: u32 = 0;
+pub const ICMP6_STATS: u32 = 0;
+pub const IP6_FRAG_STATS: u32 = 0;
+pub const MLD6_STATS: u32 = 0;
+pub const ND6_STATS: u32 = 0;
+pub const MIB2_STATS: u32 = 0;
+pub const LWIP_CHECKSUM_CTRL_PER_NETIF: u32 = 0;
+pub const CHECKSUM_GEN_IP: u32 = 1;
+pub const CHECKSUM_GEN_UDP: u32 = 1;
+pub const CHECKSUM_GEN_TCP: u32 = 1;
+pub const CHECKSUM_GEN_ICMP: u32 = 1;
+pub const CHECKSUM_GEN_ICMP6: u32 = 1;
+pub const CHECKSUM_CHECK_TCP: u32 = 1;
+pub const CHECKSUM_CHECK_ICMP: u32 = 1;
+pub const CHECKSUM_CHECK_ICMP6: u32 = 1;
+pub const LWIP_CHECKSUM_ON_COPY: u32 = 0;
+pub const LWIP_IPV6_NUM_ADDRESSES: u32 = 3;
+pub const LWIP_IPV6_FORWARD: u32 = 0;
+pub const LWIP_IPV6_FRAG: u32 = 0;
+pub const LWIP_IPV6_REASS: u32 = 1;
+pub const LWIP_IPV6_SEND_ROUTER_SOLICIT: u32 = 1;
+pub const LWIP_IPV6_AUTOCONFIG: u32 = 1;
+pub const LWIP_IPV6_DUP_DETECT_ATTEMPTS: u32 = 1;
+pub const LWIP_ICMP6: u32 = 1;
+pub const LWIP_ICMP6_DATASIZE: u32 = 8;
+pub const LWIP_ICMP6_HL: u32 = 255;
+pub const LWIP_IPV6_MLD: u32 = 1;
+pub const MEMP_NUM_MLD6_GROUP: u32 = 4;
+pub const LWIP_ND6_QUEUEING: u32 = 1;
+pub const MEMP_NUM_ND6_QUEUE: u32 = 20;
+pub const LWIP_ND6_NUM_NEIGHBORS: u32 = 10;
+pub const LWIP_ND6_NUM_DESTINATIONS: u32 = 10;
+pub const LWIP_ND6_NUM_PREFIXES: u32 = 5;
+pub const LWIP_ND6_NUM_ROUTERS: u32 = 3;
+pub const LWIP_ND6_MAX_MULTICAST_SOLICIT: u32 = 3;
+pub const LWIP_ND6_MAX_UNICAST_SOLICIT: u32 = 3;
+pub const LWIP_ND6_MAX_ANYCAST_DELAY_TIME: u32 = 1000;
+pub const LWIP_ND6_MAX_NEIGHBOR_ADVERTISEMENT: u32 = 3;
+pub const LWIP_ND6_REACHABLE_TIME: u32 = 30000;
+pub const LWIP_ND6_RETRANS_TIMER: u32 = 1000;
+pub const LWIP_ND6_DELAY_FIRST_PROBE_TIME: u32 = 5000;
+pub const LWIP_ND6_ALLOW_RA_UPDATES: u32 = 1;
+pub const LWIP_ND6_TCP_REACHABILITY_HINTS: u32 = 1;
+pub const LWIP_ND6_RDNSS_MAX_DNS_SERVERS: u32 = 0;
+pub const LWIP_IPV6_DHCP6: u32 = 0;
+pub const LWIP_DBG_MIN_LEVEL: u32 = 0;
+pub const LWIP_DBG_TYPES_ON: u32 = 128;
+pub const API_MSG_DEBUG: u32 = 0;
+pub const IGMP_DEBUG: u32 = 0;
+pub const INET_DEBUG: u32 = 0;
+pub const IP_REASS_DEBUG: u32 = 0;
+pub const RAW_DEBUG: u32 = 0;
+pub const MEM_DEBUG: u32 = 0;
+pub const SYS_DEBUG: u32 = 0;
+pub const TIMERS_DEBUG: u32 = 0;
+pub const TCP_FR_DEBUG: u32 = 0;
+pub const TCP_RTO_DEBUG: u32 = 0;
+pub const TCP_CWND_DEBUG: u32 = 0;
+pub const TCP_WND_DEBUG: u32 = 0;
+pub const TCP_RST_DEBUG: u32 = 0;
+pub const TCP_QLEN_DEBUG: u32 = 0;
+pub const UDP_DEBUG: u32 = 0;
+pub const SLIP_DEBUG: u32 = 0;
+pub const AUTOIP_DEBUG: u32 = 0;
+pub const DNS_DEBUG: u32 = 0;
+pub const IP6_DEBUG: u32 = 0;
+pub const LWIP_PERF: u32 = 0;
+pub const IP_CLASSA_NET: u32 = 4278190080;
+pub const IP_CLASSA_NSHIFT: u32 = 24;
+pub const IP_CLASSA_HOST: u32 = 16777215;
+pub const IP_CLASSA_MAX: u32 = 128;
+pub const IP_CLASSB_NET: u32 = 4294901760;
+pub const IP_CLASSB_NSHIFT: u32 = 16;
+pub const IP_CLASSB_HOST: u32 = 65535;
+pub const IP_CLASSB_MAX: u32 = 65536;
+pub const IP_CLASSC_NET: u32 = 4294967040;
+pub const IP_CLASSC_NSHIFT: u32 = 8;
+pub const IP_CLASSC_HOST: u32 = 255;
+pub const IP_CLASSD_NET: u32 = 4026531840;
+pub const IP_CLASSD_NSHIFT: u32 = 28;
+pub const IP_CLASSD_HOST: u32 = 268435455;
+pub const IP_LOOPBACKNET: u32 = 127;
+pub const IP4ADDR_STRLEN_MAX: u32 = 16;
+pub const IP6_MULTICAST_SCOPE_RESERVED: u32 = 0;
+pub const IP6_MULTICAST_SCOPE_RESERVED0: u32 = 0;
+pub const IP6_MULTICAST_SCOPE_INTERFACE_LOCAL: u32 = 1;
+pub const IP6_MULTICAST_SCOPE_LINK_LOCAL: u32 = 2;
+pub const IP6_MULTICAST_SCOPE_RESERVED3: u32 = 3;
+pub const IP6_MULTICAST_SCOPE_ADMIN_LOCAL: u32 = 4;
+pub const IP6_MULTICAST_SCOPE_SITE_LOCAL: u32 = 5;
+pub const IP6_MULTICAST_SCOPE_ORGANIZATION_LOCAL: u32 = 8;
+pub const IP6_MULTICAST_SCOPE_GLOBAL: u32 = 14;
+pub const IP6_MULTICAST_SCOPE_RESERVEDF: u32 = 15;
+pub const IP6_ADDR_INVALID: u32 = 0;
+pub const IP6_ADDR_TENTATIVE: u32 = 8;
+pub const IP6_ADDR_TENTATIVE_1: u32 = 9;
+pub const IP6_ADDR_TENTATIVE_2: u32 = 10;
+pub const IP6_ADDR_TENTATIVE_3: u32 = 11;
+pub const IP6_ADDR_TENTATIVE_4: u32 = 12;
+pub const IP6_ADDR_TENTATIVE_5: u32 = 13;
+pub const IP6_ADDR_TENTATIVE_6: u32 = 14;
+pub const IP6_ADDR_TENTATIVE_7: u32 = 15;
+pub const IP6_ADDR_VALID: u32 = 16;
+pub const IP6_ADDR_PREFERRED: u32 = 48;
+pub const IP6_ADDR_DEPRECATED: u32 = 16;
+pub const IP6_ADDR_TENTATIVE_COUNT_MASK: u32 = 7;
+pub const IP6ADDR_STRLEN_MAX: u32 = 46;
+pub const IPADDR_STRLEN_MAX: u32 = 46;
+pub const DHCPS_COARSE_TIMER_SECS: u32 = 1;
+pub const DHCPS_MAX_LEASE: u32 = 100;
+pub const DHCPS_LEASE_TIME_DEF: u32 = 120;
+pub const DHCPS_LEASE_UNIT: u32 = 60;
+pub const IPSTR: &'static [u8; 12usize] = b"%d.%d.%d.%d\0";
+pub const IPV6STR: &'static [u8; 40usize] = b"%04x:%04x:%04x:%04x:%04x:%04x:%04x:%04x\0";
+pub const ESP_ERR_TCPIP_ADAPTER_BASE: u32 = 20480;
+pub const ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS: u32 = 20481;
+pub const ESP_ERR_TCPIP_ADAPTER_IF_NOT_READY: u32 = 20482;
+pub const ESP_ERR_TCPIP_ADAPTER_DHCPC_START_FAILED: u32 = 20483;
+pub const ESP_ERR_TCPIP_ADAPTER_DHCP_ALREADY_STARTED: u32 = 20484;
+pub const ESP_ERR_TCPIP_ADAPTER_DHCP_ALREADY_STOPPED: u32 = 20485;
+pub const ESP_ERR_TCPIP_ADAPTER_NO_MEM: u32 = 20486;
+pub const ESP_ERR_TCPIP_ADAPTER_DHCP_NOT_STOPPED: u32 = 20487;
+pub const TCPIP_HOSTNAME_MAX_SIZE: u32 = 32;
+pub const ESP_WIFI_OS_ADAPTER_VERSION: u32 = 2;
+pub const ESP_WIFI_OS_ADAPTER_MAGIC: u32 = 3735928495;
+pub const OSI_FUNCS_TIME_BLOCKING: u32 = 4294967295;
+pub const OSI_QUEUE_SEND_FRONT: u32 = 0;
+pub const OSI_QUEUE_SEND_BACK: u32 = 1;
+pub const OSI_QUEUE_SEND_OVERWRITE: u32 = 2;
+pub const ESP_ERR_WIFI_NOT_INIT: u32 = 12289;
+pub const ESP_ERR_WIFI_NOT_STARTED: u32 = 12290;
+pub const ESP_ERR_WIFI_NOT_STOPPED: u32 = 12291;
+pub const ESP_ERR_WIFI_IF: u32 = 12292;
+pub const ESP_ERR_WIFI_MODE: u32 = 12293;
+pub const ESP_ERR_WIFI_STATE: u32 = 12294;
+pub const ESP_ERR_WIFI_CONN: u32 = 12295;
+pub const ESP_ERR_WIFI_NVS: u32 = 12296;
+pub const ESP_ERR_WIFI_MAC: u32 = 12297;
+pub const ESP_ERR_WIFI_SSID: u32 = 12298;
+pub const ESP_ERR_WIFI_PASSWORD: u32 = 12299;
+pub const ESP_ERR_WIFI_TIMEOUT: u32 = 12300;
+pub const ESP_ERR_WIFI_WAKE_FAIL: u32 = 12301;
+pub const ESP_ERR_WIFI_WOULD_BLOCK: u32 = 12302;
+pub const ESP_ERR_WIFI_NOT_CONNECT: u32 = 12303;
+pub const WIFI_STATIC_TX_BUFFER_NUM: u32 = 0;
+pub const WIFI_DYNAMIC_TX_BUFFER_NUM: u32 = 32;
+pub const WIFI_CSI_ENABLED: u32 = 0;
+pub const WIFI_AMPDU_RX_ENABLED: u32 = 1;
+pub const WIFI_AMPDU_TX_ENABLED: u32 = 1;
+pub const WIFI_NVS_ENABLED: u32 = 1;
+pub const WIFI_NANO_FORMAT_ENABLED: u32 = 0;
+pub const WIFI_INIT_CONFIG_MAGIC: u32 = 523190095;
+pub const WIFI_DEFAULT_TX_BA_WIN: u32 = 6;
+pub const WIFI_DEFAULT_RX_BA_WIN: u32 = 6;
+pub const WIFI_TASK_CORE_ID: u32 = 0;
+pub const WIFI_SOFTAP_BEACON_MAX_LEN: u32 = 752;
+pub const WIFI_MGMT_SBUF_NUM: u32 = 32;
+pub const LOG_LOCAL_LEVEL: u32 = 3;
+pub const LOG_COLOR_BLACK: &'static [u8; 3usize] = b"30\0";
+pub const LOG_COLOR_RED: &'static [u8; 3usize] = b"31\0";
+pub const LOG_COLOR_GREEN: &'static [u8; 3usize] = b"32\0";
+pub const LOG_COLOR_BROWN: &'static [u8; 3usize] = b"33\0";
+pub const LOG_COLOR_BLUE: &'static [u8; 3usize] = b"34\0";
+pub const LOG_COLOR_PURPLE: &'static [u8; 3usize] = b"35\0";
+pub const LOG_COLOR_CYAN: &'static [u8; 3usize] = b"36\0";
+pub const LOG_RESET_COLOR: &'static [u8; 5usize] = b"\x1B[0m\0";
 pub type wchar_t = ::std::os::raw::c_uchar;
 #[repr(C)]
 #[repr(align(8))]
@@ -14295,18 +15248,18 @@ extern "C" {
 extern "C" {
     pub fn fread(
         arg1: *mut ::std::os::raw::c_void,
-        _size: ::std::os::raw::c_uint,
-        _n: ::std::os::raw::c_uint,
+        _size: usize,
+        _n: usize,
         arg2: *mut FILE,
-    ) -> ::std::os::raw::c_uint;
+    ) -> usize;
 }
 extern "C" {
     pub fn fwrite(
         arg1: *const ::std::os::raw::c_void,
-        _size: ::std::os::raw::c_uint,
-        _n: ::std::os::raw::c_uint,
+        _size: usize,
+        _n: usize,
         arg2: *mut FILE,
-    ) -> ::std::os::raw::c_uint;
+    ) -> usize;
 }
 extern "C" {
     pub fn fgetpos(arg1: *mut FILE, arg2: *mut fpos_t) -> ::std::os::raw::c_int;
@@ -22038,6 +22991,32 @@ extern "C" {
     #[doc = "      - ESP_ERR_INVALID_STATE: CAN driver is not installed"]
     pub fn can_get_status_info(status_info: *mut can_status_info_t) -> esp_err_t;
 }
+extern "C" {
+    #[doc = " @brief   Clear the transmit queue"]
+    #[doc = ""]
+    #[doc = " This function will clear the transmit queue of all messages."]
+    #[doc = ""]
+    #[doc = " @note    The transmit queue is automatically cleared when can_stop() or"]
+    #[doc = "          can_initiate_recovery() is called."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK: Transmit queue cleared"]
+    #[doc = "      - ESP_ERR_INVALID_STATE: CAN driver is not installed or TX queue is disabled"]
+    pub fn can_clear_transmit_queue() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief   Clear the receive queue"]
+    #[doc = ""]
+    #[doc = " This function will clear the receive queue of all messages."]
+    #[doc = ""]
+    #[doc = " @note    The receive queue is automatically cleared when can_start() is"]
+    #[doc = "          called."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK: Transmit queue cleared"]
+    #[doc = "      - ESP_ERR_INVALID_STATE: CAN driver is not installed"]
+    pub fn can_clear_receive_queue() -> esp_err_t;
+}
 #[doc = "< DAC channel 1 is GPIO25"]
 pub const dac_channel_t_DAC_CHANNEL_1: dac_channel_t = 1;
 #[doc = "< DAC channel 2 is GPIO26"]
@@ -28823,6 +29802,13 @@ pub struct i2s_pin_config_t {
     #[doc = "< DATA in pin"]
     pub data_in_num: ::std::os::raw::c_int,
 }
+#[doc = "< downsampling number is 8 for PDM RX mode"]
+pub const i2s_pdm_dsr_t_I2S_PDM_DSR_8S: i2s_pdm_dsr_t = 0;
+#[doc = "< downsampling number is 16 for PDM RX mode"]
+pub const i2s_pdm_dsr_t_I2S_PDM_DSR_16S: i2s_pdm_dsr_t = 1;
+pub const i2s_pdm_dsr_t_I2S_PDM_DSR_MAX: i2s_pdm_dsr_t = 2;
+#[doc = " @brief I2S PDM RX downsample mode"]
+pub type i2s_pdm_dsr_t = u32;
 pub type i2s_isr_handle_t = intr_handle_t;
 extern "C" {
     #[doc = " @brief Set I2S pin number"]
@@ -28846,6 +29832,24 @@ extern "C" {
     #[doc = "     - ESP_ERR_INVALID_ARG Parameter error"]
     #[doc = "     - ESP_FAIL            IO error"]
     pub fn i2s_set_pin(i2s_num: i2s_port_t, pin: *const i2s_pin_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Set PDM mode down-sample rate"]
+    #[doc = "        In PDM RX mode, there would be 2 rounds of downsample process in hardware."]
+    #[doc = "        In the first downsample process, the sampling number can be 16 or 8."]
+    #[doc = "        In the second downsample process, the sampling number is fixed as 8."]
+    #[doc = "        So the clock frequency in PDM RX mode would be (fpcm * 64) or (fpcm * 128) accordingly."]
+    #[doc = " @param i2s_num I2S_NUM_0, I2S_NUM_1"]
+    #[doc = " @param dsr i2s RX down sample rate for PDM mode."]
+    #[doc = ""]
+    #[doc = " @note After calling this function, it would call i2s_set_clk inside to update the clock frequency."]
+    #[doc = "       Please call this function after I2S driver has been initialized."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "     - ESP_OK Success"]
+    #[doc = "     - ESP_ERR_INVALID_ARG Parameter error"]
+    #[doc = "     - ESP_ERR_NO_MEM      Out of memory"]
+    pub fn i2s_set_pdm_rx_down_sample(i2s_num: i2s_port_t, dsr: i2s_pdm_dsr_t) -> esp_err_t;
 }
 extern "C" {
     #[doc = " @brief Set I2S dac mode, I2S built-in DAC is disabled by default"]
@@ -29140,6 +30144,15 @@ extern "C" {
         bits: i2s_bits_per_sample_t,
         ch: i2s_channel_t,
     ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief get clock set on particular port number."]
+    #[doc = ""]
+    #[doc = " @param i2s_num  I2S_NUM_0, I2S_NUM_1"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "     - actual clock set by i2s driver"]
+    pub fn i2s_get_clk(i2s_num: i2s_port_t) -> f32;
 }
 extern "C" {
     #[doc = " @brief Set built-in ADC mode for I2S DMA, this function will initialize ADC pad,"]
@@ -32613,6 +33626,20 @@ pub const rmt_carrier_level_t_RMT_CARRIER_LEVEL_LOW: rmt_carrier_level_t = 0;
 pub const rmt_carrier_level_t_RMT_CARRIER_LEVEL_HIGH: rmt_carrier_level_t = 1;
 pub const rmt_carrier_level_t_RMT_CARRIER_LEVEL_MAX: rmt_carrier_level_t = 2;
 pub type rmt_carrier_level_t = u32;
+#[doc = "< RMT channel uninitialized"]
+pub const rmt_channel_status_t_RMT_CHANNEL_UNINIT: rmt_channel_status_t = 0;
+#[doc = "< RMT channel status idle"]
+pub const rmt_channel_status_t_RMT_CHANNEL_IDLE: rmt_channel_status_t = 1;
+#[doc = "< RMT channel status busy"]
+pub const rmt_channel_status_t_RMT_CHANNEL_BUSY: rmt_channel_status_t = 2;
+pub type rmt_channel_status_t = u32;
+#[doc = " @brief Data struct of RMT channel status"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct rmt_channel_status_result_t {
+    #[doc = "< Store the current status of each channel"]
+    pub status: [rmt_channel_status_t; 8usize],
+}
 #[doc = " @brief Data struct of RMT TX configure parameters"]
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -33028,6 +34055,7 @@ extern "C" {
     #[doc = ""]
     #[doc = " @param channel RMT channel (0-7)"]
     #[doc = " @param status Pointer to accept channel status."]
+    #[doc = "        Please refer to RMT_CHnSTATUS_REG(n=0~7) in `rmt_reg.h` for more details of each field."]
     #[doc = ""]
     #[doc = " @return"]
     #[doc = "     - ESP_ERR_INVALID_ARG Parameter error"]
@@ -33199,6 +34227,18 @@ extern "C" {
     #[doc = "     - ESP_ERR_INVALID_ARG Parameter error"]
     #[doc = "     - ESP_OK Success"]
     pub fn rmt_driver_uninstall(channel: rmt_channel_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Get the current status of eight channels."]
+    #[doc = ""]
+    #[doc = " @note Do not call this function if it is possible that `rmt_driver_uninstall` will be called at the same time."]
+    #[doc = ""]
+    #[doc = " @param[out] channel_status store the current status of each channel"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "     - ESP_ERR_INVALID_ARG Parameter is NULL"]
+    #[doc = "     - ESP_OK Success"]
+    pub fn rmt_get_channel_status(channel_status: *mut rmt_channel_status_result_t) -> esp_err_t;
 }
 extern "C" {
     #[doc = " @brief RMT send waveform from rmt_item array."]
@@ -39723,8 +40763,21 @@ extern "C" {
     #[doc = " Call this if your driver wants to manage a SPI peripheral."]
     #[doc = ""]
     #[doc = " @param host Peripheral to claim"]
+    #[doc = " @param source The caller indentification string."]
+    #[doc = ""]
     #[doc = " @return True if peripheral is claimed successfully; false if peripheral already is claimed."]
-    pub fn spicommon_periph_claim(host: spi_host_device_t) -> bool;
+    pub fn spicommon_periph_claim(
+        host: spi_host_device_t,
+        source: *const ::std::os::raw::c_char,
+    ) -> bool;
+}
+extern "C" {
+    #[doc = " @brief Check whether the spi periph is in use."]
+    #[doc = ""]
+    #[doc = " @param host Peripheral to check."]
+    #[doc = ""]
+    #[doc = " @return True if in use, otherwise false."]
+    pub fn spicommon_periph_in_use(host: spi_host_device_t) -> bool;
 }
 extern "C" {
     #[doc = " @brief Return the SPI peripheral so another driver can claim it."]
@@ -39742,6 +40795,14 @@ extern "C" {
     #[doc = ""]
     #[doc = " @return True if success; false otherwise."]
     pub fn spicommon_dma_chan_claim(dma_chan: ::std::os::raw::c_int) -> bool;
+}
+extern "C" {
+    #[doc = " @brief Check whether the spi DMA channel is in use."]
+    #[doc = ""]
+    #[doc = " @param dma_chan DMA channel to check."]
+    #[doc = ""]
+    #[doc = " @return True if in use, otherwise false."]
+    pub fn spicommon_dma_chan_in_use(dma_chan: ::std::os::raw::c_int) -> bool;
 }
 extern "C" {
     #[doc = " @brief Return the SPI DMA channel so other driver can claim it, or just to power down DMA."]
@@ -40056,6 +41117,10 @@ extern "C" {
     #[doc = " @warning If a DMA channel is selected, any transmit and receive buffer used should be allocated in"]
     #[doc = "          DMA-capable memory."]
     #[doc = ""]
+    #[doc = " @warning The ISR of SPI is always executed on the core which calls this"]
+    #[doc = "          function. Never starve the ISR on this core or the SPI transactions will not"]
+    #[doc = "          be handled."]
+    #[doc = ""]
     #[doc = " @return"]
     #[doc = "         - ESP_ERR_INVALID_ARG   if configuration is invalid"]
     #[doc = "         - ESP_ERR_INVALID_STATE if host already is in use"]
@@ -40357,7 +41422,9 @@ pub struct spi_slave_transaction_t {
     pub trans_len: usize,
     #[doc = "< Pointer to transmit buffer, or NULL for no MOSI phase"]
     pub tx_buffer: *const ::std::os::raw::c_void,
-    #[doc = "< Pointer to receive buffer, or NULL for no MISO phase"]
+    #[doc = "< Pointer to receive buffer, or NULL for no MISO phase."]
+    #[doc = " When the DMA is anabled, must start at WORD boundary (``rx_buffer%4==0``),"]
+    #[doc = " and has length of a multiple of 4 bytes."]
     pub rx_buffer: *mut ::std::os::raw::c_void,
     #[doc = "< User-defined variable. Can be used to store eg transaction ID."]
     pub user: *mut ::std::os::raw::c_void,
@@ -40376,6 +41443,10 @@ extern "C" {
     #[doc = ""]
     #[doc = " @warning If a DMA channel is selected, any transmit and receive buffer used should be allocated in"]
     #[doc = "          DMA-capable memory."]
+    #[doc = ""]
+    #[doc = " @warning The ISR of SPI is always executed on the core which calls this"]
+    #[doc = "          function. Never starve the ISR on this core or the SPI transactions will not"]
+    #[doc = "          be handled."]
     #[doc = ""]
     #[doc = " @return"]
     #[doc = "         - ESP_ERR_INVALID_ARG   if configuration is invalid"]
@@ -46910,7 +47981,7 @@ extern "C" {
     #[doc = " light sleep. This function allows setting the threshold value."]
     #[doc = ""]
     #[doc = " Stop bit and parity bits (if enabled) also contribute to the number of edges."]
-    #[doc = " For example, letter 'a' with ASCII code 97 is encoded as 010001101 on the wire"]
+    #[doc = " For example, letter 'a' with ASCII code 97 is encoded as 0100001101 on the wire"]
     #[doc = " (with 8n1 configuration), start and stop bits included. This sequence has 3"]
     #[doc = " positive edges (transitions from 0 to 1). Therefore, to wake up the system"]
     #[doc = " when 'a' is sent, set wakeup_threshold=3."]
@@ -46922,7 +47993,10 @@ extern "C" {
     #[doc = " correct baud rate all the time, select REF_TICK as UART clock source,"]
     #[doc = " by setting use_ref_tick field in uart_config_t to true."]
     #[doc = ""]
-    #[doc = " @note in ESP32, UART2 does not support light sleep wakeup feature."]
+    #[doc = " @note in ESP32, the wakeup signal can only be input via IO_MUX (i.e."]
+    #[doc = "       GPIO3 should be configured as function_1 to wake up UART0,"]
+    #[doc = "       GPIO9 should be configured as function_5 to wake up UART1), UART2"]
+    #[doc = "       does not support light sleep wakeup feature."]
     #[doc = ""]
     #[doc = " @param uart_num  UART number"]
     #[doc = " @param wakeup_threshold  number of RX edges for light sleep wakeup, value is 3 .. 0x3ff."]
@@ -47009,6 +48083,5713 @@ extern "C" {
     #[doc = ""]
     #[doc = " @return Value or RTC counter, expressed in microseconds"]
     pub fn esp_clk_rtc_time() -> u64;
+}
+#[doc = "< ESP32 station interface"]
+pub const esp_interface_t_ESP_IF_WIFI_STA: esp_interface_t = 0;
+#[doc = "< ESP32 soft-AP interface"]
+pub const esp_interface_t_ESP_IF_WIFI_AP: esp_interface_t = 1;
+#[doc = "< ESP32 ethernet interface"]
+pub const esp_interface_t_ESP_IF_ETH: esp_interface_t = 2;
+pub const esp_interface_t_ESP_IF_MAX: esp_interface_t = 3;
+pub type esp_interface_t = u32;
+#[doc = "< null mode"]
+pub const wifi_mode_t_WIFI_MODE_NULL: wifi_mode_t = 0;
+#[doc = "< WiFi station mode"]
+pub const wifi_mode_t_WIFI_MODE_STA: wifi_mode_t = 1;
+#[doc = "< WiFi soft-AP mode"]
+pub const wifi_mode_t_WIFI_MODE_AP: wifi_mode_t = 2;
+#[doc = "< WiFi station + soft-AP mode"]
+pub const wifi_mode_t_WIFI_MODE_APSTA: wifi_mode_t = 3;
+pub const wifi_mode_t_WIFI_MODE_MAX: wifi_mode_t = 4;
+pub type wifi_mode_t = u32;
+pub use self::esp_interface_t as wifi_interface_t;
+#[doc = "< Country policy is auto, use the country info of AP to which the station is connected"]
+pub const wifi_country_policy_t_WIFI_COUNTRY_POLICY_AUTO: wifi_country_policy_t = 0;
+#[doc = "< Country policy is manual, always use the configured country info"]
+pub const wifi_country_policy_t_WIFI_COUNTRY_POLICY_MANUAL: wifi_country_policy_t = 1;
+pub type wifi_country_policy_t = u32;
+#[doc = " @brief Structure describing WiFi country-based regional restrictions."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_country_t {
+    #[doc = "< country code string"]
+    pub cc: [::std::os::raw::c_char; 3usize],
+    #[doc = "< start channel"]
+    pub schan: u8,
+    #[doc = "< total channel number"]
+    pub nchan: u8,
+    #[doc = "< maximum tx power"]
+    pub max_tx_power: i8,
+    #[doc = "< country policy"]
+    pub policy: wifi_country_policy_t,
+}
+#[doc = "< authenticate mode : open"]
+pub const wifi_auth_mode_t_WIFI_AUTH_OPEN: wifi_auth_mode_t = 0;
+#[doc = "< authenticate mode : WEP"]
+pub const wifi_auth_mode_t_WIFI_AUTH_WEP: wifi_auth_mode_t = 1;
+#[doc = "< authenticate mode : WPA_PSK"]
+pub const wifi_auth_mode_t_WIFI_AUTH_WPA_PSK: wifi_auth_mode_t = 2;
+#[doc = "< authenticate mode : WPA2_PSK"]
+pub const wifi_auth_mode_t_WIFI_AUTH_WPA2_PSK: wifi_auth_mode_t = 3;
+#[doc = "< authenticate mode : WPA_WPA2_PSK"]
+pub const wifi_auth_mode_t_WIFI_AUTH_WPA_WPA2_PSK: wifi_auth_mode_t = 4;
+#[doc = "< authenticate mode : WPA2_ENTERPRISE"]
+pub const wifi_auth_mode_t_WIFI_AUTH_WPA2_ENTERPRISE: wifi_auth_mode_t = 5;
+pub const wifi_auth_mode_t_WIFI_AUTH_MAX: wifi_auth_mode_t = 6;
+pub type wifi_auth_mode_t = u32;
+pub const wifi_err_reason_t_WIFI_REASON_UNSPECIFIED: wifi_err_reason_t = 1;
+pub const wifi_err_reason_t_WIFI_REASON_AUTH_EXPIRE: wifi_err_reason_t = 2;
+pub const wifi_err_reason_t_WIFI_REASON_AUTH_LEAVE: wifi_err_reason_t = 3;
+pub const wifi_err_reason_t_WIFI_REASON_ASSOC_EXPIRE: wifi_err_reason_t = 4;
+pub const wifi_err_reason_t_WIFI_REASON_ASSOC_TOOMANY: wifi_err_reason_t = 5;
+pub const wifi_err_reason_t_WIFI_REASON_NOT_AUTHED: wifi_err_reason_t = 6;
+pub const wifi_err_reason_t_WIFI_REASON_NOT_ASSOCED: wifi_err_reason_t = 7;
+pub const wifi_err_reason_t_WIFI_REASON_ASSOC_LEAVE: wifi_err_reason_t = 8;
+pub const wifi_err_reason_t_WIFI_REASON_ASSOC_NOT_AUTHED: wifi_err_reason_t = 9;
+pub const wifi_err_reason_t_WIFI_REASON_DISASSOC_PWRCAP_BAD: wifi_err_reason_t = 10;
+pub const wifi_err_reason_t_WIFI_REASON_DISASSOC_SUPCHAN_BAD: wifi_err_reason_t = 11;
+pub const wifi_err_reason_t_WIFI_REASON_IE_INVALID: wifi_err_reason_t = 13;
+pub const wifi_err_reason_t_WIFI_REASON_MIC_FAILURE: wifi_err_reason_t = 14;
+pub const wifi_err_reason_t_WIFI_REASON_4WAY_HANDSHAKE_TIMEOUT: wifi_err_reason_t = 15;
+pub const wifi_err_reason_t_WIFI_REASON_GROUP_KEY_UPDATE_TIMEOUT: wifi_err_reason_t = 16;
+pub const wifi_err_reason_t_WIFI_REASON_IE_IN_4WAY_DIFFERS: wifi_err_reason_t = 17;
+pub const wifi_err_reason_t_WIFI_REASON_GROUP_CIPHER_INVALID: wifi_err_reason_t = 18;
+pub const wifi_err_reason_t_WIFI_REASON_PAIRWISE_CIPHER_INVALID: wifi_err_reason_t = 19;
+pub const wifi_err_reason_t_WIFI_REASON_AKMP_INVALID: wifi_err_reason_t = 20;
+pub const wifi_err_reason_t_WIFI_REASON_UNSUPP_RSN_IE_VERSION: wifi_err_reason_t = 21;
+pub const wifi_err_reason_t_WIFI_REASON_INVALID_RSN_IE_CAP: wifi_err_reason_t = 22;
+pub const wifi_err_reason_t_WIFI_REASON_802_1X_AUTH_FAILED: wifi_err_reason_t = 23;
+pub const wifi_err_reason_t_WIFI_REASON_CIPHER_SUITE_REJECTED: wifi_err_reason_t = 24;
+pub const wifi_err_reason_t_WIFI_REASON_BEACON_TIMEOUT: wifi_err_reason_t = 200;
+pub const wifi_err_reason_t_WIFI_REASON_NO_AP_FOUND: wifi_err_reason_t = 201;
+pub const wifi_err_reason_t_WIFI_REASON_AUTH_FAIL: wifi_err_reason_t = 202;
+pub const wifi_err_reason_t_WIFI_REASON_ASSOC_FAIL: wifi_err_reason_t = 203;
+pub const wifi_err_reason_t_WIFI_REASON_HANDSHAKE_TIMEOUT: wifi_err_reason_t = 204;
+pub const wifi_err_reason_t_WIFI_REASON_CONNECTION_FAIL: wifi_err_reason_t = 205;
+pub type wifi_err_reason_t = u32;
+#[doc = "< the channel width is HT20"]
+pub const wifi_second_chan_t_WIFI_SECOND_CHAN_NONE: wifi_second_chan_t = 0;
+#[doc = "< the channel width is HT40 and the secondary channel is above the primary channel"]
+pub const wifi_second_chan_t_WIFI_SECOND_CHAN_ABOVE: wifi_second_chan_t = 1;
+#[doc = "< the channel width is HT40 and the secondary channel is below the primary channel"]
+pub const wifi_second_chan_t_WIFI_SECOND_CHAN_BELOW: wifi_second_chan_t = 2;
+pub type wifi_second_chan_t = u32;
+#[doc = "< active scan"]
+pub const wifi_scan_type_t_WIFI_SCAN_TYPE_ACTIVE: wifi_scan_type_t = 0;
+#[doc = "< passive scan"]
+pub const wifi_scan_type_t_WIFI_SCAN_TYPE_PASSIVE: wifi_scan_type_t = 1;
+pub type wifi_scan_type_t = u32;
+#[doc = " @brief Range of active scan times per channel"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_active_scan_time_t {
+    #[doc = "< minimum active scan time per channel, units: millisecond"]
+    pub min: u32,
+    #[doc = "< maximum active scan time per channel, units: millisecond, values above 1500ms may"]
+    #[doc = "cause station to disconnect from AP and are not recommended."]
+    pub max: u32,
+}
+#[doc = " @brief Aggregate of active & passive scan time per channel"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union wifi_scan_time_t {
+    #[doc = "< active scan time per channel, units: millisecond."]
+    pub active: wifi_active_scan_time_t,
+    #[doc = "< passive scan time per channel, units: millisecond, values above 1500ms may"]
+    #[doc = "cause station to disconnect from AP and are not recommended."]
+    pub passive: u32,
+    _bindgen_union_align: [u32; 2usize],
+}
+#[doc = " @brief Parameters for an SSID scan."]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct wifi_scan_config_t {
+    #[doc = "< SSID of AP"]
+    pub ssid: *mut u8,
+    #[doc = "< MAC address of AP"]
+    pub bssid: *mut u8,
+    #[doc = "< channel, scan the specific channel"]
+    pub channel: u8,
+    #[doc = "< enable to scan AP whose SSID is hidden"]
+    pub show_hidden: bool,
+    #[doc = "< scan type, active or passive"]
+    pub scan_type: wifi_scan_type_t,
+    #[doc = "< scan time per channel"]
+    pub scan_time: wifi_scan_time_t,
+}
+#[doc = "< the cipher type is none"]
+pub const wifi_cipher_type_t_WIFI_CIPHER_TYPE_NONE: wifi_cipher_type_t = 0;
+#[doc = "< the cipher type is WEP40"]
+pub const wifi_cipher_type_t_WIFI_CIPHER_TYPE_WEP40: wifi_cipher_type_t = 1;
+#[doc = "< the cipher type is WEP104"]
+pub const wifi_cipher_type_t_WIFI_CIPHER_TYPE_WEP104: wifi_cipher_type_t = 2;
+#[doc = "< the cipher type is TKIP"]
+pub const wifi_cipher_type_t_WIFI_CIPHER_TYPE_TKIP: wifi_cipher_type_t = 3;
+#[doc = "< the cipher type is CCMP"]
+pub const wifi_cipher_type_t_WIFI_CIPHER_TYPE_CCMP: wifi_cipher_type_t = 4;
+#[doc = "< the cipher type is TKIP and CCMP"]
+pub const wifi_cipher_type_t_WIFI_CIPHER_TYPE_TKIP_CCMP: wifi_cipher_type_t = 5;
+#[doc = "< the cipher type is unknown"]
+pub const wifi_cipher_type_t_WIFI_CIPHER_TYPE_UNKNOWN: wifi_cipher_type_t = 6;
+pub type wifi_cipher_type_t = u32;
+#[doc = "< WiFi antenna 0"]
+pub const wifi_ant_t_WIFI_ANT_ANT0: wifi_ant_t = 0;
+#[doc = "< WiFi antenna 1"]
+pub const wifi_ant_t_WIFI_ANT_ANT1: wifi_ant_t = 1;
+#[doc = "< Invalid WiFi antenna"]
+pub const wifi_ant_t_WIFI_ANT_MAX: wifi_ant_t = 2;
+#[doc = " @brief WiFi antenna"]
+#[doc = ""]
+pub type wifi_ant_t = u32;
+#[doc = " @brief Description of a WiFi AP"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct wifi_ap_record_t {
+    #[doc = "< MAC address of AP"]
+    pub bssid: [u8; 6usize],
+    #[doc = "< SSID of AP"]
+    pub ssid: [u8; 33usize],
+    #[doc = "< channel of AP"]
+    pub primary: u8,
+    #[doc = "< secondary channel of AP"]
+    pub second: wifi_second_chan_t,
+    #[doc = "< signal strength of AP"]
+    pub rssi: i8,
+    #[doc = "< authmode of AP"]
+    pub authmode: wifi_auth_mode_t,
+    #[doc = "< pairwise cipher of AP"]
+    pub pairwise_cipher: wifi_cipher_type_t,
+    #[doc = "< group cipher of AP"]
+    pub group_cipher: wifi_cipher_type_t,
+    #[doc = "< antenna used to receive beacon from AP"]
+    pub ant: wifi_ant_t,
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize], u32>,
+    #[doc = "< country information of AP"]
+    pub country: wifi_country_t,
+}
+impl wifi_ap_record_t {
+    #[inline]
+    pub fn phy_11b(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_phy_11b(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn phy_11g(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_phy_11g(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn phy_11n(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_phy_11n(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(2usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn phy_lr(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_phy_lr(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(3usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn wps(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(4usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_wps(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(4usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(5usize, 27u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(5usize, 27u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        phy_11b: u32,
+        phy_11g: u32,
+        phy_11n: u32,
+        phy_lr: u32,
+        wps: u32,
+        reserved: u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize], u32> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize], u32> =
+            Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let phy_11b: u32 = unsafe { ::core::mem::transmute(phy_11b) };
+            phy_11b as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let phy_11g: u32 = unsafe { ::core::mem::transmute(phy_11g) };
+            phy_11g as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 1u8, {
+            let phy_11n: u32 = unsafe { ::core::mem::transmute(phy_11n) };
+            phy_11n as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 1u8, {
+            let phy_lr: u32 = unsafe { ::core::mem::transmute(phy_lr) };
+            phy_lr as u64
+        });
+        __bindgen_bitfield_unit.set(4usize, 1u8, {
+            let wps: u32 = unsafe { ::core::mem::transmute(wps) };
+            wps as u64
+        });
+        __bindgen_bitfield_unit.set(5usize, 27u8, {
+            let reserved: u32 = unsafe { ::core::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[doc = "< Do fast scan, scan will end after find SSID match AP"]
+pub const wifi_scan_method_t_WIFI_FAST_SCAN: wifi_scan_method_t = 0;
+#[doc = "< All channel scan, scan will end after scan all the channel"]
+pub const wifi_scan_method_t_WIFI_ALL_CHANNEL_SCAN: wifi_scan_method_t = 1;
+pub type wifi_scan_method_t = u32;
+#[doc = "< Sort match AP in scan list by RSSI"]
+pub const wifi_sort_method_t_WIFI_CONNECT_AP_BY_SIGNAL: wifi_sort_method_t = 0;
+#[doc = "< Sort match AP in scan list by security mode"]
+pub const wifi_sort_method_t_WIFI_CONNECT_AP_BY_SECURITY: wifi_sort_method_t = 1;
+pub type wifi_sort_method_t = u32;
+#[doc = " @brief Structure describing parameters for a WiFi fast scan"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_fast_scan_threshold_t {
+    #[doc = "< The minimum rssi to accept in the fast scan mode"]
+    pub rssi: i8,
+    #[doc = "< The weakest authmode to accept in the fast scan mode"]
+    pub authmode: wifi_auth_mode_t,
+}
+pub type wifi_scan_threshold_t = wifi_fast_scan_threshold_t;
+#[doc = "< No power save"]
+pub const wifi_ps_type_t_WIFI_PS_NONE: wifi_ps_type_t = 0;
+#[doc = "< Minimum modem power saving. In this mode, station wakes up to receive beacon every DTIM period"]
+pub const wifi_ps_type_t_WIFI_PS_MIN_MODEM: wifi_ps_type_t = 1;
+#[doc = "< Maximum modem power saving. In this mode, interval to receive beacons is determined by the listen_interval parameter in wifi_sta_config_t"]
+pub const wifi_ps_type_t_WIFI_PS_MAX_MODEM: wifi_ps_type_t = 2;
+pub type wifi_ps_type_t = u32;
+pub const wifi_bandwidth_t_WIFI_BW_HT20: wifi_bandwidth_t = 1;
+pub const wifi_bandwidth_t_WIFI_BW_HT40: wifi_bandwidth_t = 2;
+pub type wifi_bandwidth_t = u32;
+#[doc = " @brief Soft-AP configuration settings for the ESP32"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct wifi_ap_config_t {
+    #[doc = "< SSID of ESP32 soft-AP"]
+    pub ssid: [u8; 32usize],
+    #[doc = "< Password of ESP32 soft-AP"]
+    pub password: [u8; 64usize],
+    #[doc = "< Length of SSID. If softap_config.ssid_len==0, check the SSID until there is a termination character; otherwise, set the SSID length according to softap_config.ssid_len."]
+    pub ssid_len: u8,
+    #[doc = "< Channel of ESP32 soft-AP"]
+    pub channel: u8,
+    #[doc = "< Auth mode of ESP32 soft-AP. Do not support AUTH_WEP in soft-AP mode"]
+    pub authmode: wifi_auth_mode_t,
+    #[doc = "< Broadcast SSID or not, default 0, broadcast the SSID"]
+    pub ssid_hidden: u8,
+    #[doc = "< Max number of stations allowed to connect in, default 4, max 4"]
+    pub max_connection: u8,
+    #[doc = "< Beacon interval, 100 ~ 60000 ms, default 100 ms"]
+    pub beacon_interval: u16,
+}
+#[doc = " @brief STA configuration settings for the ESP32"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct wifi_sta_config_t {
+    #[doc = "< SSID of target AP"]
+    pub ssid: [u8; 32usize],
+    #[doc = "< password of target AP"]
+    pub password: [u8; 64usize],
+    #[doc = "< do all channel scan or fast scan"]
+    pub scan_method: wifi_scan_method_t,
+    #[doc = "< whether set MAC address of target AP or not. Generally, station_config.bssid_set needs to be 0; and it needs to be 1 only when users need to check the MAC address of the AP."]
+    pub bssid_set: bool,
+    #[doc = "< MAC address of target AP"]
+    pub bssid: [u8; 6usize],
+    #[doc = "< channel of target AP. Set to 1~13 to scan starting from the specified channel before connecting to AP. If the channel of AP is unknown, set it to 0."]
+    pub channel: u8,
+    #[doc = "< Listen interval for ESP32 station to receive beacon when WIFI_PS_MAX_MODEM is set. Units: AP beacon intervals. Defaults to 3 if set to 0."]
+    pub listen_interval: u16,
+    #[doc = "< sort the connect AP in the list by rssi or security mode"]
+    pub sort_method: wifi_sort_method_t,
+    #[doc = "< When scan_method is set, only APs which have an auth mode that is more secure than the selected auth mode and a signal stronger than the minimum RSSI will be used."]
+    pub threshold: wifi_scan_threshold_t,
+}
+#[doc = " @brief Configuration data for ESP32 AP or STA."]
+#[doc = ""]
+#[doc = " The usage of this union (for ap or sta configuration) is determined by the accompanying"]
+#[doc = " interface argument passed to esp_wifi_set_config() or esp_wifi_get_config()"]
+#[doc = ""]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union wifi_config_t {
+    #[doc = "< configuration of AP"]
+    pub ap: wifi_ap_config_t,
+    #[doc = "< configuration of STA"]
+    pub sta: wifi_sta_config_t,
+    _bindgen_union_align: [u32; 31usize],
+}
+#[doc = " @brief Description of STA associated with AP"]
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_sta_info_t {
+    #[doc = "< mac address"]
+    pub mac: [u8; 6usize],
+    #[doc = "< current average rssi of sta connected"]
+    pub rssi: i8,
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 4usize], u32>,
+}
+impl wifi_sta_info_t {
+    #[inline]
+    pub fn phy_11b(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_phy_11b(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn phy_11g(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_phy_11g(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(1usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn phy_11n(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(2usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_phy_11n(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(2usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn phy_lr(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(3usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_phy_lr(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(3usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn reserved(&self) -> u32 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(4usize, 28u8) as u32) }
+    }
+    #[inline]
+    pub fn set_reserved(&mut self, val: u32) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(4usize, 28u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        phy_11b: u32,
+        phy_11g: u32,
+        phy_11n: u32,
+        phy_lr: u32,
+        reserved: u32,
+    ) -> __BindgenBitfieldUnit<[u8; 4usize], u32> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 4usize], u32> =
+            Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let phy_11b: u32 = unsafe { ::core::mem::transmute(phy_11b) };
+            phy_11b as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 1u8, {
+            let phy_11g: u32 = unsafe { ::core::mem::transmute(phy_11g) };
+            phy_11g as u64
+        });
+        __bindgen_bitfield_unit.set(2usize, 1u8, {
+            let phy_11n: u32 = unsafe { ::core::mem::transmute(phy_11n) };
+            phy_11n as u64
+        });
+        __bindgen_bitfield_unit.set(3usize, 1u8, {
+            let phy_lr: u32 = unsafe { ::core::mem::transmute(phy_lr) };
+            phy_lr as u64
+        });
+        __bindgen_bitfield_unit.set(4usize, 28u8, {
+            let reserved: u32 = unsafe { ::core::mem::transmute(reserved) };
+            reserved as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[doc = " @brief List of stations associated with the ESP32 Soft-AP"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_sta_list_t {
+    #[doc = "< station list"]
+    pub sta: [wifi_sta_info_t; 10usize],
+    #[doc = "< number of stations in the list (other entries are invalid)"]
+    pub num: ::std::os::raw::c_int,
+}
+#[doc = "< all configuration will strore in both memory and flash"]
+pub const wifi_storage_t_WIFI_STORAGE_FLASH: wifi_storage_t = 0;
+#[doc = "< all configuration will only store in the memory"]
+pub const wifi_storage_t_WIFI_STORAGE_RAM: wifi_storage_t = 1;
+pub type wifi_storage_t = u32;
+pub const wifi_vendor_ie_type_t_WIFI_VND_IE_TYPE_BEACON: wifi_vendor_ie_type_t = 0;
+pub const wifi_vendor_ie_type_t_WIFI_VND_IE_TYPE_PROBE_REQ: wifi_vendor_ie_type_t = 1;
+pub const wifi_vendor_ie_type_t_WIFI_VND_IE_TYPE_PROBE_RESP: wifi_vendor_ie_type_t = 2;
+pub const wifi_vendor_ie_type_t_WIFI_VND_IE_TYPE_ASSOC_REQ: wifi_vendor_ie_type_t = 3;
+pub const wifi_vendor_ie_type_t_WIFI_VND_IE_TYPE_ASSOC_RESP: wifi_vendor_ie_type_t = 4;
+#[doc = " @brief     Vendor Information Element type"]
+#[doc = ""]
+#[doc = " Determines the frame type that the IE will be associated with."]
+pub type wifi_vendor_ie_type_t = u32;
+pub const wifi_vendor_ie_id_t_WIFI_VND_IE_ID_0: wifi_vendor_ie_id_t = 0;
+pub const wifi_vendor_ie_id_t_WIFI_VND_IE_ID_1: wifi_vendor_ie_id_t = 1;
+#[doc = " @brief     Vendor Information Element index"]
+#[doc = ""]
+#[doc = " Each IE type can have up to two associated vendor ID elements."]
+pub type wifi_vendor_ie_id_t = u32;
+#[doc = " @brief Vendor Information Element header"]
+#[doc = ""]
+#[doc = " The first bytes of the Information Element will match this header. Payload follows."]
+#[repr(C)]
+#[derive(Debug)]
+pub struct vendor_ie_data_t {
+    #[doc = "< Should be set to WIFI_VENDOR_IE_ELEMENT_ID (0xDD)"]
+    pub element_id: u8,
+    #[doc = "< Length of all bytes in the element data following this field. Minimum 4."]
+    pub length: u8,
+    #[doc = "< Vendor identifier (OUI)."]
+    pub vendor_oui: [u8; 3usize],
+    #[doc = "< Vendor-specific OUI type."]
+    pub vendor_oui_type: u8,
+    #[doc = "< Payload. Length is equal to value in 'length' field, minus 4."]
+    pub payload: __IncompleteArrayField<u8>,
+}
+#[doc = " @brief Received packet radio metadata header, this is the common header at the beginning of all promiscuous mode RX callback buffers"]
+#[repr(C)]
+#[repr(align(4))]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_pkt_rx_ctrl_t {
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 28usize], u32>,
+}
+impl wifi_pkt_rx_ctrl_t {
+    #[inline]
+    pub fn rssi(&self) -> ::std::os::raw::c_int {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 8u8) as u32) }
+    }
+    #[inline]
+    pub fn set_rssi(&mut self, val: ::std::os::raw::c_int) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(0usize, 8u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn rate(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(8usize, 5u8) as u32) }
+    }
+    #[inline]
+    pub fn set_rate(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(8usize, 5u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sig_mode(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(14usize, 2u8) as u32) }
+    }
+    #[inline]
+    pub fn set_sig_mode(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(14usize, 2u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn mcs(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(32usize, 7u8) as u32) }
+    }
+    #[inline]
+    pub fn set_mcs(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(32usize, 7u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn cwb(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(39usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_cwb(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(39usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn smoothing(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(56usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_smoothing(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(56usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn not_sounding(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(57usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_not_sounding(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(57usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn aggregation(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(59usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_aggregation(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(59usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn stbc(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(60usize, 2u8) as u32) }
+    }
+    #[inline]
+    pub fn set_stbc(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(60usize, 2u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn fec_coding(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(62usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_fec_coding(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(62usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sgi(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(63usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_sgi(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(63usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn noise_floor(&self) -> ::std::os::raw::c_int {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(64usize, 8u8) as u32) }
+    }
+    #[inline]
+    pub fn set_noise_floor(&mut self, val: ::std::os::raw::c_int) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(64usize, 8u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ampdu_cnt(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(72usize, 8u8) as u32) }
+    }
+    #[inline]
+    pub fn set_ampdu_cnt(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(72usize, 8u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn channel(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(80usize, 4u8) as u32) }
+    }
+    #[inline]
+    pub fn set_channel(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(80usize, 4u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn secondary_channel(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(84usize, 4u8) as u32) }
+    }
+    #[inline]
+    pub fn set_secondary_channel(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(84usize, 4u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn timestamp(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(96usize, 32u8) as u32) }
+    }
+    #[inline]
+    pub fn set_timestamp(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(96usize, 32u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn ant(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(191usize, 1u8) as u32) }
+    }
+    #[inline]
+    pub fn set_ant(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(191usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn sig_len(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(192usize, 12u8) as u32) }
+    }
+    #[inline]
+    pub fn set_sig_len(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(192usize, 12u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn rx_state(&self) -> ::std::os::raw::c_uint {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(216usize, 8u8) as u32) }
+    }
+    #[inline]
+    pub fn set_rx_state(&mut self, val: ::std::os::raw::c_uint) {
+        unsafe {
+            let val: u32 = ::core::mem::transmute(val);
+            self._bitfield_1.set(216usize, 8u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        rssi: ::std::os::raw::c_int,
+        rate: ::std::os::raw::c_uint,
+        sig_mode: ::std::os::raw::c_uint,
+        mcs: ::std::os::raw::c_uint,
+        cwb: ::std::os::raw::c_uint,
+        smoothing: ::std::os::raw::c_uint,
+        not_sounding: ::std::os::raw::c_uint,
+        aggregation: ::std::os::raw::c_uint,
+        stbc: ::std::os::raw::c_uint,
+        fec_coding: ::std::os::raw::c_uint,
+        sgi: ::std::os::raw::c_uint,
+        noise_floor: ::std::os::raw::c_int,
+        ampdu_cnt: ::std::os::raw::c_uint,
+        channel: ::std::os::raw::c_uint,
+        secondary_channel: ::std::os::raw::c_uint,
+        timestamp: ::std::os::raw::c_uint,
+        ant: ::std::os::raw::c_uint,
+        sig_len: ::std::os::raw::c_uint,
+        rx_state: ::std::os::raw::c_uint,
+    ) -> __BindgenBitfieldUnit<[u8; 28usize], u32> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 28usize], u32> =
+            Default::default();
+        __bindgen_bitfield_unit.set(0usize, 8u8, {
+            let rssi: u32 = unsafe { ::core::mem::transmute(rssi) };
+            rssi as u64
+        });
+        __bindgen_bitfield_unit.set(8usize, 5u8, {
+            let rate: u32 = unsafe { ::core::mem::transmute(rate) };
+            rate as u64
+        });
+        __bindgen_bitfield_unit.set(14usize, 2u8, {
+            let sig_mode: u32 = unsafe { ::core::mem::transmute(sig_mode) };
+            sig_mode as u64
+        });
+        __bindgen_bitfield_unit.set(32usize, 7u8, {
+            let mcs: u32 = unsafe { ::core::mem::transmute(mcs) };
+            mcs as u64
+        });
+        __bindgen_bitfield_unit.set(39usize, 1u8, {
+            let cwb: u32 = unsafe { ::core::mem::transmute(cwb) };
+            cwb as u64
+        });
+        __bindgen_bitfield_unit.set(56usize, 1u8, {
+            let smoothing: u32 = unsafe { ::core::mem::transmute(smoothing) };
+            smoothing as u64
+        });
+        __bindgen_bitfield_unit.set(57usize, 1u8, {
+            let not_sounding: u32 = unsafe { ::core::mem::transmute(not_sounding) };
+            not_sounding as u64
+        });
+        __bindgen_bitfield_unit.set(59usize, 1u8, {
+            let aggregation: u32 = unsafe { ::core::mem::transmute(aggregation) };
+            aggregation as u64
+        });
+        __bindgen_bitfield_unit.set(60usize, 2u8, {
+            let stbc: u32 = unsafe { ::core::mem::transmute(stbc) };
+            stbc as u64
+        });
+        __bindgen_bitfield_unit.set(62usize, 1u8, {
+            let fec_coding: u32 = unsafe { ::core::mem::transmute(fec_coding) };
+            fec_coding as u64
+        });
+        __bindgen_bitfield_unit.set(63usize, 1u8, {
+            let sgi: u32 = unsafe { ::core::mem::transmute(sgi) };
+            sgi as u64
+        });
+        __bindgen_bitfield_unit.set(64usize, 8u8, {
+            let noise_floor: u32 = unsafe { ::core::mem::transmute(noise_floor) };
+            noise_floor as u64
+        });
+        __bindgen_bitfield_unit.set(72usize, 8u8, {
+            let ampdu_cnt: u32 = unsafe { ::core::mem::transmute(ampdu_cnt) };
+            ampdu_cnt as u64
+        });
+        __bindgen_bitfield_unit.set(80usize, 4u8, {
+            let channel: u32 = unsafe { ::core::mem::transmute(channel) };
+            channel as u64
+        });
+        __bindgen_bitfield_unit.set(84usize, 4u8, {
+            let secondary_channel: u32 = unsafe { ::core::mem::transmute(secondary_channel) };
+            secondary_channel as u64
+        });
+        __bindgen_bitfield_unit.set(96usize, 32u8, {
+            let timestamp: u32 = unsafe { ::core::mem::transmute(timestamp) };
+            timestamp as u64
+        });
+        __bindgen_bitfield_unit.set(191usize, 1u8, {
+            let ant: u32 = unsafe { ::core::mem::transmute(ant) };
+            ant as u64
+        });
+        __bindgen_bitfield_unit.set(192usize, 12u8, {
+            let sig_len: u32 = unsafe { ::core::mem::transmute(sig_len) };
+            sig_len as u64
+        });
+        __bindgen_bitfield_unit.set(216usize, 8u8, {
+            let rx_state: u32 = unsafe { ::core::mem::transmute(rx_state) };
+            rx_state as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[doc = " @brief Payload passed to 'buf' parameter of promiscuous mode RX callback."]
+#[repr(C)]
+#[derive(Debug)]
+pub struct wifi_promiscuous_pkt_t {
+    #[doc = "< metadata header"]
+    pub rx_ctrl: wifi_pkt_rx_ctrl_t,
+    #[doc = "< Data or management payload. Length of payload is described by rx_ctrl.sig_len. Type of content determined by packet type argument of callback."]
+    pub payload: __IncompleteArrayField<u8>,
+}
+#[doc = "< Management frame, indicates 'buf' argument is wifi_promiscuous_pkt_t"]
+pub const wifi_promiscuous_pkt_type_t_WIFI_PKT_MGMT: wifi_promiscuous_pkt_type_t = 0;
+#[doc = "< Control frame, indicates 'buf' argument is wifi_promiscuous_pkt_t"]
+pub const wifi_promiscuous_pkt_type_t_WIFI_PKT_CTRL: wifi_promiscuous_pkt_type_t = 1;
+#[doc = "< Data frame, indiciates 'buf' argument is wifi_promiscuous_pkt_t"]
+pub const wifi_promiscuous_pkt_type_t_WIFI_PKT_DATA: wifi_promiscuous_pkt_type_t = 2;
+#[doc = "< Other type, such as MIMO etc. 'buf' argument is wifi_promiscuous_pkt_t but the payload is zero length."]
+pub const wifi_promiscuous_pkt_type_t_WIFI_PKT_MISC: wifi_promiscuous_pkt_type_t = 3;
+#[doc = " @brief Promiscuous frame type"]
+#[doc = ""]
+#[doc = " Passed to promiscuous mode RX callback to indicate the type of parameter in the buffer."]
+#[doc = ""]
+pub type wifi_promiscuous_pkt_type_t = u32;
+#[doc = " @brief Mask for filtering different packet types in promiscuous mode."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_promiscuous_filter_t {
+    #[doc = "< OR of one or more filter values WIFI_PROMIS_FILTER_*"]
+    pub filter_mask: u32,
+}
+#[doc = " @brief Channel state information(CSI) configuration type"]
+#[doc = ""]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_csi_config_t {
+    #[doc = "< enable to receive legacy long training field(lltf) data. Default enabled"]
+    pub lltf_en: bool,
+    #[doc = "< enable to receive HT long training field(htltf) data. Default enabled"]
+    pub htltf_en: bool,
+    #[doc = "< enable to receive space time block code HT long training field(stbc-htltf2) data. Default enabled"]
+    pub stbc_htltf2_en: bool,
+    #[doc = "< enable to generate htlft data by averaging lltf and ht_ltf data when receiving HT packet. Otherwise, use ht_ltf data directly. Default enabled"]
+    pub ltf_merge_en: bool,
+    #[doc = "< enable to turn on channel filter to smooth adjacent sub-carrier. Disable it to keep independence of adjacent sub-carrier. Default enabled"]
+    pub channel_filter_en: bool,
+    #[doc = "< manually scale the CSI data by left shifting or automatically scale the CSI data. If set true, please set the shift bits. false: automatically. true: manually. Default false"]
+    pub manu_scale: bool,
+    #[doc = "< manually left shift bits of the scale of the CSI data. The range of the left shift bits is 0~15"]
+    pub shift: u8,
+}
+#[doc = " @brief CSI data type"]
+#[doc = ""]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_csi_info_t {
+    #[doc = "< received packet radio metadata header of the CSI data"]
+    pub rx_ctrl: wifi_pkt_rx_ctrl_t,
+    #[doc = "< source MAC address of the CSI data"]
+    pub mac: [u8; 6usize],
+    #[doc = "< first four bytes of the CSI data is invalid or not"]
+    pub first_word_invalid: bool,
+    #[doc = "< buffer of CSI data"]
+    pub buf: *mut i8,
+    #[doc = "< length of CSI data"]
+    pub len: u16,
+}
+#[doc = " @brief WiFi GPIO configuration for antenna selection"]
+#[doc = ""]
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_ant_gpio_t {
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
+}
+impl wifi_ant_gpio_t {
+    #[inline]
+    pub fn gpio_select(&self) -> u8 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 1u8) as u8) }
+    }
+    #[inline]
+    pub fn set_gpio_select(&mut self, val: u8) {
+        unsafe {
+            let val: u8 = ::core::mem::transmute(val);
+            self._bitfield_1.set(0usize, 1u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn gpio_num(&self) -> u8 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(1usize, 7u8) as u8) }
+    }
+    #[inline]
+    pub fn set_gpio_num(&mut self, val: u8) {
+        unsafe {
+            let val: u8 = ::core::mem::transmute(val);
+            self._bitfield_1.set(1usize, 7u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        gpio_select: u8,
+        gpio_num: u8,
+    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
+            Default::default();
+        __bindgen_bitfield_unit.set(0usize, 1u8, {
+            let gpio_select: u8 = unsafe { ::core::mem::transmute(gpio_select) };
+            gpio_select as u64
+        });
+        __bindgen_bitfield_unit.set(1usize, 7u8, {
+            let gpio_num: u8 = unsafe { ::core::mem::transmute(gpio_num) };
+            gpio_num as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[doc = " @brief WiFi GPIOs configuration for antenna selection"]
+#[doc = ""]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_ant_gpio_config_t {
+    #[doc = "< The configurations of GPIOs that connect to external antenna switch"]
+    pub gpio_cfg: [wifi_ant_gpio_t; 4usize],
+}
+#[doc = "< Enable WiFi antenna 0 only"]
+pub const wifi_ant_mode_t_WIFI_ANT_MODE_ANT0: wifi_ant_mode_t = 0;
+#[doc = "< Enable WiFi antenna 1 only"]
+pub const wifi_ant_mode_t_WIFI_ANT_MODE_ANT1: wifi_ant_mode_t = 1;
+#[doc = "< Enable WiFi antenna 0 and 1, automatically select an antenna"]
+pub const wifi_ant_mode_t_WIFI_ANT_MODE_AUTO: wifi_ant_mode_t = 2;
+#[doc = "< Invalid WiFi enabled antenna"]
+pub const wifi_ant_mode_t_WIFI_ANT_MODE_MAX: wifi_ant_mode_t = 3;
+#[doc = " @brief WiFi antenna mode"]
+#[doc = ""]
+pub type wifi_ant_mode_t = u32;
+#[doc = " @brief WiFi antenna configuration"]
+#[doc = ""]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_ant_config_t {
+    #[doc = "< WiFi antenna mode for receiving"]
+    pub rx_ant_mode: wifi_ant_mode_t,
+    #[doc = "< Default antenna mode for receiving, it's ignored if rx_ant_mode is not WIFI_ANT_MODE_AUTO"]
+    pub rx_ant_default: wifi_ant_t,
+    #[doc = "< WiFi antenna mode for transmission, it can be set to WIFI_ANT_MODE_AUTO only if rx_ant_mode is set to WIFI_ANT_MODE_AUTO"]
+    pub tx_ant_mode: wifi_ant_mode_t,
+    pub _bitfield_1: __BindgenBitfieldUnit<[u8; 1usize], u8>,
+    pub __bindgen_padding_0: [u8; 3usize],
+}
+impl wifi_ant_config_t {
+    #[inline]
+    pub fn enabled_ant0(&self) -> u8 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(0usize, 4u8) as u8) }
+    }
+    #[inline]
+    pub fn set_enabled_ant0(&mut self, val: u8) {
+        unsafe {
+            let val: u8 = ::core::mem::transmute(val);
+            self._bitfield_1.set(0usize, 4u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn enabled_ant1(&self) -> u8 {
+        unsafe { ::core::mem::transmute(self._bitfield_1.get(4usize, 4u8) as u8) }
+    }
+    #[inline]
+    pub fn set_enabled_ant1(&mut self, val: u8) {
+        unsafe {
+            let val: u8 = ::core::mem::transmute(val);
+            self._bitfield_1.set(4usize, 4u8, val as u64)
+        }
+    }
+    #[inline]
+    pub fn new_bitfield_1(
+        enabled_ant0: u8,
+        enabled_ant1: u8,
+    ) -> __BindgenBitfieldUnit<[u8; 1usize], u8> {
+        let mut __bindgen_bitfield_unit: __BindgenBitfieldUnit<[u8; 1usize], u8> =
+            Default::default();
+        __bindgen_bitfield_unit.set(0usize, 4u8, {
+            let enabled_ant0: u8 = unsafe { ::core::mem::transmute(enabled_ant0) };
+            enabled_ant0 as u64
+        });
+        __bindgen_bitfield_unit.set(4usize, 4u8, {
+            let enabled_ant1: u8 = unsafe { ::core::mem::transmute(enabled_ant1) };
+            enabled_ant1 as u64
+        });
+        __bindgen_bitfield_unit
+    }
+}
+#[doc = "< 1 Mbps with long preamble"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_1M_L: wifi_phy_rate_t = 0;
+#[doc = "< 2 Mbps with long preamble"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_2M_L: wifi_phy_rate_t = 1;
+#[doc = "< 5.5 Mbps with long preamble"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_5M_L: wifi_phy_rate_t = 2;
+#[doc = "< 11 Mbps with long preamble"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_11M_L: wifi_phy_rate_t = 3;
+#[doc = "< 2 Mbps with short preamble"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_2M_S: wifi_phy_rate_t = 5;
+#[doc = "< 5.5 Mbps with short preamble"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_5M_S: wifi_phy_rate_t = 6;
+#[doc = "< 11 Mbps with short preamble"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_11M_S: wifi_phy_rate_t = 7;
+#[doc = "< 48 Mbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_48M: wifi_phy_rate_t = 8;
+#[doc = "< 24 Mbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_24M: wifi_phy_rate_t = 9;
+#[doc = "< 12 Mbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_12M: wifi_phy_rate_t = 10;
+#[doc = "< 6 Mbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_6M: wifi_phy_rate_t = 11;
+#[doc = "< 54 Mbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_54M: wifi_phy_rate_t = 12;
+#[doc = "< 36 Mbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_36M: wifi_phy_rate_t = 13;
+#[doc = "< 18 Mbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_18M: wifi_phy_rate_t = 14;
+#[doc = "< 9 Mbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_9M: wifi_phy_rate_t = 15;
+#[doc = "< MCS0 with long GI, 6.5 Mbps for 20MHz, 13.5 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS0_LGI: wifi_phy_rate_t = 16;
+#[doc = "< MCS1 with long GI, 13 Mbps for 20MHz, 27 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS1_LGI: wifi_phy_rate_t = 17;
+#[doc = "< MCS2 with long GI, 19.5 Mbps for 20MHz, 40.5 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS2_LGI: wifi_phy_rate_t = 18;
+#[doc = "< MCS3 with long GI, 26 Mbps for 20MHz, 54 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS3_LGI: wifi_phy_rate_t = 19;
+#[doc = "< MCS4 with long GI, 39 Mbps for 20MHz, 81 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS4_LGI: wifi_phy_rate_t = 20;
+#[doc = "< MCS5 with long GI, 52 Mbps for 20MHz, 108 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS5_LGI: wifi_phy_rate_t = 21;
+#[doc = "< MCS6 with long GI, 58.5 Mbps for 20MHz, 121.5 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS6_LGI: wifi_phy_rate_t = 22;
+#[doc = "< MCS7 with long GI, 65 Mbps for 20MHz, 135 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS7_LGI: wifi_phy_rate_t = 23;
+#[doc = "< MCS0 with short GI, 7.2 Mbps for 20MHz, 15 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS0_SGI: wifi_phy_rate_t = 24;
+#[doc = "< MCS1 with short GI, 14.4 Mbps for 20MHz, 30 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS1_SGI: wifi_phy_rate_t = 25;
+#[doc = "< MCS2 with short GI, 21.7 Mbps for 20MHz, 45 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS2_SGI: wifi_phy_rate_t = 26;
+#[doc = "< MCS3 with short GI, 28.9 Mbps for 20MHz, 60 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS3_SGI: wifi_phy_rate_t = 27;
+#[doc = "< MCS4 with short GI, 43.3 Mbps for 20MHz, 90 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS4_SGI: wifi_phy_rate_t = 28;
+#[doc = "< MCS5 with short GI, 57.8 Mbps for 20MHz, 120 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS5_SGI: wifi_phy_rate_t = 29;
+#[doc = "< MCS6 with short GI, 65 Mbps for 20MHz, 135 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS6_SGI: wifi_phy_rate_t = 30;
+#[doc = "< MCS7 with short GI, 72.2 Mbps for 20MHz, 150 Mbps for 40MHz"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MCS7_SGI: wifi_phy_rate_t = 31;
+#[doc = "< 250 Kbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_LORA_250K: wifi_phy_rate_t = 41;
+#[doc = "< 500 Kbps"]
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_LORA_500K: wifi_phy_rate_t = 42;
+pub const wifi_phy_rate_t_WIFI_PHY_RATE_MAX: wifi_phy_rate_t = 43;
+#[doc = " @brief WiFi PHY rate encodings"]
+#[doc = ""]
+pub type wifi_phy_rate_t = u32;
+#[doc = "< Set the configuration of STA's HT2040 coexist management"]
+pub const wifi_ioctl_cmd_t_WIFI_IOCTL_SET_STA_HT2040_COEX: wifi_ioctl_cmd_t = 1;
+#[doc = "< Get the configuration of STA's HT2040 coexist management"]
+pub const wifi_ioctl_cmd_t_WIFI_IOCTL_GET_STA_HT2040_COEX: wifi_ioctl_cmd_t = 2;
+pub const wifi_ioctl_cmd_t_WIFI_IOCTL_MAX: wifi_ioctl_cmd_t = 3;
+#[doc = " @brief WiFi ioctl command type"]
+#[doc = ""]
+pub type wifi_ioctl_cmd_t = u32;
+#[doc = " @brief Configuration for STA's HT2040 coexist management"]
+#[doc = ""]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_ht2040_coex_t {
+    #[doc = "< Indicate whether STA's HT2040 coexist management is enabled or not"]
+    pub enable: ::std::os::raw::c_int,
+}
+#[doc = " @brief Configuration for WiFi ioctl"]
+#[doc = ""]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct wifi_ioctl_config_t {
+    #[doc = "< Configuration of ioctl command"]
+    pub data: wifi_ioctl_config_t__bindgen_ty_1,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union wifi_ioctl_config_t__bindgen_ty_1 {
+    #[doc = "< Configuration of STA's HT2040 coexist management"]
+    pub ht2040_coex: wifi_ht2040_coex_t,
+    _bindgen_union_align: u32,
+}
+pub const esp_crypto_hash_alg_t_ESP_CRYPTO_HASH_ALG_MD5: esp_crypto_hash_alg_t = 0;
+pub const esp_crypto_hash_alg_t_ESP_CRYPTO_HASH_ALG_SHA1: esp_crypto_hash_alg_t = 1;
+pub const esp_crypto_hash_alg_t_ESP_CRYPTO_HASH_ALG_HMAC_MD5: esp_crypto_hash_alg_t = 2;
+pub const esp_crypto_hash_alg_t_ESP_CRYPTO_HASH_ALG_HMAC_SHA1: esp_crypto_hash_alg_t = 3;
+pub const esp_crypto_hash_alg_t_ESP_CRYPTO_HASH_ALG_SHA256: esp_crypto_hash_alg_t = 4;
+pub const esp_crypto_hash_alg_t_ESP_CRYPTO_HASH_ALG_HMAC_SHA256: esp_crypto_hash_alg_t = 5;
+pub type esp_crypto_hash_alg_t = u32;
+pub const esp_crypto_cipher_alg_t_ESP_CRYPTO_CIPHER_NULL: esp_crypto_cipher_alg_t = 0;
+pub const esp_crypto_cipher_alg_t_ESP_CRYPTO_CIPHER_ALG_AES: esp_crypto_cipher_alg_t = 1;
+pub const esp_crypto_cipher_alg_t_ESP_CRYPTO_CIPHER_ALG_3DES: esp_crypto_cipher_alg_t = 2;
+pub const esp_crypto_cipher_alg_t_ESP_CRYPTO_CIPHER_ALG_DES: esp_crypto_cipher_alg_t = 3;
+pub const esp_crypto_cipher_alg_t_ESP_CRYPTO_CIPHER_ALG_RC2: esp_crypto_cipher_alg_t = 4;
+pub const esp_crypto_cipher_alg_t_ESP_CRYPTO_CIPHER_ALG_RC4: esp_crypto_cipher_alg_t = 5;
+pub type esp_crypto_cipher_alg_t = u32;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct crypto_hash {
+    _unused: [u8; 0],
+}
+pub type esp_crypto_hash_t = crypto_hash;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct crypto_cipher {
+    _unused: [u8; 0],
+}
+pub type esp_crypto_cipher_t = crypto_cipher;
+#[doc = " @brief The crypto callback function used in wpa enterprise hash operation when connect."]
+#[doc = "        Initialize a esp_crypto_hash_t structure."]
+#[doc = ""]
+#[doc = " @param alg  Hash algorithm."]
+#[doc = " @param key  Key for keyed hash (e.g., HMAC) or %NULL if not needed."]
+#[doc = " @param key_len  Length of the key in bytes"]
+#[doc = ""]
+pub type esp_crypto_hash_init_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        alg: esp_crypto_hash_alg_t,
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_int,
+    ) -> *mut esp_crypto_hash_t,
+>;
+#[doc = " @brief The crypto callback function used in wpa enterprise hash operation when connect."]
+#[doc = "        Add data to hash calculation."]
+#[doc = ""]
+#[doc = " @param ctz  Context pointer from esp_crypto_hash_init_t function."]
+#[doc = " @param data  Data buffer to add."]
+#[doc = " @param len  Length of the buffer."]
+#[doc = ""]
+pub type esp_crypto_hash_update_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        ctx: *mut esp_crypto_hash_t,
+        data: *const ::std::os::raw::c_uchar,
+        len: ::std::os::raw::c_int,
+    ),
+>;
+#[doc = " @brief The crypto callback function used in wpa enterprise hash operation when connect."]
+#[doc = "        Complete hash calculation."]
+#[doc = ""]
+#[doc = " @param ctz  Context pointer from esp_crypto_hash_init_t function."]
+#[doc = " @param hash   Buffer for hash value or %NULL if caller is just freeing the hash"]
+#[doc = "               context."]
+#[doc = " @param len  Pointer to length of the buffer or %NULL if caller is just freeing the"]
+#[doc = "             hash context; on return, this is set to the actual length of the hash value"]
+#[doc = "             Returns: 0 on success, -1 if buffer is too small (len set to needed length),"]
+#[doc = "             or -2 on other failures (including failed crypto_hash_update() operations)"]
+#[doc = ""]
+pub type esp_crypto_hash_finish_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        ctx: *mut esp_crypto_hash_t,
+        hash: *mut ::std::os::raw::c_uchar,
+        len: *mut ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief The AES callback function when do WPS connect."]
+#[doc = ""]
+#[doc = " @param key  Encryption key."]
+#[doc = " @param iv  Encryption IV for CBC mode (16 bytes)."]
+#[doc = " @param data  Data to encrypt in-place."]
+#[doc = " @param data_len  Length of data in bytes (must be divisible by 16)"]
+pub type esp_aes_128_encrypt_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        iv: *const ::std::os::raw::c_uchar,
+        data: *mut ::std::os::raw::c_uchar,
+        data_len: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief The AES callback function when do WPS connect."]
+#[doc = ""]
+#[doc = " @param key  Decryption key."]
+#[doc = " @param iv  Decryption IV for CBC mode (16 bytes)."]
+#[doc = " @param data  Data to decrypt in-place."]
+#[doc = " @param data_len  Length of data in bytes (must be divisible by 16)"]
+#[doc = ""]
+pub type esp_aes_128_decrypt_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        iv: *const ::std::os::raw::c_uchar,
+        data: *mut ::std::os::raw::c_uchar,
+        data_len: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief The AES callback function when do STA connect."]
+#[doc = ""]
+#[doc = " @param kek  16-octet Key encryption key (KEK)."]
+#[doc = " @param n  Length of the plaintext key in 64-bit units;"]
+#[doc = " @param plain  Plaintext key to be wrapped, n * 64 bits"]
+#[doc = " @param cipher  Wrapped key, (n + 1) * 64 bits"]
+#[doc = ""]
+pub type esp_aes_wrap_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        kek: *const ::std::os::raw::c_uchar,
+        n: ::std::os::raw::c_int,
+        plain: *const ::std::os::raw::c_uchar,
+        cipher: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief The AES callback function when do STA connect."]
+#[doc = ""]
+#[doc = " @param kek  16-octet Key decryption key (KEK)."]
+#[doc = " @param n  Length of the plaintext key in 64-bit units;"]
+#[doc = " @param cipher  Wrapped key to be unwrapped, (n + 1) * 64 bits"]
+#[doc = " @param plain  Plaintext key, n * 64 bits"]
+#[doc = ""]
+pub type esp_aes_unwrap_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        kek: *const ::std::os::raw::c_uchar,
+        n: ::std::os::raw::c_int,
+        cipher: *const ::std::os::raw::c_uchar,
+        plain: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief The crypto callback function used in wpa enterprise cipher operation when connect."]
+#[doc = "        Initialize a esp_crypto_cipher_t structure."]
+#[doc = ""]
+#[doc = " @param alg  cipher algorithm."]
+#[doc = " @param iv  Initialization vector for block ciphers or %NULL for stream ciphers."]
+#[doc = " @param key  Cipher key"]
+#[doc = " @param key_len  Length of key in bytes"]
+#[doc = ""]
+pub type esp_crypto_cipher_init_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        alg: esp_crypto_cipher_alg_t,
+        iv: *const ::std::os::raw::c_uchar,
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_int,
+    ) -> *mut esp_crypto_cipher_t,
+>;
+#[doc = " @brief The crypto callback function used in wpa enterprise cipher operation when connect."]
+#[doc = "        Cipher encrypt."]
+#[doc = ""]
+#[doc = " @param ctx  Context pointer from esp_crypto_cipher_init_t callback function."]
+#[doc = " @param plain  Plaintext to cipher."]
+#[doc = " @param crypt  Resulting ciphertext."]
+#[doc = " @param len  Length of the plaintext."]
+#[doc = ""]
+pub type esp_crypto_cipher_encrypt_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        ctx: *mut esp_crypto_cipher_t,
+        plain: *const ::std::os::raw::c_uchar,
+        crypt: *mut ::std::os::raw::c_uchar,
+        len: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief The crypto callback function used in wpa enterprise cipher operation when connect."]
+#[doc = "        Cipher decrypt."]
+#[doc = ""]
+#[doc = " @param ctx  Context pointer from esp_crypto_cipher_init_t callback function."]
+#[doc = " @param crypt  Ciphertext to decrypt."]
+#[doc = " @param plain  Resulting plaintext."]
+#[doc = " @param len  Length of the cipher text."]
+#[doc = ""]
+pub type esp_crypto_cipher_decrypt_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        ctx: *mut esp_crypto_cipher_t,
+        crypt: *const ::std::os::raw::c_uchar,
+        plain: *mut ::std::os::raw::c_uchar,
+        len: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief The crypto callback function used in wpa enterprise cipher operation when connect."]
+#[doc = "        Free cipher context."]
+#[doc = ""]
+#[doc = " @param ctx  Context pointer from esp_crypto_cipher_init_t callback function."]
+#[doc = ""]
+pub type esp_crypto_cipher_deinit_t =
+    ::core::option::Option<unsafe extern "C" fn(ctx: *mut esp_crypto_cipher_t)>;
+#[doc = " @brief The SHA256 callback function when do WPS connect."]
+#[doc = ""]
+#[doc = " @param key  Key for HMAC operations."]
+#[doc = " @param key_len  Length of the key in bytes."]
+#[doc = " @param data  Pointers to the data area."]
+#[doc = " @param data_len  Length of the data area."]
+#[doc = " @param mac  Buffer for the hash (20 bytes)."]
+#[doc = ""]
+pub type esp_hmac_sha256_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_int,
+        data: *const ::std::os::raw::c_uchar,
+        data_len: ::std::os::raw::c_int,
+        mac: *mut ::std::os::raw::c_uchar,
+    ),
+>;
+#[doc = " @brief The SHA256 callback function when do WPS connect."]
+#[doc = ""]
+#[doc = " @param key  Key for HMAC operations."]
+#[doc = " @param key_len  Length of the key in bytes."]
+#[doc = " @param num_elem  Number of elements in the data vector."]
+#[doc = " @param addr  Pointers to the data areas."]
+#[doc = " @param len  Lengths of the data blocks."]
+#[doc = " @param mac  Buffer for the hash (32 bytes)."]
+#[doc = ""]
+pub type esp_hmac_sha256_vector_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_int,
+        num_elem: ::std::os::raw::c_int,
+        addr: *mut *const ::std::os::raw::c_uchar,
+        len: *const ::std::os::raw::c_int,
+        mac: *mut ::std::os::raw::c_uchar,
+    ),
+>;
+#[doc = " @brief The AES callback function when do STA connect."]
+#[doc = ""]
+#[doc = " @param key  Key for PRF."]
+#[doc = " @param key_len  Length of the key in bytes."]
+#[doc = " @param label  A unique label for each purpose of the PRF."]
+#[doc = " @param data  Extra data to bind into the key."]
+#[doc = " @param data_len  Length of the data."]
+#[doc = " @param buf  Buffer for the generated pseudo-random key."]
+#[doc = " @param buf_len  Number of bytes of key to generate."]
+#[doc = ""]
+pub type esp_sha256_prf_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_int,
+        label: *const ::std::os::raw::c_char,
+        data: *const ::std::os::raw::c_uchar,
+        data_len: ::std::os::raw::c_int,
+        buf: *mut ::std::os::raw::c_uchar,
+        buf_len: ::std::os::raw::c_int,
+    ),
+>;
+#[doc = " @brief The SHA256 callback function when do WPS connect."]
+#[doc = ""]
+#[doc = " @param num_elem  Number of elements in the data vector."]
+#[doc = " @param addr  Pointers to the data areas."]
+#[doc = " @param len  Lengths of the data blocks."]
+#[doc = " @paramac  Buffer for the hash."]
+#[doc = ""]
+pub type esp_sha256_vector_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        num_elem: ::std::os::raw::c_int,
+        addr: *mut *const ::std::os::raw::c_uchar,
+        len: *const ::std::os::raw::c_int,
+        mac: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief The bignum calculate callback function used when do connect."]
+#[doc = "        In WPS process, it used to calculate public key and private key."]
+#[doc = ""]
+#[doc = " @param base  Base integer (big endian byte array)."]
+#[doc = " @param base_len  Length of base integer in bytes."]
+#[doc = " @param power  Power integer (big endian byte array)."]
+#[doc = " @param power_len  Length of power integer in bytes."]
+#[doc = " @param modulus  Modulus integer (big endian byte array)."]
+#[doc = " @param modulus_len  Length of modulus integer in bytes."]
+#[doc = " @param result  Buffer for the result."]
+#[doc = " @param result_len  Result length (max buffer size on input, real len on output)."]
+#[doc = ""]
+pub type esp_crypto_mod_exp_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        base: *const ::std::os::raw::c_uchar,
+        base_len: ::std::os::raw::c_int,
+        power: *const ::std::os::raw::c_uchar,
+        power_len: ::std::os::raw::c_int,
+        modulus: *const ::std::os::raw::c_uchar,
+        modulus_len: ::std::os::raw::c_int,
+        result: *mut ::std::os::raw::c_uchar,
+        result_len: *mut ::std::os::raw::c_uint,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief HMAC-MD5 over data buffer (RFC 2104)'"]
+#[doc = ""]
+#[doc = " @key: Key for HMAC operations"]
+#[doc = " @key_len: Length of the key in bytes"]
+#[doc = " @data: Pointers to the data area"]
+#[doc = " @data_len: Length of the data area"]
+#[doc = " @mac: Buffer for the hash (16 bytes)"]
+#[doc = " Returns: 0 on success, -1 on failure"]
+pub type esp_hmac_md5_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_uint,
+        data: *const ::std::os::raw::c_uchar,
+        data_len: ::std::os::raw::c_uint,
+        mac: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief HMAC-MD5 over data vector (RFC 2104)"]
+#[doc = ""]
+#[doc = " @key: Key for HMAC operations"]
+#[doc = " @key_len: Length of the key in bytes"]
+#[doc = " @num_elem: Number of elements in the data vector"]
+#[doc = " @addr: Pointers to the data areas"]
+#[doc = " @len: Lengths of the data blocks"]
+#[doc = " @mac: Buffer for the hash (16 bytes)"]
+#[doc = " Returns: 0 on success, -1 on failure"]
+pub type esp_hmac_md5_vector_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_uint,
+        num_elem: ::std::os::raw::c_uint,
+        addr: *mut *const ::std::os::raw::c_uchar,
+        len: *const ::std::os::raw::c_uint,
+        mac: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief HMAC-SHA1 over data buffer (RFC 2104)"]
+#[doc = ""]
+#[doc = " @key: Key for HMAC operations"]
+#[doc = " @key_len: Length of the key in bytes"]
+#[doc = " @data: Pointers to the data area"]
+#[doc = " @data_len: Length of the data area"]
+#[doc = " @mac: Buffer for the hash (20 bytes)"]
+#[doc = " Returns: 0 on success, -1 of failure"]
+pub type esp_hmac_sha1_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_uint,
+        data: *const ::std::os::raw::c_uchar,
+        data_len: ::std::os::raw::c_uint,
+        mac: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief HMAC-SHA1 over data vector (RFC 2104)"]
+#[doc = ""]
+#[doc = " @key: Key for HMAC operations"]
+#[doc = " @key_len: Length of the key in bytes"]
+#[doc = " @num_elem: Number of elements in the data vector"]
+#[doc = " @addr: Pointers to the data areas"]
+#[doc = " @len: Lengths of the data blocks"]
+#[doc = " @mac: Buffer for the hash (20 bytes)"]
+#[doc = " Returns: 0 on success, -1 on failure"]
+pub type esp_hmac_sha1_vector_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_uint,
+        num_elem: ::std::os::raw::c_uint,
+        addr: *mut *const ::std::os::raw::c_uchar,
+        len: *const ::std::os::raw::c_uint,
+        mac: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief SHA1-based Pseudo-Random Function (PRF) (IEEE 802.11i, 8.5.1.1)"]
+#[doc = ""]
+#[doc = " @key: Key for PRF"]
+#[doc = " @key_len: Length of the key in bytes"]
+#[doc = " @label: A unique label for each purpose of the PRF"]
+#[doc = " @data: Extra data to bind into the key"]
+#[doc = " @data_len: Length of the data"]
+#[doc = " @buf: Buffer for the generated pseudo-random key"]
+#[doc = " @buf_len: Number of bytes of key to generate"]
+#[doc = " Returns: 0 on success, -1 of failure"]
+#[doc = ""]
+#[doc = " This function is used to derive new, cryptographically separate keys from a"]
+#[doc = " given key (e.g., PMK in IEEE 802.11i)."]
+pub type esp_sha1_prf_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        key_len: ::std::os::raw::c_uint,
+        label: *const ::std::os::raw::c_char,
+        data: *const ::std::os::raw::c_uchar,
+        data_len: ::std::os::raw::c_uint,
+        buf: *mut ::std::os::raw::c_uchar,
+        buf_len: ::std::os::raw::c_uint,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief SHA-1 hash for data vector"]
+#[doc = ""]
+#[doc = " @num_elem: Number of elements in the data vector"]
+#[doc = " @addr: Pointers to the data areas"]
+#[doc = " @len: Lengths of the data blocks"]
+#[doc = " @mac: Buffer for the hash"]
+#[doc = " Returns: 0 on success, -1 on failure"]
+pub type esp_sha1_vector_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        num_elem: ::std::os::raw::c_uint,
+        addr: *mut *const ::std::os::raw::c_uchar,
+        len: *const ::std::os::raw::c_uint,
+        mac: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief SHA1-based key derivation function (PBKDF2) for IEEE 802.11i"]
+#[doc = ""]
+#[doc = " @passphrase: ASCII passphrase"]
+#[doc = " @ssid: SSID"]
+#[doc = " @ssid_len: SSID length in bytes"]
+#[doc = " @iterations: Number of iterations to run"]
+#[doc = " @buf: Buffer for the generated key"]
+#[doc = " @buflen: Length of the buffer in bytes"]
+#[doc = " Returns: 0 on success, -1 of failure"]
+#[doc = ""]
+#[doc = " This function is used to derive PSK for WPA-PSK. For this protocol,"]
+#[doc = " iterations is set to 4096 and buflen to 32. This function is described in"]
+#[doc = " IEEE Std 802.11-2004, Clause H.4. The main construction is from PKCS#5 v2.0."]
+pub type esp_pbkdf2_sha1_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        passphrase: *const ::std::os::raw::c_char,
+        ssid: *const ::std::os::raw::c_char,
+        ssid_len: ::std::os::raw::c_uint,
+        iterations: ::std::os::raw::c_int,
+        buf: *mut ::std::os::raw::c_uchar,
+        buflen: ::std::os::raw::c_uint,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief XOR RC4 stream to given data with skip-stream-start"]
+#[doc = ""]
+#[doc = " @key: RC4 key"]
+#[doc = " @keylen: RC4 key length"]
+#[doc = " @skip: number of bytes to skip from the beginning of the RC4 stream"]
+#[doc = " @data: data to be XOR'ed with RC4 stream"]
+#[doc = " @data_len: buf length"]
+#[doc = " Returns: 0 on success, -1 on failure"]
+#[doc = ""]
+#[doc = " Generate RC4 pseudo random stream for the given key, skip beginning of the"]
+#[doc = " stream, and XOR the end result with the data buffer to perform RC4"]
+#[doc = " encryption/decryption."]
+pub type esp_rc4_skip_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        keylen: ::std::os::raw::c_uint,
+        skip: ::std::os::raw::c_uint,
+        data: *mut ::std::os::raw::c_uchar,
+        data_len: ::std::os::raw::c_uint,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief MD5 hash for data vector"]
+#[doc = ""]
+#[doc = " @num_elem: Number of elements in the data vector"]
+#[doc = " @addr: Pointers to the data areas"]
+#[doc = " @len: Lengths of the data blocks"]
+#[doc = " @mac: Buffer for the hash"]
+#[doc = " Returns: 0 on success, -1 on failure"]
+pub type esp_md5_vector_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        num_elem: ::std::os::raw::c_uint,
+        addr: *mut *const ::std::os::raw::c_uchar,
+        len: *const ::std::os::raw::c_uint,
+        mac: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief Encrypt one AES block"]
+#[doc = ""]
+#[doc = " @ctx: Context pointer from aes_encrypt_init()"]
+#[doc = " @plain: Plaintext data to be encrypted (16 bytes)"]
+#[doc = " @crypt: Buffer for the encrypted data (16 bytes)"]
+pub type esp_aes_encrypt_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        ctx: *mut ::std::os::raw::c_void,
+        plain: *const ::std::os::raw::c_uchar,
+        crypt: *mut ::std::os::raw::c_uchar,
+    ),
+>;
+#[doc = " @brief Initialize AES for encryption"]
+#[doc = ""]
+#[doc = " @key: Encryption key"]
+#[doc = " @len: Key length in bytes (usually 16, i.e., 128 bits)"]
+#[doc = " Returns: Pointer to context data or %NULL on failure"]
+pub type esp_aes_encrypt_init_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        len: ::std::os::raw::c_uint,
+    ) -> *mut ::std::os::raw::c_void,
+>;
+#[doc = " @brief Deinitialize AES encryption"]
+#[doc = ""]
+#[doc = " @ctx: Context pointer from aes_encrypt_init()"]
+pub type esp_aes_encrypt_deinit_t =
+    ::core::option::Option<unsafe extern "C" fn(ctx: *mut ::std::os::raw::c_void)>;
+#[doc = " @brief Decrypt one AES block"]
+#[doc = ""]
+#[doc = " @ctx: Context pointer from aes_encrypt_init()"]
+#[doc = " @crypt: Encrypted data (16 bytes)"]
+#[doc = " @plain: Buffer for the decrypted data (16 bytes)"]
+pub type esp_aes_decrypt_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        ctx: *mut ::std::os::raw::c_void,
+        crypt: *const ::std::os::raw::c_uchar,
+        plain: *mut ::std::os::raw::c_uchar,
+    ),
+>;
+#[doc = " @brief Initialize AES for decryption"]
+#[doc = ""]
+#[doc = " @key: Decryption key"]
+#[doc = " @len: Key length in bytes (usually 16, i.e., 128 bits)"]
+#[doc = " Returns: Pointer to context data or %NULL on failure"]
+pub type esp_aes_decrypt_init_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        key: *const ::std::os::raw::c_uchar,
+        len: ::std::os::raw::c_uint,
+    ) -> *mut ::std::os::raw::c_void,
+>;
+#[doc = " @brief Deinitialize AES decryption"]
+#[doc = ""]
+#[doc = " @ctx: Context pointer from aes_encrypt_init()"]
+pub type esp_aes_decrypt_deinit_t =
+    ::core::option::Option<unsafe extern "C" fn(ctx: *mut ::std::os::raw::c_void)>;
+#[doc = " @brief Initialize TLS library"]
+#[doc = ""]
+#[doc = " @conf: Configuration data for TLS library"]
+#[doc = " Returns: Context data to be used as tls_ctx in calls to other functions,"]
+#[doc = " or %NULL on failure."]
+#[doc = ""]
+#[doc = " Called once during program startup and once for each RSN pre-authentication"]
+#[doc = " session. In other words, there can be two concurrent TLS contexts. If global"]
+#[doc = " library initialization is needed (i.e., one that is shared between both"]
+#[doc = " authentication types), the TLS library wrapper should maintain a reference"]
+#[doc = " counter and do global initialization only when moving from 0 to 1 reference."]
+pub type esp_tls_init_t =
+    ::core::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>;
+#[doc = " @brief Deinitialize TLS library"]
+#[doc = ""]
+#[doc = " @tls_ctx: TLS context data from tls_init()"]
+#[doc = ""]
+#[doc = " Called once during program shutdown and once for each RSN pre-authentication"]
+#[doc = " session. If global library deinitialization is needed (i.e., one that is"]
+#[doc = " shared between both authentication types), the TLS library wrapper should"]
+#[doc = " maintain a reference counter and do global deinitialization only when moving"]
+#[doc = " from 1 to 0 references."]
+pub type esp_tls_deinit_t =
+    ::core::option::Option<unsafe extern "C" fn(tls_ctx: *mut ::std::os::raw::c_void)>;
+#[doc = " @brief Add certificate and private key for connect"]
+#[doc = ""]
+#[doc = " @sm: eap state machine"]
+#[doc = ""]
+#[doc = " Returns: 0 for success, -1 state machine didn't exist, -2 short of certificate or key"]
+pub type esp_eap_peer_blob_init_t = ::core::option::Option<
+    unsafe extern "C" fn(sm: *mut ::std::os::raw::c_void) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief delete the certificate and private"]
+#[doc = ""]
+#[doc = " @sm: eap state machine"]
+#[doc = ""]
+pub type esp_eap_peer_blob_deinit_t =
+    ::core::option::Option<unsafe extern "C" fn(sm: *mut ::std::os::raw::c_void)>;
+#[doc = " @brief Initialize the eap state machine"]
+#[doc = ""]
+#[doc = " @sm: eap state machine"]
+#[doc = " @private_key_passwd: the start address of private_key_passwd"]
+#[doc = " @private_key_passwd_len: length of private_key_password"]
+#[doc = ""]
+#[doc = " Returns: 0 is success, -1 state machine didn't exist, -2 short of parameters"]
+#[doc = ""]
+pub type esp_eap_peer_config_init_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        sm: *mut ::std::os::raw::c_void,
+        private_key_passwd: *mut ::std::os::raw::c_uchar,
+        private_key_passwd_len: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief Deinit the eap state machine"]
+#[doc = ""]
+#[doc = " @sm: eap state machine"]
+#[doc = ""]
+pub type esp_eap_peer_config_deinit_t =
+    ::core::option::Option<unsafe extern "C" fn(sm: *mut ::std::os::raw::c_void)>;
+#[doc = " @brief Register the eap method"]
+#[doc = ""]
+#[doc = " Note: ESP32 only support PEAP/TTLS/TLS three eap methods now."]
+#[doc = ""]
+pub type esp_eap_peer_register_methods_t =
+    ::core::option::Option<unsafe extern "C" fn() -> ::std::os::raw::c_int>;
+#[doc = " @brief remove the eap method"]
+#[doc = ""]
+#[doc = " Note: ESP32 only support PEAP/TTLS/TLS three eap methods now."]
+#[doc = ""]
+pub type esp_eap_peer_unregister_methods_t = ::core::option::Option<unsafe extern "C" fn()>;
+#[doc = " @brief remove the eap method before build new connect"]
+#[doc = ""]
+#[doc = " @sm: eap state machine"]
+#[doc = " @txt: not used now"]
+pub type esp_eap_deinit_prev_method_t = ::core::option::Option<
+    unsafe extern "C" fn(sm: *mut ::std::os::raw::c_void, txt: *const ::std::os::raw::c_char),
+>;
+#[doc = " @brief Get EAP method based on type number"]
+#[doc = ""]
+#[doc = " @vendor: EAP Vendor-Id (0 = IETF)"]
+#[doc = " @method: EAP type number"]
+#[doc = " Returns: Pointer to EAP method or %NULL if not found"]
+pub type esp_eap_peer_get_eap_method_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        vendor: ::std::os::raw::c_int,
+        method: ::std::os::raw::c_int,
+    ) -> *const ::std::os::raw::c_void,
+>;
+#[doc = " @brief Abort EAP authentication"]
+#[doc = ""]
+#[doc = " @sm: Pointer to EAP state machine allocated with eap_peer_sm_init()"]
+#[doc = ""]
+#[doc = " Release system resources that have been allocated for the authentication"]
+#[doc = " session without fully deinitializing the EAP state machine."]
+pub type esp_eap_sm_abort_t =
+    ::core::option::Option<unsafe extern "C" fn(sm: *mut ::std::os::raw::c_void)>;
+#[doc = " @brief Build EAP-NAK for the current network"]
+#[doc = ""]
+#[doc = " @sm: Pointer to EAP state machine allocated with eap_peer_sm_init()"]
+#[doc = " @type: EAP type of the fail reason"]
+#[doc = " @id: EAP identifier for the packet"]
+#[doc = ""]
+#[doc = " This function allocates and builds a nak packet for the"]
+#[doc = " current network. The caller is responsible for freeing the returned data."]
+pub type esp_eap_sm_build_nak_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        sm: *mut ::std::os::raw::c_void,
+        type_: ::std::os::raw::c_int,
+        id: ::std::os::raw::c_uchar,
+    ) -> *mut ::std::os::raw::c_void,
+>;
+#[doc = " @brief Build EAP-Identity/Response for the current network"]
+#[doc = ""]
+#[doc = " @sm: Pointer to EAP state machine allocated with eap_peer_sm_init()"]
+#[doc = " @id: EAP identifier for the packet"]
+#[doc = " @encrypted: Whether the packet is for encrypted tunnel (EAP phase 2)"]
+#[doc = " Returns: Pointer to the allocated EAP-Identity/Response packet or %NULL on"]
+#[doc = " failure"]
+#[doc = ""]
+#[doc = " This function allocates and builds an EAP-Identity/Response packet for the"]
+#[doc = " current network. The caller is responsible for freeing the returned data."]
+pub type esp_eap_sm_build_identity_resp_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        sm: *mut ::std::os::raw::c_void,
+        id: ::std::os::raw::c_uchar,
+        encrypted: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_void,
+>;
+#[doc = " @brief Allocate a buffer for an EAP message"]
+#[doc = ""]
+#[doc = " @vendor: Vendor-Id (0 = IETF)"]
+#[doc = " @type: EAP type"]
+#[doc = " @payload_len: Payload length in bytes (data after Type)"]
+#[doc = " @code: Message Code (EAP_CODE_*)"]
+#[doc = " @identifier: Identifier"]
+#[doc = " Returns: Pointer to the allocated message buffer or %NULL on error"]
+#[doc = ""]
+#[doc = " This function can be used to allocate a buffer for an EAP message and fill"]
+#[doc = " in the EAP header. This function is automatically using expanded EAP header"]
+#[doc = " if the selected Vendor-Id is not IETF. In other words, most EAP methods do"]
+#[doc = " not need to separately select which header type to use when using this"]
+#[doc = " function to allocate the message buffers. The returned buffer has room for"]
+#[doc = " payload_len bytes and has the EAP header and Type field already filled in."]
+pub type esp_eap_msg_alloc_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        vendor: ::std::os::raw::c_int,
+        type_: ::std::os::raw::c_int,
+        payload_len: ::std::os::raw::c_uint,
+        code: ::std::os::raw::c_uchar,
+        identifier: ::std::os::raw::c_uchar,
+    ) -> *mut ::std::os::raw::c_void,
+>;
+#[doc = " @brief get the enrollee mac address"]
+#[doc = " @mac_addr: instore the mac address of enrollee"]
+#[doc = " @uuid: Universally Unique Identifer of the enrollee"]
+#[doc = ""]
+pub type esp_uuid_gen_mac_addr_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        mac_addr: *const ::std::os::raw::c_uchar,
+        uuid: *mut ::std::os::raw::c_uchar,
+    ),
+>;
+#[doc = " @brief free the message after finish DH"]
+#[doc = ""]
+pub type esp_dh5_free_t =
+    ::core::option::Option<unsafe extern "C" fn(ctx: *mut ::std::os::raw::c_void)>;
+#[doc = " @brief Build WPS IE for (Re)Association Request"]
+#[doc = ""]
+#[doc = " @req_type: Value for Request Type attribute"]
+#[doc = " Returns: WPS IE or %NULL on failure"]
+#[doc = ""]
+#[doc = " The caller is responsible for freeing the buffer."]
+pub type esp_wps_build_assoc_req_ie_t = ::core::option::Option<
+    unsafe extern "C" fn(req_type: ::std::os::raw::c_int) -> *mut ::std::os::raw::c_void,
+>;
+#[doc = " @brief Build WPS IE for (Re)Association Response"]
+#[doc = ""]
+#[doc = " Returns: WPS IE or %NULL on failure"]
+#[doc = ""]
+#[doc = " The caller is responsible for freeing the buffer."]
+pub type esp_wps_build_assoc_resp_ie_t =
+    ::core::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>;
+#[doc = " @brief Build WPS IE for Probe Request"]
+#[doc = ""]
+#[doc = " @pw_id: Password ID (DEV_PW_PUSHBUTTON for active PBC and DEV_PW_DEFAULT for"]
+#[doc = " most other use cases)"]
+#[doc = " @dev: Device attributes"]
+#[doc = " @uuid: Own UUID"]
+#[doc = " @req_type: Value for Request Type attribute"]
+#[doc = " @num_req_dev_types: Number of requested device types"]
+#[doc = " @req_dev_types: Requested device types (8 * num_req_dev_types octets) or"]
+#[doc = "\t%NULL if none"]
+#[doc = " Returns: WPS IE or %NULL on failure"]
+#[doc = ""]
+#[doc = " The caller is responsible for freeing the buffer."]
+pub type esp_wps_build_probe_req_ie_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        pw_id: u16,
+        dev: *mut ::std::os::raw::c_void,
+        uuid: *const ::std::os::raw::c_uchar,
+        req_type: ::std::os::raw::c_int,
+        num_req_dev_types: ::std::os::raw::c_uint,
+        req_dev_types: *const ::std::os::raw::c_uchar,
+    ) -> *mut ::std::os::raw::c_void,
+>;
+#[doc = " @brief build public key for exchange in M1"]
+#[doc = ""]
+#[doc = ""]
+pub type esp_wps_build_public_key_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        wps: *mut ::std::os::raw::c_void,
+        msg: *mut ::std::os::raw::c_void,
+        mode: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief get the wps information in exchange password"]
+#[doc = ""]
+#[doc = ""]
+pub type esp_wps_enrollee_get_msg_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        wps: *mut ::std::os::raw::c_void,
+        op_code: *mut ::std::os::raw::c_void,
+    ) -> *mut ::std::os::raw::c_void,
+>;
+#[doc = " @brief deal with the wps information in exchange password"]
+#[doc = ""]
+#[doc = ""]
+pub type esp_wps_enrollee_process_msg_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        wps: *mut ::std::os::raw::c_void,
+        op_code: ::std::os::raw::c_int,
+        msg: *const ::std::os::raw::c_void,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief Generate a random PIN"]
+#[doc = ""]
+#[doc = " Returns: Eight digit PIN (i.e., including the checksum digit)"]
+pub type esp_wps_generate_pin_t =
+    ::core::option::Option<unsafe extern "C" fn() -> ::std::os::raw::c_uint>;
+#[doc = " @brief Check whether WPS IE indicates active PIN"]
+#[doc = ""]
+#[doc = " @msg: WPS IE contents from Beacon or Probe Response frame"]
+#[doc = " Returns: 1 if PIN Registrar is active, 0 if not"]
+pub type esp_wps_is_selected_pin_registrar_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        msg: *const ::std::os::raw::c_void,
+        bssid: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief Check whether WPS IE indicates active PBC"]
+#[doc = ""]
+#[doc = " @msg: WPS IE contents from Beacon or Probe Response frame"]
+#[doc = " Returns: 1 if PBC Registrar is active, 0 if not"]
+pub type esp_wps_is_selected_pbc_registrar_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        msg: *const ::std::os::raw::c_void,
+        bssid: *mut ::std::os::raw::c_uchar,
+    ) -> ::std::os::raw::c_int,
+>;
+#[doc = " @brief The crypto callback function structure used when do station security connect."]
+#[doc = "        The structure can be set as software crypto or the crypto optimized by ESP32"]
+#[doc = "        hardware."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wpa_crypto_funcs_t {
+    pub size: u32,
+    pub version: u32,
+    #[doc = "< station connect function used when send EAPOL frame"]
+    pub aes_wrap: esp_aes_wrap_t,
+    #[doc = "< station connect function used when decrypt key data"]
+    pub aes_unwrap: esp_aes_unwrap_t,
+    #[doc = "< station connect function used when check MIC"]
+    pub hmac_sha256_vector: esp_hmac_sha256_vector_t,
+    #[doc = "< station connect function used when check MIC"]
+    pub sha256_prf: esp_sha256_prf_t,
+    pub hmac_md5: esp_hmac_md5_t,
+    pub hamc_md5_vector: esp_hmac_md5_vector_t,
+    pub hmac_sha1: esp_hmac_sha1_t,
+    pub hmac_sha1_vector: esp_hmac_sha1_vector_t,
+    pub sha1_prf: esp_sha1_prf_t,
+    pub sha1_vector: esp_sha1_vector_t,
+    pub pbkdf2_sha1: esp_pbkdf2_sha1_t,
+    pub rc4_skip: esp_rc4_skip_t,
+    pub md5_vector: esp_md5_vector_t,
+    pub aes_encrypt: esp_aes_encrypt_t,
+    pub aes_encrypt_init: esp_aes_encrypt_init_t,
+    pub aes_encrypt_deinit: esp_aes_encrypt_deinit_t,
+    pub aes_decrypt: esp_aes_decrypt_t,
+    pub aes_decrypt_init: esp_aes_decrypt_init_t,
+    pub aes_decrypt_deinit: esp_aes_decrypt_deinit_t,
+}
+#[doc = " @brief The crypto callback function structure used when do WPS process. The"]
+#[doc = "        structure can be set as software crypto or the crypto optimized by ESP32"]
+#[doc = "        hardware."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wps_crypto_funcs_t {
+    pub size: u32,
+    pub version: u32,
+    #[doc = "< function used to process message when do WPS"]
+    pub aes_128_encrypt: esp_aes_128_encrypt_t,
+    #[doc = "< function used to process message when do WPS"]
+    pub aes_128_decrypt: esp_aes_128_decrypt_t,
+    #[doc = "< function used to calculate public key and private key"]
+    pub crypto_mod_exp: esp_crypto_mod_exp_t,
+    #[doc = "< function used to get attribute"]
+    pub hmac_sha256: esp_hmac_sha256_t,
+    #[doc = "< function used to process message when do WPS"]
+    pub hmac_sha256_vector: esp_hmac_sha256_vector_t,
+    #[doc = "< function used to process message when do WPS"]
+    pub sha256_vector: esp_sha256_vector_t,
+    pub uuid_gen_mac_addr: esp_uuid_gen_mac_addr_t,
+    pub dh5_free: esp_dh5_free_t,
+    pub wps_build_assoc_req_ie: esp_wps_build_assoc_req_ie_t,
+    pub wps_build_assoc_resp_ie: esp_wps_build_assoc_resp_ie_t,
+    pub wps_build_probe_req_ie: esp_wps_build_probe_req_ie_t,
+    pub wps_build_public_key: esp_wps_build_public_key_t,
+    pub wps_enrollee_get_msg: esp_wps_enrollee_get_msg_t,
+    pub wps_enrollee_process_msg: esp_wps_enrollee_process_msg_t,
+    pub wps_generate_pin: esp_wps_generate_pin_t,
+    pub wps_is_selected_pin_registrar: esp_wps_is_selected_pin_registrar_t,
+    pub wps_is_selected_pbc_registrar: esp_wps_is_selected_pbc_registrar_t,
+    pub eap_msg_alloc: esp_eap_msg_alloc_t,
+}
+#[doc = " @brief The crypto callback function structure used when do WPA enterprise connect."]
+#[doc = "        The structure can be set as software crypto or the crypto optimized by ESP32"]
+#[doc = "        hardware."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wpa2_crypto_funcs_t {
+    pub size: u32,
+    pub version: u32,
+    #[doc = "< function used to initialize a crypto_hash structure when use TLSV1"]
+    pub crypto_hash_init: esp_crypto_hash_init_t,
+    #[doc = "< function used to calculate hash data when use TLSV1"]
+    pub crypto_hash_update: esp_crypto_hash_update_t,
+    #[doc = "< function used to finish the hash calculate when use TLSV1"]
+    pub crypto_hash_finish: esp_crypto_hash_finish_t,
+    #[doc = "< function used to initialize a crypt_cipher structure when use TLSV1"]
+    pub crypto_cipher_init: esp_crypto_cipher_init_t,
+    #[doc = "< function used to encrypt cipher when use TLSV1"]
+    pub crypto_cipher_encrypt: esp_crypto_cipher_encrypt_t,
+    #[doc = "< function used to decrypt cipher when use TLSV1"]
+    pub crypto_cipher_decrypt: esp_crypto_cipher_decrypt_t,
+    #[doc = "< function used to free context when use TLSV1"]
+    pub crypto_cipher_deinit: esp_crypto_cipher_deinit_t,
+    #[doc = "< function used to do key exchange when use TLSV1"]
+    pub crypto_mod_exp: esp_crypto_mod_exp_t,
+    #[doc = "< function used to do X.509v3 certificate parsing and processing"]
+    pub sha256_vector: esp_sha256_vector_t,
+    pub tls_init: esp_tls_init_t,
+    pub tls_deinit: esp_tls_deinit_t,
+    pub eap_peer_blob_init: esp_eap_peer_blob_init_t,
+    pub eap_peer_blob_deinit: esp_eap_peer_blob_deinit_t,
+    pub eap_peer_config_init: esp_eap_peer_config_init_t,
+    pub eap_peer_config_deinit: esp_eap_peer_config_deinit_t,
+    pub eap_peer_register_methods: esp_eap_peer_register_methods_t,
+    pub eap_peer_unregister_methods: esp_eap_peer_unregister_methods_t,
+    pub eap_deinit_prev_method: esp_eap_deinit_prev_method_t,
+    pub eap_peer_get_eap_method: esp_eap_peer_get_eap_method_t,
+    pub eap_sm_abort: esp_eap_sm_abort_t,
+    pub eap_sm_build_nak: esp_eap_sm_build_nak_t,
+    pub eap_sm_build_identity_resp: esp_eap_sm_build_identity_resp_t,
+    pub eap_msg_alloc: esp_eap_msg_alloc_t,
+}
+#[doc = " @brief The crypto callback function structure used in mesh vendor IE encryption. The"]
+#[doc = "        structure can be set as software crypto or the crypto optimized by ESP32"]
+#[doc = "        hardware."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct mesh_crypto_funcs_t {
+    #[doc = "< function used in mesh vendor IE encryption"]
+    pub aes_128_encrypt: esp_aes_128_encrypt_t,
+    #[doc = "< function used in mesh vendor IE decryption"]
+    pub aes_128_decrypt: esp_aes_128_decrypt_t,
+}
+pub type esp_event_base_t = *const ::std::os::raw::c_char;
+pub type esp_event_loop_handle_t = *mut ::std::os::raw::c_void;
+pub type esp_event_handler_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        event_handler_arg: *mut ::std::os::raw::c_void,
+        event_base: esp_event_base_t,
+        event_id: i32,
+        event_data: *mut ::std::os::raw::c_void,
+    ),
+>;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tm {
+    pub tm_sec: ::std::os::raw::c_int,
+    pub tm_min: ::std::os::raw::c_int,
+    pub tm_hour: ::std::os::raw::c_int,
+    pub tm_mday: ::std::os::raw::c_int,
+    pub tm_mon: ::std::os::raw::c_int,
+    pub tm_year: ::std::os::raw::c_int,
+    pub tm_wday: ::std::os::raw::c_int,
+    pub tm_yday: ::std::os::raw::c_int,
+    pub tm_isdst: ::std::os::raw::c_int,
+}
+extern "C" {
+    pub fn clock() -> clock_t;
+}
+extern "C" {
+    pub fn difftime(_time2: time_t, _time1: time_t) -> f64;
+}
+extern "C" {
+    pub fn mktime(_timeptr: *mut tm) -> time_t;
+}
+extern "C" {
+    pub fn time(_timer: *mut time_t) -> time_t;
+}
+extern "C" {
+    pub fn asctime(_tblock: *const tm) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn ctime(_time: *const time_t) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn gmtime(_timer: *const time_t) -> *mut tm;
+}
+extern "C" {
+    pub fn localtime(_timer: *const time_t) -> *mut tm;
+}
+extern "C" {
+    pub fn strftime(
+        _s: *mut ::std::os::raw::c_char,
+        _maxsize: usize,
+        _fmt: *const ::std::os::raw::c_char,
+        _t: *const tm,
+    ) -> usize;
+}
+extern "C" {
+    pub fn asctime_r(
+        arg1: *const tm,
+        arg2: *mut ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn ctime_r(
+        arg1: *const time_t,
+        arg2: *mut ::std::os::raw::c_char,
+    ) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn gmtime_r(arg1: *const time_t, arg2: *mut tm) -> *mut tm;
+}
+extern "C" {
+    pub fn localtime_r(arg1: *const time_t, arg2: *mut tm) -> *mut tm;
+}
+extern "C" {
+    pub fn strptime(
+        arg1: *const ::std::os::raw::c_char,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: *mut tm,
+    ) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn tzset();
+}
+extern "C" {
+    pub fn _tzset_r(arg1: *mut _reent);
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __tzrule_struct {
+    pub ch: ::std::os::raw::c_char,
+    pub m: ::std::os::raw::c_int,
+    pub n: ::std::os::raw::c_int,
+    pub d: ::std::os::raw::c_int,
+    pub s: ::std::os::raw::c_int,
+    pub change: time_t,
+    pub offset: ::std::os::raw::c_long,
+}
+pub type __tzrule_type = __tzrule_struct;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __tzinfo_struct {
+    pub __tznorth: ::std::os::raw::c_int,
+    pub __tzyear: ::std::os::raw::c_int,
+    pub __tzrule: [__tzrule_type; 2usize],
+}
+pub type __tzinfo_type = __tzinfo_struct;
+extern "C" {
+    pub fn __gettzinfo() -> *mut __tzinfo_type;
+}
+extern "C" {
+    pub static mut _timezone: ::std::os::raw::c_long;
+}
+extern "C" {
+    pub static mut _daylight: ::std::os::raw::c_int;
+}
+extern "C" {
+    pub static mut _tzname: [*mut ::std::os::raw::c_char; 2usize];
+}
+extern "C" {
+    pub fn clock_settime(clock_id: clockid_t, tp: *const timespec) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn clock_gettime(clock_id: clockid_t, tp: *mut timespec) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn clock_getres(clock_id: clockid_t, res: *mut timespec) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub static mut environ: *mut *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn _exit(__status: ::std::os::raw::c_int);
+}
+extern "C" {
+    pub fn access(
+        __path: *const ::std::os::raw::c_char,
+        __amode: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn alarm(__secs: ::std::os::raw::c_uint) -> ::std::os::raw::c_uint;
+}
+extern "C" {
+    pub fn chdir(__path: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn chmod(__path: *const ::std::os::raw::c_char, __mode: mode_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn chown(
+        __path: *const ::std::os::raw::c_char,
+        __owner: uid_t,
+        __group: gid_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn close(__fildes: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn ctermid(__s: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn cuserid(__s: *mut ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn dup(__fildes: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn dup2(
+        __fildes: ::std::os::raw::c_int,
+        __fildes2: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn execl(
+        __path: *const ::std::os::raw::c_char,
+        arg1: *const ::std::os::raw::c_char,
+        ...
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn execle(
+        __path: *const ::std::os::raw::c_char,
+        arg1: *const ::std::os::raw::c_char,
+        ...
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn execlp(
+        __file: *const ::std::os::raw::c_char,
+        arg1: *const ::std::os::raw::c_char,
+        ...
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn execv(
+        __path: *const ::std::os::raw::c_char,
+        __argv: *const *mut ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn execve(
+        __path: *const ::std::os::raw::c_char,
+        __argv: *const *mut ::std::os::raw::c_char,
+        __envp: *const *mut ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn execvp(
+        __file: *const ::std::os::raw::c_char,
+        __argv: *const *mut ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn faccessat(
+        __dirfd: ::std::os::raw::c_int,
+        __path: *const ::std::os::raw::c_char,
+        __mode: ::std::os::raw::c_int,
+        __flags: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn fchmod(__fildes: ::std::os::raw::c_int, __mode: mode_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn fchown(
+        __fildes: ::std::os::raw::c_int,
+        __owner: uid_t,
+        __group: gid_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn fchownat(
+        __dirfd: ::std::os::raw::c_int,
+        __path: *const ::std::os::raw::c_char,
+        __owner: uid_t,
+        __group: gid_t,
+        __flags: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn fork() -> pid_t;
+}
+extern "C" {
+    pub fn fpathconf(
+        __fd: ::std::os::raw::c_int,
+        __name: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_long;
+}
+extern "C" {
+    pub fn fsync(__fd: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn fdatasync(__fd: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn getcwd(__buf: *mut ::std::os::raw::c_char, __size: usize)
+        -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn getegid() -> gid_t;
+}
+extern "C" {
+    pub fn geteuid() -> uid_t;
+}
+extern "C" {
+    pub fn getgid() -> gid_t;
+}
+extern "C" {
+    pub fn getgroups(
+        __gidsetsize: ::std::os::raw::c_int,
+        __grouplist: *mut gid_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn getlogin() -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn getpass(__prompt: *const ::std::os::raw::c_char) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn getpagesize() -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn getpgid(arg1: pid_t) -> pid_t;
+}
+extern "C" {
+    pub fn getpgrp() -> pid_t;
+}
+extern "C" {
+    pub fn getpid() -> pid_t;
+}
+extern "C" {
+    pub fn getppid() -> pid_t;
+}
+extern "C" {
+    pub fn getuid() -> uid_t;
+}
+extern "C" {
+    pub fn isatty(__fildes: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn lchown(
+        __path: *const ::std::os::raw::c_char,
+        __owner: uid_t,
+        __group: gid_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn link(
+        __path1: *const ::std::os::raw::c_char,
+        __path2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn linkat(
+        __dirfd1: ::std::os::raw::c_int,
+        __path1: *const ::std::os::raw::c_char,
+        __dirfd2: ::std::os::raw::c_int,
+        __path2: *const ::std::os::raw::c_char,
+        __flags: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn nice(__nice_value: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn lseek(
+        __fildes: ::std::os::raw::c_int,
+        __offset: off_t,
+        __whence: ::std::os::raw::c_int,
+    ) -> off_t;
+}
+extern "C" {
+    pub fn pathconf(
+        __path: *const ::std::os::raw::c_char,
+        __name: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_long;
+}
+extern "C" {
+    pub fn pause() -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn pipe(__fildes: *mut ::std::os::raw::c_int) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn pread(
+        __fd: ::std::os::raw::c_int,
+        __buf: *mut ::std::os::raw::c_void,
+        __nbytes: usize,
+        __offset: off_t,
+    ) -> isize;
+}
+extern "C" {
+    pub fn pwrite(
+        __fd: ::std::os::raw::c_int,
+        __buf: *const ::std::os::raw::c_void,
+        __nbytes: usize,
+        __offset: off_t,
+    ) -> isize;
+}
+extern "C" {
+    pub fn read(
+        __fd: ::std::os::raw::c_int,
+        __buf: *mut ::std::os::raw::c_void,
+        __nbyte: usize,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn rmdir(__path: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn sbrk(__incr: isize) -> *mut ::std::os::raw::c_void;
+}
+extern "C" {
+    pub fn setgid(__gid: gid_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn sethostname(arg1: *const ::std::os::raw::c_char, arg2: usize) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn setpgid(__pid: pid_t, __pgid: pid_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn setpgrp() -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn setsid() -> pid_t;
+}
+extern "C" {
+    pub fn setuid(__uid: uid_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn sleep(__seconds: ::std::os::raw::c_uint) -> ::std::os::raw::c_uint;
+}
+extern "C" {
+    pub fn swab(
+        arg1: *const ::std::os::raw::c_void,
+        arg2: *mut ::std::os::raw::c_void,
+        arg3: isize,
+    );
+}
+extern "C" {
+    pub fn sysconf(__name: ::std::os::raw::c_int) -> ::std::os::raw::c_long;
+}
+extern "C" {
+    pub fn tcgetpgrp(__fildes: ::std::os::raw::c_int) -> pid_t;
+}
+extern "C" {
+    pub fn tcsetpgrp(__fildes: ::std::os::raw::c_int, __pgrp_id: pid_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn ttyname(__fildes: ::std::os::raw::c_int) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn unlink(__path: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn usleep(__useconds: useconds_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn vhangup() -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn write(
+        __fd: ::std::os::raw::c_int,
+        __buf: *const ::std::os::raw::c_void,
+        __nbyte: usize,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub static mut optarg: *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub static mut optind: ::std::os::raw::c_int;
+}
+extern "C" {
+    pub static mut opterr: ::std::os::raw::c_int;
+}
+extern "C" {
+    pub static mut optopt: ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn getopt(
+        arg1: ::std::os::raw::c_int,
+        arg2: *const *mut ::std::os::raw::c_char,
+        arg3: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub static mut optreset: ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn vfork() -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn readlink(
+        __path: *const ::std::os::raw::c_char,
+        __buf: *mut ::std::os::raw::c_char,
+        __buflen: usize,
+    ) -> isize;
+}
+extern "C" {
+    pub fn readlinkat(
+        __dirfd1: ::std::os::raw::c_int,
+        __path: *const ::std::os::raw::c_char,
+        __buf: *mut ::std::os::raw::c_char,
+        __buflen: usize,
+    ) -> isize;
+}
+extern "C" {
+    pub fn symlink(
+        __name1: *const ::std::os::raw::c_char,
+        __name2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn symlinkat(
+        arg1: *const ::std::os::raw::c_char,
+        arg2: ::std::os::raw::c_int,
+        arg3: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn unlinkat(
+        arg1: ::std::os::raw::c_int,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn truncate(arg1: *const ::std::os::raw::c_char, __length: off_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn gethostname(__name: *mut ::std::os::raw::c_char, __len: usize) -> ::std::os::raw::c_int;
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct timeval {
+    pub tv_sec: time_t,
+    pub tv_usec: suseconds_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct timezone {
+    pub tz_minuteswest: ::std::os::raw::c_int,
+    pub tz_dsttime: ::std::os::raw::c_int,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct itimerval {
+    pub it_interval: timeval,
+    pub it_value: timeval,
+}
+extern "C" {
+    pub fn gettimeofday(
+        __p: *mut timeval,
+        __tz: *mut ::std::os::raw::c_void,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn settimeofday(arg1: *const timeval, arg2: *const timezone) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn adjtime(arg1: *const timeval, arg2: *mut timeval) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn utimes(
+        __path: *const ::std::os::raw::c_char,
+        __tvp: *const timeval,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn getitimer(
+        __which: ::std::os::raw::c_int,
+        __value: *mut itimerval,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn setitimer(
+        __which: ::std::os::raw::c_int,
+        __value: *const itimerval,
+        __ovalue: *mut itimerval,
+    ) -> ::std::os::raw::c_int;
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct flock {
+    pub l_type: ::std::os::raw::c_short,
+    pub l_whence: ::std::os::raw::c_short,
+    pub l_start: ::std::os::raw::c_long,
+    pub l_len: ::std::os::raw::c_long,
+    pub l_pid: ::std::os::raw::c_short,
+    pub l_xxx: ::std::os::raw::c_short,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct eflock {
+    pub l_type: ::std::os::raw::c_short,
+    pub l_whence: ::std::os::raw::c_short,
+    pub l_start: ::std::os::raw::c_long,
+    pub l_len: ::std::os::raw::c_long,
+    pub l_pid: ::std::os::raw::c_short,
+    pub l_xxx: ::std::os::raw::c_short,
+    pub l_rpid: ::std::os::raw::c_long,
+    pub l_rsys: ::std::os::raw::c_long,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct stat {
+    pub st_dev: dev_t,
+    pub st_ino: ino_t,
+    pub st_mode: mode_t,
+    pub st_nlink: nlink_t,
+    pub st_uid: uid_t,
+    pub st_gid: gid_t,
+    pub st_rdev: dev_t,
+    pub st_size: off_t,
+    pub st_atime: time_t,
+    pub st_spare1: ::std::os::raw::c_long,
+    pub st_mtime: time_t,
+    pub st_spare2: ::std::os::raw::c_long,
+    pub st_ctime: time_t,
+    pub st_spare3: ::std::os::raw::c_long,
+    pub st_blksize: ::std::os::raw::c_long,
+    pub st_blocks: ::std::os::raw::c_long,
+    pub st_spare4: [::std::os::raw::c_long; 2usize],
+}
+extern "C" {
+    pub fn fstat(__fd: ::std::os::raw::c_int, __sbuf: *mut stat) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn mkdir(_path: *const ::std::os::raw::c_char, __mode: mode_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn mkfifo(__path: *const ::std::os::raw::c_char, __mode: mode_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn stat(__path: *const ::std::os::raw::c_char, __sbuf: *mut stat) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn umask(__mask: mode_t) -> mode_t;
+}
+extern "C" {
+    pub fn fchmodat(
+        arg1: ::std::os::raw::c_int,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: mode_t,
+        arg4: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn fstatat(
+        arg1: ::std::os::raw::c_int,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: *mut stat,
+        arg4: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn mkdirat(
+        arg1: ::std::os::raw::c_int,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: mode_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn mkfifoat(
+        arg1: ::std::os::raw::c_int,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: mode_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn mknodat(
+        arg1: ::std::os::raw::c_int,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: mode_t,
+        arg4: dev_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn utimensat(
+        arg1: ::std::os::raw::c_int,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: *const timespec,
+        arg4: ::std::os::raw::c_int,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn futimens(arg1: ::std::os::raw::c_int, arg2: *const timespec) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn open(
+        arg1: *const ::std::os::raw::c_char,
+        arg2: ::std::os::raw::c_int,
+        ...
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn openat(
+        arg1: ::std::os::raw::c_int,
+        arg2: *const ::std::os::raw::c_char,
+        arg3: ::std::os::raw::c_int,
+        ...
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn creat(arg1: *const ::std::os::raw::c_char, arg2: mode_t) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn fcntl(
+        arg1: ::std::os::raw::c_int,
+        arg2: ::std::os::raw::c_int,
+        ...
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn flock(arg1: ::std::os::raw::c_int, arg2: ::std::os::raw::c_int)
+        -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn ioctl(
+        fd: ::std::os::raw::c_int,
+        request: ::std::os::raw::c_int,
+        ...
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn select(
+        nfds: ::std::os::raw::c_int,
+        readfds: *mut _types_fd_set,
+        writefds: *mut _types_fd_set,
+        errorfds: *mut _types_fd_set,
+        timeout: *mut timeval,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn dhcp_ip_addr_restore(netif: *mut ::std::os::raw::c_void) -> bool;
+}
+extern "C" {
+    pub fn dhcp_ip_addr_store(netif: *mut ::std::os::raw::c_void);
+}
+extern "C" {
+    pub fn dhcp_ip_addr_erase(netif: *mut ::std::os::raw::c_void);
+}
+pub type error_t = ::std::os::raw::c_int;
+extern "C" {
+    pub fn __errno() -> *mut ::std::os::raw::c_int;
+}
+extern "C" {
+    pub static mut _sys_errlist: [*const ::std::os::raw::c_char; 0usize];
+}
+extern "C" {
+    pub static mut _sys_nerr: ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn esp_vfs_lwip_sockets_register();
+}
+pub type sys_sem_t = SemaphoreHandle_t;
+pub type sys_mutex_t = SemaphoreHandle_t;
+pub type sys_thread_t = TaskHandle_t;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct sys_mbox_s {
+    pub os_mbox: QueueHandle_t,
+    pub owner: *mut ::std::os::raw::c_void,
+}
+pub type sys_mbox_t = *mut sys_mbox_s;
+extern "C" {
+    pub fn sys_delay_ms(ms: u32);
+}
+extern "C" {
+    pub fn sys_thread_sem_init() -> *mut sys_sem_t;
+}
+extern "C" {
+    pub fn sys_thread_sem_deinit();
+}
+extern "C" {
+    pub fn sys_thread_sem_get() -> *mut sys_sem_t;
+}
+pub type u8_t = u8;
+pub type s8_t = i8;
+pub type u16_t = u16;
+pub type s16_t = i16;
+pub type u32_t = u32;
+pub type s32_t = i32;
+pub type mem_ptr_t = ::std::os::raw::c_ulong;
+pub type sys_prot_t = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct imaxdiv_t {
+    pub quot: intmax_t,
+    pub rem: intmax_t,
+}
+extern "C" {
+    pub fn imaxabs(j: intmax_t) -> intmax_t;
+}
+extern "C" {
+    pub fn imaxdiv(numer: intmax_t, denomer: intmax_t) -> imaxdiv_t;
+}
+extern "C" {
+    pub fn strtoimax(
+        arg1: *const ::std::os::raw::c_char,
+        arg2: *mut *mut ::std::os::raw::c_char,
+        arg3: ::std::os::raw::c_int,
+    ) -> intmax_t;
+}
+extern "C" {
+    pub fn strtoumax(
+        arg1: *const ::std::os::raw::c_char,
+        arg2: *mut *mut ::std::os::raw::c_char,
+        arg3: ::std::os::raw::c_int,
+    ) -> uintmax_t;
+}
+extern "C" {
+    pub fn wcstoimax(
+        arg1: *const wchar_t,
+        arg2: *mut *mut wchar_t,
+        arg3: ::std::os::raw::c_int,
+    ) -> intmax_t;
+}
+extern "C" {
+    pub fn wcstoumax(
+        arg1: *const wchar_t,
+        arg2: *mut *mut wchar_t,
+        arg3: ::std::os::raw::c_int,
+    ) -> uintmax_t;
+}
+extern "C" {
+    pub fn lwip_htons(x: u16_t) -> u16_t;
+}
+extern "C" {
+    pub fn lwip_htonl(x: u32_t) -> u32_t;
+}
+extern "C" {
+    pub fn lwip_itoa(
+        result: *mut ::std::os::raw::c_char,
+        bufsize: usize,
+        number: ::std::os::raw::c_int,
+    );
+}
+extern "C" {
+    pub fn lwip_strnicmp(
+        str1: *const ::std::os::raw::c_char,
+        str2: *const ::std::os::raw::c_char,
+        len: usize,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn lwip_stricmp(
+        str1: *const ::std::os::raw::c_char,
+        str2: *const ::std::os::raw::c_char,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub fn lwip_strnstr(
+        buffer: *const ::std::os::raw::c_char,
+        token: *const ::std::os::raw::c_char,
+        n: usize,
+    ) -> *mut ::std::os::raw::c_char;
+}
+#[doc = " This is the aligned version of ip4_addr_t,"]
+#[doc = "used as local variable, on the stack, etc."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ip4_addr {
+    pub addr: u32_t,
+}
+#[doc = " ip4_addr_t uses a struct for convenience only, so that the same defines can"]
+#[doc = " operate both on ip4_addr_t as well as on ip4_addr_p_t."]
+pub type ip4_addr_t = ip4_addr;
+#[repr(C, packed)]
+#[derive(Debug, Copy, Clone)]
+pub struct ip4_addr2 {
+    pub addrw: [u16_t; 2usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct netif {
+    _unused: [u8; 0],
+}
+extern "C" {
+    pub fn ip4_addr_isbroadcast_u32(addr: u32_t, netif: *const netif) -> u8_t;
+}
+extern "C" {
+    pub fn ip4_addr_netmask_valid(netmask: u32_t) -> u8_t;
+}
+extern "C" {
+    pub fn ipaddr_addr(cp: *const ::std::os::raw::c_char) -> u32_t;
+}
+extern "C" {
+    pub fn ip4addr_aton(
+        cp: *const ::std::os::raw::c_char,
+        addr: *mut ip4_addr_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " returns ptr to static buffer; not reentrant!"]
+    pub fn ip4addr_ntoa(addr: *const ip4_addr_t) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn ip4addr_ntoa_r(
+        addr: *const ip4_addr_t,
+        buf: *mut ::std::os::raw::c_char,
+        buflen: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+}
+#[doc = " This is the aligned version of ip6_addr_t,"]
+#[doc = "used as local variable, on the stack, etc."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ip6_addr {
+    pub addr: [u32_t; 4usize],
+}
+#[doc = " IPv6 address"]
+pub type ip6_addr_t = ip6_addr;
+extern "C" {
+    pub fn ip6addr_aton(
+        cp: *const ::std::os::raw::c_char,
+        addr: *mut ip6_addr_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    #[doc = " returns ptr to static buffer; not reentrant!"]
+    pub fn ip6addr_ntoa(addr: *const ip6_addr_t) -> *mut ::std::os::raw::c_char;
+}
+extern "C" {
+    pub fn ip6addr_ntoa_r(
+        addr: *const ip6_addr_t,
+        buf: *mut ::std::os::raw::c_char,
+        buflen: ::std::os::raw::c_int,
+    ) -> *mut ::std::os::raw::c_char;
+}
+#[doc = " IPv4"]
+pub const lwip_ip_addr_type_IPADDR_TYPE_V4: lwip_ip_addr_type = 0;
+#[doc = " IPv6"]
+pub const lwip_ip_addr_type_IPADDR_TYPE_V6: lwip_ip_addr_type = 6;
+#[doc = " IPv4+IPv6 (\"dual-stack\")"]
+pub const lwip_ip_addr_type_IPADDR_TYPE_ANY: lwip_ip_addr_type = 46;
+#[doc = " @ingroup ipaddr"]
+#[doc = " IP address types for use in ip_addr_t.type member."]
+#[doc = " @see tcp_new_ip_type(), udp_new_ip_type(), raw_new_ip_type()."]
+pub type lwip_ip_addr_type = u32;
+#[doc = " @ingroup ipaddr"]
+#[doc = " A union struct for both IP version's addresses."]
+#[doc = " ATTENTION: watch out for its size when adding IPv6 address scope!"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct ip_addr {
+    pub u_addr: ip_addr__bindgen_ty_1,
+    #[doc = " @ref lwip_ip_addr_type"]
+    pub type_: u8_t,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union ip_addr__bindgen_ty_1 {
+    pub ip6: ip6_addr_t,
+    pub ip4: ip4_addr_t,
+    _bindgen_union_align: [u32; 4usize],
+}
+pub type ip_addr_t = ip_addr;
+extern "C" {
+    pub static ip_addr_any_type: ip_addr_t;
+}
+extern "C" {
+    pub fn ipaddr_aton(
+        cp: *const ::std::os::raw::c_char,
+        addr: *mut ip_addr_t,
+    ) -> ::std::os::raw::c_int;
+}
+extern "C" {
+    pub static ip_addr_any: ip_addr_t;
+}
+extern "C" {
+    pub static ip_addr_broadcast: ip_addr_t;
+}
+extern "C" {
+    pub static ip6_addr_any: ip_addr_t;
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct dhcps_state {
+    pub state: s16_t,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct dhcps_msg {
+    pub op: u8_t,
+    pub htype: u8_t,
+    pub hlen: u8_t,
+    pub hops: u8_t,
+    pub xid: [u8_t; 4usize],
+    pub secs: u16_t,
+    pub flags: u16_t,
+    pub ciaddr: [u8_t; 4usize],
+    pub yiaddr: [u8_t; 4usize],
+    pub siaddr: [u8_t; 4usize],
+    pub giaddr: [u8_t; 4usize],
+    pub chaddr: [u8_t; 16usize],
+    pub sname: [u8_t; 64usize],
+    pub file: [u8_t; 128usize],
+    pub options: [u8_t; 312usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct dhcps_lease_t {
+    pub enable: bool,
+    pub start_ip: ip4_addr_t,
+    pub end_ip: ip4_addr_t,
+}
+pub const dhcps_offer_option_OFFER_START: dhcps_offer_option = 0;
+pub const dhcps_offer_option_OFFER_ROUTER: dhcps_offer_option = 1;
+pub const dhcps_offer_option_OFFER_DNS: dhcps_offer_option = 2;
+pub const dhcps_offer_option_OFFER_END: dhcps_offer_option = 3;
+pub type dhcps_offer_option = u32;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct dhcps_pool {
+    pub ip: ip4_addr_t,
+    pub mac: [u8_t; 6usize],
+    pub lease_timer: u32_t,
+}
+pub type dhcps_time_t = u32_t;
+pub type dhcps_offer_t = u8_t;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct dhcps_options_t {
+    pub dhcps_offer: dhcps_offer_t,
+    pub dhcps_dns: dhcps_offer_t,
+    pub dhcps_time: dhcps_time_t,
+    pub dhcps_poll: dhcps_lease_t,
+}
+pub type dhcps_cb_t = ::core::option::Option<unsafe extern "C" fn(client_ip: *mut u8_t)>;
+extern "C" {
+    pub fn dhcps_start(netif: *mut netif, ip: ip4_addr_t);
+}
+extern "C" {
+    pub fn dhcps_stop(netif: *mut netif);
+}
+extern "C" {
+    pub fn dhcps_option_info(op_id: u8_t, opt_len: u32_t) -> *mut ::std::os::raw::c_void;
+}
+extern "C" {
+    pub fn dhcps_set_option_info(
+        op_id: u8_t,
+        opt_info: *mut ::std::os::raw::c_void,
+        opt_len: u32_t,
+    );
+}
+extern "C" {
+    pub fn dhcp_search_ip_on_mac(mac: *mut u8_t, ip: *mut ip4_addr_t) -> bool;
+}
+extern "C" {
+    pub fn dhcps_dns_setserver(dnsserver: *const ip_addr_t);
+}
+extern "C" {
+    pub fn dhcps_dns_getserver() -> ip4_addr_t;
+}
+extern "C" {
+    pub fn dhcps_set_new_lease_cb(cb: dhcps_cb_t);
+}
+pub type tcpip_adapter_dhcps_lease_t = dhcps_lease_t;
+#[doc = " @brief IPV4 IP address information"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tcpip_adapter_ip_info_t {
+    #[doc = "< Interface IPV4 address"]
+    pub ip: ip4_addr_t,
+    #[doc = "< Interface IPV4 netmask"]
+    pub netmask: ip4_addr_t,
+    #[doc = "< Interface IPV4 gateway address"]
+    pub gw: ip4_addr_t,
+}
+#[doc = " @brief IPV6 IP address information"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tcpip_adapter_ip6_info_t {
+    #[doc = "< Interface IPV6 address"]
+    pub ip: ip6_addr_t,
+}
+#[doc = " @brief IP address info of station connected to WLAN AP"]
+#[doc = ""]
+#[doc = " @note See also wifi_sta_info_t (MAC layer information only)"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tcpip_adapter_sta_info_t {
+    #[doc = "< Station MAC address"]
+    pub mac: [u8; 6usize],
+    #[doc = "< Station assigned IP address"]
+    pub ip: ip4_addr_t,
+}
+#[doc = " @brief WLAN AP: Connected stations list"]
+#[doc = ""]
+#[doc = " Used to retrieve IP address information about connected stations."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct tcpip_adapter_sta_list_t {
+    #[doc = "< Connected stations"]
+    pub sta: [tcpip_adapter_sta_info_t; 10usize],
+    #[doc = "< Number of connected stations"]
+    pub num: ::std::os::raw::c_int,
+}
+#[doc = "< Wi-Fi STA (station) interface"]
+pub const tcpip_adapter_if_t_TCPIP_ADAPTER_IF_STA: tcpip_adapter_if_t = 0;
+#[doc = "< Wi-Fi soft-AP interface"]
+pub const tcpip_adapter_if_t_TCPIP_ADAPTER_IF_AP: tcpip_adapter_if_t = 1;
+#[doc = "< Ethernet interface"]
+pub const tcpip_adapter_if_t_TCPIP_ADAPTER_IF_ETH: tcpip_adapter_if_t = 2;
+pub const tcpip_adapter_if_t_TCPIP_ADAPTER_IF_MAX: tcpip_adapter_if_t = 3;
+pub type tcpip_adapter_if_t = u32;
+#[doc = "< DNS main server address"]
+pub const tcpip_adapter_dns_type_t_TCPIP_ADAPTER_DNS_MAIN: tcpip_adapter_dns_type_t = 0;
+#[doc = "< DNS backup server address (Wi-Fi STA and Ethernet only)"]
+pub const tcpip_adapter_dns_type_t_TCPIP_ADAPTER_DNS_BACKUP: tcpip_adapter_dns_type_t = 1;
+#[doc = "< DNS fallback server address (Wi-Fi STA and Ethernet only)"]
+pub const tcpip_adapter_dns_type_t_TCPIP_ADAPTER_DNS_FALLBACK: tcpip_adapter_dns_type_t = 2;
+pub const tcpip_adapter_dns_type_t_TCPIP_ADAPTER_DNS_MAX: tcpip_adapter_dns_type_t = 3;
+#[doc = " @brief Type of DNS server"]
+pub type tcpip_adapter_dns_type_t = u32;
+#[doc = " @brief DNS server info"]
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct tcpip_adapter_dns_info_t {
+    #[doc = "< IPV4 address of DNS server"]
+    pub ip: ip_addr_t,
+}
+#[doc = "< DHCP client/server is in initial state (not yet started)"]
+pub const tcpip_adapter_dhcp_status_t_TCPIP_ADAPTER_DHCP_INIT: tcpip_adapter_dhcp_status_t = 0;
+#[doc = "< DHCP client/server has been started"]
+pub const tcpip_adapter_dhcp_status_t_TCPIP_ADAPTER_DHCP_STARTED: tcpip_adapter_dhcp_status_t = 1;
+#[doc = "< DHCP client/server has been stopped"]
+pub const tcpip_adapter_dhcp_status_t_TCPIP_ADAPTER_DHCP_STOPPED: tcpip_adapter_dhcp_status_t = 2;
+pub const tcpip_adapter_dhcp_status_t_TCPIP_ADAPTER_DHCP_STATUS_MAX: tcpip_adapter_dhcp_status_t =
+    3;
+#[doc = " @brief Status of DHCP client or DHCP server"]
+pub type tcpip_adapter_dhcp_status_t = u32;
+pub const tcpip_adapter_dhcp_option_mode_t_TCPIP_ADAPTER_OP_START:
+    tcpip_adapter_dhcp_option_mode_t = 0;
+#[doc = "< Set option"]
+pub const tcpip_adapter_dhcp_option_mode_t_TCPIP_ADAPTER_OP_SET: tcpip_adapter_dhcp_option_mode_t =
+    1;
+#[doc = "< Get option"]
+pub const tcpip_adapter_dhcp_option_mode_t_TCPIP_ADAPTER_OP_GET: tcpip_adapter_dhcp_option_mode_t =
+    2;
+pub const tcpip_adapter_dhcp_option_mode_t_TCPIP_ADAPTER_OP_MAX: tcpip_adapter_dhcp_option_mode_t =
+    3;
+#[doc = " @brief Mode for DHCP client or DHCP server option functions"]
+pub type tcpip_adapter_dhcp_option_mode_t = u32;
+pub use self::tcpip_adapter_dhcp_option_mode_t as tcpip_adapter_option_mode_t;
+#[doc = "< Domain name server"]
+pub const tcpip_adapter_dhcp_option_id_t_TCPIP_ADAPTER_DOMAIN_NAME_SERVER:
+    tcpip_adapter_dhcp_option_id_t = 6;
+#[doc = "< Solicitation router address"]
+pub const tcpip_adapter_dhcp_option_id_t_TCPIP_ADAPTER_ROUTER_SOLICITATION_ADDRESS:
+    tcpip_adapter_dhcp_option_id_t = 32;
+#[doc = "< Request specific IP address"]
+pub const tcpip_adapter_dhcp_option_id_t_TCPIP_ADAPTER_REQUESTED_IP_ADDRESS:
+    tcpip_adapter_dhcp_option_id_t = 50;
+#[doc = "< Request IP address lease time"]
+pub const tcpip_adapter_dhcp_option_id_t_TCPIP_ADAPTER_IP_ADDRESS_LEASE_TIME:
+    tcpip_adapter_dhcp_option_id_t = 51;
+#[doc = "< Request IP address retry counter"]
+pub const tcpip_adapter_dhcp_option_id_t_TCPIP_ADAPTER_IP_REQUEST_RETRY_TIME:
+    tcpip_adapter_dhcp_option_id_t = 52;
+#[doc = " @brief Supported options for DHCP client or DHCP server"]
+pub type tcpip_adapter_dhcp_option_id_t = u32;
+pub use self::tcpip_adapter_dhcp_option_id_t as tcpip_adapter_option_id_t;
+extern "C" {
+    #[doc = " @brief  Initialize the underlying TCP/IP stack"]
+    #[doc = ""]
+    #[doc = " @note This function should be called exactly once from application code, when the application starts up."]
+    pub fn tcpip_adapter_init();
+}
+extern "C" {
+    #[doc = " @brief  Cause the TCP/IP stack to start the Ethernet interface with specified MAC and IP"]
+    #[doc = ""]
+    #[doc = " @note This function should be called after the Ethernet MAC hardware is initialized. In the default configuration, application code does not need to call this function - it is called automatically by the default handler for the SYSTEM_EVENT_ETH_START event."]
+    #[doc = ""]
+    #[doc = " @param[in]  mac Set MAC address of this interface"]
+    #[doc = " @param[in]  ip_info Set IP address of this interface"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "         - ESP_ERR_NO_MEM"]
+    pub fn tcpip_adapter_eth_start(
+        mac: *mut u8,
+        ip_info: *mut tcpip_adapter_ip_info_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Cause the TCP/IP stack to start the Wi-Fi station interface with specified MAC and IP"]
+    #[doc = ""]
+    #[doc = ""]
+    #[doc = " @note This function should be called after the Wi-Fi Station hardware is initialized. In the default configuration, application code does not need to call this function - it is called automatically by the default handler for the SYSTEM_EVENT_STA_START event."]
+    #[doc = ""]
+    #[doc = " @param[in]  mac Set MAC address of this interface"]
+    #[doc = " @param[in]  ip_info Set IP address of this interface"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "         - ESP_ERR_NO_MEM"]
+    pub fn tcpip_adapter_sta_start(
+        mac: *mut u8,
+        ip_info: *mut tcpip_adapter_ip_info_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Cause the TCP/IP stack to start the Wi-Fi AP interface with specified MAC and IP"]
+    #[doc = ""]
+    #[doc = " @note This function should be called after the Wi-Fi AP hardware is initialized. In the default configuration, application code does not need to call this function - it is called automatically by the default handler for the SYSTEM_EVENT_AP_START event."]
+    #[doc = ""]
+    #[doc = " DHCP server will be started automatically when this function is called."]
+    #[doc = ""]
+    #[doc = " @param[in]  mac Set MAC address of this interface"]
+    #[doc = " @param[in]  ip_info Set IP address of this interface"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "         - ESP_ERR_NO_MEM"]
+    pub fn tcpip_adapter_ap_start(mac: *mut u8, ip_info: *mut tcpip_adapter_ip_info_t)
+        -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Cause the TCP/IP stack to stop a network interface"]
+    #[doc = ""]
+    #[doc = " Causes TCP/IP stack to clean up this interface. This includes stopping the DHCP server or client, if they are started."]
+    #[doc = ""]
+    #[doc = " @note This API is called by the default Wi-Fi and Ethernet event handlers if the underlying network driver reports that the"]
+    #[doc = " interface has stopped."]
+    #[doc = ""]
+    #[doc = " @note To stop an interface from application code, call the network-specific API (esp_wifi_stop() or esp_eth_stop())."]
+    #[doc = " The driver layer will then send a stop event and the event handler should call this API."]
+    #[doc = " Otherwise, the driver and MAC layer will remain started."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface which will be stopped"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_IF_NOT_READY"]
+    pub fn tcpip_adapter_stop(tcpip_if: tcpip_adapter_if_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Cause the TCP/IP stack to bring up an interface"]
+    #[doc = ""]
+    #[doc = " @note This function is called automatically by the default event handlers for the Wi-Fi Station and Ethernet interfaces,"]
+    #[doc = " in response to the SYSTEM_EVENT_STA_CONNECTED and SYSTEM_EVENT_ETH_CONNECTED events, respectively."]
+    #[doc = ""]
+    #[doc = " @note This function is not normally used with Wi-Fi AP interface. If the AP interface is started, it is up."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to bring up"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_IF_NOT_READY"]
+    pub fn tcpip_adapter_up(tcpip_if: tcpip_adapter_if_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Cause the TCP/IP stack to shutdown an interface"]
+    #[doc = ""]
+    #[doc = " @note This function is called automatically by the default event handlers for the Wi-Fi Station and Ethernet interfaces,"]
+    #[doc = " in response to the SYSTEM_EVENT_STA_DISCONNECTED and SYSTEM_EVENT_ETH_DISCONNECTED events, respectively."]
+    #[doc = ""]
+    #[doc = " @note This function is not normally used with Wi-Fi AP interface. If the AP interface is stopped, it is down."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to shutdown"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_IF_NOT_READY"]
+    pub fn tcpip_adapter_down(tcpip_if: tcpip_adapter_if_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get interface's IP address information"]
+    #[doc = ""]
+    #[doc = " If the interface is up, IP information is read directly from the TCP/IP stack."]
+    #[doc = ""]
+    #[doc = " If the interface is down, IP information is read from a copy kept in the TCP/IP adapter"]
+    #[doc = " library itself."]
+    #[doc = ""]
+    #[doc = " @param[in]   tcpip_if Interface to get IP information"]
+    #[doc = " @param[out]  ip_info If successful, IP information will be returned in this argument."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    pub fn tcpip_adapter_get_ip_info(
+        tcpip_if: tcpip_adapter_if_t,
+        ip_info: *mut tcpip_adapter_ip_info_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Set interface's IP address information"]
+    #[doc = ""]
+    #[doc = " This function is mainly used to set a static IP on an interface."]
+    #[doc = ""]
+    #[doc = " If the interface is up, the new IP information is set directly in the TCP/IP stack."]
+    #[doc = ""]
+    #[doc = " The copy of IP information kept in the TCP/IP adapter library is also updated (this"]
+    #[doc = " copy is returned if the IP is queried while the interface is still down.)"]
+    #[doc = ""]
+    #[doc = " @note DHCP client/server must be stopped before setting new IP information."]
+    #[doc = ""]
+    #[doc = " @note Calling this interface for the Wi-Fi STA or Ethernet interfaces may generate a"]
+    #[doc = " SYSTEM_EVENT_STA_GOT_IP or SYSTEM_EVENT_ETH_GOT_IP event."]
+    #[doc = ""]
+    #[doc = " @param[in] tcpip_if Interface to set IP information"]
+    #[doc = " @param[in] ip_info IP information to set on the specified interface"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_DHCP_NOT_STOPPED If DHCP server or client is still running"]
+    pub fn tcpip_adapter_set_ip_info(
+        tcpip_if: tcpip_adapter_if_t,
+        ip_info: *const tcpip_adapter_ip_info_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Set DNS Server information"]
+    #[doc = ""]
+    #[doc = " This function behaves differently for different interfaces:"]
+    #[doc = ""]
+    #[doc = " - For Wi-Fi Station interface and Ethernet interface, up to three types of DNS server can be set (in order of priority):"]
+    #[doc = "   - Main DNS Server (TCPIP_ADAPTER_DNS_MAIN)"]
+    #[doc = "   - Backup DNS Server (TCPIP_ADAPTER_DNS_BACKUP)"]
+    #[doc = "   - Fallback DNS Server (TCPIP_ADAPTER_DNS_FALLBACK)"]
+    #[doc = ""]
+    #[doc = "   If DHCP client is enabled, main and backup DNS servers will be updated automatically from the DHCP lease if the relevant DHCP options are set. Fallback DNS Server is never updated from the DHCP lease and is designed to be set via this API."]
+    #[doc = ""]
+    #[doc = "   If DHCP client is disabled, all DNS server types can be set via this API only."]
+    #[doc = ""]
+    #[doc = " - For Wi-Fi AP interface, the Main DNS Server setting is used by the DHCP server to provide a DNS Server option to DHCP clients (Wi-Fi stations)."]
+    #[doc = "   - The default Main DNS server is the IP of the Wi-Fi AP interface itself."]
+    #[doc = "   - This function can override it by setting server type TCPIP_ADAPTER_DNS_MAIN."]
+    #[doc = "   - Other DNS Server types are not supported for the Wi-Fi AP interface."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to set DNS Server information"]
+    #[doc = " @param[in]  type Type of DNS Server to set: TCPIP_ADAPTER_DNS_MAIN, TCPIP_ADAPTER_DNS_BACKUP, TCPIP_ADAPTER_DNS_FALLBACK"]
+    #[doc = " @param[in]  dns  DNS Server address to set"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK on success"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS invalid params"]
+    pub fn tcpip_adapter_set_dns_info(
+        tcpip_if: tcpip_adapter_if_t,
+        type_: tcpip_adapter_dns_type_t,
+        dns: *mut tcpip_adapter_dns_info_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get DNS Server information"]
+    #[doc = ""]
+    #[doc = " Return the currently configured DNS Server address for the specified interface and Server type."]
+    #[doc = ""]
+    #[doc = " This may be result of a previous call to tcpip_adapter_set_dns_info(). If the interface's DHCP client is enabled,"]
+    #[doc = " the Main or Backup DNS Server may be set by the current DHCP lease."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to get DNS Server information"]
+    #[doc = " @param[in]  type Type of DNS Server to get: TCPIP_ADAPTER_DNS_MAIN, TCPIP_ADAPTER_DNS_BACKUP, TCPIP_ADAPTER_DNS_FALLBACK"]
+    #[doc = " @param[out] dns  DNS Server result is written here on success"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK on success"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS invalid params"]
+    pub fn tcpip_adapter_get_dns_info(
+        tcpip_if: tcpip_adapter_if_t,
+        type_: tcpip_adapter_dns_type_t,
+        dns: *mut tcpip_adapter_dns_info_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get interface's old IP information"]
+    #[doc = ""]
+    #[doc = " Returns an \"old\" IP address previously stored for the interface when the valid IP changed."]
+    #[doc = ""]
+    #[doc = " If the IP lost timer has expired (meaning the interface was down for longer than the configured interval)"]
+    #[doc = " then the old IP information will be zero."]
+    #[doc = ""]
+    #[doc = " @param[in]   tcpip_if Interface to get old IP information"]
+    #[doc = " @param[out]  ip_info If successful, IP information will be returned in this argument."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    pub fn tcpip_adapter_get_old_ip_info(
+        tcpip_if: tcpip_adapter_if_t,
+        ip_info: *mut tcpip_adapter_ip_info_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Set interface old IP information"]
+    #[doc = ""]
+    #[doc = " This function is called from the DHCP client for the Wi-Fi STA and Ethernet interfaces, before a new IP is set. It is also called from the default handlers for the SYSTEM_EVENT_STA_CONNECTED and SYSTEM_EVENT_ETH_CONNECTED events."]
+    #[doc = ""]
+    #[doc = " Calling this function stores the previously configured IP, which can be used to determine if the IP changes in the future."]
+    #[doc = ""]
+    #[doc = " If the interface is disconnected or down for too long, the \"IP lost timer\" will expire (after the configured interval) and set the old IP information to zero."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to set old IP information"]
+    #[doc = " @param[in]  ip_info Store the old IP information for the specified interface"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    pub fn tcpip_adapter_set_old_ip_info(
+        tcpip_if: tcpip_adapter_if_t,
+        ip_info: *const tcpip_adapter_ip_info_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Create interface link-local IPv6 address"]
+    #[doc = ""]
+    #[doc = " Cause the TCP/IP stack to create a link-local IPv6 address for the specified interface."]
+    #[doc = ""]
+    #[doc = " This function also registers a callback for the specified interface, so that if the link-local address becomes verified as the preferred address then a SYSTEM_EVENT_GOT_IP6 event will be sent."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to create a link-local IPv6 address"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    pub fn tcpip_adapter_create_ip6_linklocal(tcpip_if: tcpip_adapter_if_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get interface link-local IPv6 address"]
+    #[doc = ""]
+    #[doc = " If the specified interface is up and a preferred link-local IPv6 address"]
+    #[doc = " has been created for the interface, return a copy of it."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to get link-local IPv6 address"]
+    #[doc = " @param[out] if_ip6 IPv6 information will be returned in this argument if successful."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK"]
+    #[doc = "      - ESP_FAIL If interface is down, does not have a link-local IPv6 address, or the link-local IPv6 address is not a preferred address."]
+    pub fn tcpip_adapter_get_ip6_linklocal(
+        tcpip_if: tcpip_adapter_if_t,
+        if_ip6: *mut ip6_addr_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get DHCP Server status"]
+    #[doc = ""]
+    #[doc = " @param[in]   tcpip_if Interface to get status of DHCP server."]
+    #[doc = " @param[out]  status If successful, the status of the DHCP server will be returned in this argument."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    pub fn tcpip_adapter_dhcps_get_status(
+        tcpip_if: tcpip_adapter_if_t,
+        status: *mut tcpip_adapter_dhcp_status_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Set or Get DHCP server option"]
+    #[doc = ""]
+    #[doc = " @param[in] opt_op TCPIP_ADAPTER_OP_SET to set an option, TCPIP_ADAPTER_OP_GET to get an option."]
+    #[doc = " @param[in] opt_id Option index to get or set, must be one of the supported enum values."]
+    #[doc = " @param[inout] opt_val Pointer to the option parameter."]
+    #[doc = " @param[in] opt_len Length of the option parameter."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_DHCP_ALREADY_STOPPED"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_DHCP_ALREADY_STARTED"]
+    pub fn tcpip_adapter_dhcps_option(
+        opt_op: tcpip_adapter_dhcp_option_mode_t,
+        opt_id: tcpip_adapter_dhcp_option_id_t,
+        opt_val: *mut ::std::os::raw::c_void,
+        opt_len: u32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Start DHCP server"]
+    #[doc = ""]
+    #[doc = " @note   Currently DHCP server is only supported on the Wi-Fi AP interface."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to start DHCP server. Must be TCPIP_ADAPTER_IF_AP."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_DHCP_ALREADY_STARTED"]
+    pub fn tcpip_adapter_dhcps_start(tcpip_if: tcpip_adapter_if_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Stop DHCP server"]
+    #[doc = ""]
+    #[doc = " @note   Currently DHCP server is only supported on the Wi-Fi AP interface."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to stop DHCP server. Must be TCPIP_ADAPTER_IF_AP."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_DHCP_ALREADY_STOPPED"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_IF_NOT_READY"]
+    pub fn tcpip_adapter_dhcps_stop(tcpip_if: tcpip_adapter_if_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get DHCP client status"]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to get status of DHCP client"]
+    #[doc = " @param[out] status If successful, the status of DHCP client will be returned in this argument."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    pub fn tcpip_adapter_dhcpc_get_status(
+        tcpip_if: tcpip_adapter_if_t,
+        status: *mut tcpip_adapter_dhcp_status_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Set or Get DHCP client's option"]
+    #[doc = ""]
+    #[doc = " @note This function is not yet implemented"]
+    #[doc = ""]
+    #[doc = " @param[in] opt_op TCPIP_ADAPTER_OP_SET to set an option, TCPIP_ADAPTER_OP_GET to get an option."]
+    #[doc = " @param[in] opt_id Option index to get or set, must be one of the supported enum values."]
+    #[doc = " @param[inout] opt_val Pointer to the option parameter."]
+    #[doc = " @param[in] opt_len Length of the option parameter."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_ERR_NOT_SUPPORTED (not implemented)"]
+    pub fn tcpip_adapter_dhcpc_option(
+        opt_op: tcpip_adapter_dhcp_option_mode_t,
+        opt_id: tcpip_adapter_dhcp_option_id_t,
+        opt_val: *mut ::std::os::raw::c_void,
+        opt_len: u32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Start DHCP client"]
+    #[doc = ""]
+    #[doc = " @note DHCP Client is only supported for the Wi-Fi station and Ethernet interfaces."]
+    #[doc = ""]
+    #[doc = " @note The default event handlers for the SYSTEM_EVENT_STA_CONNECTED and SYSTEM_EVENT_ETH_CONNECTED events call this function."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to start the DHCP client"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_DHCP_ALREADY_STARTED"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_DHCPC_START_FAILED"]
+    pub fn tcpip_adapter_dhcpc_start(tcpip_if: tcpip_adapter_if_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Stop DHCP client"]
+    #[doc = ""]
+    #[doc = " @note DHCP Client is only supported for the Wi-Fi station and Ethernet interfaces."]
+    #[doc = ""]
+    #[doc = " @note Calling tcpip_adapter_stop() or tcpip_adapter_down() will also stop the DHCP Client if it is running."]
+    #[doc = ""]
+    #[doc = " @param[in] tcpip_if Interface to stop the DHCP client"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_DHCP_ALREADY_STOPPED"]
+    #[doc = "      - ESP_ERR_TCPIP_ADAPTER_IF_NOT_READY"]
+    pub fn tcpip_adapter_dhcpc_stop(tcpip_if: tcpip_adapter_if_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Receive an Ethernet frame from the Ethernet interface"]
+    #[doc = ""]
+    #[doc = " This function will automatically be installed by esp_eth_init(). The Ethernet driver layer will then call this function to forward frames to the TCP/IP stack."]
+    #[doc = ""]
+    #[doc = " @note Application code does not usually need to use this function directly."]
+    #[doc = ""]
+    #[doc = " @param[in]  buffer Received data"]
+    #[doc = " @param[in]  len Length of the data frame"]
+    #[doc = " @param[in]  eb Pointer to internal Wi-Fi buffer (ignored for Ethernet)"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    pub fn tcpip_adapter_eth_input(
+        buffer: *mut ::std::os::raw::c_void,
+        len: u16,
+        eb: *mut ::std::os::raw::c_void,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Receive an 802.11 data frame from the Wi-Fi Station interface"]
+    #[doc = ""]
+    #[doc = " This function should be installed by calling esp_wifi_reg_rxcb(). The Wi-Fi driver layer will then call this function to forward frames to the TCP/IP stack."]
+    #[doc = ""]
+    #[doc = " @note Installation happens automatically in the default handler for the SYSTEM_EVENT_STA_CONNECTED event."]
+    #[doc = ""]
+    #[doc = " @note Application code does not usually need to call this function directly."]
+    #[doc = ""]
+    #[doc = " @param[in]  buffer Received data"]
+    #[doc = " @param[in]  len Length of the data frame"]
+    #[doc = " @param[in]  eb Pointer to internal Wi-Fi buffer"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    pub fn tcpip_adapter_sta_input(
+        buffer: *mut ::std::os::raw::c_void,
+        len: u16,
+        eb: *mut ::std::os::raw::c_void,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Receive an 802.11 data frame from the Wi-Fi AP interface"]
+    #[doc = ""]
+    #[doc = " This function should be installed by calling esp_wifi_reg_rxcb(). The Wi-Fi driver layer will then call this function to forward frames to the TCP/IP stack."]
+    #[doc = ""]
+    #[doc = " @note Installation happens automatically in the default handler for the SYSTEM_EVENT_AP_START event."]
+    #[doc = ""]
+    #[doc = " @note Application code does not usually need to call this function directly."]
+    #[doc = ""]
+    #[doc = " @param[in]  buffer Received data"]
+    #[doc = " @param[in]  len Length of the data frame"]
+    #[doc = " @param[in]  eb Pointer to internal Wi-Fi buffer"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    pub fn tcpip_adapter_ap_input(
+        buffer: *mut ::std::os::raw::c_void,
+        len: u16,
+        eb: *mut ::std::os::raw::c_void,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get network interface index"]
+    #[doc = ""]
+    #[doc = " Get network interface from TCP/IP implementation-specific interface pointer."]
+    #[doc = ""]
+    #[doc = " @param[in]  dev Implementation-specific TCP/IP stack interface pointer."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_IF_WIFI_STA"]
+    #[doc = "         - ESP_IF_WIFI_AP"]
+    #[doc = "         - ESP_IF_ETH"]
+    #[doc = "         - ESP_IF_MAX - invalid parameter"]
+    pub fn tcpip_adapter_get_esp_if(dev: *mut ::std::os::raw::c_void) -> esp_interface_t;
+}
+extern "C" {
+    #[doc = " @brief  Get IP information for stations connected to the Wi-Fi AP interface"]
+    #[doc = ""]
+    #[doc = " @param[in]   wifi_sta_list Wi-Fi station info list, returned from esp_wifi_ap_get_sta_list()"]
+    #[doc = " @param[out]  tcpip_sta_list IP layer station info list, corresponding to MAC addresses provided in wifi_sta_list"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_NO_MEM"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS"]
+    pub fn tcpip_adapter_get_sta_list(
+        wifi_sta_list: *const wifi_sta_list_t,
+        tcpip_sta_list: *mut tcpip_adapter_sta_list_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Set the hostname of an interface"]
+    #[doc = ""]
+    #[doc = " @param[in]   tcpip_if Interface to set the hostname"]
+    #[doc = " @param[in]   hostname New hostname for the interface. Maximum length 32 bytes."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK - success"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_IF_NOT_READY - interface status error"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS - parameter error"]
+    pub fn tcpip_adapter_set_hostname(
+        tcpip_if: tcpip_adapter_if_t,
+        hostname: *const ::std::os::raw::c_char,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get interface hostname."]
+    #[doc = ""]
+    #[doc = " @param[in]   tcpip_if Interface to get the hostname"]
+    #[doc = " @param[out]   hostname Returns a pointer to the hostname. May be NULL if no hostname is set. If set non-NULL, pointer remains valid (and string may change if the hostname changes)."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK - success"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_IF_NOT_READY - interface status error"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS - parameter error"]
+    pub fn tcpip_adapter_get_hostname(
+        tcpip_if: tcpip_adapter_if_t,
+        hostname: *mut *const ::std::os::raw::c_char,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get the TCP/IP stack-specific interface that is assigned to a given interface"]
+    #[doc = ""]
+    #[doc = " @note For lwIP, this returns a pointer to a netif structure."]
+    #[doc = ""]
+    #[doc = " @param[in]  tcpip_if Interface to get the implementation-specific interface"]
+    #[doc = " @param[out] netif Pointer to the implementation-specific interface"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - ESP_OK - success"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_IF_NOT_READY - interface status error"]
+    #[doc = "         - ESP_ERR_TCPIP_ADAPTER_INVALID_PARAMS - parameter error"]
+    pub fn tcpip_adapter_get_netif(
+        tcpip_if: tcpip_adapter_if_t,
+        netif: *mut *mut ::std::os::raw::c_void,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Test if supplied interface is up or down"]
+    #[doc = ""]
+    #[doc = " @param[in]   tcpip_if Interface to test up/down status"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - true - Interface is up"]
+    #[doc = "         - false - Interface is down"]
+    pub fn tcpip_adapter_is_netif_up(tcpip_if: tcpip_adapter_if_t) -> bool;
+}
+#[doc = "< ESP32 WiFi ready"]
+pub const system_event_id_t_SYSTEM_EVENT_WIFI_READY: system_event_id_t = 0;
+#[doc = "< ESP32 finish scanning AP"]
+pub const system_event_id_t_SYSTEM_EVENT_SCAN_DONE: system_event_id_t = 1;
+#[doc = "< ESP32 station start"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_START: system_event_id_t = 2;
+#[doc = "< ESP32 station stop"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_STOP: system_event_id_t = 3;
+#[doc = "< ESP32 station connected to AP"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_CONNECTED: system_event_id_t = 4;
+#[doc = "< ESP32 station disconnected from AP"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_DISCONNECTED: system_event_id_t = 5;
+#[doc = "< the auth mode of AP connected by ESP32 station changed"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_AUTHMODE_CHANGE: system_event_id_t = 6;
+#[doc = "< ESP32 station got IP from connected AP"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_GOT_IP: system_event_id_t = 7;
+#[doc = "< ESP32 station lost IP and the IP is reset to 0"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_LOST_IP: system_event_id_t = 8;
+#[doc = "< ESP32 station wps succeeds in enrollee mode"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_WPS_ER_SUCCESS: system_event_id_t = 9;
+#[doc = "< ESP32 station wps fails in enrollee mode"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_WPS_ER_FAILED: system_event_id_t = 10;
+#[doc = "< ESP32 station wps timeout in enrollee mode"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_WPS_ER_TIMEOUT: system_event_id_t = 11;
+#[doc = "< ESP32 station wps pin code in enrollee mode"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_WPS_ER_PIN: system_event_id_t = 12;
+#[doc = "< ESP32 station wps overlap in enrollee mode"]
+pub const system_event_id_t_SYSTEM_EVENT_STA_WPS_ER_PBC_OVERLAP: system_event_id_t = 13;
+#[doc = "< ESP32 soft-AP start"]
+pub const system_event_id_t_SYSTEM_EVENT_AP_START: system_event_id_t = 14;
+#[doc = "< ESP32 soft-AP stop"]
+pub const system_event_id_t_SYSTEM_EVENT_AP_STOP: system_event_id_t = 15;
+#[doc = "< a station connected to ESP32 soft-AP"]
+pub const system_event_id_t_SYSTEM_EVENT_AP_STACONNECTED: system_event_id_t = 16;
+#[doc = "< a station disconnected from ESP32 soft-AP"]
+pub const system_event_id_t_SYSTEM_EVENT_AP_STADISCONNECTED: system_event_id_t = 17;
+#[doc = "< ESP32 soft-AP assign an IP to a connected station"]
+pub const system_event_id_t_SYSTEM_EVENT_AP_STAIPASSIGNED: system_event_id_t = 18;
+#[doc = "< Receive probe request packet in soft-AP interface"]
+pub const system_event_id_t_SYSTEM_EVENT_AP_PROBEREQRECVED: system_event_id_t = 19;
+#[doc = "< ESP32 station or ap or ethernet interface v6IP addr is preferred"]
+pub const system_event_id_t_SYSTEM_EVENT_GOT_IP6: system_event_id_t = 20;
+#[doc = "< ESP32 ethernet start"]
+pub const system_event_id_t_SYSTEM_EVENT_ETH_START: system_event_id_t = 21;
+#[doc = "< ESP32 ethernet stop"]
+pub const system_event_id_t_SYSTEM_EVENT_ETH_STOP: system_event_id_t = 22;
+#[doc = "< ESP32 ethernet phy link up"]
+pub const system_event_id_t_SYSTEM_EVENT_ETH_CONNECTED: system_event_id_t = 23;
+#[doc = "< ESP32 ethernet phy link down"]
+pub const system_event_id_t_SYSTEM_EVENT_ETH_DISCONNECTED: system_event_id_t = 24;
+#[doc = "< ESP32 ethernet got IP from connected AP"]
+pub const system_event_id_t_SYSTEM_EVENT_ETH_GOT_IP: system_event_id_t = 25;
+pub const system_event_id_t_SYSTEM_EVENT_MAX: system_event_id_t = 26;
+pub type system_event_id_t = u32;
+#[doc = "< ESP32 WPS normal fail reason"]
+pub const system_event_sta_wps_fail_reason_t_WPS_FAIL_REASON_NORMAL:
+    system_event_sta_wps_fail_reason_t = 0;
+#[doc = "< ESP32 WPS receive M2D frame"]
+pub const system_event_sta_wps_fail_reason_t_WPS_FAIL_REASON_RECV_M2D:
+    system_event_sta_wps_fail_reason_t = 1;
+pub const system_event_sta_wps_fail_reason_t_WPS_FAIL_REASON_MAX:
+    system_event_sta_wps_fail_reason_t = 2;
+pub type system_event_sta_wps_fail_reason_t = u32;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_sta_scan_done_t {
+    #[doc = "< status of scanning APs"]
+    pub status: u32,
+    pub number: u8,
+    pub scan_id: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_sta_connected_t {
+    #[doc = "< SSID of connected AP"]
+    pub ssid: [u8; 32usize],
+    #[doc = "< SSID length of connected AP"]
+    pub ssid_len: u8,
+    #[doc = "< BSSID of connected AP"]
+    pub bssid: [u8; 6usize],
+    #[doc = "< channel of connected AP"]
+    pub channel: u8,
+    pub authmode: wifi_auth_mode_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_sta_disconnected_t {
+    #[doc = "< SSID of disconnected AP"]
+    pub ssid: [u8; 32usize],
+    #[doc = "< SSID length of disconnected AP"]
+    pub ssid_len: u8,
+    #[doc = "< BSSID of disconnected AP"]
+    pub bssid: [u8; 6usize],
+    #[doc = "< reason of disconnection"]
+    pub reason: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_sta_authmode_change_t {
+    #[doc = "< the old auth mode of AP"]
+    pub old_mode: wifi_auth_mode_t,
+    #[doc = "< the new auth mode of AP"]
+    pub new_mode: wifi_auth_mode_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_sta_got_ip_t {
+    pub ip_info: tcpip_adapter_ip_info_t,
+    pub ip_changed: bool,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_sta_wps_er_pin_t {
+    #[doc = "< PIN code of station in enrollee mode"]
+    pub pin_code: [u8; 8usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_got_ip6_t {
+    pub if_index: tcpip_adapter_if_t,
+    pub ip6_info: tcpip_adapter_ip6_info_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_ap_staconnected_t {
+    #[doc = "< MAC address of the station connected to ESP32 soft-AP"]
+    pub mac: [u8; 6usize],
+    #[doc = "< the aid that ESP32 soft-AP gives to the station connected to"]
+    pub aid: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_ap_stadisconnected_t {
+    #[doc = "< MAC address of the station disconnects to ESP32 soft-AP"]
+    pub mac: [u8; 6usize],
+    #[doc = "< the aid that ESP32 soft-AP gave to the station disconnects to"]
+    pub aid: u8,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_ap_probe_req_rx_t {
+    #[doc = "< Received probe request signal strength"]
+    pub rssi: ::std::os::raw::c_int,
+    #[doc = "< MAC address of the station which send probe request"]
+    pub mac: [u8; 6usize],
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct system_event_ap_staipassigned_t {
+    pub ip: ip4_addr_t,
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub union system_event_info_t {
+    #[doc = "< ESP32 station connected to AP"]
+    pub connected: system_event_sta_connected_t,
+    #[doc = "< ESP32 station disconnected to AP"]
+    pub disconnected: system_event_sta_disconnected_t,
+    #[doc = "< ESP32 station scan (APs) done"]
+    pub scan_done: system_event_sta_scan_done_t,
+    #[doc = "< the auth mode of AP ESP32 station connected to changed"]
+    pub auth_change: system_event_sta_authmode_change_t,
+    #[doc = "< ESP32 station got IP, first time got IP or when IP is changed"]
+    pub got_ip: system_event_sta_got_ip_t,
+    #[doc = "< ESP32 station WPS enrollee mode PIN code received"]
+    pub sta_er_pin: system_event_sta_wps_er_pin_t,
+    #[doc = "< ESP32 station WPS enrollee mode failed reason code received"]
+    pub sta_er_fail_reason: system_event_sta_wps_fail_reason_t,
+    #[doc = "< a station connected to ESP32 soft-AP"]
+    pub sta_connected: system_event_ap_staconnected_t,
+    #[doc = "< a station disconnected to ESP32 soft-AP"]
+    pub sta_disconnected: system_event_ap_stadisconnected_t,
+    #[doc = "< ESP32 soft-AP receive probe request packet"]
+    pub ap_probereqrecved: system_event_ap_probe_req_rx_t,
+    #[doc = "< ESP32 soft-AP assign an IP to the station"]
+    pub ap_staipassigned: system_event_ap_staipassigned_t,
+    #[doc = "< ESP32 station\u{3000}or ap or ethernet ipv6 addr state change to preferred"]
+    pub got_ip6: system_event_got_ip6_t,
+    _bindgen_union_align: [u32; 11usize],
+}
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct system_event_t {
+    #[doc = "< event ID"]
+    pub event_id: system_event_id_t,
+    #[doc = "< event information"]
+    pub event_info: system_event_info_t,
+}
+pub type system_event_handler_t =
+    ::core::option::Option<unsafe extern "C" fn(event: *mut system_event_t) -> esp_err_t>;
+extern "C" {
+    #[doc = " @brief  Send a event to event task"]
+    #[doc = ""]
+    #[doc = " @attention 1. Other task/modules, such as the TCPIP module, can call this API to send an event to event task"]
+    #[doc = ""]
+    #[doc = " @param  system_event_t * event : event"]
+    #[doc = ""]
+    #[doc = " @return ESP_OK : succeed"]
+    #[doc = " @return others : fail"]
+    pub fn esp_event_send(event: *mut system_event_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Default event handler for system events"]
+    #[doc = ""]
+    #[doc = " This function performs default handling of system events."]
+    #[doc = " When using esp_event_loop APIs, it is called automatically before invoking the user-provided"]
+    #[doc = " callback function."]
+    #[doc = ""]
+    #[doc = " Applications which implement a custom event loop must call this function"]
+    #[doc = " as part of event processing."]
+    #[doc = ""]
+    #[doc = " @param  event pointer to event to be handled"]
+    #[doc = " @return ESP_OK if an event was handled successfully"]
+    pub fn esp_event_process_default(event: *mut system_event_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Install default event handlers for Ethernet interface"]
+    #[doc = ""]
+    pub fn esp_event_set_default_eth_handlers();
+}
+extern "C" {
+    #[doc = " @brief  Install default event handlers for Wi-Fi interfaces (station and AP)"]
+    #[doc = ""]
+    pub fn esp_event_set_default_wifi_handlers();
+}
+#[doc = " Configuration for creating event loops"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct esp_event_loop_args_t {
+    #[doc = "< size of the event loop queue"]
+    pub queue_size: i32,
+    #[doc = "< name of the event loop task; if NULL,"]
+    #[doc = "a dedicated task is not created for event loop"]
+    pub task_name: *const ::std::os::raw::c_char,
+    #[doc = "< priority of the event loop task, ignored if task name is NULL"]
+    pub task_priority: UBaseType_t,
+    #[doc = "< stack size of the event loop task, ignored if task name is NULL"]
+    pub task_stack_size: u32,
+    #[doc = "< core to which the event loop task is pinned to,"]
+    #[doc = "ignored if task name is NULL"]
+    pub task_core_id: BaseType_t,
+}
+extern "C" {
+    #[doc = " @brief Create a new event loop."]
+    #[doc = ""]
+    #[doc = " @param[in] event_loop_args configuration structure for the event loop to create"]
+    #[doc = " @param[out] event_loop handle to the created event loop"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - ESP_ERR_NO_MEM: Cannot allocate memory for event loops list"]
+    #[doc = "  - ESP_FAIL: Failed to create task loop"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_loop_create(
+        event_loop_args: *const esp_event_loop_args_t,
+        event_loop: *mut esp_event_loop_handle_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Delete an existing event loop."]
+    #[doc = ""]
+    #[doc = " @param[in] event_loop event loop to delete"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_loop_delete(event_loop: esp_event_loop_handle_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Create default event loop"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - ESP_ERR_NO_MEM: Cannot allocate memory for event loops list"]
+    #[doc = "  - ESP_FAIL: Failed to create task loop"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_loop_create_default() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Delete the default event loop"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_loop_delete_default() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Dispatch events posted to an event loop."]
+    #[doc = ""]
+    #[doc = " This function is used to dispatch events posted to a loop with no dedicated task, i.e task name was set to NULL"]
+    #[doc = " in event_loop_args argument during loop creation. This function includes an argument to limit the amount of time"]
+    #[doc = " it runs, returning control to the caller when that time expires (or some time afterwards). There is no guarantee"]
+    #[doc = " that a call to this function will exit at exactly the time of expiry. There is also no guarantee that events have"]
+    #[doc = " been dispatched during the call, as the function might have spent all of the alloted time waiting on the event queue."]
+    #[doc = " Once an event has been unqueued, however, it is guaranteed to be dispatched. This guarantee contributes to not being"]
+    #[doc = " able to exit exactly at time of expiry as (1) blocking on internal mutexes is necessary for dispatching the unqueued"]
+    #[doc = " event, and (2) during  dispatch of the unqueued event there is no way to control the time occupied by handler code"]
+    #[doc = " execution. The guaranteed time of exit is therefore the alloted time + amount of time required to dispatch"]
+    #[doc = " the last unqueued event."]
+    #[doc = ""]
+    #[doc = " In cases where waiting on the queue times out, ESP_OK is returned and not ESP_ERR_TIMEOUT, since it is"]
+    #[doc = " normal behavior."]
+    #[doc = ""]
+    #[doc = " @param[in] event_loop event loop to dispatch posted events from"]
+    #[doc = " @param[in] ticks_to_run number of ticks to run the loop"]
+    #[doc = ""]
+    #[doc = " @note encountering an unknown event that has been posted to the loop will only generate a warning, not an error."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_loop_run(
+        event_loop: esp_event_loop_handle_t,
+        ticks_to_run: TickType_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Register an event handler to the system event loop."]
+    #[doc = ""]
+    #[doc = " This function can be used to register a handler for either: (1) specific events,"]
+    #[doc = " (2) all events of a certain event base, or (3) all events known by the system event loop."]
+    #[doc = ""]
+    #[doc = "  - specific events: specify exact event_base and event_id"]
+    #[doc = "  - all events of a certain base: specify exact event_base and use ESP_EVENT_ANY_ID as the event_id"]
+    #[doc = "  - all events known by the loop: use ESP_EVENT_ANY_BASE for event_base and ESP_EVENT_ANY_ID as the event_id"]
+    #[doc = ""]
+    #[doc = " Registering multiple handlers to events is possible. Registering a single handler to multiple events is"]
+    #[doc = " also possible. However, registering the same handler to the same event multiple times would cause the"]
+    #[doc = " previous registrations to be overwritten."]
+    #[doc = ""]
+    #[doc = " @param[in] event_base the base id of the event to register the handler for"]
+    #[doc = " @param[in] event_id the id of the event to register the handler for"]
+    #[doc = " @param[in] event_handler the handler function which gets called when the event is dispatched"]
+    #[doc = " @param[in] event_handler_arg data, aside from event data, that is passed to the handler when it is called"]
+    #[doc = ""]
+    #[doc = " @note the event loop library does not maintain a copy of event_handler_arg, therefore the user should"]
+    #[doc = " ensure that event_handler_arg still points to a valid location by the time the handler gets called"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - ESP_ERR_NO_MEM: Cannot allocate memory for the handler"]
+    #[doc = "  - ESP_ERR_INVALID_ARG: Invalid combination of event base and event id"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_handler_register(
+        event_base: esp_event_base_t,
+        event_id: i32,
+        event_handler: esp_event_handler_t,
+        event_handler_arg: *mut ::std::os::raw::c_void,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Register an event handler to a specific loop."]
+    #[doc = ""]
+    #[doc = " This function behaves in the same manner as esp_event_handler_register, except the additional"]
+    #[doc = " specification of the event loop to register the handler to."]
+    #[doc = ""]
+    #[doc = " @param[in] event_loop the event loop to register this handler function to"]
+    #[doc = " @param[in] event_base the base id of the event to register the handler for"]
+    #[doc = " @param[in] event_id the id of the event to register the handler for"]
+    #[doc = " @param[in] event_handler the handler function which gets called when the event is dispatched"]
+    #[doc = " @param[in] event_handler_arg data, aside from event data, that is passed to the handler when it is called"]
+    #[doc = ""]
+    #[doc = " @note the event loop library does not maintain a copy of event_handler_arg, therefore the user should"]
+    #[doc = " ensure that event_handler_arg still points to a valid location by the time the handler gets called"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - ESP_ERR_NO_MEM: Cannot allocate memory for the handler"]
+    #[doc = "  - ESP_ERR_INVALID_ARG: Invalid combination of event base and event id"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_handler_register_with(
+        event_loop: esp_event_loop_handle_t,
+        event_base: esp_event_base_t,
+        event_id: i32,
+        event_handler: esp_event_handler_t,
+        event_handler_arg: *mut ::std::os::raw::c_void,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Unregister a handler with the system event loop."]
+    #[doc = ""]
+    #[doc = " This function can be used to unregister a handler so that it no longer gets called during dispatch."]
+    #[doc = " Handlers can be unregistered for either: (1) specific events, (2) all events of a certain event base,"]
+    #[doc = " or (3) all events known by the system event loop"]
+    #[doc = ""]
+    #[doc = "  - specific events: specify exact event_base and event_id"]
+    #[doc = "  - all events of a certain base: specify exact event_base and use ESP_EVENT_ANY_ID as the event_id"]
+    #[doc = "  - all events known by the loop: use ESP_EVENT_ANY_BASE for event_base and ESP_EVENT_ANY_ID as the event_id"]
+    #[doc = ""]
+    #[doc = " This function ignores unregistration of handlers that has not been previously registered."]
+    #[doc = ""]
+    #[doc = " @param[in] event_base the base of the event with which to unregister the handler"]
+    #[doc = " @param[in] event_id the id of the event with which to unregister the handler"]
+    #[doc = " @param[in] event_handler the handler to unregister"]
+    #[doc = ""]
+    #[doc = " @return ESP_OK success"]
+    #[doc = " @return ESP_ERR_INVALID_ARG invalid combination of event base and event id"]
+    #[doc = " @return others fail"]
+    pub fn esp_event_handler_unregister(
+        event_base: esp_event_base_t,
+        event_id: i32,
+        event_handler: esp_event_handler_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Unregister a handler with the system event loop."]
+    #[doc = ""]
+    #[doc = " This function behaves in the same manner as esp_event_handler_unregister, except the additional specification of"]
+    #[doc = " the event loop to unregister the handler with."]
+    #[doc = ""]
+    #[doc = " @param[in] event_loop the event loop with which to unregister this handler function"]
+    #[doc = " @param[in] event_base the base of the event with which to unregister the handler"]
+    #[doc = " @param[in] event_id the id of the event with which to unregister the handler"]
+    #[doc = " @param[in] event_handler the handler to unregister"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - ESP_ERR_INVALID_ARG: Invalid combination of event base and event id"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_handler_unregister_with(
+        event_loop: esp_event_loop_handle_t,
+        event_base: esp_event_base_t,
+        event_id: i32,
+        event_handler: esp_event_handler_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Posts an event to the system default event loop. The event loop library keeps a copy of event_data and manages"]
+    #[doc = " the copy's lifetime automatically (allocation + deletion); this ensures that the data the"]
+    #[doc = " handler recieves is always valid."]
+    #[doc = ""]
+    #[doc = " @param[in] event_base the event base that identifies the event"]
+    #[doc = " @param[in] event_id the the event id that identifies the event"]
+    #[doc = " @param[in] event_data the data, specific to the event occurence, that gets passed to the handler"]
+    #[doc = " @param[in] event_data_size the size of the event data"]
+    #[doc = " @param[in] ticks_to_wait number of ticks to block on a full event queue"]
+    #[doc = ""]
+    #[doc = " @note posting events from an ISR is not supported"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - ESP_ERR_TIMEOUT: Time to wait for event queue to unblock expired"]
+    #[doc = "  - ESP_ERR_INVALID_ARG: Invalid combination of event base and event id"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_post(
+        event_base: esp_event_base_t,
+        event_id: i32,
+        event_data: *mut ::std::os::raw::c_void,
+        event_data_size: usize,
+        ticks_to_wait: TickType_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Posts an event to the specified event loop. The event loop library keeps a copy of event_data and manages"]
+    #[doc = " the copy's lifetime automatically (allocation + deletion); this ensures that the data the"]
+    #[doc = " handler recieves is always valid."]
+    #[doc = ""]
+    #[doc = " This function behaves in the same manner as esp_event_post_to, except the additional specification of the event loop"]
+    #[doc = " to post the event to."]
+    #[doc = ""]
+    #[doc = " @param[in] event_loop the event loop to post to"]
+    #[doc = " @param[in] event_base the event base that identifies the event"]
+    #[doc = " @param[in] event_id the the event id that identifies the event"]
+    #[doc = " @param[in] event_data the data, specific to the event occurence, that gets passed to the handler"]
+    #[doc = " @param[in] event_data_size the size of the event data"]
+    #[doc = " @param[in] ticks_to_wait number of ticks to block on a full event queue"]
+    #[doc = ""]
+    #[doc = " @note posting events from an ISR is not supported"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - ESP_ERR_TIMEOUT: Time to wait for event queue to unblock expired"]
+    #[doc = "  - ESP_ERR_INVALID_ARG: Invalid combination of event base and event id"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_post_to(
+        event_loop: esp_event_loop_handle_t,
+        event_base: esp_event_base_t,
+        event_id: i32,
+        event_data: *mut ::std::os::raw::c_void,
+        event_data_size: usize,
+        ticks_to_wait: TickType_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Dumps statistics of all event loops."]
+    #[doc = ""]
+    #[doc = " Dumps event loop info in the format:"]
+    #[doc = ""]
+    #[doc = "@verbatim"]
+    #[doc = "event loop"]
+    #[doc = "handler"]
+    #[doc = "handler"]
+    #[doc = "..."]
+    #[doc = "event loop"]
+    #[doc = "handler"]
+    #[doc = "handler"]
+    #[doc = "..."]
+    #[doc = ""]
+    #[doc = "where:"]
+    #[doc = ""]
+    #[doc = "event loop"]
+    #[doc = "format: address,name rx:total_recieved dr:total_dropped"]
+    #[doc = "where:"]
+    #[doc = "address - memory address of the event loop"]
+    #[doc = "name - name of the event loop, 'none' if no dedicated task"]
+    #[doc = "total_recieved - number of successfully posted events"]
+    #[doc = "total_dropped - number of events unsucessfully posted due to queue being full"]
+    #[doc = ""]
+    #[doc = "handler"]
+    #[doc = "format: address ev:base,id inv:total_invoked run:total_runtime"]
+    #[doc = "where:"]
+    #[doc = "address - address of the handler function"]
+    #[doc = "base,id - the event specified by event base and id this handler executes"]
+    #[doc = "total_invoked - number of times this handler has been invoked"]
+    #[doc = "total_runtime - total amount of time used for invoking this handler"]
+    #[doc = ""]
+    #[doc = "@endverbatim"]
+    #[doc = ""]
+    #[doc = " @param[in] file the file stream to output to"]
+    #[doc = ""]
+    #[doc = " @note this function is a noop when CONFIG_EVENT_LOOP_PROFILING is disabled"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: Success"]
+    #[doc = "  - ESP_ERR_NO_MEM: Cannot allocate memory for event loops list"]
+    #[doc = "  - Others: Fail"]
+    pub fn esp_event_dump(file: *mut FILE) -> esp_err_t;
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_osi_funcs_t {
+    pub _version: i32,
+    pub _set_isr: ::core::option::Option<
+        unsafe extern "C" fn(
+            n: i32,
+            f: *mut ::std::os::raw::c_void,
+            arg: *mut ::std::os::raw::c_void,
+        ),
+    >,
+    pub _ints_on: ::core::option::Option<unsafe extern "C" fn(mask: u32)>,
+    pub _ints_off: ::core::option::Option<unsafe extern "C" fn(mask: u32)>,
+    pub _spin_lock_create:
+        ::core::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>,
+    pub _spin_lock_delete:
+        ::core::option::Option<unsafe extern "C" fn(lock: *mut ::std::os::raw::c_void)>,
+    pub _wifi_int_disable: ::core::option::Option<
+        unsafe extern "C" fn(wifi_int_mux: *mut ::std::os::raw::c_void) -> u32,
+    >,
+    pub _wifi_int_restore: ::core::option::Option<
+        unsafe extern "C" fn(wifi_int_mux: *mut ::std::os::raw::c_void, tmp: u32),
+    >,
+    pub _task_yield_from_isr: ::core::option::Option<unsafe extern "C" fn()>,
+    pub _semphr_create: ::core::option::Option<
+        unsafe extern "C" fn(max: u32, init: u32) -> *mut ::std::os::raw::c_void,
+    >,
+    pub _semphr_delete:
+        ::core::option::Option<unsafe extern "C" fn(semphr: *mut ::std::os::raw::c_void)>,
+    pub _semphr_take: ::core::option::Option<
+        unsafe extern "C" fn(semphr: *mut ::std::os::raw::c_void, block_time_tick: u32) -> i32,
+    >,
+    pub _semphr_give:
+        ::core::option::Option<unsafe extern "C" fn(semphr: *mut ::std::os::raw::c_void) -> i32>,
+    pub _wifi_thread_semphr_get:
+        ::core::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>,
+    pub _mutex_create:
+        ::core::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>,
+    pub _recursive_mutex_create:
+        ::core::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>,
+    pub _mutex_delete:
+        ::core::option::Option<unsafe extern "C" fn(mutex: *mut ::std::os::raw::c_void)>,
+    pub _mutex_lock:
+        ::core::option::Option<unsafe extern "C" fn(mutex: *mut ::std::os::raw::c_void) -> i32>,
+    pub _mutex_unlock:
+        ::core::option::Option<unsafe extern "C" fn(mutex: *mut ::std::os::raw::c_void) -> i32>,
+    pub _queue_create: ::core::option::Option<
+        unsafe extern "C" fn(queue_len: u32, item_size: u32) -> *mut ::std::os::raw::c_void,
+    >,
+    pub _queue_delete:
+        ::core::option::Option<unsafe extern "C" fn(queue: *mut ::std::os::raw::c_void)>,
+    pub _queue_send: ::core::option::Option<
+        unsafe extern "C" fn(
+            queue: *mut ::std::os::raw::c_void,
+            item: *mut ::std::os::raw::c_void,
+            block_time_tick: u32,
+        ) -> i32,
+    >,
+    pub _queue_send_from_isr: ::core::option::Option<
+        unsafe extern "C" fn(
+            queue: *mut ::std::os::raw::c_void,
+            item: *mut ::std::os::raw::c_void,
+            hptw: *mut ::std::os::raw::c_void,
+        ) -> i32,
+    >,
+    pub _queue_send_to_back: ::core::option::Option<
+        unsafe extern "C" fn(
+            queue: *mut ::std::os::raw::c_void,
+            item: *mut ::std::os::raw::c_void,
+            block_time_tick: u32,
+        ) -> i32,
+    >,
+    pub _queue_send_to_front: ::core::option::Option<
+        unsafe extern "C" fn(
+            queue: *mut ::std::os::raw::c_void,
+            item: *mut ::std::os::raw::c_void,
+            block_time_tick: u32,
+        ) -> i32,
+    >,
+    pub _queue_recv: ::core::option::Option<
+        unsafe extern "C" fn(
+            queue: *mut ::std::os::raw::c_void,
+            item: *mut ::std::os::raw::c_void,
+            block_time_tick: u32,
+        ) -> i32,
+    >,
+    pub _queue_msg_waiting:
+        ::core::option::Option<unsafe extern "C" fn(queue: *mut ::std::os::raw::c_void) -> u32>,
+    pub _event_group_create:
+        ::core::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>,
+    pub _event_group_delete:
+        ::core::option::Option<unsafe extern "C" fn(event: *mut ::std::os::raw::c_void)>,
+    pub _event_group_set_bits: ::core::option::Option<
+        unsafe extern "C" fn(event: *mut ::std::os::raw::c_void, bits: u32) -> u32,
+    >,
+    pub _event_group_clear_bits: ::core::option::Option<
+        unsafe extern "C" fn(event: *mut ::std::os::raw::c_void, bits: u32) -> u32,
+    >,
+    pub _event_group_wait_bits: ::core::option::Option<
+        unsafe extern "C" fn(
+            event: *mut ::std::os::raw::c_void,
+            bits_to_wait_for: u32,
+            clear_on_exit: i32,
+            wait_for_all_bits: i32,
+            block_time_tick: u32,
+        ) -> u32,
+    >,
+    pub _task_create_pinned_to_core: ::core::option::Option<
+        unsafe extern "C" fn(
+            task_func: *mut ::std::os::raw::c_void,
+            name: *const ::std::os::raw::c_char,
+            stack_depth: u32,
+            param: *mut ::std::os::raw::c_void,
+            prio: u32,
+            task_handle: *mut ::std::os::raw::c_void,
+            core_id: u32,
+        ) -> i32,
+    >,
+    pub _task_create: ::core::option::Option<
+        unsafe extern "C" fn(
+            task_func: *mut ::std::os::raw::c_void,
+            name: *const ::std::os::raw::c_char,
+            stack_depth: u32,
+            param: *mut ::std::os::raw::c_void,
+            prio: u32,
+            task_handle: *mut ::std::os::raw::c_void,
+        ) -> i32,
+    >,
+    pub _task_delete:
+        ::core::option::Option<unsafe extern "C" fn(task_handle: *mut ::std::os::raw::c_void)>,
+    pub _task_delay: ::core::option::Option<unsafe extern "C" fn(tick: u32)>,
+    pub _task_ms_to_tick: ::core::option::Option<unsafe extern "C" fn(ms: u32) -> i32>,
+    pub _task_get_current_task:
+        ::core::option::Option<unsafe extern "C" fn() -> *mut ::std::os::raw::c_void>,
+    pub _task_get_max_priority: ::core::option::Option<unsafe extern "C" fn() -> i32>,
+    pub _malloc:
+        ::core::option::Option<unsafe extern "C" fn(size: u32) -> *mut ::std::os::raw::c_void>,
+    pub _free: ::core::option::Option<unsafe extern "C" fn(p: *mut ::std::os::raw::c_void)>,
+    pub _get_free_heap_size: ::core::option::Option<unsafe extern "C" fn() -> u32>,
+    pub _rand: ::core::option::Option<unsafe extern "C" fn() -> u32>,
+    pub _dport_access_stall_other_cpu_start_wrap: ::core::option::Option<unsafe extern "C" fn()>,
+    pub _dport_access_stall_other_cpu_end_wrap: ::core::option::Option<unsafe extern "C" fn()>,
+    pub _phy_rf_deinit: ::core::option::Option<unsafe extern "C" fn(module: u32) -> i32>,
+    pub _phy_load_cal_and_init: ::core::option::Option<unsafe extern "C" fn(module: u32)>,
+    pub _read_mac: ::core::option::Option<unsafe extern "C" fn(mac: *mut u8, type_: u32) -> i32>,
+    pub _timer_arm: ::core::option::Option<
+        unsafe extern "C" fn(timer: *mut ::std::os::raw::c_void, tmout: u32, repeat: bool),
+    >,
+    pub _timer_disarm:
+        ::core::option::Option<unsafe extern "C" fn(timer: *mut ::std::os::raw::c_void)>,
+    pub _timer_done:
+        ::core::option::Option<unsafe extern "C" fn(ptimer: *mut ::std::os::raw::c_void)>,
+    pub _timer_setfn: ::core::option::Option<
+        unsafe extern "C" fn(
+            ptimer: *mut ::std::os::raw::c_void,
+            pfunction: *mut ::std::os::raw::c_void,
+            parg: *mut ::std::os::raw::c_void,
+        ),
+    >,
+    pub _timer_arm_us: ::core::option::Option<
+        unsafe extern "C" fn(ptimer: *mut ::std::os::raw::c_void, us: u32, repeat: bool),
+    >,
+    pub _periph_module_enable: ::core::option::Option<unsafe extern "C" fn(periph: u32)>,
+    pub _periph_module_disable: ::core::option::Option<unsafe extern "C" fn(periph: u32)>,
+    pub _esp_timer_get_time: ::core::option::Option<unsafe extern "C" fn() -> i64>,
+    pub _nvs_set_i8: ::core::option::Option<
+        unsafe extern "C" fn(handle: u32, key: *const ::std::os::raw::c_char, value: i8) -> i32,
+    >,
+    pub _nvs_get_i8: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: u32,
+            key: *const ::std::os::raw::c_char,
+            out_value: *mut i8,
+        ) -> i32,
+    >,
+    pub _nvs_set_u8: ::core::option::Option<
+        unsafe extern "C" fn(handle: u32, key: *const ::std::os::raw::c_char, value: u8) -> i32,
+    >,
+    pub _nvs_get_u8: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: u32,
+            key: *const ::std::os::raw::c_char,
+            out_value: *mut u8,
+        ) -> i32,
+    >,
+    pub _nvs_set_u16: ::core::option::Option<
+        unsafe extern "C" fn(handle: u32, key: *const ::std::os::raw::c_char, value: u16) -> i32,
+    >,
+    pub _nvs_get_u16: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: u32,
+            key: *const ::std::os::raw::c_char,
+            out_value: *mut u16,
+        ) -> i32,
+    >,
+    pub _nvs_open: ::core::option::Option<
+        unsafe extern "C" fn(
+            name: *const ::std::os::raw::c_char,
+            open_mode: u32,
+            out_handle: *mut u32,
+        ) -> i32,
+    >,
+    pub _nvs_close: ::core::option::Option<unsafe extern "C" fn(handle: u32)>,
+    pub _nvs_commit: ::core::option::Option<unsafe extern "C" fn(handle: u32) -> i32>,
+    pub _nvs_set_blob: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: u32,
+            key: *const ::std::os::raw::c_char,
+            value: *const ::std::os::raw::c_void,
+            length: usize,
+        ) -> i32,
+    >,
+    pub _nvs_get_blob: ::core::option::Option<
+        unsafe extern "C" fn(
+            handle: u32,
+            key: *const ::std::os::raw::c_char,
+            out_value: *mut ::std::os::raw::c_void,
+            length: *mut usize,
+        ) -> i32,
+    >,
+    pub _nvs_erase_key: ::core::option::Option<
+        unsafe extern "C" fn(handle: u32, key: *const ::std::os::raw::c_char) -> i32,
+    >,
+    pub _get_random: ::core::option::Option<unsafe extern "C" fn(buf: *mut u8, len: usize) -> i32>,
+    pub _get_time:
+        ::core::option::Option<unsafe extern "C" fn(t: *mut ::std::os::raw::c_void) -> i32>,
+    pub _random: ::core::option::Option<unsafe extern "C" fn() -> ::std::os::raw::c_ulong>,
+    pub _log_write: ::core::option::Option<
+        unsafe extern "C" fn(
+            level: u32,
+            tag: *const ::std::os::raw::c_char,
+            format: *const ::std::os::raw::c_char,
+            ...
+        ),
+    >,
+    pub _log_timestamp: ::core::option::Option<unsafe extern "C" fn() -> u32>,
+    pub _malloc_internal:
+        ::core::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::std::os::raw::c_void>,
+    pub _realloc_internal: ::core::option::Option<
+        unsafe extern "C" fn(
+            ptr: *mut ::std::os::raw::c_void,
+            size: usize,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+    pub _calloc_internal: ::core::option::Option<
+        unsafe extern "C" fn(n: usize, size: usize) -> *mut ::std::os::raw::c_void,
+    >,
+    pub _zalloc_internal:
+        ::core::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::std::os::raw::c_void>,
+    pub _wifi_malloc:
+        ::core::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::std::os::raw::c_void>,
+    pub _wifi_realloc: ::core::option::Option<
+        unsafe extern "C" fn(
+            ptr: *mut ::std::os::raw::c_void,
+            size: usize,
+        ) -> *mut ::std::os::raw::c_void,
+    >,
+    pub _wifi_calloc: ::core::option::Option<
+        unsafe extern "C" fn(n: usize, size: usize) -> *mut ::std::os::raw::c_void,
+    >,
+    pub _wifi_zalloc:
+        ::core::option::Option<unsafe extern "C" fn(size: usize) -> *mut ::std::os::raw::c_void>,
+    pub _wifi_create_queue: ::core::option::Option<
+        unsafe extern "C" fn(queue_len: i32, item_size: i32) -> *mut ::std::os::raw::c_void,
+    >,
+    pub _wifi_delete_queue:
+        ::core::option::Option<unsafe extern "C" fn(queue: *mut ::std::os::raw::c_void)>,
+    pub _modem_sleep_enter: ::core::option::Option<unsafe extern "C" fn(module: u32) -> i32>,
+    pub _modem_sleep_exit: ::core::option::Option<unsafe extern "C" fn(module: u32) -> i32>,
+    pub _modem_sleep_register: ::core::option::Option<unsafe extern "C" fn(module: u32) -> i32>,
+    pub _modem_sleep_deregister: ::core::option::Option<unsafe extern "C" fn(module: u32) -> i32>,
+    pub _sc_ack_send:
+        ::core::option::Option<unsafe extern "C" fn(param: *mut ::std::os::raw::c_void)>,
+    pub _sc_ack_send_stop: ::core::option::Option<unsafe extern "C" fn()>,
+    pub _coex_status_get: ::core::option::Option<unsafe extern "C" fn() -> u32>,
+    pub _coex_wifi_request: ::core::option::Option<
+        unsafe extern "C" fn(event: u32, latency: u32, duration: u32) -> i32,
+    >,
+    pub _coex_wifi_release: ::core::option::Option<unsafe extern "C" fn(event: u32) -> i32>,
+    pub _magic: i32,
+}
+extern "C" {
+    pub static mut g_wifi_osi_funcs: wifi_osi_funcs_t;
+}
+#[doc = " @brief WiFi stack configuration parameters passed to esp_wifi_init call."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct wifi_init_config_t {
+    #[doc = "< WiFi event handler"]
+    pub event_handler: system_event_handler_t,
+    #[doc = "< WiFi OS functions"]
+    pub osi_funcs: *mut wifi_osi_funcs_t,
+    #[doc = "< WiFi station crypto functions when connect"]
+    pub wpa_crypto_funcs: wpa_crypto_funcs_t,
+    #[doc = "< WiFi static RX buffer number"]
+    pub static_rx_buf_num: ::std::os::raw::c_int,
+    #[doc = "< WiFi dynamic RX buffer number"]
+    pub dynamic_rx_buf_num: ::std::os::raw::c_int,
+    #[doc = "< WiFi TX buffer type"]
+    pub tx_buf_type: ::std::os::raw::c_int,
+    #[doc = "< WiFi static TX buffer number"]
+    pub static_tx_buf_num: ::std::os::raw::c_int,
+    #[doc = "< WiFi dynamic TX buffer number"]
+    pub dynamic_tx_buf_num: ::std::os::raw::c_int,
+    #[doc = "< WiFi channel state information enable flag"]
+    pub csi_enable: ::std::os::raw::c_int,
+    #[doc = "< WiFi AMPDU RX feature enable flag"]
+    pub ampdu_rx_enable: ::std::os::raw::c_int,
+    #[doc = "< WiFi AMPDU TX feature enable flag"]
+    pub ampdu_tx_enable: ::std::os::raw::c_int,
+    #[doc = "< WiFi NVS flash enable flag"]
+    pub nvs_enable: ::std::os::raw::c_int,
+    #[doc = "< Nano option for printf/scan family enable flag"]
+    pub nano_enable: ::std::os::raw::c_int,
+    #[doc = "< WiFi Block Ack TX window size"]
+    pub tx_ba_win: ::std::os::raw::c_int,
+    #[doc = "< WiFi Block Ack RX window size"]
+    pub rx_ba_win: ::std::os::raw::c_int,
+    #[doc = "< WiFi Task Core ID"]
+    pub wifi_task_core_id: ::std::os::raw::c_int,
+    #[doc = "< WiFi softAP maximum length of the beacon"]
+    pub beacon_max_len: ::std::os::raw::c_int,
+    #[doc = "< WiFi management short buffer number, the minimum value is 6, the maximum value is 32"]
+    pub mgmt_sbuf_num: ::std::os::raw::c_int,
+    #[doc = "< WiFi init magic number, it should be the last field"]
+    pub magic: ::std::os::raw::c_int,
+}
+extern "C" {
+    pub static g_wifi_default_wpa_crypto_funcs: wpa_crypto_funcs_t;
+}
+extern "C" {
+    #[doc = " @brief  Init WiFi"]
+    #[doc = "         Alloc resource for WiFi driver, such as WiFi control structure, RX/TX buffer,"]
+    #[doc = "         WiFi NVS structure etc, this WiFi also start WiFi task"]
+    #[doc = ""]
+    #[doc = " @attention 1. This API must be called before all other WiFi API can be called"]
+    #[doc = " @attention 2. Always use WIFI_INIT_CONFIG_DEFAULT macro to init the config to default values, this can"]
+    #[doc = "               guarantee all the fields got correct value when more fields are added into wifi_init_config_t"]
+    #[doc = "               in future release. If you want to set your owner initial values, overwrite the default values"]
+    #[doc = "               which are set by WIFI_INIT_CONFIG_DEFAULT, please be notified that the field 'magic' of"]
+    #[doc = "               wifi_init_config_t should always be WIFI_INIT_CONFIG_MAGIC!"]
+    #[doc = ""]
+    #[doc = " @param  config pointer to WiFi init configuration structure; can point to a temporary variable."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_NO_MEM: out of memory"]
+    #[doc = "    - others: refer to error code esp_err.h"]
+    pub fn esp_wifi_init(config: *const wifi_init_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Deinit WiFi"]
+    #[doc = "         Free all resource allocated in esp_wifi_init and stop WiFi task"]
+    #[doc = ""]
+    #[doc = " @attention 1. This API should be called if you want to remove WiFi driver from the system"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_deinit() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set the WiFi operating mode"]
+    #[doc = ""]
+    #[doc = "            Set the WiFi operating mode as station, soft-AP or station+soft-AP,"]
+    #[doc = "            The default mode is soft-AP mode."]
+    #[doc = ""]
+    #[doc = " @param     mode  WiFi operating mode"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - others: refer to error code in esp_err.h"]
+    pub fn esp_wifi_set_mode(mode: wifi_mode_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get current operating mode of WiFi"]
+    #[doc = ""]
+    #[doc = " @param[out]  mode  store current WiFi mode"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_get_mode(mode: *mut wifi_mode_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Start WiFi according to current configuration"]
+    #[doc = "         If mode is WIFI_MODE_STA, it create station control block and start station"]
+    #[doc = "         If mode is WIFI_MODE_AP, it create soft-AP control block and start soft-AP"]
+    #[doc = "         If mode is WIFI_MODE_APSTA, it create soft-AP and station control block and start soft-AP and station"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - ESP_ERR_NO_MEM: out of memory"]
+    #[doc = "    - ESP_ERR_WIFI_CONN: WiFi internal error, station or soft-AP control block wrong"]
+    #[doc = "    - ESP_FAIL: other WiFi internal errors"]
+    pub fn esp_wifi_start() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Stop WiFi"]
+    #[doc = "         If mode is WIFI_MODE_STA, it stop station and free station control block"]
+    #[doc = "         If mode is WIFI_MODE_AP, it stop soft-AP and free soft-AP control block"]
+    #[doc = "         If mode is WIFI_MODE_APSTA, it stop station/soft-AP and free station/soft-AP control block"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_stop() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Restore WiFi stack persistent settings to default values"]
+    #[doc = ""]
+    #[doc = " This function will reset settings made using the following APIs:"]
+    #[doc = " - esp_wifi_get_auto_connect,"]
+    #[doc = " - esp_wifi_set_protocol,"]
+    #[doc = " - esp_wifi_set_config related"]
+    #[doc = " - esp_wifi_set_mode"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_restore() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Connect the ESP32 WiFi station to the AP."]
+    #[doc = ""]
+    #[doc = " @attention 1. This API only impact WIFI_MODE_STA or WIFI_MODE_APSTA mode"]
+    #[doc = " @attention 2. If the ESP32 is connected to an AP, call esp_wifi_disconnect to disconnect."]
+    #[doc = " @attention 3. The scanning triggered by esp_wifi_start_scan() will not be effective until connection between ESP32 and the AP is established."]
+    #[doc = "               If ESP32 is scanning and connecting at the same time, ESP32 will abort scanning and return a warning message and error"]
+    #[doc = "               number ESP_ERR_WIFI_STATE."]
+    #[doc = "               If you want to do reconnection after ESP32 received disconnect event, remember to add the maximum retry time, otherwise the called"]
+    #[doc = "               scan will not work. This is especially true when the AP doesn't exist, and you still try reconnection after ESP32 received disconnect"]
+    #[doc = "               event with the reason code WIFI_REASON_NO_AP_FOUND."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_START: WiFi is not started by esp_wifi_start"]
+    #[doc = "    - ESP_ERR_WIFI_CONN: WiFi internal error, station or soft-AP control block wrong"]
+    #[doc = "    - ESP_ERR_WIFI_SSID: SSID of AP which station connects is invalid"]
+    pub fn esp_wifi_connect() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Disconnect the ESP32 WiFi station from the AP."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi was not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_STARTED: WiFi was not started by esp_wifi_start"]
+    #[doc = "    - ESP_FAIL: other WiFi internal errors"]
+    pub fn esp_wifi_disconnect() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Currently this API is just an stub API"]
+    #[doc = ""]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - others: fail"]
+    pub fn esp_wifi_clear_fast_connect() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     deauthenticate all stations or associated id equals to aid"]
+    #[doc = ""]
+    #[doc = " @param     aid  when aid is 0, deauthenticate all stations, otherwise deauthenticate station whose associated id is aid"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_STARTED: WiFi was not started by esp_wifi_start"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - ESP_ERR_WIFI_MODE: WiFi mode is wrong"]
+    pub fn esp_wifi_deauth_sta(aid: u16) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Scan all available APs."]
+    #[doc = ""]
+    #[doc = " @attention If this API is called, the found APs are stored in WiFi driver dynamic allocated memory and the"]
+    #[doc = "            will be freed in esp_wifi_scan_get_ap_records, so generally, call esp_wifi_scan_get_ap_records to cause"]
+    #[doc = "            the memory to be freed once the scan is done"]
+    #[doc = " @attention The values of maximum active scan time and passive scan time per channel are limited to 1500 milliseconds."]
+    #[doc = "            Values above 1500ms may cause station to disconnect from AP and are not recommended."]
+    #[doc = ""]
+    #[doc = " @param     config  configuration of scanning"]
+    #[doc = " @param     block if block is true, this API will block the caller until the scan is done, otherwise"]
+    #[doc = "                         it will return immediately"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_STARTED: WiFi was not started by esp_wifi_start"]
+    #[doc = "    - ESP_ERR_WIFI_TIMEOUT: blocking scan is timeout"]
+    #[doc = "    - ESP_ERR_WIFI_STATE: wifi still connecting when invoke esp_wifi_scan_start"]
+    #[doc = "    - others: refer to error code in esp_err.h"]
+    pub fn esp_wifi_scan_start(config: *const wifi_scan_config_t, block: bool) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Stop the scan in process"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_STARTED: WiFi is not started by esp_wifi_start"]
+    pub fn esp_wifi_scan_stop() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get number of APs found in last scan"]
+    #[doc = ""]
+    #[doc = " @param[out] number  store number of APIs found in last scan"]
+    #[doc = ""]
+    #[doc = " @attention This API can only be called when the scan is completed, otherwise it may get wrong value."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_STARTED: WiFi is not started by esp_wifi_start"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_scan_get_ap_num(number: *mut u16) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get AP list found in last scan"]
+    #[doc = ""]
+    #[doc = " @param[inout]  number As input param, it stores max AP number ap_records can hold."]
+    #[doc = "                As output param, it receives the actual AP number this API returns."]
+    #[doc = " @param         ap_records  wifi_ap_record_t array to hold the found APs"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_STARTED: WiFi is not started by esp_wifi_start"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - ESP_ERR_NO_MEM: out of memory"]
+    pub fn esp_wifi_scan_get_ap_records(
+        number: *mut u16,
+        ap_records: *mut wifi_ap_record_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get information of AP which the ESP32 station is associated with"]
+    #[doc = ""]
+    #[doc = " @param     ap_info  the wifi_ap_record_t to hold AP information"]
+    #[doc = "            sta can get the connected ap's phy mode info through the struct member"]
+    #[doc = "            phy_11b\u{ff0c}phy_11g\u{ff0c}phy_11n\u{ff0c}phy_lr in the wifi_ap_record_t struct."]
+    #[doc = "            For example, phy_11b = 1 imply that ap support 802.11b mode"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_CONN: The station interface don't initialized"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_CONNECT: The station is in disconnect status"]
+    pub fn esp_wifi_sta_get_ap_info(ap_info: *mut wifi_ap_record_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set current WiFi power save type"]
+    #[doc = ""]
+    #[doc = " @attention Default power save type is WIFI_PS_MIN_MODEM."]
+    #[doc = ""]
+    #[doc = " @param     type  power save type"]
+    #[doc = ""]
+    #[doc = " @return    ESP_OK: succeed"]
+    pub fn esp_wifi_set_ps(type_: wifi_ps_type_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get current WiFi power save type"]
+    #[doc = ""]
+    #[doc = " @attention Default power save type is WIFI_PS_MIN_MODEM."]
+    #[doc = ""]
+    #[doc = " @param[out]  type: store current power save type"]
+    #[doc = ""]
+    #[doc = " @return    ESP_OK: succeed"]
+    pub fn esp_wifi_get_ps(type_: *mut wifi_ps_type_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set protocol type of specified interface"]
+    #[doc = "            The default protocol is (WIFI_PROTOCOL_11B|WIFI_PROTOCOL_11G|WIFI_PROTOCOL_11N)"]
+    #[doc = ""]
+    #[doc = " @attention Currently we only support 802.11b or 802.11bg or 802.11bgn mode"]
+    #[doc = ""]
+    #[doc = " @param     ifx  interfaces"]
+    #[doc = " @param     protocol_bitmap  WiFi protocol bitmap"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_IF: invalid interface"]
+    #[doc = "    - others: refer to error codes in esp_err.h"]
+    pub fn esp_wifi_set_protocol(ifx: wifi_interface_t, protocol_bitmap: u8) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get the current protocol bitmap of the specified interface"]
+    #[doc = ""]
+    #[doc = " @param     ifx  interface"]
+    #[doc = " @param[out] protocol_bitmap  store current WiFi protocol bitmap of interface ifx"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_IF: invalid interface"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - others: refer to error codes in esp_err.h"]
+    pub fn esp_wifi_get_protocol(ifx: wifi_interface_t, protocol_bitmap: *mut u8) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set the bandwidth of ESP32 specified interface"]
+    #[doc = ""]
+    #[doc = " @attention 1. API return false if try to configure an interface that is not enabled"]
+    #[doc = " @attention 2. WIFI_BW_HT40 is supported only when the interface support 11N"]
+    #[doc = ""]
+    #[doc = " @param     ifx  interface to be configured"]
+    #[doc = " @param     bw  bandwidth"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_IF: invalid interface"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - others: refer to error codes in esp_err.h"]
+    pub fn esp_wifi_set_bandwidth(ifx: wifi_interface_t, bw: wifi_bandwidth_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get the bandwidth of ESP32 specified interface"]
+    #[doc = ""]
+    #[doc = " @attention 1. API return false if try to get a interface that is not enable"]
+    #[doc = ""]
+    #[doc = " @param     ifx interface to be configured"]
+    #[doc = " @param[out] bw  store bandwidth of interface ifx"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_IF: invalid interface"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_get_bandwidth(ifx: wifi_interface_t, bw: *mut wifi_bandwidth_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set primary/secondary channel of ESP32"]
+    #[doc = ""]
+    #[doc = " @attention 1. This is a special API for sniffer"]
+    #[doc = " @attention 2. This API should be called after esp_wifi_start() or esp_wifi_set_promiscuous()"]
+    #[doc = ""]
+    #[doc = " @param     primary  for HT20, primary is the channel number, for HT40, primary is the primary channel"]
+    #[doc = " @param     second   for HT20, second is ignored, for HT40, second is the second channel"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_IF: invalid interface"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_set_channel(primary: u8, second: wifi_second_chan_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get the primary/secondary channel of ESP32"]
+    #[doc = ""]
+    #[doc = " @attention 1. API return false if try to get a interface that is not enable"]
+    #[doc = ""]
+    #[doc = " @param     primary   store current primary channel"]
+    #[doc = " @param[out]  second  store current second channel"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_get_channel(primary: *mut u8, second: *mut wifi_second_chan_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     configure country info"]
+    #[doc = ""]
+    #[doc = " @attention 1. The default country is {.cc=\"CN\", .schan=1, .nchan=13, policy=WIFI_COUNTRY_POLICY_AUTO}"]
+    #[doc = " @attention 2. When the country policy is WIFI_COUNTRY_POLICY_AUTO, the country info of the AP to which"]
+    #[doc = "               the station is connected is used. E.g. if the configured country info is {.cc=\"USA\", .schan=1, .nchan=11}"]
+    #[doc = "               and the country info of the AP to which the station is connected is {.cc=\"JP\", .schan=1, .nchan=14}"]
+    #[doc = "               then the country info that will be used is {.cc=\"JP\", .schan=1, .nchan=14}. If the station disconnected"]
+    #[doc = "               from the AP the country info is set back back to the country info of the station automatically,"]
+    #[doc = "               {.cc=\"USA\", .schan=1, .nchan=11} in the example."]
+    #[doc = " @attention 3. When the country policy is WIFI_COUNTRY_POLICY_MANUAL, always use the configured country info."]
+    #[doc = " @attention 4. When the country info is changed because of configuration or because the station connects to a different"]
+    #[doc = "               external AP, the country IE in probe response/beacon of the soft-AP is changed also."]
+    #[doc = " @attention 5. The country configuration is not stored into flash"]
+    #[doc = " @attention 6. This API doesn't validate the per-country rules, it's up to the user to fill in all fields according to"]
+    #[doc = "               local regulations."]
+    #[doc = ""]
+    #[doc = " @param     country   the configured country info"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_set_country(country: *const wifi_country_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     get the current country info"]
+    #[doc = ""]
+    #[doc = " @param     country  country info"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_get_country(country: *mut wifi_country_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set MAC address of the ESP32 WiFi station or the soft-AP interface."]
+    #[doc = ""]
+    #[doc = " @attention 1. This API can only be called when the interface is disabled"]
+    #[doc = " @attention 2. ESP32 soft-AP and station have different MAC addresses, do not set them to be the same."]
+    #[doc = " @attention 3. The bit 0 of the first byte of ESP32 MAC address can not be 1. For example, the MAC address"]
+    #[doc = "      can set to be \"1a:XX:XX:XX:XX:XX\", but can not be \"15:XX:XX:XX:XX:XX\"."]
+    #[doc = ""]
+    #[doc = " @param     ifx  interface"]
+    #[doc = " @param     mac  the MAC address"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - ESP_ERR_WIFI_IF: invalid interface"]
+    #[doc = "    - ESP_ERR_WIFI_MAC: invalid mac address"]
+    #[doc = "    - ESP_ERR_WIFI_MODE: WiFi mode is wrong"]
+    #[doc = "    - others: refer to error codes in esp_err.h"]
+    pub fn esp_wifi_set_mac(ifx: wifi_interface_t, mac: *const u8) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get mac of specified interface"]
+    #[doc = ""]
+    #[doc = " @param      ifx  interface"]
+    #[doc = " @param[out] mac  store mac of the interface ifx"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - ESP_ERR_WIFI_IF: invalid interface"]
+    pub fn esp_wifi_get_mac(ifx: wifi_interface_t, mac: *mut u8) -> esp_err_t;
+}
+#[doc = " @brief The RX callback function in the promiscuous mode."]
+#[doc = "        Each time a packet is received, the callback function will be called."]
+#[doc = ""]
+#[doc = " @param buf  Data received. Type of data in buffer (wifi_promiscuous_pkt_t or wifi_pkt_rx_ctrl_t) indicated by 'type' parameter."]
+#[doc = " @param type  promiscuous packet type."]
+#[doc = ""]
+pub type wifi_promiscuous_cb_t = ::core::option::Option<
+    unsafe extern "C" fn(buf: *mut ::std::os::raw::c_void, type_: wifi_promiscuous_pkt_type_t),
+>;
+extern "C" {
+    #[doc = " @brief Register the RX callback function in the promiscuous mode."]
+    #[doc = ""]
+    #[doc = " Each time a packet is received, the registered callback function will be called."]
+    #[doc = ""]
+    #[doc = " @param cb  callback"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_set_promiscuous_rx_cb(cb: wifi_promiscuous_cb_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Enable the promiscuous mode."]
+    #[doc = ""]
+    #[doc = " @param     en  false - disable, true - enable"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_set_promiscuous(en: bool) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get the promiscuous mode."]
+    #[doc = ""]
+    #[doc = " @param[out] en  store the current status of promiscuous mode"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_get_promiscuous(en: *mut bool) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Enable the promiscuous mode packet type filter."]
+    #[doc = ""]
+    #[doc = " @note The default filter is to filter all packets except WIFI_PKT_MISC"]
+    #[doc = ""]
+    #[doc = " @param filter the packet type filtered in promiscuous mode."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_set_promiscuous_filter(filter: *const wifi_promiscuous_filter_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get the promiscuous filter."]
+    #[doc = ""]
+    #[doc = " @param[out] filter  store the current status of promiscuous filter"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_get_promiscuous_filter(filter: *mut wifi_promiscuous_filter_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Enable subtype filter of the control packet in promiscuous mode."]
+    #[doc = ""]
+    #[doc = " @note The default filter is to filter none control packet."]
+    #[doc = ""]
+    #[doc = " @param filter the subtype of the control packet filtered in promiscuous mode."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_set_promiscuous_ctrl_filter(
+        filter: *const wifi_promiscuous_filter_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get the subtype filter of the control packet in promiscuous mode."]
+    #[doc = ""]
+    #[doc = " @param[out] filter  store the current status of subtype filter of the control packet in promiscuous mode"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_ARG: invalid argument"]
+    pub fn esp_wifi_get_promiscuous_ctrl_filter(
+        filter: *mut wifi_promiscuous_filter_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set the configuration of the ESP32 STA or AP"]
+    #[doc = ""]
+    #[doc = " @attention 1. This API can be called only when specified interface is enabled, otherwise, API fail"]
+    #[doc = " @attention 2. For station configuration, bssid_set needs to be 0; and it needs to be 1 only when users need to check the MAC address of the AP."]
+    #[doc = " @attention 3. ESP32 is limited to only one channel, so when in the soft-AP+station mode, the soft-AP will adjust its channel automatically to be the same as"]
+    #[doc = "               the channel of the ESP32 station."]
+    #[doc = ""]
+    #[doc = " @param     interface  interface"]
+    #[doc = " @param     conf  station or soft-AP configuration"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - ESP_ERR_WIFI_IF: invalid interface"]
+    #[doc = "    - ESP_ERR_WIFI_MODE: invalid mode"]
+    #[doc = "    - ESP_ERR_WIFI_PASSWORD: invalid password"]
+    #[doc = "    - ESP_ERR_WIFI_NVS: WiFi internal NVS error"]
+    #[doc = "    - others: refer to the erro code in esp_err.h"]
+    pub fn esp_wifi_set_config(interface: wifi_interface_t, conf: *mut wifi_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get configuration of specified interface"]
+    #[doc = ""]
+    #[doc = " @param     interface  interface"]
+    #[doc = " @param[out]  conf  station or soft-AP configuration"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - ESP_ERR_WIFI_IF: invalid interface"]
+    pub fn esp_wifi_get_config(interface: wifi_interface_t, conf: *mut wifi_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get STAs associated with soft-AP"]
+    #[doc = ""]
+    #[doc = " @attention SSC only API"]
+    #[doc = ""]
+    #[doc = " @param[out] sta  station list"]
+    #[doc = "             ap can get the connected sta's phy mode info through the struct member"]
+    #[doc = "             phy_11b\u{ff0c}phy_11g\u{ff0c}phy_11n\u{ff0c}phy_lr in the wifi_sta_info_t struct."]
+    #[doc = "             For example, phy_11b = 1 imply that sta support 802.11b mode"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    #[doc = "    - ESP_ERR_WIFI_MODE: WiFi mode is wrong"]
+    #[doc = "    - ESP_ERR_WIFI_CONN: WiFi internal error, the station/soft-AP control block is invalid"]
+    pub fn esp_wifi_ap_get_sta_list(sta: *mut wifi_sta_list_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set the WiFi API configuration storage type"]
+    #[doc = ""]
+    #[doc = " @attention 1. The default value is WIFI_STORAGE_FLASH"]
+    #[doc = ""]
+    #[doc = " @param     storage : storage type"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "   - ESP_OK: succeed"]
+    #[doc = "   - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "   - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_set_storage(storage: wifi_storage_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set auto connect"]
+    #[doc = "            The default value is true"]
+    #[doc = ""]
+    #[doc = " @param     en : true - enable auto connect / false - disable auto connect"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_MODE: WiFi internal error, the station/soft-AP control block is invalid"]
+    #[doc = "    - others: refer to error code in esp_err.h"]
+    pub fn esp_wifi_set_auto_connect(en: bool) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get the auto connect flag"]
+    #[doc = ""]
+    #[doc = " @param[out] en  store current auto connect configuration"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_get_auto_connect(en: *mut bool) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set 802.11 Vendor-Specific Information Element"]
+    #[doc = ""]
+    #[doc = " @param     enable If true, specified IE is enabled. If false, specified IE is removed."]
+    #[doc = " @param     type Information Element type. Determines the frame type to associate with the IE."]
+    #[doc = " @param     idx  Index to set or clear. Each IE type can be associated with up to two elements (indices 0 & 1)."]
+    #[doc = " @param     vnd_ie Pointer to vendor specific element data. First 6 bytes should be a header with fields matching vendor_ie_data_t."]
+    #[doc = "            If enable is false, this argument is ignored and can be NULL. Data does not need to remain valid after the function returns."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init()"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: Invalid argument, including if first byte of vnd_ie is not WIFI_VENDOR_IE_ELEMENT_ID (0xDD)"]
+    #[doc = "      or second byte is an invalid length."]
+    #[doc = "    - ESP_ERR_NO_MEM: Out of memory"]
+    pub fn esp_wifi_set_vendor_ie(
+        enable: bool,
+        type_: wifi_vendor_ie_type_t,
+        idx: wifi_vendor_ie_id_t,
+        vnd_ie: *const ::std::os::raw::c_void,
+    ) -> esp_err_t;
+}
+#[doc = " @brief     Function signature for received Vendor-Specific Information Element callback."]
+#[doc = " @param     ctx Context argument, as passed to esp_wifi_set_vendor_ie_cb() when registering callback."]
+#[doc = " @param     type Information element type, based on frame type received."]
+#[doc = " @param     sa Source 802.11 address."]
+#[doc = " @param     vnd_ie Pointer to the vendor specific element data received."]
+#[doc = " @param     rssi Received signal strength indication."]
+pub type esp_vendor_ie_cb_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        ctx: *mut ::std::os::raw::c_void,
+        type_: wifi_vendor_ie_type_t,
+        sa: *const u8,
+        vnd_ie: *const vendor_ie_data_t,
+        rssi: ::std::os::raw::c_int,
+    ),
+>;
+extern "C" {
+    #[doc = " @brief     Register Vendor-Specific Information Element monitoring callback."]
+    #[doc = ""]
+    #[doc = " @param     cb   Callback function"]
+    #[doc = " @param     ctx  Context argument, passed to callback function."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_set_vendor_ie_cb(
+        cb: esp_vendor_ie_cb_t,
+        ctx: *mut ::std::os::raw::c_void,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set maximum WiFi transmiting power"]
+    #[doc = ""]
+    #[doc = " @attention WiFi transmiting power is divided to six levels in phy init data."]
+    #[doc = "            Level0 represents highest transmiting power and level5 represents lowest"]
+    #[doc = "            transmiting power. Packets of different rates are transmitted in"]
+    #[doc = "            different powers according to the configuration in phy init data."]
+    #[doc = "            This API only sets maximum WiFi transmiting power. If this API is called,"]
+    #[doc = "            the transmiting power of every packet will be less than or equal to the"]
+    #[doc = "            value set by this API. If this API is not called, the value of maximum"]
+    #[doc = "            transmitting power set in phy_init_data.bin or menuconfig (depend on"]
+    #[doc = "            whether to use phy init data in partition or not) will be used. Default"]
+    #[doc = "            value is level0. Values passed in power are mapped to transmit power"]
+    #[doc = "            levels as follows:"]
+    #[doc = "            - [78, 127]: level0"]
+    #[doc = "            - [76, 77]: level1"]
+    #[doc = "            - [74, 75]: level2"]
+    #[doc = "            - [68, 73]: level3"]
+    #[doc = "            - [60, 67]: level4"]
+    #[doc = "            - [52, 59]: level5"]
+    #[doc = "            - [44, 51]: level5 - 2dBm"]
+    #[doc = "            - [34, 43]: level5 - 4.5dBm"]
+    #[doc = "            - [28, 33]: level5 - 6dBm"]
+    #[doc = "            - [20, 27]: level5 - 8dBm"]
+    #[doc = "            - [8, 19]: level5 - 11dBm"]
+    #[doc = "            - [-128, 7]: level5 - 14dBm"]
+    #[doc = ""]
+    #[doc = " @param     power  Maximum WiFi transmiting power."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_START: WiFi is not started by esp_wifi_start"]
+    pub fn esp_wifi_set_max_tx_power(power: i8) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get maximum WiFi transmiting power"]
+    #[doc = ""]
+    #[doc = " @attention This API gets maximum WiFi transmiting power. Values got"]
+    #[doc = "            from power are mapped to transmit power levels as follows:"]
+    #[doc = "            - 78: 19.5dBm"]
+    #[doc = "            - 76: 19dBm"]
+    #[doc = "            - 74: 18.5dBm"]
+    #[doc = "            - 68: 17dBm"]
+    #[doc = "            - 60: 15dBm"]
+    #[doc = "            - 52: 13dBm"]
+    #[doc = "            - 44: 11dBm"]
+    #[doc = "            - 34: 8.5dBm"]
+    #[doc = "            - 28: 7dBm"]
+    #[doc = "            - 20: 5dBm"]
+    #[doc = "            - 8:  2dBm"]
+    #[doc = "            - -4: -1dBm"]
+    #[doc = ""]
+    #[doc = " @param     power  Maximum WiFi transmiting power."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_START: WiFi is not started by esp_wifi_start"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_get_max_tx_power(power: *mut i8) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set mask to enable or disable some WiFi events"]
+    #[doc = ""]
+    #[doc = " @attention 1. Mask can be created by logical OR of various WIFI_EVENT_MASK_ constants."]
+    #[doc = "               Events which have corresponding bit set in the mask will not be delivered to the system event handler."]
+    #[doc = " @attention 2. Default WiFi event mask is WIFI_EVENT_MASK_AP_PROBEREQRECVED."]
+    #[doc = " @attention 3. There may be lots of stations sending probe request data around."]
+    #[doc = "               Don't unmask this event unless you need to receive probe request data."]
+    #[doc = ""]
+    #[doc = " @param     mask  WiFi event mask."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_set_event_mask(mask: u32) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get mask of WiFi events"]
+    #[doc = ""]
+    #[doc = " @param     mask  WiFi event mask."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_ARG: invalid argument"]
+    pub fn esp_wifi_get_event_mask(mask: *mut u32) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Send raw ieee80211 data"]
+    #[doc = ""]
+    #[doc = " @attention Currently only support for sending beacon/probe request/probe response/action and non-QoS"]
+    #[doc = "            data frame"]
+    #[doc = ""]
+    #[doc = " @param     ifx interface if the Wi-Fi mode is Station, the ifx should be WIFI_IF_STA. If the Wi-Fi"]
+    #[doc = "            mode is SoftAP, the ifx should be WIFI_IF_AP. If the Wi-Fi mode is Station+SoftAP, the"]
+    #[doc = "            ifx should be WIFI_IF_STA or WIFI_IF_AP. If the ifx is wrong, the API returns ESP_ERR_WIFI_IF."]
+    #[doc = " @param     buffer raw ieee80211 buffer"]
+    #[doc = " @param     len the length of raw buffer, the len must be <= 1500 Bytes and >= 24 Bytes"]
+    #[doc = " @param     en_sys_seq indicate whether use the internal sequence number. If en_sys_seq is false, the"]
+    #[doc = "            sequence in raw buffer is unchanged, otherwise it will be overwritten by WiFi driver with"]
+    #[doc = "            the system sequence number."]
+    #[doc = "            Generally, if esp_wifi_80211_tx is called before the Wi-Fi connection has been set up, both"]
+    #[doc = "            en_sys_seq==true and en_sys_seq==false are fine. However, if the API is called after the Wi-Fi"]
+    #[doc = "            connection has been set up, en_sys_seq must be true, otherwise ESP_ERR_WIFI_ARG is returned."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: success"]
+    #[doc = "    - ESP_ERR_WIFI_IF: Invalid interface"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: Invalid parameter"]
+    #[doc = "    - ESP_ERR_WIFI_NO_MEM: out of memory"]
+    pub fn esp_wifi_80211_tx(
+        ifx: wifi_interface_t,
+        buffer: *const ::std::os::raw::c_void,
+        len: ::std::os::raw::c_int,
+        en_sys_seq: bool,
+    ) -> esp_err_t;
+}
+#[doc = " @brief The RX callback function of Channel State Information(CSI)  data."]
+#[doc = ""]
+#[doc = "        Each time a CSI data is received, the callback function will be called."]
+#[doc = ""]
+#[doc = " @param ctx context argument, passed to esp_wifi_set_csi_rx_cb() when registering callback function."]
+#[doc = " @param data CSI data received. The memory that it points to will be deallocated after callback function returns."]
+#[doc = ""]
+pub type wifi_csi_cb_t = ::core::option::Option<
+    unsafe extern "C" fn(ctx: *mut ::std::os::raw::c_void, data: *mut wifi_csi_info_t),
+>;
+extern "C" {
+    #[doc = " @brief Register the RX callback function of CSI data."]
+    #[doc = ""]
+    #[doc = "        Each time a CSI data is received, the callback function will be called."]
+    #[doc = ""]
+    #[doc = " @param cb  callback"]
+    #[doc = " @param ctx context argument, passed to callback function"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    pub fn esp_wifi_set_csi_rx_cb(cb: wifi_csi_cb_t, ctx: *mut ::std::os::raw::c_void)
+        -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Set CSI data configuration"]
+    #[doc = ""]
+    #[doc = " @param config configuration"]
+    #[doc = ""]
+    #[doc = " return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_START: WiFi is not started by esp_wifi_start or promiscuous mode is not enabled"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_set_csi_config(config: *const wifi_csi_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Enable or disable CSI"]
+    #[doc = ""]
+    #[doc = " @param en true - enable, false - disable"]
+    #[doc = ""]
+    #[doc = " return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_START: WiFi is not started by esp_wifi_start or promiscuous mode is not enabled"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: invalid argument"]
+    pub fn esp_wifi_set_csi(en: bool) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set antenna GPIO configuration"]
+    #[doc = ""]
+    #[doc = " @param     config  Antenna GPIO configuration."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_ARG: Invalid argument, e.g. parameter is NULL, invalid GPIO number etc"]
+    pub fn esp_wifi_set_ant_gpio(config: *const wifi_ant_gpio_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get current antenna GPIO configuration"]
+    #[doc = ""]
+    #[doc = " @param     config  Antenna GPIO configuration."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_ARG: invalid argument, e.g. parameter is NULL"]
+    pub fn esp_wifi_get_ant_gpio(config: *mut wifi_ant_gpio_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Set antenna configuration"]
+    #[doc = ""]
+    #[doc = " @param     config  Antenna configuration."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_ARG: Invalid argument, e.g. parameter is NULL, invalid antenna mode or invalid GPIO number"]
+    pub fn esp_wifi_set_ant(config: *const wifi_ant_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     Get current antenna configuration"]
+    #[doc = ""]
+    #[doc = " @param     config  Antenna configuration."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_WIFI_NOT_INIT: WiFi is not initialized by esp_wifi_init"]
+    #[doc = "    - ESP_ERR_WIFI_ARG: invalid argument, e.g. parameter is NULL"]
+    pub fn esp_wifi_get_ant(config: *mut wifi_ant_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief     A general API to set/get WiFi internal configuration, it's for debug only"]
+    #[doc = ""]
+    #[doc = " @param     cmd : ioctl command type"]
+    #[doc = " @param     cfg : configuration for the command"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - others: failed"]
+    pub fn esp_wifi_internal_ioctl(
+        cmd: ::std::os::raw::c_int,
+        cfg: *mut wifi_ioctl_config_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub static g_wifi_default_wpa2_crypto_funcs: wpa2_crypto_funcs_t;
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct esp_wpa2_config_t {
+    pub crypto_funcs: *const wpa2_crypto_funcs_t,
+}
+extern "C" {
+    #[doc = " @brief  Enable wpa2 enterprise authentication."]
+    #[doc = ""]
+    #[doc = " @attention 1. wpa2 enterprise authentication can only be used when ESP32 station is enabled."]
+    #[doc = " @attention 2. wpa2 enterprise authentication can only support TLS, PEAP-MSCHAPv2 and TTLS-MSCHAPv2 method."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed."]
+    #[doc = "    - ESP_ERR_NO_MEM: fail(internal memory malloc fail)"]
+    pub fn esp_wifi_sta_wpa2_ent_enable(config: *const esp_wpa2_config_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Disable wpa2 enterprise authentication."]
+    #[doc = ""]
+    #[doc = " @attention 1. wpa2 enterprise authentication can only be used when ESP32 station is enabled."]
+    #[doc = " @attention 2. wpa2 enterprise authentication can only support TLS, PEAP-MSCHAPv2 and TTLS-MSCHAPv2 method."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed."]
+    pub fn esp_wifi_sta_wpa2_ent_disable() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Set identity for PEAP/TTLS method."]
+    #[doc = ""]
+    #[doc = " @attention The API only passes the parameter identity to the global pointer variable in wpa2 enterprise module."]
+    #[doc = ""]
+    #[doc = " @param  identity: point to address where stores the identity;"]
+    #[doc = " @param  len: length of identity, limited to 1~127"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: fail(len <= 0 or len >= 128)"]
+    #[doc = "    - ESP_ERR_NO_MEM: fail(internal memory malloc fail)"]
+    pub fn esp_wifi_sta_wpa2_ent_set_identity(
+        identity: *const ::std::os::raw::c_uchar,
+        len: ::std::os::raw::c_int,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Clear identity for PEAP/TTLS method."]
+    pub fn esp_wifi_sta_wpa2_ent_clear_identity();
+}
+extern "C" {
+    #[doc = " @brief  Set username for PEAP/TTLS method."]
+    #[doc = ""]
+    #[doc = " @attention The API only passes the parameter username to the global pointer variable in wpa2 enterprise module."]
+    #[doc = ""]
+    #[doc = " @param  username: point to address where stores the username;"]
+    #[doc = " @param  len: length of username, limited to 1~127"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: fail(len <= 0 or len >= 128)"]
+    #[doc = "    - ESP_ERR_NO_MEM: fail(internal memory malloc fail)"]
+    pub fn esp_wifi_sta_wpa2_ent_set_username(
+        username: *const ::std::os::raw::c_uchar,
+        len: ::std::os::raw::c_int,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Clear username for PEAP/TTLS method."]
+    pub fn esp_wifi_sta_wpa2_ent_clear_username();
+}
+extern "C" {
+    #[doc = " @brief  Set password for PEAP/TTLS method.."]
+    #[doc = ""]
+    #[doc = " @attention The API only passes the parameter password to the global pointer variable in wpa2 enterprise module."]
+    #[doc = ""]
+    #[doc = " @param  password: point to address where stores the password;"]
+    #[doc = " @param  len: length of password(len > 0)"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: fail(len <= 0)"]
+    #[doc = "    - ESP_ERR_NO_MEM: fail(internal memory malloc fail)"]
+    pub fn esp_wifi_sta_wpa2_ent_set_password(
+        password: *const ::std::os::raw::c_uchar,
+        len: ::std::os::raw::c_int,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Clear password for PEAP/TTLS method.."]
+    pub fn esp_wifi_sta_wpa2_ent_clear_password();
+}
+extern "C" {
+    #[doc = " @brief  Set new password for MSCHAPv2 method.."]
+    #[doc = ""]
+    #[doc = " @attention 1. The API only passes the parameter password to the global pointer variable in wpa2 enterprise module."]
+    #[doc = " @attention 2. The new password is used to substitute the old password when eap-mschapv2 failure request message with error code ERROR_PASSWD_EXPIRED is received."]
+    #[doc = ""]
+    #[doc = " @param  new_password: point to address where stores the password;"]
+    #[doc = " @param  len: length of password"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    #[doc = "    - ESP_ERR_INVALID_ARG: fail(len <= 0)"]
+    #[doc = "    - ESP_ERR_NO_MEM: fail(internal memory malloc fail)"]
+    pub fn esp_wifi_sta_wpa2_ent_set_new_password(
+        new_password: *const ::std::os::raw::c_uchar,
+        len: ::std::os::raw::c_int,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Clear new password for MSCHAPv2 method.."]
+    pub fn esp_wifi_sta_wpa2_ent_clear_new_password();
+}
+extern "C" {
+    #[doc = " @brief  Set CA certificate for PEAP/TTLS method."]
+    #[doc = ""]
+    #[doc = " @attention 1. The API only passes the parameter ca_cert to the global pointer variable in wpa2 enterprise module."]
+    #[doc = " @attention 2. The ca_cert should be zero terminated."]
+    #[doc = ""]
+    #[doc = " @param  ca_cert: point to address where stores the CA certificate;"]
+    #[doc = " @param  ca_cert_len: length of ca_cert"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    pub fn esp_wifi_sta_wpa2_ent_set_ca_cert(
+        ca_cert: *const ::std::os::raw::c_uchar,
+        ca_cert_len: ::std::os::raw::c_int,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Clear CA certificate for PEAP/TTLS method."]
+    pub fn esp_wifi_sta_wpa2_ent_clear_ca_cert();
+}
+extern "C" {
+    #[doc = " @brief  Set client certificate and key."]
+    #[doc = ""]
+    #[doc = " @attention 1. The API only passes the parameter client_cert, private_key and private_key_passwd to the global pointer variable in wpa2 enterprise module."]
+    #[doc = " @attention 2. The client_cert, private_key and private_key_passwd should be zero terminated."]
+    #[doc = ""]
+    #[doc = " @param  client_cert: point to address where stores the client certificate;"]
+    #[doc = " @param  client_cert_len: length of client certificate;"]
+    #[doc = " @param  private_key: point to address where stores the private key;"]
+    #[doc = " @param  private_key_len: length of private key, limited to 1~2048;"]
+    #[doc = " @param  private_key_password: point to address where stores the private key password;"]
+    #[doc = " @param  private_key_password_len: length of private key password;"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    pub fn esp_wifi_sta_wpa2_ent_set_cert_key(
+        client_cert: *const ::std::os::raw::c_uchar,
+        client_cert_len: ::std::os::raw::c_int,
+        private_key: *const ::std::os::raw::c_uchar,
+        private_key_len: ::std::os::raw::c_int,
+        private_key_passwd: *const ::std::os::raw::c_uchar,
+        private_key_passwd_len: ::std::os::raw::c_int,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Clear client certificate and key."]
+    pub fn esp_wifi_sta_wpa2_ent_clear_cert_key();
+}
+extern "C" {
+    #[doc = " @brief  Set wpa2 enterprise certs time check(disable or not)."]
+    #[doc = ""]
+    #[doc = " @param  true: disable wpa2 enterprise certs time check"]
+    #[doc = " @param  false: enable wpa2 enterprise certs time check"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    pub fn esp_wifi_sta_wpa2_ent_set_disable_time_check(disable: bool) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Get wpa2 enterprise certs time check(disable or not)."]
+    #[doc = ""]
+    #[doc = " @param  disable: store disable value"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "    - ESP_OK: succeed"]
+    pub fn esp_wifi_sta_wpa2_ent_get_disable_time_check(disable: *mut bool) -> esp_err_t;
+}
+#[doc = "< No log output"]
+pub const esp_log_level_t_ESP_LOG_NONE: esp_log_level_t = 0;
+#[doc = "< Critical errors, software module can not recover on its own"]
+pub const esp_log_level_t_ESP_LOG_ERROR: esp_log_level_t = 1;
+#[doc = "< Error conditions from which recovery measures have been taken"]
+pub const esp_log_level_t_ESP_LOG_WARN: esp_log_level_t = 2;
+#[doc = "< Information messages which describe normal flow of events"]
+pub const esp_log_level_t_ESP_LOG_INFO: esp_log_level_t = 3;
+#[doc = "< Extra information which is not necessary for normal use (values, pointers, sizes, etc)."]
+pub const esp_log_level_t_ESP_LOG_DEBUG: esp_log_level_t = 4;
+#[doc = "< Bigger chunks of debugging information, or frequent messages which can potentially flood the output."]
+pub const esp_log_level_t_ESP_LOG_VERBOSE: esp_log_level_t = 5;
+#[doc = " @brief Log level"]
+#[doc = ""]
+pub type esp_log_level_t = u32;
+pub type vprintf_like_t = ::core::option::Option<
+    unsafe extern "C" fn(
+        arg1: *const ::std::os::raw::c_char,
+        arg2: va_list,
+    ) -> ::std::os::raw::c_int,
+>;
+extern "C" {
+    #[doc = " @brief Set log level for given tag"]
+    #[doc = ""]
+    #[doc = " If logging for given component has already been enabled, changes previous setting."]
+    #[doc = ""]
+    #[doc = " Note that this function can not raise log level above the level set using"]
+    #[doc = " CONFIG_LOG_DEFAULT_LEVEL setting in menuconfig."]
+    #[doc = ""]
+    #[doc = " To raise log level above the default one for a given file, define"]
+    #[doc = " LOG_LOCAL_LEVEL to one of the ESP_LOG_* values, before including"]
+    #[doc = " esp_log.h in this file."]
+    #[doc = ""]
+    #[doc = " @param tag Tag of the log entries to enable. Must be a non-NULL zero terminated string."]
+    #[doc = "            Value \"*\" resets log level for all tags to the given value."]
+    #[doc = ""]
+    #[doc = " @param level  Selects log level to enable. Only logs at this and lower verbosity"]
+    #[doc = " levels will be shown."]
+    pub fn esp_log_level_set(tag: *const ::std::os::raw::c_char, level: esp_log_level_t);
+}
+extern "C" {
+    #[doc = " @brief Set function used to output log entries"]
+    #[doc = ""]
+    #[doc = " By default, log output goes to UART0. This function can be used to redirect log"]
+    #[doc = " output to some other destination, such as file or network. Returns the original"]
+    #[doc = " log handler, which may be necessary to return output to the previous destination."]
+    #[doc = ""]
+    #[doc = " @param func new Function used for output. Must have same signature as vprintf."]
+    #[doc = ""]
+    #[doc = " @return func old Function used for output."]
+    pub fn esp_log_set_vprintf(func: vprintf_like_t) -> vprintf_like_t;
+}
+extern "C" {
+    #[doc = " @brief Function which returns timestamp to be used in log output"]
+    #[doc = ""]
+    #[doc = " This function is used in expansion of ESP_LOGx macros."]
+    #[doc = " In the 2nd stage bootloader, and at early application startup stage"]
+    #[doc = " this function uses CPU cycle counter as time source. Later when"]
+    #[doc = " FreeRTOS scheduler start running, it switches to FreeRTOS tick count."]
+    #[doc = ""]
+    #[doc = " For now, we ignore millisecond counter overflow."]
+    #[doc = ""]
+    #[doc = " @return timestamp, in milliseconds"]
+    pub fn esp_log_timestamp() -> u32;
+}
+extern "C" {
+    #[doc = " @brief Function which returns timestamp to be used in log output"]
+    #[doc = ""]
+    #[doc = " This function uses HW cycle counter and does not depend on OS,"]
+    #[doc = " so it can be safely used after application crash."]
+    #[doc = ""]
+    #[doc = " @return timestamp, in milliseconds"]
+    pub fn esp_log_early_timestamp() -> u32;
+}
+extern "C" {
+    #[doc = " @brief Write message into the log"]
+    #[doc = ""]
+    #[doc = " This function is not intended to be used directly. Instead, use one of"]
+    #[doc = " ESP_LOGE, ESP_LOGW, ESP_LOGI, ESP_LOGD, ESP_LOGV macros."]
+    #[doc = ""]
+    #[doc = " This function or these macros should not be used from an interrupt."]
+    pub fn esp_log_write(
+        level: esp_log_level_t,
+        tag: *const ::std::os::raw::c_char,
+        format: *const ::std::os::raw::c_char,
+        ...
+    );
+}
+extern "C" {
+    pub fn esp_log_buffer_hex_internal(
+        tag: *const ::std::os::raw::c_char,
+        buffer: *const ::std::os::raw::c_void,
+        buff_len: u16,
+        level: esp_log_level_t,
+    );
+}
+extern "C" {
+    pub fn esp_log_buffer_char_internal(
+        tag: *const ::std::os::raw::c_char,
+        buffer: *const ::std::os::raw::c_void,
+        buff_len: u16,
+        level: esp_log_level_t,
+    );
+}
+extern "C" {
+    pub fn esp_log_buffer_hexdump_internal(
+        tag: *const ::std::os::raw::c_char,
+        buffer: *const ::std::os::raw::c_void,
+        buff_len: u16,
+        log_level: esp_log_level_t,
+    );
 }
 pub type __builtin_va_list = __va_list_tag;
 #[repr(C)]

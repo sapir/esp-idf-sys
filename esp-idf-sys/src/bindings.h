@@ -15,3 +15,8 @@
 #include "driver/timer.h"
 #include "driver/uart.h"
 #include <esp_clk.h>
+#include <esp_wifi.h>
+#include <esp_wpa2.h>
+#include <esp_event.h>
+#include <esp_log.h>
+#include <esp_system.h>
