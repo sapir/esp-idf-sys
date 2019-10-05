@@ -17,6 +17,12 @@ CLANG_FLAGS="\
     --target=$TARGET \
     -x c"
 
+for comp in $COMPS/*; do
+    dirs=$((cat $comp/component.mk && echo '$(info ${COMPONENT_ADD_INCLUDEDIRS})') | make -f - 2>/dev/null; true)
+    for dir in $dirs; do
+        CLANG_FLAGS="${CLANG_FLAGS} -I$comp/$dir"
+    done
+done
 for INC in $(ls -d "$COMPS"/**/*/include); do
     CLANG_FLAGS="${CLANG_FLAGS} -I$INC"
 done
