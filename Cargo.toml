@@ -1,4 +1,16 @@
 [workspace]
 members = [
-    "esp-idf-sys",
+  "esp-idf-sys",
 ]
+
+[profile.dev]
+lto = false
+incremental = false
+debug = false # debug adds frame pointers - which must be omitted
+codegen-units = 1
+
+[profile.release]
+lto = false
+incremental = false
+debug = false # debug adds frame pointers - which must be omitted
+codegen-units = 1
