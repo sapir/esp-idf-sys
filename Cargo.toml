@@ -1,16 +1,24 @@
-[workspace]
-members = [
-  "esp-idf-sys",
+[package]
+name = "esp-idf-sys"
+version = "0.1.2"
+authors = [
+  "Alexey Arbuzov <aarbuzov@termt.com>",
+  "Markus Reiter <me@reitermark.us>",
+  "sapir <yasapir@gmail.com>",
 ]
+edition = "2018"
+description = "Bindings for esp-idf (Espressif's IoT Development Framework)"
+repository = "https://github.com/sapir/esp-idf-sys"
+license = "MIT"
 
-[profile.dev]
-lto = false
-incremental = false
-debug = false # debug adds frame pointers - which must be omitted
-codegen-units = 1
+# debug adds frame pointers which must be omitted, see
+# https://github.com/espressif/llvm-xtensa/issues/10
+[profile]
+dev = { debug = false }
+release = { debug = false }
 
-[profile.release]
-lto = false
-incremental = false
-debug = false # debug adds frame pointers - which must be omitted
-codegen-units = 1
+[dependencies]
+
+[build-dependencies]
+bindgen = "0.51"
+globwalk = "0.7"
