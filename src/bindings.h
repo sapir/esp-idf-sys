@@ -44,7 +44,6 @@
 #include <esp_phy_init.h>
 #include <esp_pm.h>
 #include <esp_sleep.h>
-#include <esp_sleep.h>
 #include <esp_smartconfig.h>
 #include <esp_spiram.h>
 #include <esp_ssc.h>
