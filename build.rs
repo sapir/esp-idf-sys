@@ -13,9 +13,15 @@ fn main() -> Result<(), Box<dyn Error>> {
   println!("cargo:rerun-if-changed=src/bindings.h");
   println!("cargo:rerun-if-changed=src/sdkconfig.h");
 
-  let idf_path = PathBuf::from(env::var("IDF_PATH")?);
+  let idf_path = PathBuf::from(env::var("IDF_PATH").expect("IDF_PATH not set"));
 
-  let sysroot = Command::new("xtensa-esp32-elf-gcc")
+  let linker = match env::var("TARGET")?.as_ref() {
+    "xtensa-esp32-none-elf" => env::var("RUSTC_LINKER").unwrap_or("xtensa-esp32-elf-gcc".to_string()),
+    "xtensa-esp8266-none-elf" => env::var("RUSTC_LINKER").unwrap_or("xtensa-lx106-elf-gcc".to_string()),
+    _ => env::var("RUSTC_LINKER").expect("RUSTC_LINKER not set"),
+  };
+
+  let sysroot = Command::new(linker)
     .arg("--print-sysroot")
     .output()
     .map(|mut output| {
