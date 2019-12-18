@@ -9,6 +9,8 @@ use std::{
   process::{Command, Stdio},
 };
 
+use bindgen::EnumVariation;
+
 fn main() -> Result<(), Box<dyn Error>> {
   println!("cargo:rerun-if-changed=src/bindings.h");
   println!("cargo:rerun-if-changed=src/sdkconfig.h");
@@ -16,8 +18,8 @@ fn main() -> Result<(), Box<dyn Error>> {
   let idf_path = PathBuf::from(env::var("IDF_PATH").expect("IDF_PATH not set"));
 
   let linker = match env::var("TARGET")?.as_ref() {
-    "xtensa-esp32-none-elf" => env::var("RUSTC_LINKER").unwrap_or("xtensa-esp32-elf-gcc".to_string()),
-    "xtensa-esp8266-none-elf" => env::var("RUSTC_LINKER").unwrap_or("xtensa-lx106-elf-gcc".to_string()),
+    "xtensa-esp32-none-elf" => env::var("RUSTC_LINKER").unwrap_or("xtensa-esp32-elf-ld".to_string()),
+    "xtensa-esp8266-none-elf" => env::var("RUSTC_LINKER").unwrap_or("xtensa-lx106-elf-ld".to_string()),
     _ => env::var("RUSTC_LINKER").expect("RUSTC_LINKER not set"),
   };
 
@@ -28,8 +30,9 @@ fn main() -> Result<(), Box<dyn Error>> {
       // Remove newline from end.
       output.stdout.pop();
       PathBuf::from(OsStr::from_bytes(&output.stdout).to_os_string())
+        .canonicalize().expect("failed to canonicalize sysroot")
     })
-    .unwrap();
+    .expect("failed getting sysroot");
 
   let component_includes =
     globwalk::GlobWalkerBuilder::from_patterns(
@@ -51,7 +54,15 @@ fn main() -> Result<(), Box<dyn Error>> {
     .flat_map(|makefile| {
       let path = makefile.into_path();
 
-      let mut contents = read_to_string(&path).unwrap().replace("$(info ", "$(warn ");
+      let mut contents = read_to_string(&path).expect("failed reading component.mk").replace("$(info ", "$(warn ");
+      // Define these variables since they affect `COMPONENT_ADD_INCLUDEDIRS`.
+      contents.insert_str(0, r"
+        IS_BOOTLOADER_BUILD :=
+        CONFIG_SYSVIEW_ENABLE :=
+        CONFIG_AWS_IOT_SDK :=
+        CONFIG_BT_ENABLED :=
+        CONFIG_BLUEDROID_ENABLED :=
+      ");
       contents.push_str("\n$(info ${COMPONENT_ADD_INCLUDEDIRS})");
 
       let mut child = Command::new("make")
@@ -62,7 +73,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .stderr(Stdio::null())
         .env("IDF_TARGET", "esp32")
         .spawn()
-        .unwrap();
+        .expect("make failed");
 
       let mut stdin = child.stdin.take().unwrap();
       let stdout = child.stdout.take().unwrap();
@@ -78,11 +89,8 @@ fn main() -> Result<(), Box<dyn Error>> {
           let s = s.map(|s| s.to_string());
           s.collect::<Vec<_>>().into_iter()
         })
-        .map(move |s| {
-          let p = path.parent().unwrap().join(s).canonicalize().unwrap();
-          assert!(p.is_dir());
-          p
-        })
+        .map(move |s| path.parent().unwrap().join(s))
+        .filter(|s| s.is_dir())
     });
 
   let mut includes = component_includes.chain(component_additional_includes)
@@ -96,6 +104,8 @@ fn main() -> Result<(), Box<dyn Error>> {
     .use_core()
     .layout_tests(false)
     .ctypes_prefix("libc")
+    .default_enum_style(EnumVariation::Rust { non_exhaustive: false } )
+    .rustified_enum("wifi_mode_t")
     .header("src/bindings.h")
     .clang_arg(format!("--sysroot={}", sysroot.display()))
     .clang_arg("-Isrc")
