@@ -11,14 +11,6 @@ description = "Bindings for esp-idf (Espressif's IoT Development Framework)"
 repository = "https://github.com/sapir/esp-idf-sys"
 license = "MIT"
 
-# debug adds frame pointers which must be omitted, see
-# https://github.com/espressif/llvm-xtensa/issues/10
-[profile]
-dev = { debug = false }
-release = { debug = false }
-
-[dependencies]
-
 [build-dependencies]
 bindgen = "0.51"
 globwalk = "0.7"
