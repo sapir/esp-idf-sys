@@ -8,7 +8,6 @@
 #include "freertos/task.h"
 #include "nvs_flash.h"
 #include "esp_attr.h"
-#include "esp32/clk.h"
 #include "esp_err.h"
 #include "esp_event.h"
 #include "esp_flash_partitions.h"

@@ -57,7 +57,6 @@ fn main() -> Result<(), Box<dyn Error>> {
       let mut contents = read_to_string(&path).expect("failed reading component.mk").replace("$(info ", "$(warn ");
       // Define these variables since they affect `COMPONENT_ADD_INCLUDEDIRS`.
       contents.insert_str(0, r"
-        IS_BOOTLOADER_BUILD :=
         CONFIG_SYSVIEW_ENABLE :=
         CONFIG_AWS_IOT_SDK :=
         CONFIG_BT_ENABLED :=
