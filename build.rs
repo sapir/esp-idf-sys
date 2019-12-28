@@ -17,10 +17,10 @@ fn main() -> Result<(), Box<dyn Error>> {
 
   let idf_path = PathBuf::from(env::var("IDF_PATH").expect("IDF_PATH not set"));
 
-  let linker = match env::var("TARGET")?.as_ref() {
-    "xtensa-esp32-none-elf" => env::var("RUSTC_LINKER").unwrap_or("xtensa-esp32-elf-ld".to_string()),
-    "xtensa-esp8266-none-elf" => env::var("RUSTC_LINKER").unwrap_or("xtensa-lx106-elf-ld".to_string()),
-    _ => env::var("RUSTC_LINKER").expect("RUSTC_LINKER not set"),
+  let (idf_target, linker) = match env::var("TARGET")?.as_ref() {
+    "xtensa-esp32-none-elf" => ("esp32".to_string(), env::var("RUSTC_LINKER").unwrap_or("xtensa-esp32-elf-ld".to_string())),
+    "xtensa-esp8266-none-elf" => ("esp8266".to_string(), env::var("RUSTC_LINKER").unwrap_or("xtensa-lx106-elf-ld".to_string())),
+    _ => (env::var("IDF_TARGET").expect("IDF_TARGET not set").to_string(), env::var("RUSTC_LINKER").expect("RUSTC_LINKER not set")),
   };
 
   let sysroot = Command::new(linker)
@@ -70,7 +70,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
         .stderr(Stdio::null())
-        .env("IDF_TARGET", "esp32")
+        .env("IDF_TARGET", &idf_target)
         .spawn()
         .expect("make failed");
 
