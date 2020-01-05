@@ -18,8 +18,14 @@ fn main() -> Result<(), Box<dyn Error>> {
   let idf_path = PathBuf::from(env::var("IDF_PATH").expect("IDF_PATH not set"));
 
   let (idf_target, linker) = match env::var("TARGET")?.as_ref() {
-    "xtensa-esp32-none-elf" => ("esp32".to_string(), env::var("RUSTC_LINKER").unwrap_or("xtensa-esp32-elf-ld".to_string())),
-    "xtensa-esp8266-none-elf" => ("esp8266".to_string(), env::var("RUSTC_LINKER").unwrap_or("xtensa-lx106-elf-ld".to_string())),
+    "xtensa-esp32-none-elf" => {
+      println!(r#"cargo:rustc-cfg=target_device="esp32""#);
+      ("esp32".to_string(), env::var("RUSTC_LINKER").unwrap_or("xtensa-esp32-elf-ld".to_string()))
+    },
+    "xtensa-esp8266-none-elf" => {
+      println!(r#"cargo:rustc-cfg=target_device="esp8266""#);
+      ("esp8266".to_string(), env::var("RUSTC_LINKER").unwrap_or("xtensa-lx106-elf-ld".to_string()))
+    },
     _ => (env::var("IDF_TARGET").expect("IDF_TARGET not set").to_string(), env::var("RUSTC_LINKER").expect("RUSTC_LINKER not set")),
   };
 

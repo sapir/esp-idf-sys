@@ -63,7 +63,7 @@ impl Default for wifi_init_config_t {
   }
 }
 
-#[cfg(not(target_device = "esp8266"))]
+#[cfg(target_device = "esp32")]
 impl Default for wifi_init_config_t {
   fn default() -> Self {
     Self {
