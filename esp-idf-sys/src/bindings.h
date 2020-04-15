@@ -15,3 +15,8 @@
 #include "driver/timer.h"
 #include "driver/uart.h"
 #include <esp_clk.h>
+
+#include <esp_wifi.h>
+#include <esp_websocket_client.h>
+#include <esp_event_loop.h>
+#include <mqtt_client.h>

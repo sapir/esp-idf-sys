@@ -23,6 +23,13 @@ done
 for INC in $(ls -d "$COMPS"/*/include); do
     CLANG_FLAGS="${CLANG_FLAGS} -I$INC"
 done
+CLANG_FLAGS="${CLANG_FLAGS} \
+    -I$COMPS/esp_websocket_client/include \
+    -I$COMPS/lwip/include/apps \
+    -I$COMPS/lwip/include/apps/sntp \
+    -I$COMPS/lwip/lwip/src/include \
+    -I$COMPS/lwip/port/esp32/include \
+    -I$COMPS/newlib/platform_include"
 
 generate_bindings()
 {
