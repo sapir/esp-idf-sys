@@ -5,14 +5,16 @@ set -e
 . ./setenv.sh
 
 COMPS=$IDF_PATH/components
-: "${SYSROOT:=$(xtensa-esp32-elf-gcc --print-sysroot)}"
+# `xtensa-esp32-elf-gcc --print-sysroot` outputs nothing
+gcc_fullpath=$(which xtensa-esp32-elf-gcc)
+: "${SYSROOT:=${gcc_fullpath%/*}/../xtensa-esp32-elf}"
 TARGET=xtensa-esp32-none-elf
 
 : "${BINDGEN:=bindgen}"
 : "${LIBCLANG_PATH:=../llvm-project/llvm/build/lib}"
 CLANG_FLAGS="\
     --sysroot=$SYSROOT \
-    -I"$(pwd)" \
+    -Ibuild/include/ \
     -D__bindgen \
     --target=$TARGET \
     -x c"

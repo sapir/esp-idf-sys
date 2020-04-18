@@ -14,8 +14,9 @@
 #include "driver/spi_slave.h"
 #include "driver/timer.h"
 #include "driver/uart.h"
-#include <esp_clk.h>
+#include <esp32/clk.h>
 
+#include <esp_sleep.h>
 #include <esp_wifi.h>
 #include <esp_websocket_client.h>
 #include <esp_event_loop.h>
