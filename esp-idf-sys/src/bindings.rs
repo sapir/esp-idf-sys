@@ -11625,6 +11625,41 @@ pub const MQTT_ENABLE_WS: u32 = 1;
 pub const MQTT_ENABLE_WSS: u32 = 1;
 pub const OUTBOX_EXPIRED_TIMEOUT_MS: u32 = 30000;
 pub const OUTBOX_MAX_SIZE: u32 = 4096;
+pub const ESP_ERR_NVS_BASE: u32 = 4352;
+pub const ESP_ERR_NVS_NOT_INITIALIZED: u32 = 4353;
+pub const ESP_ERR_NVS_NOT_FOUND: u32 = 4354;
+pub const ESP_ERR_NVS_TYPE_MISMATCH: u32 = 4355;
+pub const ESP_ERR_NVS_READ_ONLY: u32 = 4356;
+pub const ESP_ERR_NVS_NOT_ENOUGH_SPACE: u32 = 4357;
+pub const ESP_ERR_NVS_INVALID_NAME: u32 = 4358;
+pub const ESP_ERR_NVS_INVALID_HANDLE: u32 = 4359;
+pub const ESP_ERR_NVS_REMOVE_FAILED: u32 = 4360;
+pub const ESP_ERR_NVS_KEY_TOO_LONG: u32 = 4361;
+pub const ESP_ERR_NVS_PAGE_FULL: u32 = 4362;
+pub const ESP_ERR_NVS_INVALID_STATE: u32 = 4363;
+pub const ESP_ERR_NVS_INVALID_LENGTH: u32 = 4364;
+pub const ESP_ERR_NVS_NO_FREE_PAGES: u32 = 4365;
+pub const ESP_ERR_NVS_VALUE_TOO_LONG: u32 = 4366;
+pub const ESP_ERR_NVS_PART_NOT_FOUND: u32 = 4367;
+pub const ESP_ERR_NVS_NEW_VERSION_FOUND: u32 = 4368;
+pub const ESP_ERR_NVS_XTS_ENCR_FAILED: u32 = 4369;
+pub const ESP_ERR_NVS_XTS_DECR_FAILED: u32 = 4370;
+pub const ESP_ERR_NVS_XTS_CFG_FAILED: u32 = 4371;
+pub const ESP_ERR_NVS_XTS_CFG_NOT_FOUND: u32 = 4372;
+pub const ESP_ERR_NVS_ENCR_NOT_SUPPORTED: u32 = 4373;
+pub const ESP_ERR_NVS_KEYS_NOT_INITIALIZED: u32 = 4374;
+pub const ESP_ERR_NVS_CORRUPT_KEY_PART: u32 = 4375;
+pub const ESP_ERR_NVS_CONTENT_DIFFERS: u32 = 4376;
+pub const NVS_DEFAULT_PART_NAME: &'static [u8; 4usize] = b"nvs\0";
+pub const ESP_ERR_FLASH_NOT_INITIALISED: u32 = 24579;
+pub const ESP_ERR_FLASH_UNSUPPORTED_HOST: u32 = 24580;
+pub const ESP_ERR_FLASH_UNSUPPORTED_CHIP: u32 = 24581;
+pub const ESP_ERR_FLASH_PROTECTED: u32 = 24582;
+pub const ESP_ERR_FLASH_OP_FAIL: u32 = 24577;
+pub const ESP_ERR_FLASH_OP_TIMEOUT: u32 = 24578;
+pub const SPI_FLASH_SEC_SIZE: u32 = 4096;
+pub const SPI_FLASH_MMU_PAGE_SIZE: u32 = 65536;
+pub const NVS_KEY_SIZE: u32 = 32;
 pub type size_t = ::std::os::raw::c_uint;
 pub type wchar_t = ::std::os::raw::c_uchar;
 #[repr(C)]
@@ -61801,6 +61836,1967 @@ extern "C" {
         event: esp_mqtt_event_id_t,
         event_handler: esp_event_handler_t,
         event_handler_arg: *mut ::core::ffi::c_void,
+    ) -> esp_err_t;
+}
+#[doc = " Opaque pointer type representing non-volatile storage handle"]
+pub type nvs_handle_t = u32;
+pub type nvs_handle = nvs_handle_t;
+#[doc = "< Read only"]
+pub const nvs_open_mode_t_NVS_READONLY: nvs_open_mode_t = 0;
+#[doc = "< Read and write"]
+pub const nvs_open_mode_t_NVS_READWRITE: nvs_open_mode_t = 1;
+#[doc = " @brief Mode of opening the non-volatile storage"]
+pub type nvs_open_mode_t = u32;
+pub use self::nvs_open_mode_t as nvs_open_mode;
+#[doc = "< Type uint8_t"]
+pub const nvs_type_t_NVS_TYPE_U8: nvs_type_t = 1;
+#[doc = "< Type int8_t"]
+pub const nvs_type_t_NVS_TYPE_I8: nvs_type_t = 17;
+#[doc = "< Type uint16_t"]
+pub const nvs_type_t_NVS_TYPE_U16: nvs_type_t = 2;
+#[doc = "< Type int16_t"]
+pub const nvs_type_t_NVS_TYPE_I16: nvs_type_t = 18;
+#[doc = "< Type uint32_t"]
+pub const nvs_type_t_NVS_TYPE_U32: nvs_type_t = 4;
+#[doc = "< Type int32_t"]
+pub const nvs_type_t_NVS_TYPE_I32: nvs_type_t = 20;
+#[doc = "< Type uint64_t"]
+pub const nvs_type_t_NVS_TYPE_U64: nvs_type_t = 8;
+#[doc = "< Type int64_t"]
+pub const nvs_type_t_NVS_TYPE_I64: nvs_type_t = 24;
+#[doc = "< Type string"]
+pub const nvs_type_t_NVS_TYPE_STR: nvs_type_t = 33;
+#[doc = "< Type blob"]
+pub const nvs_type_t_NVS_TYPE_BLOB: nvs_type_t = 66;
+#[doc = "< Must be last"]
+pub const nvs_type_t_NVS_TYPE_ANY: nvs_type_t = 255;
+#[doc = " @brief Types of variables"]
+#[doc = ""]
+pub type nvs_type_t = u32;
+#[doc = " @brief information about entry obtained from nvs_entry_info function"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct nvs_entry_info_t {
+    #[doc = "< Namespace to which key-value belong"]
+    pub namespace_name: [::std::os::raw::c_char; 16usize],
+    #[doc = "< Key of stored key-value pair"]
+    pub key: [::std::os::raw::c_char; 16usize],
+    #[doc = "< Type of stored key-value pair"]
+    pub type_: nvs_type_t,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct nvs_opaque_iterator_t {
+    _unused: [u8; 0],
+}
+#[doc = " Opaque pointer type representing iterator to nvs entries"]
+pub type nvs_iterator_t = *mut nvs_opaque_iterator_t;
+extern "C" {
+    #[doc = " @brief      Open non-volatile storage with a given namespace from the default NVS partition"]
+    #[doc = ""]
+    #[doc = " Multiple internal ESP-IDF and third party application modules can store"]
+    #[doc = " their key-value pairs in the NVS module. In order to reduce possible"]
+    #[doc = " conflicts on key names, each module can use its own namespace."]
+    #[doc = " The default NVS partition is the one that is labelled \"nvs\" in the partition"]
+    #[doc = " table."]
+    #[doc = ""]
+    #[doc = " @param[in]  name        Namespace name. Maximal length is determined by the"]
+    #[doc = "                         underlying implementation, but is guaranteed to be"]
+    #[doc = "                         at least 15 characters. Shouldn't be empty."]
+    #[doc = " @param[in]  open_mode   NVS_READWRITE or NVS_READONLY. If NVS_READONLY, will"]
+    #[doc = "                         open a handle for reading only. All write requests will"]
+    #[doc = "             be rejected for this handle."]
+    #[doc = " @param[out] out_handle  If successful (return code is zero), handle will be"]
+    #[doc = "                         returned in this argument."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "             - ESP_OK if storage handle was opened successfully"]
+    #[doc = "             - ESP_ERR_NVS_NOT_INITIALIZED if the storage driver is not initialized"]
+    #[doc = "             - ESP_ERR_NVS_PART_NOT_FOUND if the partition with label \"nvs\" is not found"]
+    #[doc = "             - ESP_ERR_NVS_NOT_FOUND id namespace doesn't exist yet and"]
+    #[doc = "               mode is NVS_READONLY"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_NAME if namespace name doesn't satisfy constraints"]
+    #[doc = "             - other error codes from the underlying storage driver"]
+    pub fn nvs_open(
+        name: *const ::std::os::raw::c_char,
+        open_mode: nvs_open_mode_t,
+        out_handle: *mut nvs_handle_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief      Open non-volatile storage with a given namespace from specified partition"]
+    #[doc = ""]
+    #[doc = " The behaviour is same as nvs_open() API. However this API can operate on a specified NVS"]
+    #[doc = " partition instead of default NVS partition. Note that the specified partition must be registered"]
+    #[doc = " with NVS using nvs_flash_init_partition() API."]
+    #[doc = ""]
+    #[doc = " @param[in]  part_name   Label (name) of the partition of interest for object read/write/erase"]
+    #[doc = " @param[in]  name        Namespace name. Maximal length is determined by the"]
+    #[doc = "                         underlying implementation, but is guaranteed to be"]
+    #[doc = "                         at least 15 characters. Shouldn't be empty."]
+    #[doc = " @param[in]  open_mode   NVS_READWRITE or NVS_READONLY. If NVS_READONLY, will"]
+    #[doc = "                         open a handle for reading only. All write requests will"]
+    #[doc = "             be rejected for this handle."]
+    #[doc = " @param[out] out_handle  If successful (return code is zero), handle will be"]
+    #[doc = "                         returned in this argument."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "             - ESP_OK if storage handle was opened successfully"]
+    #[doc = "             - ESP_ERR_NVS_NOT_INITIALIZED if the storage driver is not initialized"]
+    #[doc = "             - ESP_ERR_NVS_PART_NOT_FOUND if the partition with specified name is not found"]
+    #[doc = "             - ESP_ERR_NVS_NOT_FOUND id namespace doesn't exist yet and"]
+    #[doc = "               mode is NVS_READONLY"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_NAME if namespace name doesn't satisfy constraints"]
+    #[doc = "             - other error codes from the underlying storage driver"]
+    pub fn nvs_open_from_partition(
+        part_name: *const ::std::os::raw::c_char,
+        name: *const ::std::os::raw::c_char,
+        open_mode: nvs_open_mode_t,
+        out_handle: *mut nvs_handle_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = "@{*/"]
+    #[doc = " @brief      set value for given key"]
+    #[doc = ""]
+    #[doc = " This family of functions set value for the key, given its name. Note that"]
+    #[doc = " actual storage will not be updated until nvs_commit function is called."]
+    #[doc = ""]
+    #[doc = " @param[in]  handle  Handle obtained from nvs_open function."]
+    #[doc = "                     Handles that were opened read only cannot be used."]
+    #[doc = " @param[in]  key     Key name. Maximal length is determined by the underlying"]
+    #[doc = "                     implementation, but is guaranteed to be at least"]
+    #[doc = "                     15 characters. Shouldn't be empty."]
+    #[doc = " @param[in]  value   The value to set."]
+    #[doc = "                     For strings, the maximum length (including null character) is"]
+    #[doc = "                     4000 bytes."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "             - ESP_OK if value was set successfully"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_HANDLE if handle has been closed or is NULL"]
+    #[doc = "             - ESP_ERR_NVS_READ_ONLY if storage handle was opened as read only"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_NAME if key name doesn't satisfy constraints"]
+    #[doc = "             - ESP_ERR_NVS_NOT_ENOUGH_SPACE if there is not enough space in the"]
+    #[doc = "               underlying storage to save the value"]
+    #[doc = "             - ESP_ERR_NVS_REMOVE_FAILED if the value wasn't updated because flash"]
+    #[doc = "               write operation has failed. The value was written however, and"]
+    #[doc = "               update will be finished after re-initialization of nvs, provided that"]
+    #[doc = "               flash operation doesn't fail again."]
+    #[doc = "             - ESP_ERR_NVS_VALUE_TOO_LONG if the string value is too long"]
+    pub fn nvs_set_i8(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: i8,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_set_u8(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: u8,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_set_i16(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: i16,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_set_u16(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: u16,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_set_i32(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: i32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_set_u32(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: u32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_set_i64(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: i64,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_set_u64(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: u64,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_set_str(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: *const ::std::os::raw::c_char,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief       set variable length binary value for given key"]
+    #[doc = ""]
+    #[doc = " This family of functions set value for the key, given its name. Note that"]
+    #[doc = " actual storage will not be updated until nvs_commit function is called."]
+    #[doc = ""]
+    #[doc = " @param[in]  handle  Handle obtained from nvs_open function."]
+    #[doc = "                     Handles that were opened read only cannot be used."]
+    #[doc = " @param[in]  key     Key name. Maximal length is 15 characters. Shouldn't be empty."]
+    #[doc = " @param[in]  value   The value to set."]
+    #[doc = " @param[in]  length  length of binary value to set, in bytes; Maximum length is"]
+    #[doc = "                     508000 bytes or (97.6% of the partition size - 4000) bytes"]
+    #[doc = "                     whichever is lower."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "             - ESP_OK if value was set successfully"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_HANDLE if handle has been closed or is NULL"]
+    #[doc = "             - ESP_ERR_NVS_READ_ONLY if storage handle was opened as read only"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_NAME if key name doesn't satisfy constraints"]
+    #[doc = "             - ESP_ERR_NVS_NOT_ENOUGH_SPACE if there is not enough space in the"]
+    #[doc = "               underlying storage to save the value"]
+    #[doc = "             - ESP_ERR_NVS_REMOVE_FAILED if the value wasn't updated because flash"]
+    #[doc = "               write operation has failed. The value was written however, and"]
+    #[doc = "               update will be finished after re-initialization of nvs, provided that"]
+    #[doc = "               flash operation doesn't fail again."]
+    #[doc = "             - ESP_ERR_NVS_VALUE_TOO_LONG if the value is too long"]
+    pub fn nvs_set_blob(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        value: *const ::core::ffi::c_void,
+        length: size_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = "@{*/"]
+    #[doc = " @brief      get value for given key"]
+    #[doc = ""]
+    #[doc = " These functions retrieve value for the key, given its name. If key does not"]
+    #[doc = " exist, or the requested variable type doesn't match the type which was used"]
+    #[doc = " when setting a value, an error is returned."]
+    #[doc = ""]
+    #[doc = " In case of any error, out_value is not modified."]
+    #[doc = ""]
+    #[doc = " All functions expect out_value to be a pointer to an already allocated variable"]
+    #[doc = " of the given type."]
+    #[doc = ""]
+    #[doc = " \\code{c}"]
+    #[doc = " // Example of using nvs_get_i32:"]
+    #[doc = " int32_t max_buffer_size = 4096; // default value"]
+    #[doc = " esp_err_t err = nvs_get_i32(my_handle, \"max_buffer_size\", &max_buffer_size);"]
+    #[doc = " assert(err == ESP_OK || err == ESP_ERR_NVS_NOT_FOUND);"]
+    #[doc = " // if ESP_ERR_NVS_NOT_FOUND was returned, max_buffer_size will still"]
+    #[doc = " // have its default value."]
+    #[doc = ""]
+    #[doc = " \\endcode"]
+    #[doc = ""]
+    #[doc = " @param[in]     handle     Handle obtained from nvs_open function."]
+    #[doc = " @param[in]     key        Key name. Maximal length is determined by the underlying"]
+    #[doc = "                           implementation, but is guaranteed to be at least"]
+    #[doc = "                           15 characters. Shouldn't be empty."]
+    #[doc = " @param         out_value  Pointer to the output value."]
+    #[doc = "                           May be NULL for nvs_get_str and nvs_get_blob, in this"]
+    #[doc = "                           case required length will be returned in length argument."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "             - ESP_OK if the value was retrieved successfully"]
+    #[doc = "             - ESP_ERR_NVS_NOT_FOUND if the requested key doesn't exist"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_HANDLE if handle has been closed or is NULL"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_NAME if key name doesn't satisfy constraints"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_LENGTH if length is not sufficient to store data"]
+    pub fn nvs_get_i8(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut i8,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_get_u8(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut u8,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_get_i16(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut i16,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_get_u16(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut u16,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_get_i32(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut i32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_get_u32(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut u32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_get_i64(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut i64,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_get_u64(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut u64,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief      get value for given key"]
+    #[doc = ""]
+    #[doc = " These functions retrieve value for the key, given its name. If key does not"]
+    #[doc = " exist, or the requested variable type doesn't match the type which was used"]
+    #[doc = " when setting a value, an error is returned."]
+    #[doc = ""]
+    #[doc = " In case of any error, out_value is not modified."]
+    #[doc = ""]
+    #[doc = " All functions expect out_value to be a pointer to an already allocated variable"]
+    #[doc = " of the given type."]
+    #[doc = ""]
+    #[doc = " nvs_get_str and nvs_get_blob functions support WinAPI-style length queries."]
+    #[doc = " To get the size necessary to store the value, call nvs_get_str or nvs_get_blob"]
+    #[doc = " with zero out_value and non-zero pointer to length. Variable pointed to"]
+    #[doc = " by length argument will be set to the required length. For nvs_get_str,"]
+    #[doc = " this length includes the zero terminator. When calling nvs_get_str and"]
+    #[doc = " nvs_get_blob with non-zero out_value, length has to be non-zero and has to"]
+    #[doc = " point to the length available in out_value."]
+    #[doc = " It is suggested that nvs_get/set_str is used for zero-terminated C strings, and"]
+    #[doc = " nvs_get/set_blob used for arbitrary data structures."]
+    #[doc = ""]
+    #[doc = " \\code{c}"]
+    #[doc = " // Example (without error checking) of using nvs_get_str to get a string into dynamic array:"]
+    #[doc = " size_t required_size;"]
+    #[doc = " nvs_get_str(my_handle, \"server_name\", NULL, &required_size);"]
+    #[doc = " char* server_name = malloc(required_size);"]
+    #[doc = " nvs_get_str(my_handle, \"server_name\", server_name, &required_size);"]
+    #[doc = ""]
+    #[doc = " // Example (without error checking) of using nvs_get_blob to get a binary data"]
+    #[doc = " into a static array:"]
+    #[doc = " uint8_t mac_addr[6];"]
+    #[doc = " size_t size = sizeof(mac_addr);"]
+    #[doc = " nvs_get_blob(my_handle, \"dst_mac_addr\", mac_addr, &size);"]
+    #[doc = " \\endcode"]
+    #[doc = ""]
+    #[doc = " @param[in]     handle     Handle obtained from nvs_open function."]
+    #[doc = " @param[in]     key        Key name. Maximal length is determined by the underlying"]
+    #[doc = "                           implementation, but is guaranteed to be at least"]
+    #[doc = "                           15 characters. Shouldn't be empty."]
+    #[doc = " @param         out_value  Pointer to the output value."]
+    #[doc = "                           May be NULL for nvs_get_str and nvs_get_blob, in this"]
+    #[doc = "                           case required length will be returned in length argument."]
+    #[doc = " @param[inout]  length     A non-zero pointer to the variable holding the length of out_value."]
+    #[doc = "                           In case out_value a zero, will be set to the length"]
+    #[doc = "                           required to hold the value. In case out_value is not"]
+    #[doc = "                           zero, will be set to the actual length of the value"]
+    #[doc = "                           written. For nvs_get_str this includes zero terminator."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "             - ESP_OK if the value was retrieved successfully"]
+    #[doc = "             - ESP_ERR_NVS_NOT_FOUND if the requested key doesn't exist"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_HANDLE if handle has been closed or is NULL"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_NAME if key name doesn't satisfy constraints"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_LENGTH if length is not sufficient to store data"]
+    pub fn nvs_get_str(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut ::std::os::raw::c_char,
+        length: *mut size_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub fn nvs_get_blob(
+        handle: nvs_handle_t,
+        key: *const ::std::os::raw::c_char,
+        out_value: *mut ::core::ffi::c_void,
+        length: *mut size_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief      Erase key-value pair with given key name."]
+    #[doc = ""]
+    #[doc = " Note that actual storage may not be updated until nvs_commit function is called."]
+    #[doc = ""]
+    #[doc = " @param[in]  handle  Storage handle obtained with nvs_open."]
+    #[doc = "                     Handles that were opened read only cannot be used."]
+    #[doc = ""]
+    #[doc = " @param[in]  key     Key name. Maximal length is determined by the underlying"]
+    #[doc = "                     implementation, but is guaranteed to be at least"]
+    #[doc = "                     15 characters. Shouldn't be empty."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "              - ESP_OK if erase operation was successful"]
+    #[doc = "              - ESP_ERR_NVS_INVALID_HANDLE if handle has been closed or is NULL"]
+    #[doc = "              - ESP_ERR_NVS_READ_ONLY if handle was opened as read only"]
+    #[doc = "              - ESP_ERR_NVS_NOT_FOUND if the requested key doesn't exist"]
+    #[doc = "              - other error codes from the underlying storage driver"]
+    pub fn nvs_erase_key(handle: nvs_handle_t, key: *const ::std::os::raw::c_char) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief      Erase all key-value pairs in a namespace"]
+    #[doc = ""]
+    #[doc = " Note that actual storage may not be updated until nvs_commit function is called."]
+    #[doc = ""]
+    #[doc = " @param[in]  handle  Storage handle obtained with nvs_open."]
+    #[doc = "                     Handles that were opened read only cannot be used."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "              - ESP_OK if erase operation was successful"]
+    #[doc = "              - ESP_ERR_NVS_INVALID_HANDLE if handle has been closed or is NULL"]
+    #[doc = "              - ESP_ERR_NVS_READ_ONLY if handle was opened as read only"]
+    #[doc = "              - other error codes from the underlying storage driver"]
+    pub fn nvs_erase_all(handle: nvs_handle_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief      Write any pending changes to non-volatile storage"]
+    #[doc = ""]
+    #[doc = " After setting any values, nvs_commit() must be called to ensure changes are written"]
+    #[doc = " to non-volatile storage. Individual implementations may write to storage at other times,"]
+    #[doc = " but this is not guaranteed."]
+    #[doc = ""]
+    #[doc = " @param[in]  handle  Storage handle obtained with nvs_open."]
+    #[doc = "                     Handles that were opened read only cannot be used."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "             - ESP_OK if the changes have been written successfully"]
+    #[doc = "             - ESP_ERR_NVS_INVALID_HANDLE if handle has been closed or is NULL"]
+    #[doc = "             - other error codes from the underlying storage driver"]
+    pub fn nvs_commit(handle: nvs_handle_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief      Close the storage handle and free any allocated resources"]
+    #[doc = ""]
+    #[doc = " This function should be called for each handle opened with nvs_open once"]
+    #[doc = " the handle is not in use any more. Closing the handle may not automatically"]
+    #[doc = " write the changes to nonvolatile storage. This has to be done explicitly using"]
+    #[doc = " nvs_commit function."]
+    #[doc = " Once this function is called on a handle, the handle should no longer be used."]
+    #[doc = ""]
+    #[doc = " @param[in]  handle  Storage handle to close"]
+    pub fn nvs_close(handle: nvs_handle_t);
+}
+#[doc = " @note Info about storage space NVS."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct nvs_stats_t {
+    #[doc = "< Amount of used entries."]
+    pub used_entries: size_t,
+    #[doc = "< Amount of free entries."]
+    pub free_entries: size_t,
+    #[doc = "< Amount all available entries."]
+    pub total_entries: size_t,
+    #[doc = "< Amount name space."]
+    pub namespace_count: size_t,
+}
+extern "C" {
+    #[doc = " @brief      Fill structure nvs_stats_t. It provides info about used memory the partition."]
+    #[doc = ""]
+    #[doc = " This function calculates to runtime the number of used entries, free entries, total entries,"]
+    #[doc = " and amount namespace in partition."]
+    #[doc = ""]
+    #[doc = " \\code{c}"]
+    #[doc = " // Example of nvs_get_stats() to get the number of used entries and free entries:"]
+    #[doc = " nvs_stats_t nvs_stats;"]
+    #[doc = " nvs_get_stats(NULL, &nvs_stats);"]
+    #[doc = " printf(\"Count: UsedEntries = (%d), FreeEntries = (%d), AllEntries = (%d)\\n\","]
+    #[doc = "nvs_stats.used_entries, nvs_stats.free_entries, nvs_stats.total_entries);"]
+    #[doc = " \\endcode"]
+    #[doc = ""]
+    #[doc = " @param[in]   part_name   Partition name NVS in the partition table."]
+    #[doc = "                          If pass a NULL than will use NVS_DEFAULT_PART_NAME (\"nvs\")."]
+    #[doc = ""]
+    #[doc = " @param[out]  nvs_stats   Returns filled structure nvs_states_t."]
+    #[doc = "                          It provides info about used memory the partition."]
+    #[doc = ""]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "             - ESP_OK if the changes have been written successfully."]
+    #[doc = "               Return param nvs_stats will be filled."]
+    #[doc = "             - ESP_ERR_NVS_PART_NOT_FOUND if the partition with label \"name\" is not found."]
+    #[doc = "               Return param nvs_stats will be filled 0."]
+    #[doc = "             - ESP_ERR_NVS_NOT_INITIALIZED if the storage driver is not initialized."]
+    #[doc = "               Return param nvs_stats will be filled 0."]
+    #[doc = "             - ESP_ERR_INVALID_ARG if nvs_stats equal to NULL."]
+    #[doc = "             - ESP_ERR_INVALID_STATE if there is page with the status of INVALID."]
+    #[doc = "               Return param nvs_stats will be filled not with correct values because"]
+    #[doc = "               not all pages will be counted. Counting will be interrupted at the first INVALID page."]
+    pub fn nvs_get_stats(
+        part_name: *const ::std::os::raw::c_char,
+        nvs_stats: *mut nvs_stats_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief      Calculate all entries in a namespace."]
+    #[doc = ""]
+    #[doc = " Note that to find out the total number of records occupied by the namespace,"]
+    #[doc = " add one to the returned value used_entries (if err is equal to ESP_OK)."]
+    #[doc = " Because the name space entry takes one entry."]
+    #[doc = ""]
+    #[doc = " \\code{c}"]
+    #[doc = " // Example of nvs_get_used_entry_count() to get amount of all key-value pairs in one namespace:"]
+    #[doc = " nvs_handle_t handle;"]
+    #[doc = " nvs_open(\"namespace1\", NVS_READWRITE, &handle);"]
+    #[doc = " ..."]
+    #[doc = " size_t used_entries;"]
+    #[doc = " size_t total_entries_namespace;"]
+    #[doc = " if(nvs_get_used_entry_count(handle, &used_entries) == ESP_OK){"]
+    #[doc = "     // the total number of records occupied by the namespace"]
+    #[doc = "     total_entries_namespace = used_entries + 1;"]
+    #[doc = " }"]
+    #[doc = " \\endcode"]
+    #[doc = ""]
+    #[doc = " @param[in]   handle              Handle obtained from nvs_open function."]
+    #[doc = ""]
+    #[doc = " @param[out]  used_entries        Returns amount of used entries from a namespace."]
+    #[doc = ""]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "             - ESP_OK if the changes have been written successfully."]
+    #[doc = "               Return param used_entries will be filled valid value."]
+    #[doc = "             - ESP_ERR_NVS_NOT_INITIALIZED if the storage driver is not initialized."]
+    #[doc = "               Return param used_entries will be filled 0."]
+    #[doc = "             - ESP_ERR_NVS_INVALID_HANDLE if handle has been closed or is NULL."]
+    #[doc = "               Return param used_entries will be filled 0."]
+    #[doc = "             - ESP_ERR_INVALID_ARG if nvs_stats equal to NULL."]
+    #[doc = "             - Other error codes from the underlying storage driver."]
+    #[doc = "               Return param used_entries will be filled 0."]
+    pub fn nvs_get_used_entry_count(handle: nvs_handle_t, used_entries: *mut size_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief       Create an iterator to enumerate NVS entries based on one or more parameters"]
+    #[doc = ""]
+    #[doc = " \\code{c}"]
+    #[doc = " // Example of listing all the key-value pairs of any type under specified partition and namespace"]
+    #[doc = " nvs_iterator_t it = nvs_entry_find(partition, namespace, NVS_TYPE_ANY);"]
+    #[doc = " while (it != NULL) {"]
+    #[doc = "         nvs_entry_info_t info;"]
+    #[doc = "         nvs_entry_info(it, &info);"]
+    #[doc = "         it = nvs_entry_next(it);"]
+    #[doc = "         printf(\"key '%s', type '%d' \\n\", info.key, info.type);"]
+    #[doc = " };"]
+    #[doc = " // Note: no need to release iterator obtained from nvs_entry_find function when"]
+    #[doc = " //       nvs_entry_find or nvs_entry_next function return NULL, indicating no other"]
+    #[doc = " //       element for specified criteria was found."]
+    #[doc = " }"]
+    #[doc = " \\endcode"]
+    #[doc = ""]
+    #[doc = " @param[in]   part_name       Partition name"]
+    #[doc = ""]
+    #[doc = " @param[in]   namespace_name  Set this value if looking for entries with"]
+    #[doc = "                              a specific namespace. Pass NULL otherwise."]
+    #[doc = ""]
+    #[doc = " @param[in]   type            One of nvs_type_t values."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "          Iterator used to enumerate all the entries found,"]
+    #[doc = "          or NULL if no entry satisfying criteria was found."]
+    #[doc = "          Iterator obtained through this function has to be released"]
+    #[doc = "          using nvs_release_iterator when not used any more."]
+    pub fn nvs_entry_find(
+        part_name: *const ::std::os::raw::c_char,
+        namespace_name: *const ::std::os::raw::c_char,
+        type_: nvs_type_t,
+    ) -> nvs_iterator_t;
+}
+extern "C" {
+    #[doc = " @brief       Returns next item matching the iterator criteria, NULL if no such item exists."]
+    #[doc = ""]
+    #[doc = " Note that any copies of the iterator will be invalid after this call."]
+    #[doc = ""]
+    #[doc = " @param[in]   iterator     Iterator obtained from nvs_entry_find function. Must be non-NULL."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "          NULL if no entry was found, valid nvs_iterator_t otherwise."]
+    pub fn nvs_entry_next(iterator: nvs_iterator_t) -> nvs_iterator_t;
+}
+extern "C" {
+    #[doc = " @brief       Fills nvs_entry_info_t structure with information about entry pointed to by the iterator."]
+    #[doc = ""]
+    #[doc = " @param[in]   iterator     Iterator obtained from nvs_entry_find or nvs_entry_next function. Must be non-NULL."]
+    #[doc = ""]
+    #[doc = " @param[out]  out_info     Structure to which entry information is copied."]
+    pub fn nvs_entry_info(iterator: nvs_iterator_t, out_info: *mut nvs_entry_info_t);
+}
+extern "C" {
+    #[doc = " @brief       Release iterator"]
+    #[doc = ""]
+    #[doc = " @param[in]   iterator    Release iterator obtained from nvs_entry_find function. NULL argument is allowed."]
+    #[doc = ""]
+    pub fn nvs_release_iterator(iterator: nvs_iterator_t);
+}
+#[doc = "< The chip doesn't have enough space for the current partition table"]
+pub const ESP_ERR_FLASH_SIZE_NOT_MATCH: _bindgen_ty_1 = 260;
+#[doc = "< Chip did not respond to the command, or timed out."]
+pub const ESP_ERR_FLASH_NO_RESPONSE: _bindgen_ty_1 = 264;
+pub type _bindgen_ty_1 = u32;
+#[doc = " Definition of a common transaction. Also holds the return value."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct spi_flash_trans_t {
+    #[doc = "< Command to send, always 8bits"]
+    pub command: u8,
+    #[doc = "< Output data length, in bits"]
+    pub mosi_len: u8,
+    #[doc = "< Input data length, in bits"]
+    pub miso_len: u8,
+    #[doc = "< Output data to slave"]
+    pub mosi_data: u32,
+    #[doc = "< [out] Input data from slave, little endian"]
+    pub miso_data: [u32; 2usize],
+}
+#[doc = "< The flash runs under 5MHz"]
+pub const esp_flash_speed_t_ESP_FLASH_5MHZ: esp_flash_speed_t = 0;
+#[doc = "< The flash runs under 10MHz"]
+pub const esp_flash_speed_t_ESP_FLASH_10MHZ: esp_flash_speed_t = 1;
+#[doc = "< The flash runs under 20MHz"]
+pub const esp_flash_speed_t_ESP_FLASH_20MHZ: esp_flash_speed_t = 2;
+#[doc = "< The flash runs under 26MHz"]
+pub const esp_flash_speed_t_ESP_FLASH_26MHZ: esp_flash_speed_t = 3;
+#[doc = "< The flash runs under 40MHz"]
+pub const esp_flash_speed_t_ESP_FLASH_40MHZ: esp_flash_speed_t = 4;
+#[doc = "< The flash runs under 80MHz"]
+pub const esp_flash_speed_t_ESP_FLASH_80MHZ: esp_flash_speed_t = 5;
+#[doc = "< The maximum frequency supported by the host is ``ESP_FLASH_SPEED_MAX-1``."]
+pub const esp_flash_speed_t_ESP_FLASH_SPEED_MAX: esp_flash_speed_t = 6;
+#[doc = " @brief SPI flash clock speed values, always refer to them by the enum rather"]
+#[doc = " than the actual value (more speed may be appended into the list)."]
+#[doc = ""]
+#[doc = " A strategy to select the maximum allowed speed is to enumerate from the"]
+#[doc = " ``ESP_FLSH_SPEED_MAX-1`` or highest frequency supported by your flash, and"]
+#[doc = " decrease the speed until the probing success."]
+pub type esp_flash_speed_t = u32;
+#[doc = "< Data read using single I/O, some limits on speed"]
+pub const esp_flash_io_mode_t_SPI_FLASH_SLOWRD: esp_flash_io_mode_t = 0;
+#[doc = "< Data read using single I/O, no limit on speed"]
+pub const esp_flash_io_mode_t_SPI_FLASH_FASTRD: esp_flash_io_mode_t = 1;
+#[doc = "< Data read using dual I/O"]
+pub const esp_flash_io_mode_t_SPI_FLASH_DOUT: esp_flash_io_mode_t = 2;
+#[doc = "< Both address & data transferred using dual I/O"]
+pub const esp_flash_io_mode_t_SPI_FLASH_DIO: esp_flash_io_mode_t = 3;
+#[doc = "< Data read using quad I/O"]
+pub const esp_flash_io_mode_t_SPI_FLASH_QOUT: esp_flash_io_mode_t = 4;
+#[doc = "< Both address & data transferred using quad I/O"]
+pub const esp_flash_io_mode_t_SPI_FLASH_QIO: esp_flash_io_mode_t = 5;
+#[doc = "< The fastest io mode supported by the host is ``ESP_FLASH_READ_MODE_MAX-1``."]
+pub const esp_flash_io_mode_t_SPI_FLASH_READ_MODE_MAX: esp_flash_io_mode_t = 6;
+#[doc = " @brief Mode used for reading from SPI flash"]
+pub type esp_flash_io_mode_t = u32;
+#[doc = " Host driver configuration and context structure."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct spi_flash_host_driver_t {
+    #[doc = " Configuration and static data used by the specific host driver. The type"]
+    #[doc = " is determined by the host driver."]
+    pub driver_data: *mut ::core::ffi::c_void,
+    #[doc = " Configure the device-related register before transactions. This saves"]
+    #[doc = " some time to re-configure those registers when we send continuously"]
+    pub dev_config: ::core::option::Option<
+        unsafe extern "C" fn(driver: *mut spi_flash_host_driver_t) -> esp_err_t,
+    >,
+    #[doc = " Send an user-defined spi transaction to the device."]
+    pub common_command: ::core::option::Option<
+        unsafe extern "C" fn(
+            driver: *mut spi_flash_host_driver_t,
+            t: *mut spi_flash_trans_t,
+        ) -> esp_err_t,
+    >,
+    #[doc = " Read flash ID."]
+    pub read_id: ::core::option::Option<
+        unsafe extern "C" fn(driver: *mut spi_flash_host_driver_t, id: *mut u32) -> esp_err_t,
+    >,
+    #[doc = " Erase whole flash chip."]
+    pub erase_chip:
+        ::core::option::Option<unsafe extern "C" fn(driver: *mut spi_flash_host_driver_t)>,
+    #[doc = " Erase a specific sector by its start address."]
+    pub erase_sector: ::core::option::Option<
+        unsafe extern "C" fn(driver: *mut spi_flash_host_driver_t, start_address: u32),
+    >,
+    #[doc = " Erase a specific block by its start address."]
+    pub erase_block: ::core::option::Option<
+        unsafe extern "C" fn(driver: *mut spi_flash_host_driver_t, start_address: u32),
+    >,
+    #[doc = " Read the status of the flash chip."]
+    pub read_status: ::core::option::Option<
+        unsafe extern "C" fn(driver: *mut spi_flash_host_driver_t, out_sr: *mut u8) -> esp_err_t,
+    >,
+    #[doc = " Disable write protection."]
+    pub set_write_protect: ::core::option::Option<
+        unsafe extern "C" fn(driver: *mut spi_flash_host_driver_t, wp: bool) -> esp_err_t,
+    >,
+    #[doc = " Program a page of the flash. Check ``max_write_bytes`` for the maximum allowed writing length."]
+    pub program_page: ::core::option::Option<
+        unsafe extern "C" fn(
+            driver: *mut spi_flash_host_driver_t,
+            buffer: *const ::core::ffi::c_void,
+            address: u32,
+            length: u32,
+        ),
+    >,
+    #[doc = " Check whether need to allocate new buffer to write"]
+    pub supports_direct_write: ::core::option::Option<
+        unsafe extern "C" fn(
+            driver: *mut spi_flash_host_driver_t,
+            p: *const ::core::ffi::c_void,
+        ) -> bool,
+    >,
+    #[doc = " Check whether need to allocate new buffer to read"]
+    pub supports_direct_read: ::core::option::Option<
+        unsafe extern "C" fn(
+            driver: *mut spi_flash_host_driver_t,
+            p: *const ::core::ffi::c_void,
+        ) -> bool,
+    >,
+    #[doc = " maximum length of program_page"]
+    pub max_write_bytes: ::std::os::raw::c_int,
+    #[doc = " Read data from the flash. Check ``max_read_bytes`` for the maximum allowed reading length."]
+    pub read: ::core::option::Option<
+        unsafe extern "C" fn(
+            driver: *mut spi_flash_host_driver_t,
+            buffer: *mut ::core::ffi::c_void,
+            address: u32,
+            read_len: u32,
+        ) -> esp_err_t,
+    >,
+    #[doc = " maximum length of read"]
+    pub max_read_bytes: ::std::os::raw::c_int,
+    #[doc = " Check whether the host is idle to perform new operations."]
+    pub host_idle:
+        ::core::option::Option<unsafe extern "C" fn(driver: *mut spi_flash_host_driver_t) -> bool>,
+    #[doc = " Configure the host to work at different read mode. Responsible to compensate the timing and set IO mode."]
+    pub configure_host_io_mode: ::core::option::Option<
+        unsafe extern "C" fn(
+            driver: *mut spi_flash_host_driver_t,
+            command: u32,
+            addr_bitlen: u32,
+            dummy_bitlen_base: ::std::os::raw::c_int,
+            io_mode: esp_flash_io_mode_t,
+        ) -> esp_err_t,
+    >,
+    #[doc = "  Internal use, poll the HW until the last operation is done."]
+    pub poll_cmd_done:
+        ::core::option::Option<unsafe extern "C" fn(driver: *mut spi_flash_host_driver_t)>,
+    #[doc = " For some host (SPI1), they are shared with a cache. When the data is"]
+    #[doc = " modified, the cache needs to be flushed. Left NULL if not supported."]
+    pub flush_cache: ::core::option::Option<
+        unsafe extern "C" fn(
+            driver: *mut spi_flash_host_driver_t,
+            addr: u32,
+            size: u32,
+        ) -> esp_err_t,
+    >,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct spi_flash_chip_t {
+    _unused: [u8; 0],
+}
+#[doc = " @brief Structure for describing a region of flash"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct esp_flash_region_t {
+    #[doc = "< Start address of this region"]
+    pub offset: u32,
+    #[doc = "< Size of the region"]
+    pub size: u32,
+}
+#[doc = " OS-level integration hooks for accessing flash chips inside a running OS"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct esp_flash_os_functions_t {
+    #[doc = " Called before commencing any flash operation. Does not need to be"]
+    #[doc = " recursive (ie is called at most once for each call to 'end')."]
+    pub start:
+        ::core::option::Option<unsafe extern "C" fn(arg: *mut ::core::ffi::c_void) -> esp_err_t>,
+    #[doc = " Called after completing any flash operation."]
+    pub end:
+        ::core::option::Option<unsafe extern "C" fn(arg: *mut ::core::ffi::c_void) -> esp_err_t>,
+    #[doc = " Called before any erase/write operations to check whether the region is limited by the OS"]
+    pub region_protected: ::core::option::Option<
+        unsafe extern "C" fn(
+            arg: *mut ::core::ffi::c_void,
+            start_addr: size_t,
+            size: size_t,
+        ) -> esp_err_t,
+    >,
+    #[doc = " Delay for at least 'ms' milliseconds. Called in between 'start' and 'end'."]
+    pub delay_ms: ::core::option::Option<
+        unsafe extern "C" fn(
+            arg: *mut ::core::ffi::c_void,
+            ms: ::std::os::raw::c_uint,
+        ) -> esp_err_t,
+    >,
+}
+#[doc = " @brief Structure to describe a SPI flash chip connected to the system."]
+#[doc = ""]
+#[doc = "Structure must be initialized before use (passed to esp_flash_init())."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct esp_flash_t {
+    #[doc = "< Pointer to hardware-specific \"host_driver\" structure. Must be initialized before used."]
+    pub host: *mut spi_flash_host_driver_t,
+    #[doc = "< Pointer to chip-model-specific \"adapter\" structure. If NULL, will be detected during initialisation."]
+    pub chip_drv: *const spi_flash_chip_t,
+    #[doc = "< Pointer to os-specific hook structure. Call ``esp_flash_init_os_functions()`` to setup this field, after the host is properly initialized."]
+    pub os_func: *const esp_flash_os_functions_t,
+    #[doc = "< Pointer to argument for os-specific hooks. Left NULL and will be initialized with ``os_func``."]
+    pub os_func_data: *mut ::core::ffi::c_void,
+    #[doc = "< Configured SPI flash read mode. Set before ``esp_flash_init`` is called."]
+    pub read_mode: esp_flash_io_mode_t,
+    #[doc = "< Size of SPI flash in bytes. If 0, size will be detected during initialisation."]
+    pub size: u32,
+    #[doc = "< Detected chip id."]
+    pub chip_id: u32,
+}
+extern "C" {
+    #[doc = " @brief Initialise SPI flash chip interface."]
+    #[doc = ""]
+    #[doc = " This function must be called before any other API functions are called for this chip."]
+    #[doc = ""]
+    #[doc = " @note Only the ``host`` and ``read_mode`` fields of the chip structure must"]
+    #[doc = "       be initialised before this function is called. Other fields may be"]
+    #[doc = "       auto-detected if left set to zero or NULL."]
+    #[doc = ""]
+    #[doc = " @note If the chip->drv pointer is NULL, chip chip_drv will be auto-detected"]
+    #[doc = "       based on its manufacturer & product IDs. See"]
+    #[doc = "       ``esp_flash_registered_flash_drivers`` pointer for details of this process."]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to SPI flash chip to use. If NULL, esp_flash_default_chip is substituted."]
+    #[doc = " @return ESP_OK on success, or a flash error code if initialisation fails."]
+    pub fn esp_flash_init(chip: *mut esp_flash_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " Check if appropriate chip driver is set."]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to SPI flash chip to use. If NULL, esp_flash_default_chip is substituted."]
+    #[doc = ""]
+    #[doc = " @return true if set, otherwise false."]
+    pub fn esp_flash_chip_driver_initialized(chip: *const esp_flash_t) -> bool;
+}
+extern "C" {
+    #[doc = " @brief Read flash ID via the common \"RDID\" SPI flash command."]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param[out] out_id Pointer to receive ID value."]
+    #[doc = ""]
+    #[doc = " ID is a 24-bit value. Lower 16 bits of 'id' are the chip ID, upper 8 bits are the manufacturer ID."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_read_id(chip: *mut esp_flash_t, out_id: *mut u32) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Detect flash size based on flash ID."]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param[out] out_size Detected size in bytes."]
+    #[doc = ""]
+    #[doc = " @note Most flash chips use a common format for flash ID, where the lower 4 bits specify the size as a power of 2. If"]
+    #[doc = " the manufacturer doesn't follow this convention, the size may be incorrectly detected."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_get_size(chip: *mut esp_flash_t, out_size: *mut u32) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Erase flash chip contents"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = ""]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_erase_chip(chip: *mut esp_flash_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Erase a region of the flash chip"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param start Address to start erasing flash. Must be sector aligned."]
+    #[doc = " @param len Length of region to erase. Must also be sector aligned."]
+    #[doc = ""]
+    #[doc = " Sector size is specifyed in chip->drv->sector_size field (typically 4096 bytes.) ESP_ERR_INVALID_ARG will be"]
+    #[doc = " returned if the start & length are not a multiple of this size."]
+    #[doc = ""]
+    #[doc = " Erase is performed using block (multi-sector) erases where possible (block size is specified in"]
+    #[doc = " chip->drv->block_erase_size field, typically 65536 bytes). Remaining sectors are erased using individual sector erase"]
+    #[doc = " commands."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_erase_region(chip: *mut esp_flash_t, start: u32, len: u32) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Read if the entire chip is write protected"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param[out] write_protected Pointer to boolean, set to the value of the write protect flag."]
+    #[doc = ""]
+    #[doc = " @note A correct result for this flag depends on the SPI flash chip model and chip_drv in use (via the 'chip->drv'"]
+    #[doc = " field)."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_get_chip_write_protect(
+        chip: *mut esp_flash_t,
+        write_protected: *mut bool,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Set write protection for the SPI flash chip"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param write_protect Boolean value for the write protect flag"]
+    #[doc = ""]
+    #[doc = " @note Correct behaviour of this function depends on the SPI flash chip model and chip_drv in use (via the 'chip->drv'"]
+    #[doc = " field)."]
+    #[doc = ""]
+    #[doc = " Some SPI flash chips may require a power cycle before write protect status can be cleared. Otherwise,"]
+    #[doc = " write protection can be removed via a follow-up call to this function."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_set_chip_write_protect(
+        chip: *mut esp_flash_t,
+        write_protect: bool,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Read the list of individually protectable regions of this SPI flash chip."]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param[out] out_regions Pointer to receive a pointer to the array of protectable regions of the chip."]
+    #[doc = " @param[out] out_num_regions Pointer to an integer receiving the count of protectable regions in the array returned in 'regions'."]
+    #[doc = ""]
+    #[doc = " @note Correct behaviour of this function depends on the SPI flash chip model and chip_drv in use (via the 'chip->drv'"]
+    #[doc = " field)."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_get_protectable_regions(
+        chip: *const esp_flash_t,
+        out_regions: *mut *const esp_flash_region_t,
+        out_num_regions: *mut u32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Detect if a region of the SPI flash chip is protected"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param region Pointer to a struct describing a protected region. This must match one of the regions returned from esp_flash_get_protectable_regions(...)."]
+    #[doc = " @param[out] out_protected Pointer to a flag which is set based on the protected status for this region."]
+    #[doc = ""]
+    #[doc = " @note It is possible for this result to be false and write operations to still fail, if protection is enabled for the entire chip."]
+    #[doc = ""]
+    #[doc = " @note Correct behaviour of this function depends on the SPI flash chip model and chip_drv in use (via the 'chip->drv'"]
+    #[doc = " field)."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_get_protected_region(
+        chip: *mut esp_flash_t,
+        region: *const esp_flash_region_t,
+        out_protected: *mut bool,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Update the protected status for a region of the SPI flash chip"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param region Pointer to a struct describing a protected region. This must match one of the regions returned from esp_flash_get_protectable_regions(...)."]
+    #[doc = " @param protect Write protection flag to set."]
+    #[doc = ""]
+    #[doc = " @note It is possible for the region protection flag to be cleared and write operations to still fail, if protection is enabled for the entire chip."]
+    #[doc = ""]
+    #[doc = " @note Correct behaviour of this function depends on the SPI flash chip model and chip_drv in use (via the 'chip->drv'"]
+    #[doc = " field)."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_set_protected_region(
+        chip: *mut esp_flash_t,
+        region: *const esp_flash_region_t,
+        protect: bool,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Read data from the SPI flash chip"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param buffer Pointer to a buffer where the data will be read. To get better performance, this should be in the DRAM and word aligned."]
+    #[doc = " @param address Address on flash to read from. Must be less than chip->size field."]
+    #[doc = " @param length Length (in bytes) of data to read."]
+    #[doc = ""]
+    #[doc = " There are no alignment constraints on buffer, address or length."]
+    #[doc = ""]
+    #[doc = " @note If on-chip flash encryption is used, this function returns raw (ie encrypted) data. Use the flash cache"]
+    #[doc = " to transparently decrypt data."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK: success"]
+    #[doc = "      - ESP_ERR_NO_MEM: the buffer is not valid, however failed to malloc on"]
+    #[doc = "        the heap."]
+    #[doc = "      - or a flash error code if operation failed."]
+    pub fn esp_flash_read(
+        chip: *mut esp_flash_t,
+        buffer: *mut ::core::ffi::c_void,
+        address: u32,
+        length: u32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Write data to the SPI flash chip"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must have been successfully initialised via esp_flash_init()"]
+    #[doc = " @param address Address on flash to write to. Must be previously erased (SPI NOR flash can only write bits 1->0)."]
+    #[doc = " @param buffer Pointer to a buffer with the data to write. To get better performance, this should be in the DRAM and word aligned."]
+    #[doc = " @param length Length (in bytes) of data to write."]
+    #[doc = ""]
+    #[doc = " There are no alignment constraints on buffer, address or length."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK on success, or a flash error code if operation failed."]
+    pub fn esp_flash_write(
+        chip: *mut esp_flash_t,
+        buffer: *const ::core::ffi::c_void,
+        address: u32,
+        length: u32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Encrypted and write data to the SPI flash chip using on-chip hardware flash encryption"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must be NULL (the main flash chip). For other chips, encrypted write is not supported."]
+    #[doc = " @param address Address on flash to write to. 16 byte aligned. Must be previously erased (SPI NOR flash can only write bits 1->0)."]
+    #[doc = " @param buffer Pointer to a buffer with the data to write."]
+    #[doc = " @param length Length (in bytes) of data to write. 16 byte aligned."]
+    #[doc = ""]
+    #[doc = " @note Both address & length must be 16 byte aligned, as this is the encryption block size"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: on success"]
+    #[doc = "  - ESP_ERR_NOT_SUPPORTED: encrypted write not supported for this chip."]
+    #[doc = "  - ESP_ERR_INVALID_ARG: Either the address, buffer or length is invalid."]
+    #[doc = "  - or other flash error code from spi_flash_write_encrypted()."]
+    pub fn esp_flash_write_encrypted(
+        chip: *mut esp_flash_t,
+        address: u32,
+        buffer: *const ::core::ffi::c_void,
+        length: u32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Read and decrypt data from the SPI flash chip using on-chip hardware flash encryption"]
+    #[doc = ""]
+    #[doc = " @param chip Pointer to identify flash chip. Must be NULL (the main flash chip). For other chips, encrypted read is not supported."]
+    #[doc = " @param address Address on flash to read from."]
+    #[doc = " @param out_buffer Pointer to a buffer for the data to read to."]
+    #[doc = " @param length Length (in bytes) of data to read."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "  - ESP_OK: on success"]
+    #[doc = "  - ESP_ERR_NOT_SUPPORTED: encrypted read not supported for this chip."]
+    #[doc = "  - or other flash error code from spi_flash_read_encrypted()."]
+    pub fn esp_flash_read_encrypted(
+        chip: *mut esp_flash_t,
+        address: u32,
+        out_buffer: *mut ::core::ffi::c_void,
+        length: u32,
+    ) -> esp_err_t;
+}
+extern "C" {
+    pub static mut esp_flash_default_chip: *mut esp_flash_t;
+}
+extern "C" {
+    #[doc = " @brief  Initialize SPI flash access driver"]
+    #[doc = ""]
+    #[doc = "  This function must be called exactly once, before any other"]
+    #[doc = "  spi_flash_* functions are called."]
+    #[doc = "  Currently this function is called from startup code. There is"]
+    #[doc = "  no need to call it from application code."]
+    #[doc = ""]
+    pub fn spi_flash_init();
+}
+extern "C" {
+    #[doc = " @brief  Get flash chip size, as set in binary image header"]
+    #[doc = ""]
+    #[doc = " @note This value does not necessarily match real flash size."]
+    #[doc = ""]
+    #[doc = " @return size of flash chip, in bytes"]
+    pub fn spi_flash_get_chip_size() -> size_t;
+}
+extern "C" {
+    #[doc = " @brief  Erase the Flash sector."]
+    #[doc = ""]
+    #[doc = " @param  sector  Sector number, the count starts at sector 0, 4KB per sector."]
+    #[doc = ""]
+    #[doc = " @return esp_err_t"]
+    pub fn spi_flash_erase_sector(sector: size_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Erase a range of flash sectors"]
+    #[doc = ""]
+    #[doc = " @param  start_address  Address where erase operation has to start."]
+    #[doc = "                                  Must be 4kB-aligned"]
+    #[doc = " @param  size  Size of erased range, in bytes. Must be divisible by 4kB."]
+    #[doc = ""]
+    #[doc = " @return esp_err_t"]
+    pub fn spi_flash_erase_range(start_address: size_t, size: size_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Write data to Flash."]
+    #[doc = ""]
+    #[doc = " @note For fastest write performance, write a 4 byte aligned size at a"]
+    #[doc = " 4 byte aligned offset in flash from a source buffer in DRAM. Varying any of"]
+    #[doc = " these parameters will still work, but will be slower due to buffering."]
+    #[doc = ""]
+    #[doc = " @note Writing more than 8KB at a time will be split into multiple"]
+    #[doc = " write operations to avoid disrupting other tasks in the system."]
+    #[doc = ""]
+    #[doc = " @param  dest_addr Destination address in Flash."]
+    #[doc = " @param  src       Pointer to the source buffer."]
+    #[doc = " @param  size      Length of data, in bytes."]
+    #[doc = ""]
+    #[doc = " @return esp_err_t"]
+    pub fn spi_flash_write(
+        dest_addr: size_t,
+        src: *const ::core::ffi::c_void,
+        size: size_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Write data encrypted to Flash."]
+    #[doc = ""]
+    #[doc = " @note Flash encryption must be enabled for this function to work."]
+    #[doc = ""]
+    #[doc = " @note Flash encryption must be enabled when calling this function."]
+    #[doc = " If flash encryption is disabled, the function returns"]
+    #[doc = " ESP_ERR_INVALID_STATE.  Use esp_flash_encryption_enabled()"]
+    #[doc = " function to determine if flash encryption is enabled."]
+    #[doc = ""]
+    #[doc = " @note Both dest_addr and size must be multiples of 16 bytes. For"]
+    #[doc = " absolute best performance, both dest_addr and size arguments should"]
+    #[doc = " be multiples of 32 bytes."]
+    #[doc = ""]
+    #[doc = " @param  dest_addr Destination address in Flash. Must be a multiple of 16 bytes."]
+    #[doc = " @param  src       Pointer to the source buffer."]
+    #[doc = " @param  size      Length of data, in bytes. Must be a multiple of 16 bytes."]
+    #[doc = ""]
+    #[doc = " @return esp_err_t"]
+    pub fn spi_flash_write_encrypted(
+        dest_addr: size_t,
+        src: *const ::core::ffi::c_void,
+        size: size_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Read data from Flash."]
+    #[doc = ""]
+    #[doc = " @note For fastest read performance, all parameters should be"]
+    #[doc = " 4 byte aligned. If source address and read size are not 4 byte"]
+    #[doc = " aligned, read may be split into multiple flash operations. If"]
+    #[doc = " destination buffer is not 4 byte aligned, a temporary buffer will"]
+    #[doc = " be allocated on the stack."]
+    #[doc = ""]
+    #[doc = " @note Reading more than 16KB of data at a time will be split"]
+    #[doc = " into multiple reads to avoid disruption to other tasks in the"]
+    #[doc = " system. Consider using spi_flash_mmap() to read large amounts"]
+    #[doc = " of data."]
+    #[doc = ""]
+    #[doc = " @param  src_addr source address of the data in Flash."]
+    #[doc = " @param  dest     pointer to the destination buffer"]
+    #[doc = " @param  size     length of data"]
+    #[doc = ""]
+    #[doc = ""]
+    #[doc = " @return esp_err_t"]
+    pub fn spi_flash_read(
+        src_addr: size_t,
+        dest: *mut ::core::ffi::c_void,
+        size: size_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief  Read data from Encrypted Flash."]
+    #[doc = ""]
+    #[doc = " If flash encryption is enabled, this function will transparently decrypt data as it is read."]
+    #[doc = " If flash encryption is not enabled, this function behaves the same as spi_flash_read()."]
+    #[doc = ""]
+    #[doc = " See esp_flash_encryption_enabled() for a function to check if flash encryption is enabled."]
+    #[doc = ""]
+    #[doc = " @param  src   source address of the data in Flash."]
+    #[doc = " @param  dest  pointer to the destination buffer"]
+    #[doc = " @param  size  length of data"]
+    #[doc = ""]
+    #[doc = " @return esp_err_t"]
+    pub fn spi_flash_read_encrypted(
+        src: size_t,
+        dest: *mut ::core::ffi::c_void,
+        size: size_t,
+    ) -> esp_err_t;
+}
+#[doc = "< map to data memory (Vaddr0), allows byte-aligned access, 4 MB total"]
+pub const spi_flash_mmap_memory_t_SPI_FLASH_MMAP_DATA: spi_flash_mmap_memory_t = 0;
+#[doc = "< map to instruction memory (Vaddr1-3), allows only 4-byte-aligned access, 11 MB total"]
+pub const spi_flash_mmap_memory_t_SPI_FLASH_MMAP_INST: spi_flash_mmap_memory_t = 1;
+#[doc = " @brief Enumeration which specifies memory space requested in an mmap call"]
+pub type spi_flash_mmap_memory_t = u32;
+#[doc = " @brief Opaque handle for memory region obtained from spi_flash_mmap."]
+pub type spi_flash_mmap_handle_t = u32;
+extern "C" {
+    #[doc = " @brief Map region of flash memory into data or instruction address space"]
+    #[doc = ""]
+    #[doc = " This function allocates sufficient number of 64kB MMU pages and configures"]
+    #[doc = " them to map the requested region of flash memory into the address space."]
+    #[doc = " It may reuse MMU pages which already provide the required mapping."]
+    #[doc = ""]
+    #[doc = " As with any allocator, if mmap/munmap are heavily used then the address space"]
+    #[doc = " may become fragmented. To troubleshoot issues with page allocation, use"]
+    #[doc = " spi_flash_mmap_dump() function."]
+    #[doc = ""]
+    #[doc = " @param src_addr  Physical address in flash where requested region starts."]
+    #[doc = "                  This address *must* be aligned to 64kB boundary"]
+    #[doc = "                  (SPI_FLASH_MMU_PAGE_SIZE)"]
+    #[doc = " @param size  Size of region to be mapped. This size will be rounded"]
+    #[doc = "              up to a 64kB boundary"]
+    #[doc = " @param memory  Address space where the region should be mapped (data or instruction)"]
+    #[doc = " @param[out] out_ptr  Output, pointer to the mapped memory region"]
+    #[doc = " @param[out] out_handle  Output, handle which should be used for spi_flash_munmap call"]
+    #[doc = ""]
+    #[doc = " @return  ESP_OK on success, ESP_ERR_NO_MEM if pages can not be allocated"]
+    pub fn spi_flash_mmap(
+        src_addr: size_t,
+        size: size_t,
+        memory: spi_flash_mmap_memory_t,
+        out_ptr: *mut *const ::core::ffi::c_void,
+        out_handle: *mut spi_flash_mmap_handle_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Map sequences of pages of flash memory into data or instruction address space"]
+    #[doc = ""]
+    #[doc = " This function allocates sufficient number of 64kB MMU pages and configures"]
+    #[doc = " them to map the indicated pages of flash memory contiguously into address space."]
+    #[doc = " In this respect, it works in a similar way as spi_flash_mmap() but it allows mapping"]
+    #[doc = " a (maybe non-contiguous) set of pages into a contiguous region of memory."]
+    #[doc = ""]
+    #[doc = " @param pages An array of numbers indicating the 64kB pages in flash to be mapped"]
+    #[doc = "              contiguously into memory. These indicate the indexes of the 64kB pages,"]
+    #[doc = "              not the byte-size addresses as used in other functions."]
+    #[doc = "              Array must be located in internal memory."]
+    #[doc = " @param page_count  Number of entries in the pages array"]
+    #[doc = " @param memory  Address space where the region should be mapped (instruction or data)"]
+    #[doc = " @param[out] out_ptr  Output, pointer to the mapped memory region"]
+    #[doc = " @param[out] out_handle  Output, handle which should be used for spi_flash_munmap call"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK on success"]
+    #[doc = "      - ESP_ERR_NO_MEM if pages can not be allocated"]
+    #[doc = "      - ESP_ERR_INVALID_ARG if pagecount is zero or pages array is not in"]
+    #[doc = "        internal memory"]
+    pub fn spi_flash_mmap_pages(
+        pages: *const ::std::os::raw::c_int,
+        page_count: size_t,
+        memory: spi_flash_mmap_memory_t,
+        out_ptr: *mut *const ::core::ffi::c_void,
+        out_handle: *mut spi_flash_mmap_handle_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Release region previously obtained using spi_flash_mmap"]
+    #[doc = ""]
+    #[doc = " @note Calling this function will not necessarily unmap memory region."]
+    #[doc = "       Region will only be unmapped when there are no other handles which"]
+    #[doc = "       reference this region. In case of partially overlapping regions"]
+    #[doc = "       it is possible that memory will be unmapped partially."]
+    #[doc = ""]
+    #[doc = " @param handle  Handle obtained from spi_flash_mmap"]
+    pub fn spi_flash_munmap(handle: spi_flash_mmap_handle_t);
+}
+extern "C" {
+    #[doc = " @brief Display information about mapped regions"]
+    #[doc = ""]
+    #[doc = " This function lists handles obtained using spi_flash_mmap, along with range"]
+    #[doc = " of pages allocated to each handle. It also lists all non-zero entries of"]
+    #[doc = " MMU table and corresponding reference counts."]
+    pub fn spi_flash_mmap_dump();
+}
+extern "C" {
+    #[doc = " @brief get free pages number which can be mmap"]
+    #[doc = ""]
+    #[doc = " This function will return number of free pages available in mmu table. This could be useful"]
+    #[doc = " before calling actual spi_flash_mmap (maps flash range to DCache or ICache memory) to check"]
+    #[doc = " if there is sufficient space available for mapping."]
+    #[doc = ""]
+    #[doc = " @param memory memory type of MMU table free page"]
+    #[doc = ""]
+    #[doc = " @return number of free pages which can be mmaped"]
+    pub fn spi_flash_mmap_get_free_pages(memory: spi_flash_mmap_memory_t) -> u32;
+}
+extern "C" {
+    #[doc = " @brief Given a memory address where flash is mapped, return the corresponding physical flash offset."]
+    #[doc = ""]
+    #[doc = " Cache address does not have have been assigned via spi_flash_mmap(), any address in memory mapped flash space can be looked up."]
+    #[doc = ""]
+    #[doc = " @param cached Pointer to flashed cached memory."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = " - SPI_FLASH_CACHE2PHYS_FAIL If cache address is outside flash cache region, or the address is not mapped."]
+    #[doc = " - Otherwise, returns physical offset in flash"]
+    pub fn spi_flash_cache2phys(cached: *const ::core::ffi::c_void) -> size_t;
+}
+extern "C" {
+    #[doc = " @brief Given a physical offset in flash, return the address where it is mapped in the memory space."]
+    #[doc = ""]
+    #[doc = " Physical address does not have to have been assigned via spi_flash_mmap(), any address in flash can be looked up."]
+    #[doc = ""]
+    #[doc = " @note Only the first matching cache address is returned. If MMU flash cache table is configured so multiple entries"]
+    #[doc = " point to the same physical address, there may be more than one cache address corresponding to that physical"]
+    #[doc = " address. It is also possible for a single physical address to be mapped to both the IROM and DROM regions."]
+    #[doc = ""]
+    #[doc = " @note This function doesn't impose any alignment constraints, but if memory argument is SPI_FLASH_MMAP_INST and"]
+    #[doc = " phys_offs is not 4-byte aligned, then reading from the returned pointer will result in a crash."]
+    #[doc = ""]
+    #[doc = " @param phys_offs Physical offset in flash memory to look up."]
+    #[doc = " @param memory Address space type to look up a flash cache address mapping for (instruction or data)"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = " - NULL if the physical address is invalid or not mapped to flash cache of the specified memory type."]
+    #[doc = " - Cached memory address (in IROM or DROM space) corresponding to phys_offs."]
+    pub fn spi_flash_phys2cache(
+        phys_offs: size_t,
+        memory: spi_flash_mmap_memory_t,
+    ) -> *const ::core::ffi::c_void;
+}
+extern "C" {
+    #[doc = " @brief Check at runtime if flash cache is enabled on both CPUs"]
+    #[doc = ""]
+    #[doc = " @return true if both CPUs have flash cache enabled, false otherwise."]
+    pub fn spi_flash_cache_enabled() -> bool;
+}
+#[doc = " @brief SPI flash critical section enter function."]
+#[doc = ""]
+pub type spi_flash_guard_start_func_t = ::core::option::Option<unsafe extern "C" fn()>;
+#[doc = " @brief SPI flash critical section exit function."]
+pub type spi_flash_guard_end_func_t = ::core::option::Option<unsafe extern "C" fn()>;
+#[doc = " @brief SPI flash operation lock function."]
+pub type spi_flash_op_lock_func_t = ::core::option::Option<unsafe extern "C" fn()>;
+#[doc = " @brief SPI flash operation unlock function."]
+pub type spi_flash_op_unlock_func_t = ::core::option::Option<unsafe extern "C" fn()>;
+#[doc = " @brief Function to protect SPI flash critical regions corruption."]
+pub type spi_flash_is_safe_write_address_t =
+    ::core::option::Option<unsafe extern "C" fn(addr: size_t, size: size_t) -> bool>;
+#[doc = " Structure holding SPI flash access critical sections management functions."]
+#[doc = ""]
+#[doc = " Flash API uses two types of flash access management functions:"]
+#[doc = " 1) Functions which prepare/restore flash cache and interrupts before calling"]
+#[doc = "    appropriate ROM functions (SPIWrite, SPIRead and SPIEraseBlock):"]
+#[doc = "   - 'start' function should disables flash cache and non-IRAM interrupts and"]
+#[doc = "      is invoked before the call to one of ROM function above."]
+#[doc = "   - 'end' function should restore state of flash cache and non-IRAM interrupts and"]
+#[doc = "      is invoked after the call to one of ROM function above."]
+#[doc = "    These two functions are not recursive."]
+#[doc = " 2) Functions which synchronizes access to internal data used by flash API."]
+#[doc = "    This functions are mostly intended to synchronize access to flash API internal data"]
+#[doc = "    in multithreaded environment and use OS primitives:"]
+#[doc = "   - 'op_lock' locks access to flash API internal data."]
+#[doc = "   - 'op_unlock' unlocks access to flash API internal data."]
+#[doc = "   These two functions are recursive and can be used around the outside of multiple calls to"]
+#[doc = "   'start' & 'end', in order to create atomic multi-part flash operations."]
+#[doc = " 3) When CONFIG_SPI_FLASH_DANGEROUS_WRITE_ALLOWED is disabled, flash writing/erasing"]
+#[doc = "    API checks for addresses provided by user to avoid corruption of critical flash regions"]
+#[doc = "    (bootloader, partition table, running application etc.)."]
+#[doc = ""]
+#[doc = " Different versions of the guarding functions should be used depending on the context of"]
+#[doc = " execution (with or without functional OS). In normal conditions when flash API is called"]
+#[doc = " from task the functions use OS primitives. When there is no OS at all or when"]
+#[doc = " it is not guaranteed that OS is functional (accessing flash from exception handler) these"]
+#[doc = " functions cannot use OS primitives or even does not need them (multithreaded access is not possible)."]
+#[doc = ""]
+#[doc = " @note Structure and corresponding guard functions should not reside in flash."]
+#[doc = "       For example structure can be placed in DRAM and functions in IRAM sections."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct spi_flash_guard_funcs_t {
+    #[doc = "< critical section start function."]
+    pub start: spi_flash_guard_start_func_t,
+    #[doc = "< critical section end function."]
+    pub end: spi_flash_guard_end_func_t,
+    #[doc = "< flash access API lock function."]
+    pub op_lock: spi_flash_op_lock_func_t,
+    #[doc = "< flash access API unlock function."]
+    pub op_unlock: spi_flash_op_unlock_func_t,
+    #[doc = "< checks flash write addresses."]
+    pub is_safe_write_address: spi_flash_is_safe_write_address_t,
+}
+extern "C" {
+    #[doc = " @brief  Sets guard functions to access flash."]
+    #[doc = ""]
+    #[doc = " @note Pointed structure and corresponding guard functions should not reside in flash."]
+    #[doc = "       For example structure can be placed in DRAM and functions in IRAM sections."]
+    #[doc = ""]
+    #[doc = " @param funcs pointer to structure holding flash access guard functions."]
+    pub fn spi_flash_guard_set(funcs: *const spi_flash_guard_funcs_t);
+}
+extern "C" {
+    #[doc = " @brief Get the guard functions used for flash access"]
+    #[doc = ""]
+    #[doc = " @return The guard functions that were set via spi_flash_guard_set(). These functions"]
+    #[doc = " can be called if implementing custom low-level SPI flash operations."]
+    pub fn spi_flash_guard_get() -> *const spi_flash_guard_funcs_t;
+}
+extern "C" {
+    pub static g_flash_guard_default_ops: spi_flash_guard_funcs_t;
+}
+extern "C" {
+    pub static g_flash_guard_no_os_ops: spi_flash_guard_funcs_t;
+}
+#[doc = "!< Application partition type"]
+pub const esp_partition_type_t_ESP_PARTITION_TYPE_APP: esp_partition_type_t = 0;
+#[doc = "!< Data partition type"]
+pub const esp_partition_type_t_ESP_PARTITION_TYPE_DATA: esp_partition_type_t = 1;
+#[doc = " @brief Partition type"]
+#[doc = " @note Keep this enum in sync with PartitionDefinition class gen_esp32part.py"]
+pub type esp_partition_type_t = u32;
+#[doc = "!< Factory application partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_FACTORY: esp_partition_subtype_t = 0;
+#[doc = "!< Base for OTA partition subtypes"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_MIN: esp_partition_subtype_t = 16;
+#[doc = "!< OTA partition 0"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_0: esp_partition_subtype_t = 16;
+#[doc = "!< OTA partition 1"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_1: esp_partition_subtype_t = 17;
+#[doc = "!< OTA partition 2"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_2: esp_partition_subtype_t = 18;
+#[doc = "!< OTA partition 3"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_3: esp_partition_subtype_t = 19;
+#[doc = "!< OTA partition 4"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_4: esp_partition_subtype_t = 20;
+#[doc = "!< OTA partition 5"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_5: esp_partition_subtype_t = 21;
+#[doc = "!< OTA partition 6"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_6: esp_partition_subtype_t = 22;
+#[doc = "!< OTA partition 7"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_7: esp_partition_subtype_t = 23;
+#[doc = "!< OTA partition 8"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_8: esp_partition_subtype_t = 24;
+#[doc = "!< OTA partition 9"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_9: esp_partition_subtype_t = 25;
+#[doc = "!< OTA partition 10"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_10: esp_partition_subtype_t = 26;
+#[doc = "!< OTA partition 11"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_11: esp_partition_subtype_t = 27;
+#[doc = "!< OTA partition 12"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_12: esp_partition_subtype_t = 28;
+#[doc = "!< OTA partition 13"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_13: esp_partition_subtype_t = 29;
+#[doc = "!< OTA partition 14"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_14: esp_partition_subtype_t = 30;
+#[doc = "!< OTA partition 15"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_15: esp_partition_subtype_t = 31;
+#[doc = "!< Max subtype of OTA partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_OTA_MAX: esp_partition_subtype_t = 32;
+#[doc = "!< Test application partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_APP_TEST: esp_partition_subtype_t = 32;
+#[doc = "!< OTA selection partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_DATA_OTA: esp_partition_subtype_t = 0;
+#[doc = "!< PHY init data partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_DATA_PHY: esp_partition_subtype_t = 1;
+#[doc = "!< NVS partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_DATA_NVS: esp_partition_subtype_t = 2;
+#[doc = "!< COREDUMP partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_DATA_COREDUMP: esp_partition_subtype_t = 3;
+#[doc = "!< Partition for NVS keys"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_DATA_NVS_KEYS: esp_partition_subtype_t = 4;
+#[doc = "!< Partition for emulate eFuse bits"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_DATA_EFUSE_EM: esp_partition_subtype_t = 5;
+#[doc = "!< ESPHTTPD partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_DATA_ESPHTTPD: esp_partition_subtype_t =
+    128;
+#[doc = "!< FAT partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_DATA_FAT: esp_partition_subtype_t = 129;
+#[doc = "!< SPIFFS partition"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_DATA_SPIFFS: esp_partition_subtype_t = 130;
+#[doc = "!< Used to search for partitions with any subtype"]
+pub const esp_partition_subtype_t_ESP_PARTITION_SUBTYPE_ANY: esp_partition_subtype_t = 255;
+#[doc = " @brief Partition subtype"]
+#[doc = " @note Keep this enum in sync with PartitionDefinition class gen_esp32part.py"]
+pub type esp_partition_subtype_t = u32;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct esp_partition_iterator_opaque_ {
+    _unused: [u8; 0],
+}
+#[doc = " @brief Opaque partition iterator type"]
+pub type esp_partition_iterator_t = *mut esp_partition_iterator_opaque_;
+#[doc = " @brief partition information structure"]
+#[doc = ""]
+#[doc = " This is not the format in flash, that format is esp_partition_info_t."]
+#[doc = ""]
+#[doc = " However, this is the format used by this API."]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct esp_partition_t {
+    #[doc = "< SPI flash chip on which the partition resides"]
+    pub flash_chip: *mut esp_flash_t,
+    #[doc = "< partition type (app/data)"]
+    pub type_: esp_partition_type_t,
+    #[doc = "< partition subtype"]
+    pub subtype: esp_partition_subtype_t,
+    #[doc = "< starting address of the partition in flash"]
+    pub address: u32,
+    #[doc = "< size of the partition, in bytes"]
+    pub size: u32,
+    #[doc = "< partition label, zero-terminated ASCII string"]
+    pub label: [::std::os::raw::c_char; 17usize],
+    #[doc = "< flag is set to true if partition is encrypted"]
+    pub encrypted: bool,
+}
+extern "C" {
+    #[doc = " @brief Find partition based on one or more parameters"]
+    #[doc = ""]
+    #[doc = " @param type Partition type, one of esp_partition_type_t values"]
+    #[doc = " @param subtype Partition subtype, one of esp_partition_subtype_t values."]
+    #[doc = "                To find all partitions of given type, use"]
+    #[doc = "                ESP_PARTITION_SUBTYPE_ANY."]
+    #[doc = " @param label (optional) Partition label. Set this value if looking"]
+    #[doc = "             for partition with a specific name. Pass NULL otherwise."]
+    #[doc = ""]
+    #[doc = " @return iterator which can be used to enumerate all the partitions found,"]
+    #[doc = "         or NULL if no partitions were found."]
+    #[doc = "         Iterator obtained through this function has to be released"]
+    #[doc = "         using esp_partition_iterator_release when not used any more."]
+    pub fn esp_partition_find(
+        type_: esp_partition_type_t,
+        subtype: esp_partition_subtype_t,
+        label: *const ::std::os::raw::c_char,
+    ) -> esp_partition_iterator_t;
+}
+extern "C" {
+    #[doc = " @brief Find first partition based on one or more parameters"]
+    #[doc = ""]
+    #[doc = " @param type Partition type, one of esp_partition_type_t values"]
+    #[doc = " @param subtype Partition subtype, one of esp_partition_subtype_t values."]
+    #[doc = "                To find all partitions of given type, use"]
+    #[doc = "                ESP_PARTITION_SUBTYPE_ANY."]
+    #[doc = " @param label (optional) Partition label. Set this value if looking"]
+    #[doc = "             for partition with a specific name. Pass NULL otherwise."]
+    #[doc = ""]
+    #[doc = " @return pointer to esp_partition_t structure, or NULL if no partition is found."]
+    #[doc = "         This pointer is valid for the lifetime of the application."]
+    pub fn esp_partition_find_first(
+        type_: esp_partition_type_t,
+        subtype: esp_partition_subtype_t,
+        label: *const ::std::os::raw::c_char,
+    ) -> *const esp_partition_t;
+}
+extern "C" {
+    #[doc = " @brief Get esp_partition_t structure for given partition"]
+    #[doc = ""]
+    #[doc = " @param iterator  Iterator obtained using esp_partition_find. Must be non-NULL."]
+    #[doc = ""]
+    #[doc = " @return pointer to esp_partition_t structure. This pointer is valid for the lifetime"]
+    #[doc = "         of the application."]
+    pub fn esp_partition_get(iterator: esp_partition_iterator_t) -> *const esp_partition_t;
+}
+extern "C" {
+    #[doc = " @brief Move partition iterator to the next partition found"]
+    #[doc = ""]
+    #[doc = " Any copies of the iterator will be invalid after this call."]
+    #[doc = ""]
+    #[doc = " @param iterator Iterator obtained using esp_partition_find. Must be non-NULL."]
+    #[doc = ""]
+    #[doc = " @return NULL if no partition was found, valid esp_partition_iterator_t otherwise."]
+    pub fn esp_partition_next(iterator: esp_partition_iterator_t) -> esp_partition_iterator_t;
+}
+extern "C" {
+    #[doc = " @brief Release partition iterator"]
+    #[doc = ""]
+    #[doc = " @param iterator Iterator obtained using esp_partition_find. Must be non-NULL."]
+    #[doc = ""]
+    pub fn esp_partition_iterator_release(iterator: esp_partition_iterator_t);
+}
+extern "C" {
+    #[doc = " @brief Verify partition data"]
+    #[doc = ""]
+    #[doc = " Given a pointer to partition data, verify this partition exists in the partition table (all fields match.)"]
+    #[doc = ""]
+    #[doc = " This function is also useful to take partition data which may be in a RAM buffer and convert it to a pointer to the"]
+    #[doc = " permanent partition data stored in flash."]
+    #[doc = ""]
+    #[doc = " Pointers returned from this function can be compared directly to the address of any pointer returned from"]
+    #[doc = " esp_partition_get(), as a test for equality."]
+    #[doc = ""]
+    #[doc = " @param partition Pointer to partition data to verify. Must be non-NULL. All fields of this structure must match the"]
+    #[doc = " partition table entry in flash for this function to return a successful match."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = " - If partition not found, returns NULL."]
+    #[doc = " - If found, returns a pointer to the esp_partition_t structure in flash. This pointer is always valid for the lifetime of the application."]
+    pub fn esp_partition_verify(partition: *const esp_partition_t) -> *const esp_partition_t;
+}
+extern "C" {
+    #[doc = " @brief Read data from the partition"]
+    #[doc = ""]
+    #[doc = " @param partition Pointer to partition structure obtained using"]
+    #[doc = "                  esp_partition_find_first or esp_partition_get."]
+    #[doc = "                  Must be non-NULL."]
+    #[doc = " @param dst Pointer to the buffer where data should be stored."]
+    #[doc = "            Pointer must be non-NULL and buffer must be at least 'size' bytes long."]
+    #[doc = " @param src_offset Address of the data to be read, relative to the"]
+    #[doc = "                   beginning of the partition."]
+    #[doc = " @param size Size of data to be read, in bytes."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK, if data was read successfully;"]
+    #[doc = "         ESP_ERR_INVALID_ARG, if src_offset exceeds partition size;"]
+    #[doc = "         ESP_ERR_INVALID_SIZE, if read would go out of bounds of the partition;"]
+    #[doc = "         or one of error codes from lower-level flash driver."]
+    pub fn esp_partition_read(
+        partition: *const esp_partition_t,
+        src_offset: size_t,
+        dst: *mut ::core::ffi::c_void,
+        size: size_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Write data to the partition"]
+    #[doc = ""]
+    #[doc = " Before writing data to flash, corresponding region of flash needs to be erased."]
+    #[doc = " This can be done using esp_partition_erase_range function."]
+    #[doc = ""]
+    #[doc = " Partitions marked with an encryption flag will automatically be"]
+    #[doc = " written via the spi_flash_write_encrypted() function. If writing to"]
+    #[doc = " an encrypted partition, all write offsets and lengths must be"]
+    #[doc = " multiples of 16 bytes. See the spi_flash_write_encrypted() function"]
+    #[doc = " for more details. Unencrypted partitions do not have this"]
+    #[doc = " restriction."]
+    #[doc = ""]
+    #[doc = " @param partition Pointer to partition structure obtained using"]
+    #[doc = "                  esp_partition_find_first or esp_partition_get."]
+    #[doc = "                  Must be non-NULL."]
+    #[doc = " @param dst_offset Address where the data should be written, relative to the"]
+    #[doc = "                   beginning of the partition."]
+    #[doc = " @param src Pointer to the source buffer.  Pointer must be non-NULL and"]
+    #[doc = "            buffer must be at least 'size' bytes long."]
+    #[doc = " @param size Size of data to be written, in bytes."]
+    #[doc = ""]
+    #[doc = " @note Prior to writing to flash memory, make sure it has been erased with"]
+    #[doc = "       esp_partition_erase_range call."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK, if data was written successfully;"]
+    #[doc = "         ESP_ERR_INVALID_ARG, if dst_offset exceeds partition size;"]
+    #[doc = "         ESP_ERR_INVALID_SIZE, if write would go out of bounds of the partition;"]
+    #[doc = "         or one of error codes from lower-level flash driver."]
+    pub fn esp_partition_write(
+        partition: *const esp_partition_t,
+        dst_offset: size_t,
+        src: *const ::core::ffi::c_void,
+        size: size_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Erase part of the partition"]
+    #[doc = ""]
+    #[doc = " @param partition Pointer to partition structure obtained using"]
+    #[doc = "                  esp_partition_find_first or esp_partition_get."]
+    #[doc = "                  Must be non-NULL."]
+    #[doc = " @param offset Offset from the beginning of partition where erase operation"]
+    #[doc = "               should start. Must be aligned to 4 kilobytes."]
+    #[doc = " @param size Size of the range which should be erased, in bytes."]
+    #[doc = "                   Must be divisible by 4 kilobytes."]
+    #[doc = ""]
+    #[doc = " @return ESP_OK, if the range was erased successfully;"]
+    #[doc = "         ESP_ERR_INVALID_ARG, if iterator or dst are NULL;"]
+    #[doc = "         ESP_ERR_INVALID_SIZE, if erase would go out of bounds of the partition;"]
+    #[doc = "         or one of error codes from lower-level flash driver."]
+    pub fn esp_partition_erase_range(
+        partition: *const esp_partition_t,
+        offset: size_t,
+        size: size_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Configure MMU to map partition into data memory"]
+    #[doc = ""]
+    #[doc = " Unlike spi_flash_mmap function, which requires a 64kB aligned base address,"]
+    #[doc = " this function doesn't impose such a requirement."]
+    #[doc = " If offset results in a flash address which is not aligned to 64kB boundary,"]
+    #[doc = " address will be rounded to the lower 64kB boundary, so that mapped region"]
+    #[doc = " includes requested range."]
+    #[doc = " Pointer returned via out_ptr argument will be adjusted to point to the"]
+    #[doc = " requested offset (not necessarily to the beginning of mmap-ed region)."]
+    #[doc = ""]
+    #[doc = " To release mapped memory, pass handle returned via out_handle argument to"]
+    #[doc = " spi_flash_munmap function."]
+    #[doc = ""]
+    #[doc = " @param partition Pointer to partition structure obtained using"]
+    #[doc = "                  esp_partition_find_first or esp_partition_get."]
+    #[doc = "                  Must be non-NULL."]
+    #[doc = " @param offset Offset from the beginning of partition where mapping should start."]
+    #[doc = " @param size Size of the area to be mapped."]
+    #[doc = " @param memory  Memory space where the region should be mapped"]
+    #[doc = " @param out_ptr  Output, pointer to the mapped memory region"]
+    #[doc = " @param out_handle  Output, handle which should be used for spi_flash_munmap call"]
+    #[doc = ""]
+    #[doc = " @return ESP_OK, if successful"]
+    pub fn esp_partition_mmap(
+        partition: *const esp_partition_t,
+        offset: size_t,
+        size: size_t,
+        memory: spi_flash_mmap_memory_t,
+        out_ptr: *mut *const ::core::ffi::c_void,
+        out_handle: *mut spi_flash_mmap_handle_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Get SHA-256 digest for required partition."]
+    #[doc = ""]
+    #[doc = " For apps with SHA-256 appended to the app image, the result is the appended SHA-256 value for the app image content."]
+    #[doc = " The hash is verified before returning, if app content is invalid then the function returns ESP_ERR_IMAGE_INVALID."]
+    #[doc = " For apps without SHA-256 appended to the image, the result is the SHA-256 of all bytes in the app image."]
+    #[doc = " For other partition types, the result is the SHA-256 of the entire partition."]
+    #[doc = ""]
+    #[doc = " @param[in]  partition    Pointer to info for partition containing app or data. (fields: address, size and type, are required to be filled)."]
+    #[doc = " @param[out] sha_256      Returned SHA-256 digest for a given partition."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "          - ESP_OK: In case of successful operation."]
+    #[doc = "          - ESP_ERR_INVALID_ARG: The size was 0 or the sha_256 was NULL."]
+    #[doc = "          - ESP_ERR_NO_MEM: Cannot allocate memory for sha256 operation."]
+    #[doc = "          - ESP_ERR_IMAGE_INVALID: App partition doesn't contain a valid app image."]
+    #[doc = "          - ESP_FAIL: An allocation error occurred."]
+    pub fn esp_partition_get_sha256(
+        partition: *const esp_partition_t,
+        sha_256: *mut u8,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Check for the identity of two partitions by SHA-256 digest."]
+    #[doc = ""]
+    #[doc = " @param[in] partition_1 Pointer to info for partition 1 containing app or data. (fields: address, size and type, are required to be filled)."]
+    #[doc = " @param[in] partition_2 Pointer to info for partition 2 containing app or data. (fields: address, size and type, are required to be filled)."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "         - True:  In case of the two firmware is equal."]
+    #[doc = "         - False: Otherwise"]
+    pub fn esp_partition_check_identity(
+        partition_1: *const esp_partition_t,
+        partition_2: *const esp_partition_t,
+    ) -> bool;
+}
+extern "C" {
+    #[doc = " @brief Register a partition on an external flash chip"]
+    #[doc = ""]
+    #[doc = " This API allows designating certain areas of external flash chips (identified by the esp_flash_t structure)"]
+    #[doc = " as partitions. This allows using them with components which access SPI flash through the esp_partition API."]
+    #[doc = ""]
+    #[doc = " @param flash_chip  Pointer to the structure identifying the flash chip"]
+    #[doc = " @param offset  Address in bytes, where the partition starts"]
+    #[doc = " @param size  Size of the partition in bytes"]
+    #[doc = " @param label  Partition name"]
+    #[doc = " @param type  One of the partition types (ESP_PARTITION_TYPE_*). Note that applications can not be booted from external flash"]
+    #[doc = "              chips, so using ESP_PARTITION_TYPE_APP is not supported."]
+    #[doc = " @param subtype  One of the partition subtypes (ESP_PARTITION_SUBTYPE_*)"]
+    #[doc = " @param[out] out_partition  Output, if non-NULL, receives the pointer to the resulting esp_partition_t structure"]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK on success"]
+    #[doc = "      - ESP_ERR_NOT_SUPPORTED if CONFIG_CONFIG_SPI_FLASH_USE_LEGACY_IMPL is enabled"]
+    #[doc = "      - ESP_ERR_NO_MEM if memory allocation has failed"]
+    #[doc = "      - ESP_ERR_INVALID_ARG if the new partition overlaps another partition on the same flash chip"]
+    #[doc = "      - ESP_ERR_INVALID_SIZE if the partition doesn't fit into the flash chip size"]
+    pub fn esp_partition_register_external(
+        flash_chip: *mut esp_flash_t,
+        offset: size_t,
+        size: size_t,
+        label: *const ::std::os::raw::c_char,
+        type_: esp_partition_type_t,
+        subtype: esp_partition_subtype_t,
+        out_partition: *mut *const esp_partition_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Deregister the partition previously registered using esp_partition_register_external"]
+    #[doc = " @param partition  pointer to the partition structure obtained from esp_partition_register_external,"]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK on success"]
+    #[doc = "      - ESP_ERR_NOT_FOUND if the partition pointer is not found"]
+    #[doc = "      - ESP_ERR_INVALID_ARG if the partition comes from the partition table"]
+    #[doc = "      - ESP_ERR_INVALID_ARG if the partition was not registered using"]
+    #[doc = "        esp_partition_register_external function."]
+    pub fn esp_partition_deregister_external(partition: *const esp_partition_t) -> esp_err_t;
+}
+#[doc = " @brief Key for encryption and decryption"]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct nvs_sec_cfg_t {
+    #[doc = "<  XTS encryption and decryption key"]
+    pub eky: [u8; 32usize],
+    #[doc = "<  XTS tweak key"]
+    pub tky: [u8; 32usize],
+}
+extern "C" {
+    #[doc = " @brief Initialize the default NVS partition."]
+    #[doc = ""]
+    #[doc = " This API initialises the default NVS partition. The default NVS partition"]
+    #[doc = " is the one that is labeled \"nvs\" in the partition table."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK if storage was successfully initialized."]
+    #[doc = "      - ESP_ERR_NVS_NO_FREE_PAGES if the NVS storage contains no empty pages"]
+    #[doc = "        (which may happen if NVS partition was truncated)"]
+    #[doc = "      - ESP_ERR_NOT_FOUND if no partition with label \"nvs\" is found in the partition table"]
+    #[doc = "      - one of the error codes from the underlying flash storage driver"]
+    pub fn nvs_flash_init() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Initialize NVS flash storage for the specified partition."]
+    #[doc = ""]
+    #[doc = " @param[in]  partition_label   Label of the partition. Note that internally a reference to"]
+    #[doc = "                               passed value is kept and it should be accessible for future operations"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK if storage was successfully initialized."]
+    #[doc = "      - ESP_ERR_NVS_NO_FREE_PAGES if the NVS storage contains no empty pages"]
+    #[doc = "        (which may happen if NVS partition was truncated)"]
+    #[doc = "      - ESP_ERR_NOT_FOUND if specified partition is not found in the partition table"]
+    #[doc = "      - one of the error codes from the underlying flash storage driver"]
+    pub fn nvs_flash_init_partition(partition_label: *const ::std::os::raw::c_char) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Deinitialize NVS storage for the default NVS partition"]
+    #[doc = ""]
+    #[doc = " Default NVS partition is the partition with \"nvs\" label in the partition table."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK on success (storage was deinitialized)"]
+    #[doc = "      - ESP_ERR_NVS_NOT_INITIALIZED if the storage was not initialized prior to this call"]
+    pub fn nvs_flash_deinit() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Deinitialize NVS storage for the given NVS partition"]
+    #[doc = ""]
+    #[doc = " @param[in]  partition_label   Label of the partition"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK on success"]
+    #[doc = "      - ESP_ERR_NVS_NOT_INITIALIZED if the storage for given partition was not"]
+    #[doc = "        initialized prior to this call"]
+    pub fn nvs_flash_deinit_partition(partition_label: *const ::std::os::raw::c_char) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Erase the default NVS partition"]
+    #[doc = ""]
+    #[doc = " This function erases all contents of the default NVS partition (one with label \"nvs\")"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK on success"]
+    #[doc = "      - ESP_ERR_NOT_FOUND if there is no NVS partition labeled \"nvs\" in the"]
+    #[doc = "        partition table"]
+    pub fn nvs_flash_erase() -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Erase specified NVS partition"]
+    #[doc = ""]
+    #[doc = " This function erases all contents of specified NVS partition"]
+    #[doc = ""]
+    #[doc = " @param[in]  part_name    Name (label) of the partition to be erased"]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK on success"]
+    #[doc = "      - ESP_ERR_NOT_FOUND if there is no NVS partition with the specified name"]
+    #[doc = "        in the partition table"]
+    pub fn nvs_flash_erase_partition(part_name: *const ::std::os::raw::c_char) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Initialize the default NVS partition."]
+    #[doc = ""]
+    #[doc = " This API initialises the default NVS partition. The default NVS partition"]
+    #[doc = " is the one that is labeled \"nvs\" in the partition table."]
+    #[doc = ""]
+    #[doc = " @param[in]  cfg Security configuration (keys) to be used for NVS encryption/decryption."]
+    #[doc = "                              If cfg is NULL, no encryption is used."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK if storage was successfully initialized."]
+    #[doc = "      - ESP_ERR_NVS_NO_FREE_PAGES if the NVS storage contains no empty pages"]
+    #[doc = "        (which may happen if NVS partition was truncated)"]
+    #[doc = "      - ESP_ERR_NOT_FOUND if no partition with label \"nvs\" is found in the partition table"]
+    #[doc = "      - one of the error codes from the underlying flash storage driver"]
+    pub fn nvs_flash_secure_init(cfg: *mut nvs_sec_cfg_t) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Initialize NVS flash storage for the specified partition."]
+    #[doc = ""]
+    #[doc = " @param[in]  partition_label   Label of the partition. Note that internally a reference to"]
+    #[doc = "                               passed value is kept and it should be accessible for future operations"]
+    #[doc = ""]
+    #[doc = " @param[in]  cfg Security configuration (keys) to be used for NVS encryption/decryption."]
+    #[doc = "                              If cfg is null, no encryption/decryption is used."]
+    #[doc = " @return"]
+    #[doc = "      - ESP_OK if storage was successfully initialized."]
+    #[doc = "      - ESP_ERR_NVS_NO_FREE_PAGES if the NVS storage contains no empty pages"]
+    #[doc = "        (which may happen if NVS partition was truncated)"]
+    #[doc = "      - ESP_ERR_NOT_FOUND if specified partition is not found in the partition table"]
+    #[doc = "      - one of the error codes from the underlying flash storage driver"]
+    pub fn nvs_flash_secure_init_partition(
+        partition_label: *const ::std::os::raw::c_char,
+        cfg: *mut nvs_sec_cfg_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Generate and store NVS keys in the provided esp partition"]
+    #[doc = ""]
+    #[doc = " @param[in]  partition Pointer to partition structure obtained using"]
+    #[doc = "                       esp_partition_find_first or esp_partition_get."]
+    #[doc = "                       Must be non-NULL."]
+    #[doc = " @param[out] cfg       Pointer to nvs security configuration structure."]
+    #[doc = "                       Pointer must be non-NULL."]
+    #[doc = "                       Generated keys will be populated in this structure."]
+    #[doc = ""]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      -ESP_OK, if cfg was read successfully;"]
+    #[doc = "      -or error codes from esp_partition_write/erase APIs."]
+    pub fn nvs_flash_generate_keys(
+        partition: *const esp_partition_t,
+        cfg: *mut nvs_sec_cfg_t,
+    ) -> esp_err_t;
+}
+extern "C" {
+    #[doc = " @brief Read NVS security configuration from a partition."]
+    #[doc = ""]
+    #[doc = " @param[in]  partition Pointer to partition structure obtained using"]
+    #[doc = "                       esp_partition_find_first or esp_partition_get."]
+    #[doc = "                       Must be non-NULL."]
+    #[doc = " @param[out] cfg       Pointer to nvs security configuration structure."]
+    #[doc = "                       Pointer must be non-NULL."]
+    #[doc = ""]
+    #[doc = " @note  Provided parition is assumed to be marked 'encrypted'."]
+    #[doc = ""]
+    #[doc = " @return"]
+    #[doc = "      -ESP_OK, if cfg was read successfully;"]
+    #[doc = "      -ESP_ERR_NVS_KEYS_NOT_INITIALIZED, if the partition is not yet written with keys."]
+    #[doc = "      -ESP_ERR_NVS_CORRUPT_KEY_PART, if the partition containing keys is found to be corrupt"]
+    #[doc = "      -or error codes from esp_partition_read API."]
+    pub fn nvs_flash_read_security_cfg(
+        partition: *const esp_partition_t,
+        cfg: *mut nvs_sec_cfg_t,
     ) -> esp_err_t;
 }
 pub type __builtin_va_list = __va_list_tag;
