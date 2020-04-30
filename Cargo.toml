@@ -12,5 +12,5 @@ repository = "https://github.com/sapir/esp-idf-sys"
 license = "MIT"
 
 [build-dependencies]
-bindgen = "0.51"
-globwalk = "0.7"
+bindgen = "0.53"
+globwalk = "0.8"
