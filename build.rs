@@ -59,6 +59,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     .filter_map(Result::ok)
     .flat_map(|makefile| {
       let path = makefile.into_path();
+      let component_path = path.parent().unwrap();
 
       let mut contents = read_to_string(&path).expect("failed reading component.mk").replace("$(info ", "$(warn ");
       // Define these variables since they affect `COMPONENT_ADD_INCLUDEDIRS`.
@@ -71,12 +72,15 @@ fn main() -> Result<(), Box<dyn Error>> {
       contents.push_str("\n$(info ${COMPONENT_ADD_INCLUDEDIRS})");
 
       let mut child = Command::new("make")
+        .current_dir(&component_path)
         .arg("-f")
         .arg("-")
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
         .stderr(Stdio::null())
         .env("IDF_TARGET", &idf_target)
+        .env("SOC_NAME", &idf_target)
+        .env("COMPONENT_PATH", &component_path)
         .spawn()
         .expect("make failed");
 
@@ -113,6 +117,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     .rustified_enum("wifi_mode_t")
     .header("src/bindings.h")
     .clang_arg(format!("--sysroot={}", sysroot.display()))
+    .clang_arg(format!("-I{}/include", sysroot.display()))
     .clang_arg("-Isrc")
     .clang_arg("-D__bindgen")
     .clang_args(&["-target", "xtensa"])
