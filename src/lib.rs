@@ -67,7 +67,7 @@ impl Default for wifi_init_config_t {
 impl Default for wifi_init_config_t {
   fn default() -> Self {
     Self {
-      event_handler: Some(esp_event_send),
+      event_handler: Some(esp_event_send_internal),
       osi_funcs: unsafe { &mut g_wifi_osi_funcs },
       wpa_crypto_funcs: unsafe { g_wifi_default_wpa_crypto_funcs },
       static_rx_buf_num: CONFIG_ESP32_WIFI_STATIC_RX_BUFFER_NUM as _,
@@ -85,6 +85,7 @@ impl Default for wifi_init_config_t {
       wifi_task_core_id: WIFI_TASK_CORE_ID as _,
       beacon_max_len: WIFI_SOFTAP_BEACON_MAX_LEN as _,
       mgmt_sbuf_num: WIFI_MGMT_SBUF_NUM as _,
+      feature_caps: unsafe { g_wifi_feature_caps },
       magic: WIFI_INIT_CONFIG_MAGIC as _,
     }
   }
