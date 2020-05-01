@@ -1,15 +1,16 @@
 [package]
-name = "esp-idf-sys"
-version = "0.1.2"
-authors = [
-  "Alexey Arbuzov <aarbuzov@termt.com>",
-  "Markus Reiter <me@reitermark.us>",
-  "sapir <yasapir@gmail.com>",
-]
+name = "esp-idf-bindgen"
+version = "0.1.0"
+authors = ["Markus Reiter <me@reitermark.us>"]
 edition = "2018"
-description = "Bindings for esp-idf (Espressif's IoT Development Framework)"
-repository = "https://github.com/sapir/esp-idf-sys"
-license = "MIT"
+description = "Automatically generated Rust bindings for the ESP IDF (Espressif IoT Development Framework)"
+repository = "https://github.com/reitermarkus/esp-idf-bindgen"
+license = "MIT OR Apache-2.0"
+
+[features]
+default = ["defaults"]
+
+defaults = []
 
 [build-dependencies]
 bindgen = "0.53"

@@ -1,7 +1,7 @@
-# Rust bindings for esp-idf (Espressif's IoT Development Framework)
+# Rust bindings for the ESP IDF (Espressif IoT Development Framework)
 
-[![crate](http://meritbadge.herokuapp.com/esp-idf-sys)](https://crates.io/crates/esp-idf-sys)
-[![docs](https://docs.rs/esp-idf-sys/badge.svg)](https://docs.rs/esp-idf-sys/)
+[![Crates.io](https://img.shields.io/crates/v/esp-idf-bindgen.svg)](https://crates.io/crates/esp-idf-bindgen)
+[![Documentation](https://docs.rs/esp-idf-bindgen/badge.svg)](https://docs.rs/esp-idf-bindgen/)
 
 ## Building
 

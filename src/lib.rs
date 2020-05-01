@@ -38,7 +38,7 @@ mod esp8266 {
 #[cfg(target_device = "esp8266")]
 pub use esp8266::*;
 
-#[cfg(target_device = "esp8266")]
+#[cfg(all(feature = "defaults", target_device = "esp8266"))]
 impl Default for wifi_init_config_t {
   fn default() -> Self {
     Self {
@@ -63,7 +63,7 @@ impl Default for wifi_init_config_t {
   }
 }
 
-#[cfg(target_device = "esp32")]
+#[cfg(all(feature = "defaults", target_device = "esp32"))]
 impl Default for wifi_init_config_t {
   fn default() -> Self {
     Self {
