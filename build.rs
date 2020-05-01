@@ -114,7 +114,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     .layout_tests(false)
     .ctypes_prefix("libc")
     .default_enum_style(EnumVariation::Rust { non_exhaustive: false } )
-    .rustified_enum("wifi_mode_t")
     .header("src/bindings.h")
     .clang_arg(format!("--sysroot={}", sysroot.display()))
     .clang_arg(format!("-I{}/include", sysroot.display()))
