@@ -35,7 +35,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     .map(|mut output| {
       // Remove newline from end.
       output.stdout.pop();
-      PathBuf::from(OsStr::from_bytes(&output.stdout).to_os_string())
+      PathBuf::from(OsStr::from_bytes(&output.stdout))
         .canonicalize().expect("failed to canonicalize sysroot")
     })
     .expect("failed getting sysroot");
@@ -46,7 +46,6 @@ fn main() -> Result<(), Box<dyn Error>> {
       &["components/*/include"],
     )
     .build()?
-    .into_iter()
     .filter_map(Result::ok)
     .map(|d| d.into_path());
 
@@ -55,7 +54,6 @@ fn main() -> Result<(), Box<dyn Error>> {
       &["components/*/component.mk"],
     )
     .build()?
-    .into_iter()
     .filter_map(Result::ok)
     .flat_map(|makefile| {
       let path = makefile.into_path();
