@@ -1,0 +1,3 @@
+[target.xtensa-esp32-none-elf]
+image = "reitermarkus/cross:xtensa-esp32-none-elf"
+env = { volumes = ["IDF_PATH", "IDF_TOOLS_PATH"] }

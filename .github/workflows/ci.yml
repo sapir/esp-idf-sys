@@ -1,0 +1,21 @@
+on: [pull_request, push]
+
+name: CI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+      - name: Install Cross
+        run: cargo install --git https://github.com/reitermarkus/cross --branch volumes --force
+      - name: Build
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --target xtensa-esp32-none-elf
