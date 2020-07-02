@@ -11,6 +11,7 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly
+          components: rustfmt, clippy
       - name: Install Cross
         run: cargo install --git https://github.com/reitermarkus/cross --branch volumes --force
       - name: Install ESP IDF
@@ -26,4 +27,10 @@ jobs:
         with:
           use-cross: true
           command: build
+          args: --target xtensa-esp32-none-elf
+      - name: Documentation
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: doc
           args: --target xtensa-esp32-none-elf
