@@ -15,8 +15,6 @@ fn main() -> Result<(), Box<dyn Error>> {
   println!("cargo:rerun-if-changed=src/bindings.h");
   println!("cargo:rerun-if-changed=src/sdkconfig.h");
 
-  let idf_path = PathBuf::from(env::var("IDF_PATH").expect("IDF_PATH not set"));
-
   let (idf_target, linker) = match env::var("TARGET")?.as_ref() {
     "xtensa-esp32-none-elf" => {
       println!(r#"cargo:rustc-cfg=target_device="esp32""#);
@@ -26,8 +24,13 @@ fn main() -> Result<(), Box<dyn Error>> {
       println!(r#"cargo:rustc-cfg=target_device="esp8266""#);
       ("esp8266".to_string(), env::var("RUSTC_LINKER").unwrap_or("xtensa-lx106-elf-ld".to_string()))
     },
-    _ => (env::var("IDF_TARGET").expect("IDF_TARGET not set").to_string(), env::var("RUSTC_LINKER").expect("RUSTC_LINKER not set")),
+    target => {
+      println!("cargo:warning=Generating ESP IDF bindings for target '{}' it not supported. The resulting crate will be empty.", target);
+      return Ok(())
+    },
   };
+
+  let idf_path = PathBuf::from(env::var("IDF_PATH").expect("IDF_PATH not set"));
 
   let sysroot = Command::new(linker)
     .arg("--print-sysroot")
