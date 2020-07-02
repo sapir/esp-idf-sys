@@ -5,6 +5,7 @@ authors = ["Markus Reiter <me@reitermark.us>"]
 edition = "2018"
 description = "Automatically generated Rust bindings for the ESP IDF (Espressif IoT Development Framework)"
 repository = "https://github.com/reitermarkus/esp-idf-bindgen"
+documentation = "https://reitermarkus.github.io/esp-idf-bindgen/esp_idf_bindgen/index.html"
 license = "MIT OR Apache-2.0"
 exclude = ["/.github/*"]
 
