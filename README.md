@@ -1,7 +1,8 @@
 # Rust bindings for the ESP IDF (Espressif IoT Development Framework)
 
 [![Crates.io](https://img.shields.io/crates/v/esp-idf-bindgen.svg)](https://crates.io/crates/esp-idf-bindgen)
-[![Documentation](https://docs.rs/esp-idf-bindgen/badge.svg)](https://docs.rs/esp-idf-bindgen/)
+[![Documentation](https://img.shields.io/badge/docs-master-4d76ae)](https://reitermarkus.github.io/esp-idf-bindgen/esp_idf_bindgen/index.html)
+
 
 ## Building
 
