@@ -13,6 +13,14 @@ jobs:
           toolchain: nightly
       - name: Install Cross
         run: cargo install --git https://github.com/reitermarkus/cross --branch volumes --force
+      - name: Install ESP IDF
+        run: |
+          IDF_PATH="$(mktemp -d)"
+          git clone --recursive --branch release/v4.2 https://github.com/espressif/esp-idf "${IDF_PATH}"
+          echo "::set-env name=IDF_PATH::${IDF_PATH}"
+
+          IDF_TOOLS_PATH="$(mktemp -d)"
+          echo "::set-env name=IDF_TOOLS_PATH::${IDF_TOOLS_PATH}"
       - name: Build
         uses: actions-rs/cargo@v1
         with:
