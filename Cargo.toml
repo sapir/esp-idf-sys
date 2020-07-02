@@ -12,6 +12,9 @@ default = ["defaults"]
 
 defaults = []
 
+[dependencies]
+libc = "*"
+
 [build-dependencies]
 bindgen = "0.53"
 globwalk = "0.8"
