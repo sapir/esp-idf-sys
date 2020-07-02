@@ -7,11 +7,6 @@ description = "Automatically generated Rust bindings for the ESP IDF (Espressif 
 repository = "https://github.com/reitermarkus/esp-idf-bindgen"
 license = "MIT OR Apache-2.0"
 
-[features]
-default = ["defaults"]
-
-defaults = []
-
 [dependencies]
 libc = "*"
 
