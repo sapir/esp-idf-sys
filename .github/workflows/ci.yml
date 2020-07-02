@@ -14,6 +14,7 @@ jobs:
         with:
           toolchain: nightly
           components: rustfmt, clippy
+          default: true
       - name: Install Cross
         run: cargo install --git https://github.com/reitermarkus/cross --branch volumes --force
       - name: Install ESP IDF
