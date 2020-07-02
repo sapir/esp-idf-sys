@@ -13,5 +13,5 @@ exclude = ["/.github/*"]
 libc = { version = "0.2", default-features = false }
 
 [build-dependencies]
-bindgen = "0.53"
+bindgen = "0.54"
 globwalk = "0.8"
