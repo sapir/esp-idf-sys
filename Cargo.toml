@@ -6,6 +6,7 @@ edition = "2018"
 description = "Automatically generated Rust bindings for the ESP IDF (Espressif IoT Development Framework)"
 repository = "https://github.com/reitermarkus/esp-idf-bindgen"
 license = "MIT OR Apache-2.0"
+exclude = ["/.github/*"]
 
 [dependencies]
 libc = { version = "0.2", default-features = false }
