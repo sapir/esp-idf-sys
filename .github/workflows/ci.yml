@@ -1,0 +1,47 @@
+on: [pull_request, push]
+
+name: CI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Set up Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          components: rustfmt, clippy
+          default: true
+      - name: Install Cross
+        run: cargo install --git https://github.com/rust-embedded/cross --force
+      - name: Install ESP IDF
+        run: |
+          IDF_PATH="$(mktemp -d)"
+          git clone --recursive --branch release/v4.3 https://github.com/espressif/esp-idf "${IDF_PATH}"
+          echo "IDF_PATH=${IDF_PATH}" >> "${GITHUB_ENV}"
+
+          IDF_TOOLS_PATH="$(mktemp -d)"
+          echo "IDF_TOOLS_PATH=${IDF_TOOLS_PATH}" >> "${GITHUB_ENV}"
+      - name: Build
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: build
+          args: --target xtensa-esp32-none-elf
+      - name: Documentation
+        uses: actions-rs/cargo@v1
+        with:
+          use-cross: true
+          command: doc
+          args: --target xtensa-esp32-none-elf --no-deps
+      - name: Upload Documentation
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: target/xtensa-esp32-none-elf/doc
+          CLEAN: true
+        if: ${{ github.ref == 'refs/heads/master' }}
